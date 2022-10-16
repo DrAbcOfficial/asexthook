@@ -255,19 +255,30 @@ enginefuncs_t meta_engfuncs =
 	NULL,						// pfnEngCheckParm()
 };
 
+/// <summary>
+/// Monster Take Damage
+/// </summary>
 hook_t* g_phook_BaseMonsterTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTakeDamage);
-
-HMODULE g_dwServerBase;
-HMODULE g_dwEngineBase;
-
 int _fastcall NewBaseMonsterTakeDamage(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	int r = g_call_original_BaseMonsterTakeDamage(pThis, dummy, pevInflictor, pevAttacker, flDamage, bitsDamageType);
-	if (ASEXT_CallHook){
+	if (ASEXT_CallHook) {
 		//CBaseMonster@ pMonster, entvars_t@ pAttacker, entvars_t@ pInflictor, float flDamage, int bitDamageType
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
 	}
 	return r;
+}
+/// <summary>
+/// Monster Killed
+/// </summary>
+hook_t* g_phook_BaseMonsterKilled = nullptr;
+PRIVATE_FUNCTION_DEFINE(BaseMonsterKilled);
+void _fastcall NewBaseMonsterKilled(void* pThis, int dummy, entvars_t* pevAttacker, int iGib) {
+	g_call_original_BaseMonsterKilled(pThis, dummy, pevAttacker, iGib);
+	if (ASEXT_CallHook) {
+		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
+	}
 }
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
@@ -285,12 +296,15 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	}
 	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
 #ifdef WIN32
-	g_dwServerBase = GetModuleHandleA("server.dll");
-	g_dwEngineBase = GetModuleHandleA("hw.dll");
+	HMODULE g_dwServerBase = GetModuleHandleA("server.dll");
+	HMODULE g_dwEngineBase = GetModuleHandleA("hw.dll");
 
 #define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTakeDamage);
 	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
+#define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
+	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterKilled);
+	INSTALL_INLINEHOOK(BaseMonsterKilled);
 #else
 	UTIL_LogPrintf("Fuck! not support Linux yet!");
 #endif

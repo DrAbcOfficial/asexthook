@@ -4,5 +4,6 @@ void RegisterAngelScriptHooks();
 
 typedef struct angelhook_s {
 	void* pMonsterTakeDamage = nullptr;
+	void* pMonsterKilled = nullptr;
 }angelhook_t;
 extern angelhook_t g_AngelHook;
