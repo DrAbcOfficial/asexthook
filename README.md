@@ -20,3 +20,19 @@ StopMode: CALL_ALL
 MapScript | Plugin
 
 ---
+
+### MonsterKilled
+
+```
+Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)
+```
+
+Call after origin CBaseMonster::Killed called.
+
+Notice that player died will call this hook, because player is monster too.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
