@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\CDetour\asm\asm.c">
+      <Filter>detour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CDetour\libudis86\decode.c">
+      <Filter>detour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CDetour\detours.cpp">
+      <Filter>detour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CDetour\libudis86\itab.c">
+      <Filter>detour</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CDetour\libudis86\udis86.c">
+      <Filter>detour</Filter>
+    </ClCompile>
+    <ClCompile Include="meta_api.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dllapi.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="engine_api.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="h_export.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="angelscript.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk_util.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="header">
+      <UniqueIdentifier>{0ad5ce2c-b288-4136-b836-b05aa30e54c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="detour">
+      <UniqueIdentifier>{c3f589da-4c56-47a2-8c34-9d7d23c14d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{f47401e1-9492-4ea2-9248-3653ba782be5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="info_name.h">
+      <Filter>detour</Filter>
+    </ClInclude>
+    <ClInclude Include="angelscript.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="asext_api.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="signatures.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="enginedef.h">
+      <Filter>header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
