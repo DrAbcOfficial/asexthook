@@ -10,7 +10,7 @@
 ### MonsterTakeDamage
 
 ```
-Hooks::Entity const uint32 MonsterTakedamage (CBaseMonster@ pMonster, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
+Hooks::Monster const uint32 MonsterTakedamage (CBaseMonster@ pMonster, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
 ```
 
 Call after origin CBaseMonster::TakeDamage called.

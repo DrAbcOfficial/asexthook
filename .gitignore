@@ -36,3 +36,4 @@ Realse
 *.exe
 *.out
 *.app
+/Release
