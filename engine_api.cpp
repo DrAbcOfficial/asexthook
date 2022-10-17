@@ -285,11 +285,11 @@ void SC_SERVER_DECL NewBaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars
 /// </summary>
 hook_t* g_phook_BaseMonsterTraceAttack = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTraceAttack);
-void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecHitpos, TraceResult tr, int bitDamage) {
-	g_call_original_BaseMonsterTraceAttack(pThis, dummy, pevAttacker, flDamage, vecHitpos, tr, bitDamage);
+void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+	g_call_original_BaseMonsterTraceAttack(pThis, dummy, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 	if (ASEXT_CallHook) {
 		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, vecHitpos, tr, bitDamage);
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
 	}
 }
 /// <summary>
