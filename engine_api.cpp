@@ -308,6 +308,7 @@ void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) {
 /// Breakable TakeDamage
 /// </summary>
 hook_t* g_phook_BreakableTakeDamage = nullptr;
+PRIVATE_FUNCTION_DEFINE(BreakableTakeDamage);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	int r = g_call_original_BreakableTakeDamage(pThis, dummy, pevInflictor, pevAttacker, flDamage, bitsDamageType);
 	if (ASEXT_CallHook) {
