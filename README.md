@@ -42,7 +42,7 @@ MapScript | Plugin
 ### MonsterTraceAttack
 
 ```
-Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType)
+Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType)
 ```
 
 Call after origin CBaseMonster::TraceAttack called.
@@ -59,10 +59,12 @@ MapScript | Plugin
 ### BreakableDie
 
 ```
-Hooks::Entity const uint32 BreakableDie (CBaseEntiry@ pBreakable)
+Hooks::Entity const uint32 BreakableDie (CBaseEntity@ pBreakable)
 ```
 
 Call after origin CBreakable::Die called.
+
+NOT IMPLEMENT YET
 
 StopMode: CALL_ALL
 
@@ -73,10 +75,12 @@ MapScript | Plugin
 ### BreakableTakeDamage
 
 ```
-Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntiry@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
+Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntity@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
 ```
 
 Call after origin CBreakable::TakeDamage called.
+
+NOT IMPLEMENT YET
 
 StopMode: CALL_ALL
 
