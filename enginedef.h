@@ -1,22 +1,23 @@
 #pragma once
 #include "progdefs.h"
+
 // BaseMonsterTakeDamage
-typedef int (_fastcall *fnBaseMonsterTakeDamage)(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
-int _fastcall NewBaseMonsterTakeDamage(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+typedef int (SC_SERVER_DECL *fnBaseMonsterTakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
 PRIVATE_FUNCTION_EXTERN(BaseMonsterTakeDamage);  
 // BaseMonsterKilled
-typedef void(_fastcall* fnBaseMonsterKilled)(void* pThis, int dummy, entvars_t* pevAttacker, int iGib);
-void _fastcall NewBaseMonsterKilled(void* pThis, int dummy, entvars_t* pevAttacker, int iGib);
+typedef void(SC_SERVER_DECL *fnBaseMonsterKilled)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
+void SC_SERVER_DECL NewBaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
 PRIVATE_FUNCTION_EXTERN(BaseMonsterKilled);
 // BaseMonsterTraceAttack
-typedef void(_fastcall* fnBaseMonsterTraceAttack)(void* pThis, int dummy, entvars_t* pevAttacker, float flDamage, vec3_t vecHitpos, TraceResult tr, int bitDamage);
-void _fastcall NewBaseMonsterTraceAttack(void* pThis, int dummy, entvars_t* pevAttacker, float flDamage, vec3_t vecHitpos, TraceResult tr, int bitDamage);
+typedef void(SC_SERVER_DECL *fnBaseMonsterTraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecHitpos, TraceResult tr, int bitDamage);
+void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecHitpos, TraceResult tr, int bitDamage);
 PRIVATE_FUNCTION_EXTERN(BaseMonsterTraceAttack);
 // BreakableDie
-typedef void(_fastcall* fnBreakableDie)(void* pThis, int dummy);
-void _fastcall NewBreakableDie(void* pThis, int dummy);
+typedef void(SC_SERVER_DECL *fnBreakableDie)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA);
+void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA);
 PRIVATE_FUNCTION_EXTERN(BreakableDie);
 // BreakableTakeDamage
-typedef int(_fastcall* fnBreakableTakeDamage)(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
-int _fastcall NewBreakableTakeDamage(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+typedef int(SC_SERVER_DECL *fnBreakableTakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
 PRIVATE_FUNCTION_EXTERN(BreakableTakeDamage);
