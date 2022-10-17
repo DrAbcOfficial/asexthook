@@ -292,6 +292,15 @@ void _fastcall NewBaseMonsterTraceAttack(void* pThis, int dummy, entvars_t* pevA
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, vecHitpos, tr, bitDamage);
 	}
 }
+hook_t* g_phook_BreakableDie = nullptr;
+PRIVATE_FUNCTION_DEFINE(BreakableDie);
+void _fastcall NewBreakableDie(void* pThis, int dummy) {
+	g_call_original_BreakableDie(pThis, dummy);
+	if (ASEXT_CallHook) {
+		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType
+		(*ASEXT_CallHook)(g_AngelHook.pBreakableDie, 0, pThis);
+	}
+}
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	int* interfaceVersion)
@@ -314,12 +323,23 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 #define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTakeDamage);
 	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
+#undef BaseMonsterTakeDamage_Signature
+
 #define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterKilled);
 	INSTALL_INLINEHOOK(BaseMonsterKilled);
+#undef BaseMonsterKilled_Signature
+
 #define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTraceAttack);
 	INSTALL_INLINEHOOK(BaseMonsterTraceAttack);
+#undef BaseMonsterTraceAttack_Signature
+
+#define BreakableDie_Signature "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF8\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x6A\xFF\x68\xB7\x71\x38\x10"
+	FILL_FROM_SIGNATURE(g_dwServer, BreakableDie);
+	INSTALL_INLINEHOOK(BreakableDie);
+#undef BreableDie_Signature
+
 #else
 	UTIL_LogPrintf("Fuck! not support Linux yet!");
 #endif
