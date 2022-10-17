@@ -292,14 +292,29 @@ void _fastcall NewBaseMonsterTraceAttack(void* pThis, int dummy, entvars_t* pevA
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, vecHitpos, tr, bitDamage);
 	}
 }
+/// <summary>
+/// Breakable Die
+/// </summary>
 hook_t* g_phook_BreakableDie = nullptr;
 PRIVATE_FUNCTION_DEFINE(BreakableDie);
-void _fastcall NewBreakableDie(void* pThis, int dummy) {
+void __fastcall NewBreakableDie(void* pThis, int dummy) {
 	g_call_original_BreakableDie(pThis, dummy);
 	if (ASEXT_CallHook) {
-		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType
+		//CBaseEntiry@ pThis
 		(*ASEXT_CallHook)(g_AngelHook.pBreakableDie, 0, pThis);
 	}
+}
+/// <summary>
+/// Breakable TakeDamage
+/// </summary>
+hook_t* g_phook_BreakableTakeDamage = nullptr;
+int _fastcall NewBreakableTakeDamage(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	int r = g_call_original_BreakableTakeDamage(pThis, dummy, pevInflictor, pevAttacker, flDamage, bitsDamageType);
+	if (ASEXT_CallHook) {
+		//CBaseMonster@ pMonster, entvars_t@ pAttacker, entvars_t@ pInflictor, float flDamage, int bitDamageType
+		(*ASEXT_CallHook)(g_AngelHook.pBreakableTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
+	}
+	return r;
 }
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
@@ -340,6 +355,10 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	INSTALL_INLINEHOOK(BreakableDie);
 #undef BreableDie_Signature
 
+#define BreakableTakeDamage_Signature "\x83\xEC\x5C\x53\x55\x56\x8B\xF1\x57\x80\xBE\x65\x01\x00\x00\x00\x0F\x85\xF6\x04\x00\x00"
+	FILL_FROM_SIGNATURE(g_dwServer, BreakableTakeDamage);
+	INSTALL_INLINEHOOK(BreakableTakeDamage);
+#undef BreakableTakeDamage_Signature
 #else
 	UTIL_LogPrintf("Fuck! not support Linux yet!");
 #endif

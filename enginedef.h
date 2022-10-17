@@ -16,3 +16,7 @@ PRIVATE_FUNCTION_EXTERN(BaseMonsterTraceAttack);
 typedef void(_fastcall* fnBreakableDie)(void* pThis, int dummy);
 void _fastcall NewBreakableDie(void* pThis, int dummy);
 PRIVATE_FUNCTION_EXTERN(BreakableDie);
+// BreakableTakeDamage
+typedef int(_fastcall* fnBreakableTakeDamage)(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+int _fastcall NewBreakableTakeDamage(void* pThis, int dummy, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+PRIVATE_FUNCTION_EXTERN(BreakableTakeDamage);
