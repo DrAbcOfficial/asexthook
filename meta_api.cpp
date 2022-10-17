@@ -69,7 +69,7 @@ static META_FUNCTIONS gMetaFunctionTable = {
 plugin_info_t Plugin_info = {
 	META_INTERFACE_VERSION,	// ifvers
 	"AngelScriptHookExt",	// name
-	"1.3",	// version
+	"Alpha",	// version
 	"2022",	// date
 	"Dr.Abc",	// author
 	"https://github.com/DrAbcOfficial/asexthook",	// url

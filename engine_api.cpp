@@ -312,7 +312,7 @@ PRIVATE_FUNCTION_DEFINE(BreakableTakeDamage);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	int r = g_call_original_BreakableTakeDamage(pThis, dummy, pevInflictor, pevAttacker, flDamage, bitsDamageType);
 	if (ASEXT_CallHook) {
-		//CBaseMonster@ pMonster, entvars_t@ pAttacker, entvars_t@ pInflictor, float flDamage, int bitDamageType
+		//CBaseEntiry@ pBreakable, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType
 		(*ASEXT_CallHook)(g_AngelHook.pBreakableTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
 	}
 	return r;

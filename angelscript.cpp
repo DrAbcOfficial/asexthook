@@ -14,6 +14,6 @@ void RegisterAngelScriptHooks(){
 	g_AngelHook.pMonsterKilled = ASEXT_RegisterHook("Post call after a monster died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterKilled", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib");
 	g_AngelHook.pMonsterTraceAttack = ASEXT_RegisterHook("Post call after a monster trace attack", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterTraceAttack", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType");
 
-	g_AngelHook.pBreakableDie = ASEXT_RegisterHook("Post call after a breakable died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableDie", "CBaseEntiry@ pBreakable");
-	g_AngelHook.pBreakableTakeDamage = ASEXT_RegisterHook("Post call after a breakable took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTakeDamage", "CBaseEntiry@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType");
+	g_AngelHook.pBreakableDie = ASEXT_RegisterHook("Post call after a breakable died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableDie", "CBaseEntity@ pBreakable");
+	g_AngelHook.pBreakableTakeDamage = ASEXT_RegisterHook("Post call after a breakable took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTakeDamage", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType");
 }
