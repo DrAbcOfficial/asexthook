@@ -15,6 +15,8 @@ Hooks::Monster const uint32 MonsterTakedamage (CBaseMonster@ pMonster, entvars_t
 
 Call after origin CBaseMonster::TakeDamage called.
 
+Notice that player died will call this hook, because player is monster too.
+
 StopMode: CALL_ALL
 
 MapScript | Plugin
@@ -30,6 +32,51 @@ Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pe
 Call after origin CBaseMonster::Killed called.
 
 Notice that player died will call this hook, because player is monster too.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+### MonsterTraceAttack
+
+```
+Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType)
+```
+
+Call after origin CBaseMonster::TraceAttack called.
+
+Notice that player died will call this hook, because player is monster too.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+
+### BreakableDie
+
+```
+Hooks::Entity const uint32 BreakableDie (CBaseEntiry@ pBreakable)
+```
+
+Call after origin CBreakable::Die called.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+### BreakableTakeDamage
+
+```
+Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntiry@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
+```
+
+Call after origin CBreakable::TakeDamage called.
 
 StopMode: CALL_ALL
 
