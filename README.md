@@ -3,6 +3,8 @@
 
 # A metamod Plugin to extend the Sven Co-op Hook
 
+⚠⚠⚠The Linux runtime library has only been tested in WSL (Debian 11 kernel 5.10.16.3), I am not a Linux user and cannot guarantee the availability in the real machine.⚠⚠⚠
+
 ## Current Expansion Hook
 
 ---
