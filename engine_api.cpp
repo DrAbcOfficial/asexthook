@@ -298,7 +298,7 @@ void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG en
 hook_t* g_phook_BreakableDie = nullptr;
 PRIVATE_FUNCTION_DEFINE(BreakableDie);
 void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) {
-	g_call_original_BreakableDie(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA);
+	g_call_original_BreakableDie(pThis SC_SERVER_PASS_DUMMYARG_NOCOMMA);
 	if (ASEXT_CallHook) {
 		//CBaseEntiry@ pThis
 		(*ASEXT_CallHook)(g_AngelHook.pBreakableDie, 0, pThis);
