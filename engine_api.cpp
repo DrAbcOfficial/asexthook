@@ -319,8 +319,11 @@ int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvar
 }
 
 bool SearchAndHook() {
-	auto g_dwServerBase = gpMetaUtilFuncs->pfnGetGameDllHandle();
-	auto g_dwEngineBase = gpMetaUtilFuncs->pfnGetEngineHandle();
+	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
+	auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
+
+	auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
+	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
 #ifdef WIN32
 #define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
 #define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
@@ -334,19 +337,19 @@ bool SearchAndHook() {
 #define BreakableDie_Signature "_ZN10CBreakable3DieEv"
 #define BreakableTakeDamage_Signature "_ZN10CBreakable10TakeDamageEP9entvars_sS1_fi"
 #endif
-	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTakeDamage);
+	FILL_FROM_SIGNATURE(Server, BaseMonsterTakeDamage);
 	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
 
-	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterKilled);
+	FILL_FROM_SIGNATURE(Server, BaseMonsterKilled);
 	INSTALL_INLINEHOOK(BaseMonsterKilled);
 
-	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTraceAttack);
+	FILL_FROM_SIGNATURE(Server, BaseMonsterTraceAttack);
 	INSTALL_INLINEHOOK(BaseMonsterTraceAttack);
 
-	FILL_FROM_SIGNATURE(g_dwServer, BreakableDie);
+	FILL_FROM_SIGNATURE(Server, BreakableDie);
 	INSTALL_INLINEHOOK(BreakableDie);
 
-	FILL_FROM_SIGNATURE(g_dwServer, BreakableTakeDamage);
+	FILL_FROM_SIGNATURE(Server, BreakableTakeDamage);
 	INSTALL_INLINEHOOK(BreakableTakeDamage);
 	return true;
 }
