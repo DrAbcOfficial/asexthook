@@ -44,6 +44,8 @@
 #include "angelscript.h"
 #include "asext_api.h"
 
+#include "enginedef.h"
+
 #include <meta_api.h>		// of course
 
 #include "sdk_util.h"		// UTIL_LogPrintf, etc
@@ -199,8 +201,7 @@ C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
 // now		(given) current phase, ie during map, etc
 // reason	(given) why detaching (refresh, console unload, forced unload, etc)
 C_DLLEXPORT int Meta_Detach(PLUG_LOADTIME /* now */,
-	PL_UNLOAD_REASON /* reason */)
-{
-
+	PL_UNLOAD_REASON /* reason */){
+	UninstallHook();
 	return TRUE;
 }

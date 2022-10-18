@@ -318,20 +318,7 @@ int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvar
 	return r;
 }
 
-C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
-	int* interfaceVersion)
-{
-	if (!pengfuncsFromEngine) {
-		UTIL_LogPrintf("GetEngineFunctions called with null pengfuncsFromEngine");
-		return(FALSE);
-	}
-	else if (*interfaceVersion != ENGINE_INTERFACE_VERSION) {
-		UTIL_LogPrintf("GetEngineFunctions version mismatch; requested=%d ours=%d", *interfaceVersion, ENGINE_INTERFACE_VERSION);
-		// Tell metamod what version we had, so it can figure out who is out of date.
-		*interfaceVersion = ENGINE_INTERFACE_VERSION;
-		return(FALSE);
-	}
-	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
+bool SearchAndHook() {
 	HMODULE g_dwServerBase = nullptr;
 	HMODULE g_dwEngineBase = nullptr;
 #ifdef WIN32
@@ -370,4 +357,29 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	FILL_FROM_SIGNATURE(g_dwServer, BreakableTakeDamage);
 	INSTALL_INLINEHOOK(BreakableTakeDamage);
 	return true;
+}
+void UninstallHook() {
+	UNINSTALL_HOOK(BaseMonsterTakeDamage);
+	UNINSTALL_HOOK(BaseMonsterKilled);
+	UNINSTALL_HOOK(BaseMonsterTraceAttack);
+	UNINSTALL_HOOK(BreakableDie);
+	UNINSTALL_HOOK(BreakableTakeDamage);
+}
+
+C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
+	int* interfaceVersion)
+{
+	if (!pengfuncsFromEngine) {
+		UTIL_LogPrintf("GetEngineFunctions called with null pengfuncsFromEngine");
+		return(FALSE);
+	}
+	else if (*interfaceVersion != ENGINE_INTERFACE_VERSION) {
+		UTIL_LogPrintf("GetEngineFunctions version mismatch; requested=%d ours=%d", *interfaceVersion, ENGINE_INTERFACE_VERSION);
+		// Tell metamod what version we had, so it can figure out who is out of date.
+		*interfaceVersion = ENGINE_INTERFACE_VERSION;
+		return(FALSE);
+	}
+	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
+	
+	return SearchAndHook();
 }

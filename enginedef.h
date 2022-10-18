@@ -1,6 +1,8 @@
 #pragma once
 #include "progdefs.h"
 
+void UninstallHook();
+
 // BaseMonsterTakeDamage
 typedef int (SC_SERVER_DECL *fnBaseMonsterTakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
 int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
