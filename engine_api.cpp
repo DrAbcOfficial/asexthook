@@ -332,36 +332,42 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 		return(FALSE);
 	}
 	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
+	HMODULE g_dwServerBase = nullptr;
+	HMODULE g_dwEngineBase = nullptr;
 #ifdef WIN32
-	HMODULE g_dwServerBase = GetModuleHandleA("server.dll");
-	HMODULE g_dwEngineBase = GetModuleHandleA("hw.dll");
-
+	g_dwServerBase = GetModuleHandleA("server.dll");
+	g_dwEngineBase = GetModuleHandleA("hw.dll");
 #define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
+#define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
+#define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
+#define BreakableDie_Signature "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF8\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x6A\xFF\x68\xB7\x71\x38\x10"
+#define BreakableTakeDamage_Signature "\x83\xEC\x5C\x53\x55\x56\x8B\xF1\x57\x80\xBE\x65\x01\x00\x00\x00\x0F\x85\xF6\x04\x00\x00"
+#else
+	g_dwServerBase = GetModuleHandleA("server.so");
+	g_dwEngineBase = GetModuleHandleA("hw.so");
+#define BaseMonsterTakeDamage_Signature "_ZN12CBaseMonster10TakeDamageEP9entvars_sS1_fi"
+#define BaseMonsterKilled_Signature "_ZN12CBaseMonster6KilledEP9entvars_si"
+#define BaseMonsterTraceAttack_Signature "_ZN12CBaseMonster11TraceAttackEP9entvars_sf6Ve"
+#define BreakableDie_Signature "_ZN10CBreakable3DieEv"
+#define BreakableTakeDamage_Signature "_ZN10CBreakable10TakeDamageEP9entvars_sS1_fi"
+#endif
+	if (g_dwServerBase == nullptr || g_dwEngineBase == nullptr) {
+		LOG_ERROR(PLID, "Server or Engine Hanlde not found!");
+		return false;
+	}
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTakeDamage);
 	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
-#undef BaseMonsterTakeDamage_Signature
 
-#define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterKilled);
 	INSTALL_INLINEHOOK(BaseMonsterKilled);
-#undef BaseMonsterKilled_Signature
 
-#define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
 	FILL_FROM_SIGNATURE(g_dwServer, BaseMonsterTraceAttack);
 	INSTALL_INLINEHOOK(BaseMonsterTraceAttack);
-#undef BaseMonsterTraceAttack_Signature
 
-#define BreakableDie_Signature "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF8\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x6A\xFF\x68\xB7\x71\x38\x10"
 	FILL_FROM_SIGNATURE(g_dwServer, BreakableDie);
 	INSTALL_INLINEHOOK(BreakableDie);
-#undef BreableDie_Signature
 
-#define BreakableTakeDamage_Signature "\x83\xEC\x5C\x53\x55\x56\x8B\xF1\x57\x80\xBE\x65\x01\x00\x00\x00\x0F\x85\xF6\x04\x00\x00"
 	FILL_FROM_SIGNATURE(g_dwServer, BreakableTakeDamage);
 	INSTALL_INLINEHOOK(BreakableTakeDamage);
-#undef BreakableTakeDamage_Signature
-#else
-	UTIL_LogPrintf("Fuck! not support Linux yet!");
-#endif
-	return(TRUE);
+	return true;
 }
