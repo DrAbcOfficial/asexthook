@@ -15,7 +15,7 @@
 Hooks::Monster const uint32 MonsterTakedamage (CBaseMonster@ pMonster, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
 ```
 
-Call after origin CBaseMonster::TakeDamage called.
+Call before origin CBaseMonster::TakeDamage called.
 
 Notice that player died will call this hook, because player is monster too.
 
@@ -31,7 +31,7 @@ MapScript | Plugin
 Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)
 ```
 
-Call after origin CBaseMonster::Killed called.
+Call before origin CBaseMonster::Killed called.
 
 Notice that player died will call this hook, because player is monster too.
 
@@ -47,7 +47,7 @@ MapScript | Plugin
 Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType)
 ```
 
-Call after origin CBaseMonster::TraceAttack called.
+Call before origin CBaseMonster::TraceAttack called.
 
 Notice that player died will call this hook, because player is monster too.
 
@@ -64,9 +64,7 @@ MapScript | Plugin
 Hooks::Entity const uint32 BreakableDie (CBaseEntity@ pBreakable)
 ```
 
-Call after origin CBreakable::Die called.
-
-NOT IMPLEMENT YET
+Call before origin CBreakable::Die called.
 
 StopMode: CALL_ALL
 
@@ -80,9 +78,7 @@ MapScript | Plugin
 Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntity@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
 ```
 
-Call after origin CBreakable::TakeDamage called.
-
-NOT IMPLEMENT YET
+Call before origin CBreakable::TakeDamage called.
 
 StopMode: CALL_ALL
 
