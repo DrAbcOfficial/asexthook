@@ -261,12 +261,11 @@ enginefuncs_t meta_engfuncs =
 hook_t* g_phook_BaseMonsterTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTakeDamage);
 int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
-	int r = g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 	if (ASEXT_CallHook) {
 		//CBaseMonster@ pMonster, entvars_t@ pAttacker, entvars_t@ pInflictor, float flDamage, int bitDamageType
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
 	}
-	return r;
+	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
 /// <summary>
 /// Monster Killed
@@ -274,11 +273,11 @@ int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entv
 hook_t* g_phook_BaseMonsterKilled = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterKilled);
 void SC_SERVER_DECL NewBaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	g_call_original_BaseMonsterKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
 	if (ASEXT_CallHook) {
 		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
 	}
+	g_call_original_BaseMonsterKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
 }
 /// <summary>
 /// Monster Trace Attack
@@ -286,11 +285,11 @@ void SC_SERVER_DECL NewBaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars
 hook_t* g_phook_BaseMonsterTraceAttack = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTraceAttack);
 void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 	if (ASEXT_CallHook) {
 		//CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecHitpos, TraceResult tr, int bitDamageType
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
 	}
+	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 /// <summary>
 /// Breakable Die
@@ -298,11 +297,11 @@ void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG en
 hook_t* g_phook_BreakableDie = nullptr;
 PRIVATE_FUNCTION_DEFINE(BreakableDie);
 void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) {
-	g_call_original_BreakableDie(pThis SC_SERVER_PASS_DUMMYARG_NOCOMMA);
 	if (ASEXT_CallHook) {
 		//CBaseEntiry@ pThis
 		(*ASEXT_CallHook)(g_AngelHook.pBreakableDie, 0, pThis);
 	}
+	g_call_original_BreakableDie(pThis SC_SERVER_PASS_DUMMYARG_NOCOMMA);
 }
 /// <summary>
 /// Breakable TakeDamage
@@ -310,12 +309,11 @@ void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) {
 hook_t* g_phook_BreakableTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(BreakableTakeDamage);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
-	int r = g_call_original_BreakableTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 	if (ASEXT_CallHook) {
 		//CBaseEntiry@ pBreakable, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType
 		(*ASEXT_CallHook)(g_AngelHook.pBreakableTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
 	}
-	return r;
+	return g_call_original_BreakableTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
 
 bool SearchAndHook() {
