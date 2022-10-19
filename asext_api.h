@@ -151,7 +151,7 @@ extern fnASEXT_CASRefCountedBaseClass_InternalRelease ASEXT_CASRefCountedBaseCla
 #define SC_SERVER_DUMMYARG_NOCOMMA , int dummy
 #define SC_SERVER_DUMMYARG int dummy, 
 #define SC_SERVER_PASS_DUMMYARG dummy, 
-#define SC_SERVER_PASS_DUMMYARG_NOCOMMA , dummy
+#define SC_SERVER_PASS_DUMMYARG_NOCOMMA ,dummy
 
 #else
 
