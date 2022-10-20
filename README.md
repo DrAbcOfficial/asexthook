@@ -105,6 +105,13 @@ Pre call before Weapon Grapple checking monster type
 
 No more hardcoded grapple, yay!
 
+out return value:
+|value|result|
+|---|---|
+|1|pull monster to player|
+|2|pull player to monster|
+|other|use default|
+
 StopMode: CALL_ALL
 
 MapScript | Plugin
