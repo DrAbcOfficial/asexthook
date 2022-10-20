@@ -12,6 +12,8 @@
 |Debian 11(WSL)|√|
 |Fedora Workstation 37(Hyper-V)|√|
 
+You can grab the latest build in github action, notice that linux version was built in ubuntu.
+
 ## Current Expansion Hook
 
 ---
