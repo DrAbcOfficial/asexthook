@@ -316,6 +316,28 @@ int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvar
 	return g_call_original_BreakableTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
 
+/// <summary>
+/// Grapple GetMonsterType
+/// </summary>
+hook_t* g_phook_GrappleGetMonsterType = nullptr;
+PRIVATE_FUNCTION_DEFINE(GrappleGetMonsterType);
+GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DUMMYARG void* pEntity) {
+	int uiFlag = 0;
+	if (ASEXT_CallHook) {
+		//CBaseEntiry@ pBreakable, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType
+		(*ASEXT_CallHook)(g_AngelHook.pGrappleCheckMonsterType, 0, pThis, pEntity, &uiFlag);
+	}
+	if (uiFlag != 0 && uiFlag <= 2 && uiFlag >= 1)
+		return (GRAPPLE_RESULT)uiFlag;
+	return g_call_original_GrappleGetMonsterType(pThis, SC_SERVER_PASS_DUMMYARG pEntity);
+}
+
+
+/// <summary>
+/// Fiil
+/// </summary>
+//PRIVATE_FUNCTION_DEFINE(LookupSoundIndex);
+
 bool SearchAndHook() {
 	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
 	auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
@@ -328,13 +350,18 @@ bool SearchAndHook() {
 #define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
 #define BreakableDie_Signature "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF8\x83\xC4\x04\x55\x8B\x6B\x04\x89\x2A\x2A\x2A\x2A\xEC\x6A\xFF\x68\xB7\x71"
 #define BreakableTakeDamage_Signature "\x83\xEC\x5C\x53\x55\x56\x8B\xF1\x57\x80\x2A\x2A\x2A\x2A\x00\x00\x0F\x85\xF6\x04\x00\x00\x8B\x7C"
+#define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #else
 #define BaseMonsterTakeDamage_Signature "_ZN12CBaseMonster10TakeDamageEP9entvars_sS1_fi"
 #define BaseMonsterKilled_Signature "_ZN12CBaseMonster6KilledEP9entvars_si"
 #define BaseMonsterTraceAttack_Signature "_ZN12CBaseMonster11TraceAttackEP9entvars_sf6Ve"
 #define BreakableDie_Signature "_ZN10CBreakable3DieEv"
 #define BreakableTakeDamage_Signature "_ZN10CBreakable10TakeDamageEP9entvars_sS1_fi"
+#define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #endif
+	//Fill
+	
+	// Fill and Hook
 	FILL_FROM_SIGNATURE(Server, BaseMonsterTakeDamage);
 	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
 
@@ -349,6 +376,10 @@ bool SearchAndHook() {
 
 	FILL_FROM_SIGNATURE(Server, BreakableTakeDamage);
 	INSTALL_INLINEHOOK(BreakableTakeDamage);
+
+	FILL_FROM_SIGNATURE(Server, GrappleGetMonsterType);
+	INSTALL_INLINEHOOK(GrappleGetMonsterType);
+	auto x = g_pfn_GrappleGetMonsterType;
 	return true;
 }
 void UninstallHook() {

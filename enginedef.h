@@ -23,3 +23,15 @@ PRIVATE_FUNCTION_EXTERN(BreakableDie);
 typedef int(SC_SERVER_DECL *fnBreakableTakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
 PRIVATE_FUNCTION_EXTERN(BreakableTakeDamage);
+// GrappleGetMonsterType
+enum GRAPPLE_RESULT{
+	PULL_COME = 1,
+	PULL_TO = 2
+};
+typedef GRAPPLE_RESULT(SC_SERVER_DECL* fnGrappleGetMonsterType)(void* pThis, SC_SERVER_DUMMYARG void* pEntity);
+GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DUMMYARG void* pEntity);
+PRIVATE_FUNCTION_EXTERN(GrappleGetMonsterType);
+// LookupSoundIndex
+//typedef int(SC_SERVER_DECL* fnLookupSoundIndex)(void* pThis, SC_SERVER_DUMMYARG char* szSample);
+//PRIVATE_FUNCTION_EXTERN(LookupSoundIndex);
+
