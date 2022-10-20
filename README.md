@@ -4,6 +4,8 @@
 # A metamod Plugin to extend the Sven Co-op Hook
 
 ### Tested plantform
+
+|Plantform|Result|
 |---|---|
 |Windows 11|√|
 |Windows Server 2019|√|
@@ -84,6 +86,22 @@ Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntity@ pBreakable, entvars
 ```
 
 Call before origin CBreakable::TakeDamage called.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+### GrappleGetMonsterType
+
+```
+Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out)
+```
+
+Pre call before Weapon Grapple checking monster type
+
+No more hardcoded grapple, yay!
 
 StopMode: CALL_ALL
 
