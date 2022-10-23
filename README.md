@@ -117,3 +117,19 @@ StopMode: CALL_ALL
 MapScript | Plugin
 
 ---
+
+### SendScoreInfo
+
+```
+Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out)
+```
+
+Pre call before sending hud info to edict
+
+will block original call if out value not 0.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
