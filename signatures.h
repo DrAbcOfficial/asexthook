@@ -89,3 +89,6 @@ name = *(decltype(name) *)(name##_Temp + (sizeof(name##_Signature) - 1) + offset
 
 #define INSTALL_INLINEHOOK(name) g_phook_##name = gpMetaUtilFuncs->pfnInlineHook((void*)g_pfn_##name, (void*)New##name, (void**)&g_call_original_##name, true)
 #define UNINSTALL_HOOK(name) if(g_phook_##name) {gpMetaUtilFuncs->pfnUnHook(g_phook_##name); g_phook_##name = NULL;}
+
+#define CHECK_SIG_NULL(name) if(!g_pfn_##name){ LOG_ERROR(PLID, "Pattern " #name " was null!"); }
+#define FILL_AND_HOOK(dll, name) FILL_FROM_SIGNATURE(dll, name);INSTALL_INLINEHOOK(name);CHECK_SIG_NULL(name)

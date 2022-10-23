@@ -375,26 +375,13 @@ bool SearchAndHook() {
 	//Fill
 	
 	// Fill and Hook
-	FILL_FROM_SIGNATURE(Server, BaseMonsterTakeDamage);
-	INSTALL_INLINEHOOK(BaseMonsterTakeDamage);
-
-	FILL_FROM_SIGNATURE(Server, BaseMonsterKilled);
-	INSTALL_INLINEHOOK(BaseMonsterKilled);
-
-	FILL_FROM_SIGNATURE(Server, BaseMonsterTraceAttack);
-	INSTALL_INLINEHOOK(BaseMonsterTraceAttack);
-
-	FILL_FROM_SIGNATURE(Server, BreakableDie);
-	INSTALL_INLINEHOOK(BreakableDie);
-
-	FILL_FROM_SIGNATURE(Server, BreakableTakeDamage);
-	INSTALL_INLINEHOOK(BreakableTakeDamage);
-
-	FILL_FROM_SIGNATURE(Server, GrappleGetMonsterType);
-	INSTALL_INLINEHOOK(GrappleGetMonsterType);
-	
-	FILL_FROM_SIGNATURE(Server, SendScoreInfo);
-	INSTALL_INLINEHOOK(SendScoreInfo);
+	FILL_AND_HOOK(Server, BaseMonsterTakeDamage);
+	FILL_AND_HOOK(Server, BaseMonsterKilled);
+	FILL_AND_HOOK(Server, BaseMonsterTraceAttack);
+	FILL_AND_HOOK(Server, BreakableDie);
+	FILL_AND_HOOK(Server, BreakableTakeDamage);
+	FILL_AND_HOOK(Server, GrappleGetMonsterType);
+	FILL_AND_HOOK(Server, SendScoreInfo);
 	return true;
 }
 void UninstallHook() {
@@ -410,13 +397,13 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 {
 	if (!pengfuncsFromEngine) {
 		UTIL_LogPrintf("GetEngineFunctions called with null pengfuncsFromEngine");
-		return(FALSE);
+		return false;
 	}
 	else if (*interfaceVersion != ENGINE_INTERFACE_VERSION) {
 		UTIL_LogPrintf("GetEngineFunctions version mismatch; requested=%d ours=%d", *interfaceVersion, ENGINE_INTERFACE_VERSION);
 		// Tell metamod what version we had, so it can figure out who is out of date.
 		*interfaceVersion = ENGINE_INTERFACE_VERSION;
-		return(FALSE);
+		return false;
 	}
 	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
 	
