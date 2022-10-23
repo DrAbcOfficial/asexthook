@@ -11,5 +11,7 @@ typedef struct angelhook_s {
 	void* pBreakableTakeDamage = nullptr;
 
 	void* pGrappleCheckMonsterType = nullptr;
+
+	void* pSendScoreInfo = nullptr;
 }angelhook_t;
 extern angelhook_t g_AngelHook;

@@ -31,6 +31,10 @@ enum GRAPPLE_RESULT{
 typedef GRAPPLE_RESULT(SC_SERVER_DECL* fnGrappleGetMonsterType)(void* pThis, SC_SERVER_DUMMYARG void* pEntity);
 GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DUMMYARG void* pEntity);
 PRIVATE_FUNCTION_EXTERN(GrappleGetMonsterType);
+// SendScoreInfo
+typedef void(SC_SERVER_DECL *fnSendScoreInfo)(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName);
+void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName);
+PRIVATE_FUNCTION_EXTERN(SendScoreInfo);
 // LookupSoundIndex
 //typedef int(SC_SERVER_DECL* fnLookupSoundIndex)(void* pThis, SC_SERVER_DUMMYARG char* szSample);
 //PRIVATE_FUNCTION_EXTERN(LookupSoundIndex);
