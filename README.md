@@ -14,6 +14,24 @@
 
 You can grab the latest build in github action, notice that linux version was built in ubuntu.
 
+### Install
+
+1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases/tag/s2v1)
+
+2. Install them.
+3. Grab asexthook.dll/asexthook.so, put them into `svencoop/addons/metamod/dlls`
+4. edit `svencoop/addons/metamod/plugins.ini`
+5. add 
+
+``` ini
+
+win32 addons/metamod/dlls/asexthook.dll
+linux addons/metamod/dlls/asexthook.so
+
+```
+
+6. enjoy your new hook :3
+
 ## Current Expansion Hook
 
 ---
