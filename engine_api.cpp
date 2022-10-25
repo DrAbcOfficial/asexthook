@@ -442,10 +442,18 @@ bool SearchAndHook() {
 }
 void UninstallHook() {
 	UNINSTALL_HOOK(BaseMonsterTakeDamage);
+	UNINSTALL_HOOK(ApacheTakeDamage);
+	UNINSTALL_HOOK(ApacheKilled);
+	UNINSTALL_HOOK(ApacheTraceAttack);
+	UNINSTALL_HOOK(OspreyKilled);
+	UNINSTALL_HOOK(OspreyTraceAttack);
+
 	UNINSTALL_HOOK(BaseMonsterKilled);
 	UNINSTALL_HOOK(BaseMonsterTraceAttack);
 	UNINSTALL_HOOK(BreakableDie);
 	UNINSTALL_HOOK(BreakableTakeDamage);
+	UNINSTALL_HOOK(GrappleGetMonsterType);
+	UNINSTALL_HOOK(SendScoreInfo);
 }
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
