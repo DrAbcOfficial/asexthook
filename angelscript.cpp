@@ -27,4 +27,5 @@ void RegisterAngelScriptHooks(){
 	g_AngelHook.pBreakableTakeDamage = ASEXT_RegisterHook("Pre call before a breakable took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTakeDamage", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType");
 
 	g_AngelHook.pGrappleCheckMonsterType = ASEXT_RegisterHook("Pre call before Weapon Grapple checking monster type", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Weapon", "GrappleGetMonsterType", "CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out");
+	g_AngelHook.pSendScoreInfo = ASEXT_RegisterHook("Pre call before sending hud info to edict", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Player", "SendScoreInfo", "CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out");
 }
