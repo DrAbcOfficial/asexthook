@@ -267,6 +267,17 @@ int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entv
 	}
 	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
+// Apache
+hook_t* g_phook_ApacheTakeDamage = nullptr;
+PRIVATE_FUNCTION_DEFINE(ApacheTakeDamage);
+int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	if (ASEXT_CallHook) {
+		//CBaseMonster@ pMonster, entvars_t@ pAttacker, entvars_t@ pInflictor, float flDamage, int bitDamageType
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
+	}
+	return g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
+}
+
 /// <summary>
 /// Monster Killed
 /// </summary>
@@ -357,14 +368,25 @@ bool SearchAndHook() {
 	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
 #ifdef WIN32
 #define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
+//Apache
+#define ApacheTakeDamage_Signature "\x83\xEC\x0C\x53\x8B\x5C\x24\x20\x55\x56\x8B\xF1\x57\xF7\xC3\x00\x00\x00\x08\x0F\x84\x90\x00\x00\x00"
+#define ApacheKilled_Signature "\x83\xEC\x18\x56\x8B\xF1\x8B\x46\x04\x8B\x80\x98\x01\x00\x00\x85\xC0\x75\x0E\x50"
+#define ApacheTraceAttack_Signature "\x8B\x54\x24\x18\x57\x8B\xF9\x8B\x42\x34\x83\xF8\x06\x75\x0A"
+
 #define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
 #define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
 #define BreakableDie_Signature "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF8\x83\xC4\x04\x55\x8B\x6B\x04\x89\x2A\x2A\x2A\x2A\xEC\x6A\xFF\x68\xB7\x71"
 #define BreakableTakeDamage_Signature "\x83\xEC\x5C\x53\x55\x56\x8B\xF1\x57\x80\x2A\x2A\x2A\x2A\x00\x00\x0F\x85\xF6\x04\x00\x00\x8B\x7C"
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
+
 #else
 #define BaseMonsterTakeDamage_Signature "_ZN12CBaseMonster10TakeDamageEP9entvars_sS1_fi"
+//Apache
+#define ApacheTakeDamage_Signature "_ZN7CApache10TakeDamageEP9entvars_sS1_fi"
+#define ApacheKilled_Signature "_ZN7CApache6KilledEP9entvars_si"
+#define ApacheTraceAttack_Signature "_ZN7CApache11TraceAttackEP9entvars_sf6VectorP11TraceResulti"
+
 #define BaseMonsterKilled_Signature "_ZN12CBaseMonster6KilledEP9entvars_si"
 #define BaseMonsterTraceAttack_Signature "_ZN12CBaseMonster11TraceAttackEP9entvars_sf6Ve"
 #define BreakableDie_Signature "_ZN10CBreakable3DieEv"
@@ -376,6 +398,11 @@ bool SearchAndHook() {
 	
 	// Fill and Hook
 	FILL_AND_HOOK(Server, BaseMonsterTakeDamage);
+	//Apache
+	FILL_AND_HOOK(Server, ApacheTakeDamage);
+	FILL_AND_HOOK(Server, ApacheKilled);
+	FILL_AND_HOOK(Server, ApacheTraceAttack);
+
 	FILL_AND_HOOK(Server, BaseMonsterKilled);
 	FILL_AND_HOOK(Server, BaseMonsterTraceAttack);
 	FILL_AND_HOOK(Server, BreakableDie);

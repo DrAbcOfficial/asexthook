@@ -15,6 +15,23 @@ PRIVATE_FUNCTION_EXTERN(BaseMonsterKilled);
 typedef void(SC_SERVER_DECL *fnBaseMonsterTraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType);
 void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType);
 PRIVATE_FUNCTION_EXTERN(BaseMonsterTraceAttack);
+
+// These stupid just not call baseclass method
+// Apache
+int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType);
+void SC_SERVER_DECL NewApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
+void SC_SERVER_DECL NewApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType);
+PRIVATE_FUNCTION_EXTERN(ApacheTakeDamage);
+PRIVATE_FUNCTION_EXTERN(ApacheKilled);
+PRIVATE_FUNCTION_EXTERN(ApacheTraceAttack);
+
+// Osprey
+
+// Sentry
+
+// Turret
+
+
 // BreakableDie
 typedef void(SC_SERVER_DECL *fnBreakableDie)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA);
 void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA);
