@@ -290,7 +290,7 @@ PRIVATE_FUNCTION_DEFINE(ApacheKilled);
 void SC_SERVER_DECL NewApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	if (ASEXT_CallHook)
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
-	g_call_original_BaseMonsterKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+	g_call_original_ApacheKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
 }
 // Osprey
 hook_t* g_phook_OspreyKilled = nullptr;
@@ -298,7 +298,7 @@ PRIVATE_FUNCTION_DEFINE(OspreyKilled);
 void SC_SERVER_DECL NewOspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	if (ASEXT_CallHook) 
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
-	g_call_original_BaseMonsterKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+	g_call_original_OspreyKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
 }
 /// <summary>
 /// Monster Trace Attack
@@ -316,15 +316,7 @@ PRIVATE_FUNCTION_DEFINE(ApacheTraceAttack);
 void SC_SERVER_DECL NewApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	if (ASEXT_CallHook)
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
-	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
-}
-// Osprey
-hook_t* g_phook_OspreyTraceAttack = nullptr;
-PRIVATE_FUNCTION_DEFINE(OspreyTraceAttack);
-void SC_SERVER_DECL NewOspreyTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
-	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
+	g_call_original_ApacheTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 /// <summary>
 /// Breakable Die
@@ -393,8 +385,7 @@ bool SearchAndHook() {
 #define ApacheKilled_Signature "\x83\xEC\x18\x56\x8B\xF1\x8B\x46\x04\x8B\x80\x98\x01\x00\x00\x85\xC0\x75\x0E\x50"
 #define ApacheTraceAttack_Signature "\x8B\x54\x24\x18\x57\x8B\xF9\x8B\x42\x34\x83\xF8\x06\x75\x0A"
 //Ospery
-#define OspreyKilled_Signature "\x83\xEC\x18\x56\x8B\xF1\x57\x8B\x46\x04\x85\xC0\x74\x06\x8B\x80\x08\x02\x00\x00"
-#define OspreyTraceAttack_Signature "\x8B\x54\x24\x18\x0F\x57\xDB\xF2\x0F\x10\x25\x2A\x2A\x2A\x2A\xF2\x0F\x10\x2D\x2A\x2A\x2A\x2A\x8B\x42\x34\x83\xF8\x02\x75\x40"
+#define OspreyKilled_Signature "\x83\xEC\x18\x56\x8B\xF1\x57\x8B\x46\x04\x85\xC0\x74\x06\x8B\x80\x08\x02\x00\x00\x68\x2A\x2A\x2A\x2A\x50\xE8\xF1\x8F\x0A\x00\x8B\x56\x04"
 
 #define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
 #define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
@@ -411,7 +402,6 @@ bool SearchAndHook() {
 #define ApacheTraceAttack_Signature "_ZN7CApache11TraceAttackEP9entvars_sf6VectorP11TraceResulti"
 //Ospery
 #define OspreyKilled_Signature "_ZN7COsprey6KilledEP9entvars_si"
-#define OspreyTraceAttack_Signature "_ZN7COsprey11TraceAttackEP9entvars_sf6VectorP11TraceResulti"
 
 #define BaseMonsterKilled_Signature "_ZN12CBaseMonster6KilledEP9entvars_si"
 #define BaseMonsterTraceAttack_Signature "_ZN12CBaseMonster11TraceAttackEP9entvars_sf6Ve"
@@ -430,7 +420,6 @@ bool SearchAndHook() {
 	FILL_AND_HOOK(Server, ApacheTraceAttack);
 	//Ospery
 	FILL_AND_HOOK(Server, OspreyKilled);
-	FILL_AND_HOOK(Server, OspreyTraceAttack);
 
 	FILL_AND_HOOK(Server, BaseMonsterKilled);
 	FILL_AND_HOOK(Server, BaseMonsterTraceAttack);
@@ -446,7 +435,6 @@ void UninstallHook() {
 	UNINSTALL_HOOK(ApacheKilled);
 	UNINSTALL_HOOK(ApacheTraceAttack);
 	UNINSTALL_HOOK(OspreyKilled);
-	UNINSTALL_HOOK(OspreyTraceAttack);
 
 	UNINSTALL_HOOK(BaseMonsterKilled);
 	UNINSTALL_HOOK(BaseMonsterTraceAttack);
