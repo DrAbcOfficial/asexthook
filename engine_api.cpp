@@ -270,7 +270,7 @@ int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entv
 		};
 	if (ASEXT_CallHook)
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
-	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDmage, dmg.bitsDamageType);
+	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 // Apache
 hook_t* g_phook_ApacheTakeDamage = nullptr;
