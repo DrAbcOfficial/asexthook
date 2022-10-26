@@ -39,7 +39,7 @@ linux addons/metamod/dlls/asexthook.so
 ### MonsterTakeDamage
 
 ```
-Hooks::Monster const uint32 MonsterTakedamage (CBaseMonster@ pMonster, entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
+Hooks::Monster const uint32 MonsterTakedamage (DamageInfo@ info)
 ```
 
 Call before origin CBaseMonster::TakeDamage called.
@@ -102,7 +102,7 @@ MapScript | Plugin
 ### BreakableTakeDamage
 
 ```
-Hooks::Entity const uint32 BreakableTakeDamage (CBaseEntity@ pBreakable, entvars_t@ pevInflictor, float flDamage, int bitDamageType)
+Hooks::Entity const uint32 BreakableTakeDamage (DamageInfo@ info)
 ```
 
 Call before origin CBreakable::TakeDamage called.
@@ -116,7 +116,7 @@ MapScript | Plugin
 ### GrappleGetMonsterType
 
 ```
-Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out)
+Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out flag)
 ```
 
 Pre call before Weapon Grapple checking monster type
@@ -139,7 +139,7 @@ MapScript | Plugin
 ### SendScoreInfo
 
 ```
-Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out)
+Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag)
 ```
 
 Pre call before sending hud info to edict
