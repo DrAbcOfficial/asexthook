@@ -263,8 +263,8 @@ PRIVATE_FUNCTION_DEFINE(BaseMonsterTakeDamage);
 int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
-			ENT(pevInflictor)->pvPrivateData;
-			ENT(pevAttacker)->pvPrivateData;
+			ENT(pevInflictor)->pvPrivateData,
+			ENT(pevAttacker)->pvPrivateData,
 			flDamage,
 			bitsDamageType
 		};
@@ -278,8 +278,8 @@ PRIVATE_FUNCTION_DEFINE(ApacheTakeDamage);
 int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
-			ENT(pevInflictor)->pvPrivateData;
-			ENT(pevAttacker)->pvPrivateData;
+			ENT(pevInflictor)->pvPrivateData,
+			ENT(pevAttacker)->pvPrivateData,
 			flDamage,
 			bitsDamageType
 		};
@@ -350,8 +350,8 @@ PRIVATE_FUNCTION_DEFINE(BreakableTakeDamage);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
-			ENT(pevInflictor)->pvPrivateData;
-			ENT(pevAttacker)->pvPrivateData;
+			ENT(pevInflictor)->pvPrivateData,
+			ENT(pevAttacker)->pvPrivateData,
 			flDamage,
 			bitsDamageType
 		};
