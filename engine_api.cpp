@@ -261,17 +261,31 @@ enginefuncs_t meta_engfuncs =
 hook_t* g_phook_BaseMonsterTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTakeDamage);
 int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			ENT(pevInflictor)->pvPrivateData;
+			ENT(pevAttacker)->pvPrivateData;
+			flDamage,
+			bitsDamageType
+		};
 	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
-	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
+	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDmage, dmg.bitsDamageType);
 }
 // Apache
 hook_t* g_phook_ApacheTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(ApacheTakeDamage);
 int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			ENT(pevInflictor)->pvPrivateData;
+			ENT(pevAttacker)->pvPrivateData;
+			flDamage,
+			bitsDamageType
+		};
 	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
-	return g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
+	return g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
 /// <summary>
@@ -342,9 +356,16 @@ void SC_SERVER_DECL NewBreakableDie(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) {
 hook_t* g_phook_BreakableTakeDamage = nullptr;
 PRIVATE_FUNCTION_DEFINE(BreakableTakeDamage);
 int SC_SERVER_DECL NewBreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			ENT(pevInflictor)->pvPrivateData;
+			ENT(pevAttacker)->pvPrivateData;
+			flDamage,
+			bitsDamageType
+		};
 	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pBreakableTakeDamage, 0, pThis, pevAttacker, pevInflictor, flDamage, bitsDamageType);
-	return g_call_original_BreakableTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, flDamage, bitsDamageType);
+		(*ASEXT_CallHook)(g_AngelHook.pBreakableTakeDamage, 0, &dmg);
+	return g_call_original_BreakableTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
 /// <summary>
