@@ -23,10 +23,8 @@ int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t
 typedef void(SC_SERVER_DECL *fnApacheKilled)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
 void SC_SERVER_DECL NewApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
 typedef void(SC_SERVER_DECL *fnApacheTraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType);
-void SC_SERVER_DECL NewApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType);
 PRIVATE_FUNCTION_EXTERN(ApacheTakeDamage);
 PRIVATE_FUNCTION_EXTERN(ApacheKilled);
-PRIVATE_FUNCTION_EXTERN(ApacheTraceAttack);
 // Osprey
 typedef void(SC_SERVER_DECL *fnOspreyKilled)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
 void SC_SERVER_DECL NewOspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib);
