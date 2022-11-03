@@ -276,7 +276,10 @@ int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entv
 		};
 	if (ASEXT_CallHook)
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
-	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	int result = g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterPostTakeDamage, 0, &dmg);
+	return result;
 }
 // Apache
 hook_t* g_phook_ApacheTakeDamage = nullptr;
@@ -289,9 +292,10 @@ int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t
 			flDamage,
 			bitsDamageType
 		};
+	int result = g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
-	return g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterPostTakeDamage, 0, &dmg);
+	return result;
 }
 
 /// <summary>
