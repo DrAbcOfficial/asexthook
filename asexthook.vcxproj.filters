@@ -37,6 +37,9 @@
     <ClCompile Include="sdk_util.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="vftable.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -63,6 +66,15 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="enginedef.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="vftable.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="dlldef.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

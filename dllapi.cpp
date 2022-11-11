@@ -31,14 +31,74 @@
 
 #include <extdll.h>
 
+#include <detours.h>
 #include <dllapi.h>
 #include <meta_api.h>
 #include <log_meta.h>
 
-#include <detours.h>
+#include "signatures.h"
+#include "asext_api.h"
+#include "dlldef.h"
+#include "angelscript.h"
+#include "vftable.h"
+#include "utility.h"
 
 using namespace std;
 
+bool g_HookedFlag = false;
+
+// Apache
+hook_t* g_phook_ApacheTakeDamage = nullptr;
+PRIVATE_FUNCTION_DEFINE(ApacheTakeDamage);
+int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			GetEntVarsVTable(pevInflictor),
+			GetEntVarsVTable(pevAttacker),
+			flDamage,
+			bitsDamageType
+	};
+	int result = g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterPostTakeDamage, 0, &dmg);
+	return result;
+}
+// Apache
+hook_t* g_phook_ApacheKilled = nullptr;
+PRIVATE_FUNCTION_DEFINE(ApacheKilled);
+void SC_SERVER_DECL NewApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
+	g_call_original_ApacheKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+}
+// Osprey
+hook_t* g_phook_OspreyKilled = nullptr;
+PRIVATE_FUNCTION_DEFINE(OspreyKilled);
+void SC_SERVER_DECL NewOspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
+	g_call_original_OspreyKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+}
+
+void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
+	if (g_HookedFlag)
+		return;
+	vtable_base_s* vtable = AddEntityVTable("monster_apache");
+	g_pfn_ApacheTakeDamage = g_call_original_ApacheTakeDamage = (fnApacheTakeDamage)vtable->TakeDamage;
+	INSTALL_INLINEHOOK(ApacheTakeDamage);
+	g_pfn_ApacheKilled = g_call_original_ApacheKilled = (fnApacheKilled)vtable->Killed;
+	INSTALL_INLINEHOOK(ApacheKilled);
+
+	vtable = AddEntityVTable("monster_osprey");
+	g_pfn_OspreyKilled = g_call_original_OspreyKilled = (fnOspreyKilled)vtable->Killed;
+	INSTALL_INLINEHOOK(OspreyKilled);
+	g_HookedFlag = true;
+}
+void VtableUnhook() {
+	UNINSTALL_HOOK(ApacheTakeDamage);
+	UNINSTALL_HOOK(ApacheKilled);
+	UNINSTALL_HOOK(OspreyKilled);
+}
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit
 	NULL,					// pfnSpawn
@@ -64,7 +124,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnClientPutInServer
 	NULL,					// pfnClientCommand
 	NULL,					// pfnClientUserInfoChanged
-	NULL,					// pfnServerActivate
+	ServerActivate,					// pfnServerActivate
 	NULL,					// pfnServerDeactivate
 
 	NULL,					// pfnPlayerPreThink
