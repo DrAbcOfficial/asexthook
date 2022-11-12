@@ -291,7 +291,7 @@ hook_t* g_phook_BaseMonsterTraceAttack = nullptr;
 PRIVATE_FUNCTION_DEFINE(BaseMonsterTraceAttack);
 void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
+		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 /// <summary>
