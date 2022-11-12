@@ -53,7 +53,7 @@ using namespace std;
 
 bool g_HookedFlag = false;
 
-struct hookitems_t {
+struct{
 	hookitem_t BaseMonsterTraceAttack;
 	hookitem_t BaseMonsterTakeDamage;
 	hookitem_t BaseMonsterKilled;
@@ -77,8 +77,7 @@ struct hookitems_t {
 	
 	hookitem_t PlayerPostTakeDamage;
 	hookitem_t PlayerTakeHealth;
-};
-hookitems_t gHookItems;
+} gHookItems;
 vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 
