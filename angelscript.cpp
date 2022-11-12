@@ -24,7 +24,8 @@ void RegisterAngelScriptHooks(){
 	g_AngelHook.pMonsterTraceAttack = ASEXT_RegisterHook("Pre call before a monster trace attack", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterTraceAttack", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
 	g_AngelHook.pMonsterPostTakeDamage = ASEXT_RegisterHook("Post call before a monster took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterPostTakedamage", "DamageInfo@ info");
 
-	g_AngelHook.pBreakableDie = ASEXT_RegisterHook("Pre call before a breakable died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableDie", "CBaseEntity@ pBreakable");
+	g_AngelHook.pBreakableTraceAttack = ASEXT_RegisterHook("Pre call before a breakable trace attack", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTraceAttack", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
+	g_AngelHook.pBreakableKilled = ASEXT_RegisterHook("Pre call before a breakable died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableDie", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib");
 	g_AngelHook.pBreakableTakeDamage = ASEXT_RegisterHook("Pre call before a breakable took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTakeDamage", "DamageInfo@ info");
 
 	g_AngelHook.pGrappleCheckMonsterType = ASEXT_RegisterHook("Pre call before Weapon Grapple checking monster type", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Weapon", "GrappleGetMonsterType", "CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out");
