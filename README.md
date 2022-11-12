@@ -54,7 +54,7 @@ class HealthInfo{
 ### MonsterTakeDamage
 
 ```
-Hooks::Monster const uint32 MonsterTakedamage (DamageInfo@ info)
+Hooks::Monster const uint32 MonsterTakeDamage (DamageInfo@ info)
 ```
 
 Call before origin CBaseMonster::TakeDamage called.

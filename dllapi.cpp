@@ -176,7 +176,7 @@ int SC_SERVER_DECL PlayerTakeHealth(void* pThis, SC_SERVER_DUMMYARG float flDama
 		cap
 	};
 	CALL_ANGEL(pPlayerTakeHealth, &dmg);
-	return CALL_ORIGIN(gHookItems.PlayerPostTakeDamage, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
+	return CALL_ORIGIN(gHookItems.PlayerTakeHealth, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
 }
 #undef CALL_ANGEL
 #undef CALL_ORIGIN
