@@ -32,6 +32,21 @@ linux addons/metamod/dlls/asexthook.so
 
 6. enjoy your new hook :3
 
+---
+
+## Current Expansion Object
+
+```
+class HealthInfo{
+	CBaseEntity@ pEntity;
+	float flHealth;
+	int bitsDamageType;
+	int health_cap;
+}
+```
+
+---
+
 ## Current Expansion Hook
 
 ---
@@ -136,6 +151,20 @@ Hooks::Player const uint32 PlayerPostTakeDamage (DamageInfo@ info)
 ```
 
 Call after origin CBasePlayer::TakeDamage called.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+### PlayerTakeHealth
+
+```
+Hooks::Player const uint32 PlayerTakeHealth (HealthInfo@ info)
+```
+
+Call after origin CBasePlayer::TakeHealth called.
 
 StopMode: CALL_ALL
 

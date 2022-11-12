@@ -10,8 +10,16 @@ typedef struct damageinfo_s{
 	int bitsDamageType;
 }damageinfo_t;
 
+typedef struct healthinfo_s {
+	void* pEntity;
+	float flHealth;
+	int bitsDamageType;
+	int health_cap;
+}healthinfo_t;
+
 typedef struct angelhook_s {
 	void* pPlayerPostTakeDamage = nullptr;
+	void* pPlayerTakeHealth = nullptr;
 
 	void* pMonsterTakeDamage = nullptr;
 	void* pMonsterKilled = nullptr;

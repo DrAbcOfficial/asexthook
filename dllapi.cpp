@@ -69,6 +69,7 @@ struct hookitems_t {
 	hookitem_t BreakableTakeDamage;
 	
 	hookitem_t PlayerPostTakeDamage;
+	hookitem_t PlayerTakeHealth;
 };
 hookitems_t gHookItems;
 vector<hook_t*> gHooks;
@@ -167,6 +168,16 @@ int SC_SERVER_DECL PlayerPostTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_
 	CALL_ANGEL(pPlayerPostTakeDamage, &dmg);
 	return result;
 }
+int SC_SERVER_DECL PlayerTakeHealth(void* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
+	healthinfo_t dmg = {
+		pThis,
+		flDamage,
+		bitsDamageType,
+		cap
+	};
+	CALL_ANGEL(pPlayerTakeHealth, &dmg);
+	return CALL_ORIGIN(gHookItems.PlayerPostTakeDamage, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
+}
 #undef CALL_ANGEL
 #undef CALL_ORIGIN
 
@@ -196,6 +207,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	ITEM_HOOK(gHookItems.BreakableKilled, Killed, vtable, BreakableKilled);
 	vtable = AddEntityVTable("player");
 	ITEM_HOOK(gHookItems.PlayerPostTakeDamage, TakeDamage, vtable, PlayerPostTakeDamage);
+	ITEM_HOOK(gHookItems.PlayerTakeHealth, TakeHealth, vtable, PlayerTakeHealth);
 #undef ITEM_HOOK
 
 	g_HookedFlag = true;
