@@ -116,12 +116,12 @@ int SC_SERVER_DECL SentryTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 		return CALL_ORIGIN(gHookItems.SentryTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 void SC_SERVER_DECL SentryKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	CALL_ANGEL(pMonsterKilled, pevAttacker, iGib)
-		CALL_ORIGIN(gHookItems.SentryKilled, Killed, pevAttacker, iGib);
+	CALL_ANGEL(pMonsterKilled, pThis, pevAttacker, iGib)
+	CALL_ORIGIN(gHookItems.SentryKilled, Killed, pevAttacker, iGib);
 }
 
 void SC_SERVER_DECL TurretTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.TurretTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
