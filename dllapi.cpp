@@ -176,7 +176,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 		return;
 	}
 
-#define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
+#define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook((void*)item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
 	vtable_base_t* vtable = AddEntityVTable("monster_apache");
 	ITEM_HOOK(gHookItems.ApacheTraceAttack, TraceAttack, vtable, ApacheTraceAttack);
 	ITEM_HOOK(gHookItems.ApacheTakeDamage, TakeDamage, vtable, ApacheTakeDamage);
