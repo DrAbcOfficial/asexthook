@@ -271,10 +271,7 @@ int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entv
 		};
 	if (ASEXT_CallHook)
 		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
-	int result = g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterPostTakeDamage, 0, &dmg);
-	return result;
+	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
 /// <summary>

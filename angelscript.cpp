@@ -6,10 +6,6 @@
 
 angelhook_t g_AngelHook;
 
-int SC_SERVER_DECL CSoundEngine_LookupSoundIndex(void* pthis, SC_SERVER_DUMMYARG char* szSample){
-	return 0;
-}
-
 void RegisterAngelScriptMethods(){
 	//ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
 	//	ASEXT_RegisterObjectMethod(pASDoc,
@@ -18,16 +14,18 @@ void RegisterAngelScriptMethods(){
 	//	});
 }
 
+#define CREATE_AS_HOOK(item, des, tag, name, arg) g_AngelHook.item=ASEXT_RegisterHook(des,StopMode_CALL_ALL,2,ASFlag_MapScript|ASFlag_Plugin,tag,name,arg)
 void RegisterAngelScriptHooks(){
-	g_AngelHook.pMonsterTakeDamage = ASEXT_RegisterHook("Pre call before a monster took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterTakedamage", "DamageInfo@ info");
-	g_AngelHook.pMonsterKilled = ASEXT_RegisterHook("Pre call before a monster died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterKilled", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib");
-	g_AngelHook.pMonsterTraceAttack = ASEXT_RegisterHook("Pre call before a monster trace attack", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterTraceAttack", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
-	g_AngelHook.pMonsterPostTakeDamage = ASEXT_RegisterHook("Post call before a monster took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Monster", "MonsterPostTakedamage", "DamageInfo@ info");
+	CREATE_AS_HOOK(pPlayerPostTakeDamage, "Pre call after a player took damage", "Player", "PlayerPostTakedamage", "DamageInfo@ info");
+	CREATE_AS_HOOK(pMonsterTraceAttack, "Pre call before a monster trace attack", "Monster", "MonsterTraceAttack", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
+	CREATE_AS_HOOK(pMonsterTakeDamage, "Pre call before a monster took damage", "Monster", "MonsterTakedamage", "DamageInfo@ info");
+	CREATE_AS_HOOK(pMonsterKilled, "Pre call before a monster died", "Monster", "MonsterKilled", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib");
 
-	g_AngelHook.pBreakableTraceAttack = ASEXT_RegisterHook("Pre call before a breakable trace attack", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTraceAttack", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
-	g_AngelHook.pBreakableKilled = ASEXT_RegisterHook("Pre call before a breakable died", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableDie", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib");
-	g_AngelHook.pBreakableTakeDamage = ASEXT_RegisterHook("Pre call before a breakable took damage", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Entity", "BreakableTakeDamage", "DamageInfo@ info");
+	CREATE_AS_HOOK(pBreakableTraceAttack, "Pre call before a breakable trace attack","Entity", "BreakableTraceAttack", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType");
+	CREATE_AS_HOOK(pBreakableKilled, "Pre call before a breakable died", "Entity", "BreakableDie", "CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib");
+	CREATE_AS_HOOK(pBreakableTakeDamage, "Pre call before a breakable took damage", "Entity", "BreakableTakeDamage", "DamageInfo@ info");
 
-	g_AngelHook.pGrappleCheckMonsterType = ASEXT_RegisterHook("Pre call before Weapon Grapple checking monster type", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Weapon", "GrappleGetMonsterType", "CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out");
-	g_AngelHook.pSendScoreInfo = ASEXT_RegisterHook("Pre call before sending hud info to edict", StopMode_CALL_ALL, 2, ASFlag_MapScript | ASFlag_Plugin, "Player", "SendScoreInfo", "CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out");
+	CREATE_AS_HOOK(pGrappleCheckMonsterType, "Pre call before Weapon Grapple checking monster type", "Weapon", "GrappleGetMonsterType", "CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out");
+	CREATE_AS_HOOK(pSendScoreInfo, "Pre call before sending hud info to edict", "Player", "SendScoreInfo", "CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out");
 }
+#undef CREATE_AS_HOOK

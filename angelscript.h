@@ -11,10 +11,11 @@ typedef struct damageinfo_s{
 }damageinfo_t;
 
 typedef struct angelhook_s {
+	void* pPlayerPostTakeDamage = nullptr;
+
 	void* pMonsterTakeDamage = nullptr;
 	void* pMonsterKilled = nullptr;
 	void* pMonsterTraceAttack = nullptr;
-	void* pMonsterPostTakeDamage = nullptr;
 
 	void* pBreakableTraceAttack = nullptr;
 	void* pBreakableKilled = nullptr;
