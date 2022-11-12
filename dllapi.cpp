@@ -51,6 +51,10 @@ using namespace std;
 bool g_HookedFlag = false;
 
 struct hookitems_t {
+	hookitem_t BaseMonsterTraceAttack;
+	hookitem_t BaseMonsterTakeDamage;
+	hookitem_t BaseMonsterKilled;
+
 	hookitem_t ApacheTraceAttack;
 	hookitem_t ApacheTakeDamage;
 	hookitem_t ApacheKilled;
@@ -75,6 +79,26 @@ hookitems_t gHookItems;
 vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ANGEL(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
+void SC_SERVER_DECL BaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	CALL_ORIGIN(gHookItems.BaseMonsterTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
+}
+int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			GetEntVarsVTable(pevInflictor),
+			GetEntVarsVTable(pevAttacker),
+			flDamage,
+			bitsDamageType
+	};
+	CALL_ANGEL(pMonsterTakeDamage, &dmg)
+	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+}
+void SC_SERVER_DECL BaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+	CALL_ANGEL(pMonsterKilled, pevAttacker, iGib)
+	CALL_ORIGIN(gHookItems.BaseMonsterKilled, Killed, pevAttacker, iGib);
+}
+
 void SC_SERVER_DECL ApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.ApacheTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
@@ -205,6 +229,11 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	ITEM_HOOK(gHookItems.BreakableTraceAttack, TraceAttack, vtable, BreakableAttack);
 	ITEM_HOOK(gHookItems.BreakableTakeDamage, TakeDamage, vtable, BreakableTakeDamage);
 	ITEM_HOOK(gHookItems.BreakableKilled, Killed, vtable, BreakableKilled);
+	vtable = AddEntityVTable("monster_bloater");
+	ITEM_HOOK(gHookItems.BaseMonsterTraceAttack, TraceAttack, vtable, BaseMonsterTraceAttack);
+	ITEM_HOOK(gHookItems.BaseMonsterKilled, Killed, vtable, BaseMonsterKilled);
+	vtable = AddEntityVTable("monster_ichthyosaur");
+	ITEM_HOOK(gHookItems.BaseMonsterTakeDamage, TakeDamage, vtable, BaseMonsterTakeDamage);
 	vtable = AddEntityVTable("player");
 	ITEM_HOOK(gHookItems.PlayerPostTakeDamage, TakeDamage, vtable, PlayerPostTakeDamage);
 	ITEM_HOOK(gHookItems.PlayerTakeHealth, TakeHealth, vtable, PlayerTakeHealth);

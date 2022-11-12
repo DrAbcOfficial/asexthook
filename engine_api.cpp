@@ -255,45 +255,6 @@ enginefuncs_t meta_engfuncs =
 	// Added 2009-06-17 (no SDK update)
 	NULL,						// pfnEngCheckParm()
 };
-
-/// <summary>
-/// Monster Take Damage
-/// </summary>
-hook_t* g_phook_BaseMonsterTakeDamage = nullptr;
-PRIVATE_FUNCTION_DEFINE(BaseMonsterTakeDamage);
-int SC_SERVER_DECL NewBaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
-	damageinfo_t dmg = {
-			pThis,
-			GetEntVarsVTable(pevInflictor),
-			GetEntVarsVTable(pevAttacker),
-			flDamage,
-			bitsDamageType
-		};
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTakeDamage, 0, &dmg);
-	return g_call_original_BaseMonsterTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
-}
-
-/// <summary>
-/// Monster Killed
-/// </summary>
-hook_t* g_phook_BaseMonsterKilled = nullptr;
-PRIVATE_FUNCTION_DEFINE(BaseMonsterKilled);
-void SC_SERVER_DECL NewBaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
-	g_call_original_BaseMonsterKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
-}
-/// <summary>
-/// Monster Trace Attack
-/// </summary>
-hook_t* g_phook_BaseMonsterTraceAttack = nullptr;
-PRIVATE_FUNCTION_DEFINE(BaseMonsterTraceAttack);
-void SC_SERVER_DECL NewBaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterTraceAttack, 0, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
-	g_call_original_BaseMonsterTraceAttack(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
-}
 /// <summary>
 /// Grapple GetMonsterType
 /// </summary>
@@ -334,32 +295,19 @@ bool SearchAndHook() {
 	auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
 	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
 #ifdef WIN32
-#define BaseMonsterTakeDamage_Signature "\x55\x8B\xEC\x83\xE4\xF0\x83\xEC\x48\xF7\x45\x14\x00\x00\x00\x08\x56\x57\x8B\xF9\x0F\x84\x90\x00\x00\x00"
-#define BaseMonsterKilled_Signature "\x53\x8B\x5C\x24\x0C\x56\x8B\xF1\x57\x8B\x7C\x24\x10"
-#define BaseMonsterTraceAttack_Signature "\x53\x55\x56\x8B\xF1\x57\x8B\x46\x04\xF3\x0F\x10\x80\x6C\x01\x00\x00"
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
 
 #else
-#define BaseMonsterTakeDamage_Signature "_ZN12CBaseMonster10TakeDamageEP9entvars_sS1_fi"
-#define BaseMonsterKilled_Signature "_ZN12CBaseMonster6KilledEP9entvars_si"
-#define BaseMonsterTraceAttack_Signature "_ZN12CBaseMonster11TraceAttackEP9entvars_sf6Ve"
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
 #endif
-	//Fill
-	
 	// Fill and Hook
-	FILL_AND_HOOK(Server, BaseMonsterTakeDamage);
-	FILL_AND_HOOK(Server, BaseMonsterKilled);
-	FILL_AND_HOOK(Server, BaseMonsterTraceAttack);
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
 	return true;
 }
 void UninstallHook() {
-	UNINSTALL_HOOK(BaseMonsterKilled);
-	UNINSTALL_HOOK(BaseMonsterTraceAttack);
 	UNINSTALL_HOOK(GrappleGetMonsterType);
 	UNINSTALL_HOOK(SendScoreInfo);
 }
