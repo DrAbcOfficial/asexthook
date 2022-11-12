@@ -12,14 +12,17 @@
 |Debian 11(WSL)|√|
 |Fedora Workstation 37(Hyper-V)|√|
 
-You can grab the latest build in github action, notice that linux version was built in ubuntu.
-
 ### Install
 
 1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases/tag/s2v1)
 
 2. Install them.
 3. Grab asexthook.dll/asexthook.so, put them into `svencoop/addons/metamod/dlls`
+   1.  Grab latest version in [Action](https://github.com/DrAbcOfficial/asexthook/actions/workflows/build.yml) (Unstable, crash risk)
+		
+		or
+
+   2.  Grab release version in [Release](https://github.com/DrAbcOfficial/asexthook/releases) (Stable)
 4. edit `svencoop/addons/metamod/plugins.ini`
 5. add 
 
