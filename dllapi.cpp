@@ -80,7 +80,7 @@ vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ANGEL(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 void SC_SERVER_DECL BaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BaseMonsterTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
@@ -95,12 +95,12 @@ int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars
 	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 void SC_SERVER_DECL BaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	CALL_ANGEL(pMonsterKilled, pevAttacker, iGib)
+	CALL_ANGEL(pMonsterKilled, pThis, pevAttacker, iGib)
 	CALL_ORIGIN(gHookItems.BaseMonsterKilled, Killed, pevAttacker, iGib);
 }
 
 void SC_SERVER_DECL ApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.ApacheTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL ApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
@@ -120,12 +120,12 @@ void SC_SERVER_DECL ApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevA
 }
 
 void SC_SERVER_DECL OspreyTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.OspreyTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 void SC_SERVER_DECL OspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	CALL_ANGEL(pMonsterKilled, pevAttacker, iGib)
-		CALL_ORIGIN(gHookItems.OspreyKilled, Killed, pevAttacker, iGib);
+	CALL_ANGEL(pMonsterKilled, pThis, pevAttacker, iGib);
+	CALL_ORIGIN(gHookItems.OspreyKilled, Killed, pevAttacker, iGib);
 }
 
 int SC_SERVER_DECL SentryTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
@@ -161,11 +161,11 @@ int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 }
 
 void SC_SERVER_DECL BreakableAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pBreakableTraceAttack, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pBreakableTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BreakableTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 void SC_SERVER_DECL BreakableKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	CALL_ANGEL(pBreakableKilled, pevAttacker, iGib);
+	CALL_ANGEL(pBreakableKilled, pThis, pevAttacker, iGib);
 	CALL_ORIGIN(gHookItems.BreakableKilled, Killed, pevAttacker, iGib);
 }
 int SC_SERVER_DECL BreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {

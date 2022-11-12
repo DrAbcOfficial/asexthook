@@ -140,7 +140,7 @@ typedef struct vtable_monster_s : vtable_animating_s {
 	void (SC_SERVER_DECL* StartMonster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* BestVisibleEnemy)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* FInViewCone)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther) = nullptr;
-	void (SC_SERVER_DECL* FInViewCone)(void* pThis, SC_SERVER_DUMMYARG Vector vecPos) = nullptr;
+	void (SC_SERVER_DECL* FInViewConeVector)(void* pThis, SC_SERVER_DUMMYARG Vector vecPos) = nullptr;
 	void (SC_SERVER_DECL* CheckLocalMove)(void* pThis, SC_SERVER_DUMMYARG Vector vecStart, Vector vecEnd, CBaseEntity* pTarget, float* flDist, Vector* param_5, bool param_6) = nullptr;
 	void (SC_SERVER_DECL* Move)(void* pThis, SC_SERVER_DUMMYARG float flDist) = nullptr;
 	void (SC_SERVER_DECL* MoveExecute)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pTarget, Vector vecEnd, float flDist) = nullptr;
