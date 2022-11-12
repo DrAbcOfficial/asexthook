@@ -172,6 +172,35 @@ MapScript | Plugin
 
 ---
 
+### PlayerCallMedic
+
+```
+Hooks::Player const uint32 PlayerCallMedic (CBasePlayer@ pPlayer)
+```
+
+Call before "Medic!!!!"
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+
+---
+
+### PlayerCallGrenade
+
+```
+Hooks::Player const uint32 PlayerCallGrenade (CBasePlayer@ pPlayer)
+```
+
+Call before "Take Cover!!!!"
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
 ### GrappleGetMonsterType
 
 ```

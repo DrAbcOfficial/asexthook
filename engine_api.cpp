@@ -43,7 +43,6 @@
 #include "enginedef.h"
 #include "angelscript.h"
 #include "utility.h"
-
 enginefuncs_t meta_engfuncs = 
 {
 	NULL,						// pfnPrecacheModel()
