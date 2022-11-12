@@ -86,7 +86,7 @@ MapScript | Plugin
 ### MonsterTraceAttack
 
 ```
-Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType)
+Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
 ```
 
 Call before origin CBaseMonster::TraceAttack called.
@@ -131,7 +131,7 @@ MapScript | Plugin
 ### BreakableTraceAttack
 
 ```
-Hooks::Monster const uint32 MonsterTraceAttack (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType)
+Hooks::Monster const uint32 MonsterTraceAttack (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
 ```
 
 Call before origin CBreakable::TraceAttack called.
