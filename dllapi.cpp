@@ -67,6 +67,8 @@ struct hookitems_t {
 	hookitem_t BreakableTraceAttack;
 	hookitem_t BreakableKilled;
 	hookitem_t BreakableTakeDamage;
+	
+	hookitem_t PlayerPostTakeDamage;
 };
 hookitems_t gHookItems;
 vector<hook_t*> gHooks;
@@ -84,7 +86,7 @@ int SC_SERVER_DECL ApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 			flDamage,
 			bitsDamageType
 	};
-	CALL_ANGEL(pMonsterPostTakeDamage, &dmg)
+	CALL_ANGEL(pMonsterTakeDamage, &dmg)
 	return CALL_ORIGIN(gHookItems.ApacheTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 void SC_SERVER_DECL ApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
@@ -109,7 +111,7 @@ int SC_SERVER_DECL SentryTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 			flDamage,
 			bitsDamageType
 	};
-	CALL_ANGEL(pMonsterPostTakeDamage, &dmg)
+	CALL_ANGEL(pMonsterTakeDamage, &dmg)
 		return CALL_ORIGIN(gHookItems.SentryTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 void SC_SERVER_DECL SentryKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
@@ -129,7 +131,7 @@ int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 			flDamage,
 			bitsDamageType
 	};
-	CALL_ANGEL(pBreakableTakeDamage, &dmg)
+	CALL_ANGEL(pMonsterTakeDamage, &dmg)
 		return CALL_ORIGIN(gHookItems.TurretTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
@@ -152,6 +154,19 @@ int SC_SERVER_DECL BreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t
 	CALL_ANGEL(pBreakableTakeDamage, &dmg)
 	return CALL_ORIGIN(gHookItems.BreakableTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
+
+int SC_SERVER_DECL PlayerPostTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	damageinfo_t dmg = {
+			pThis,
+			GetEntVarsVTable(pevInflictor),
+			GetEntVarsVTable(pevAttacker),
+			flDamage,
+			bitsDamageType
+	};
+	int result = CALL_ORIGIN(gHookItems.PlayerPostTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	CALL_ANGEL(pPlayerPostTakeDamage, &dmg);
+	return result;
+}
 #undef CALL_ANGEL
 #undef CALL_ORIGIN
 
@@ -160,6 +175,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
 	}
+
 #define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
 	vtable_base_t* vtable = AddEntityVTable("monster_apache");
 	ITEM_HOOK(gHookItems.ApacheTraceAttack, TraceAttack, vtable, ApacheTraceAttack);
@@ -178,7 +194,10 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	ITEM_HOOK(gHookItems.BreakableTraceAttack, TraceAttack, vtable, BreakableAttack);
 	ITEM_HOOK(gHookItems.BreakableTakeDamage, TakeDamage, vtable, BreakableTakeDamage);
 	ITEM_HOOK(gHookItems.BreakableKilled, Killed, vtable, BreakableKilled);
+	vtable = AddEntityVTable("player");
+	ITEM_HOOK(gHookItems.PlayerPostTakeDamage, TakeDamage, vtable, PlayerPostTakeDamage);
 #undef ITEM_HOOK
+
 	g_HookedFlag = true;
 	SET_META_RESULT(MRES_HANDLED);
 }

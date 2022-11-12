@@ -129,6 +129,20 @@ MapScript | Plugin
 
 ---
 
+### PlayerPostTakeDamage
+
+```
+Hooks::Player const uint32 PlayerPostTakeDamage (DamageInfo@ info)
+```
+
+Call after origin CBasePlayer::TakeDamage called.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
 ### GrappleGetMonsterType
 
 ```
