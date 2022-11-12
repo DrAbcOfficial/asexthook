@@ -31,6 +31,8 @@
 
 #include <extdll.h>
 
+#include <vector>
+
 #include <detours.h>
 #include <dllapi.h>
 #include <meta_api.h>
@@ -38,18 +40,25 @@
 
 #include "signatures.h"
 #include "asext_api.h"
-#include "dlldef.h"
 #include "angelscript.h"
 #include "vftable.h"
 #include "utility.h"
+
+#include "dlldef.h"
 
 using namespace std;
 
 bool g_HookedFlag = false;
 
-// Apache
-hook_t* g_phook_ApacheTakeDamage = nullptr;
-PRIVATE_FUNCTION_DEFINE(ApacheTakeDamage);
+struct hookitems_t {
+	hookitem_t ApacheTakeDamage;
+	hookitem_t ApacheKilled;
+	hookitem_t OspreyKilled;
+};
+hookitems_t gHookItems;
+vector<hook_t*> gHooks;
+#define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
+#define CALL_ANGEL(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
@@ -58,49 +67,43 @@ int SC_SERVER_DECL NewApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t
 			flDamage,
 			bitsDamageType
 	};
-	int result = g_call_original_ApacheTakeDamage(pThis, SC_SERVER_PASS_DUMMYARG pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterPostTakeDamage, 0, &dmg);
-	return result;
+	CALL_ANGEL(pMonsterPostTakeDamage, &dmg)
+	return CALL_ORIGIN(gHookItems.ApacheTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
-// Apache
-hook_t* g_phook_ApacheKilled = nullptr;
-PRIVATE_FUNCTION_DEFINE(ApacheKilled);
 void SC_SERVER_DECL NewApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
-	g_call_original_ApacheKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+	CALL_ANGEL(pMonsterKilled, pevAttacker, iGib)
+	CALL_ORIGIN(gHookItems.ApacheKilled, Killed, pevAttacker, iGib);
 }
-// Osprey
-hook_t* g_phook_OspreyKilled = nullptr;
-PRIVATE_FUNCTION_DEFINE(OspreyKilled);
 void SC_SERVER_DECL NewOspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pMonsterKilled, 0, pThis, pevAttacker, iGib);
-	g_call_original_OspreyKilled(pThis, SC_SERVER_PASS_DUMMYARG pevAttacker, iGib);
+	CALL_ANGEL(pMonsterKilled, pThis, pevAttacker, iGib)
+	CALL_ORIGIN(gHookItems.OspreyKilled, Killed, pevAttacker, iGib);
 }
+#undef CALL_ANGEL
+#undef CALL_ORIGIN
 
 void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	if (g_HookedFlag) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
 	}
-	vtable_base_s* vtable = AddEntityVTable("monster_apache");
-	g_pfn_ApacheTakeDamage = g_call_original_ApacheTakeDamage = (fnApacheTakeDamage)vtable->TakeDamage;
-	INSTALL_INLINEHOOK(ApacheTakeDamage);
-	g_pfn_ApacheKilled = g_call_original_ApacheKilled = (fnApacheKilled)vtable->Killed;
-	INSTALL_INLINEHOOK(ApacheKilled);
-
+#define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
+	vtable_base_t* vtable = AddEntityVTable("monster_apache");
+	ITEM_HOOK(gHookItems.ApacheTakeDamage, TakeDamage, vtable, NewApacheTakeDamage);
+	ITEM_HOOK(gHookItems.ApacheKilled, Killed, vtable, NewApacheKilled);
 	vtable = AddEntityVTable("monster_osprey");
-	g_pfn_OspreyKilled = g_call_original_OspreyKilled = (fnOspreyKilled)vtable->Killed;
-	INSTALL_INLINEHOOK(OspreyKilled);
+	ITEM_HOOK(gHookItems.OspreyKilled, Killed, vtable, NewOspreyKilled);
+#undef ITEM_HOOK
 	g_HookedFlag = true;
 	SET_META_RESULT(MRES_HANDLED);
 }
 void VtableUnhook() {
-	UNINSTALL_HOOK(ApacheTakeDamage);
-	UNINSTALL_HOOK(ApacheKilled);
-	UNINSTALL_HOOK(OspreyKilled);
+	for (auto iter = gHooks.begin(); iter != gHooks.end(); iter++) {
+		if (*iter) { 
+			gpMetaUtilFuncs->pfnUnHook(*iter);
+			*iter = nullptr;
+		}
+	}
+	gHooks.clear();
 }
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit

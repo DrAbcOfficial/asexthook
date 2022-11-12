@@ -44,10 +44,11 @@
 #include "angelscript.h"
 #include "asext_api.h"
 
-#include "enginedef.h"
-#include "dlldef.h"
-
 #include <meta_api.h>		// of course
+
+#include "enginedef.h"
+#include "vftable.h"
+#include "dlldef.h"
 
 #include "sdk_util.h"		// UTIL_LogPrintf, etc
 
@@ -72,7 +73,7 @@ static META_FUNCTIONS gMetaFunctionTable = {
 plugin_info_t Plugin_info = {
 	META_INTERFACE_VERSION,	// ifvers
 	"AngelScriptHookExt",	// name
-	"Alpha",	// version
+	"Alpha2",	// version
 	"2022",	// date
 	"Dr.Abc",	// author
 	"https://github.com/DrAbcOfficial/asexthook",	// url
