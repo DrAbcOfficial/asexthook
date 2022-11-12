@@ -393,7 +393,6 @@ bool SearchAndHook() {
 	FILL_AND_HOOK(Server, BreakableTakeDamage);
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
-
 	return true;
 }
 void UninstallHook() {

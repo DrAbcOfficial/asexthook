@@ -16,14 +16,14 @@ vtable_base_s* GetEntityVTable(const char* szClassName) {
 }
 vtable_base_s* AddEntityVTable(const char* szClassName) {
 	if (g_vtableMap.count(szClassName))
-		return nullptr;
+		return g_vtableMap[szClassName];
 	edict_t* tentEntity = CREATE_ENTITY();
 	CALL_GAME_ENTITY(PLID, szClassName, &tentEntity->v);
 	if (tentEntity->pvPrivateData == NULL){
 		REMOVE_ENTITY(tentEntity);
 		return nullptr;
 	}
-	g_vtableMap[szClassName] = (vtable_base_t*)(*(int*)tentEntity->pvPrivateData);
+	g_vtableMap[szClassName] = *(vtable_base_t**)tentEntity->pvPrivateData;
 	REMOVE_ENTITY(tentEntity);
 	return g_vtableMap[szClassName];
 }

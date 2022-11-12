@@ -81,8 +81,10 @@ void SC_SERVER_DECL NewOspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 }
 
 void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
-	if (g_HookedFlag)
+	if (g_HookedFlag) {
+		SET_META_RESULT(MRES_IGNORED);
 		return;
+	}
 	vtable_base_s* vtable = AddEntityVTable("monster_apache");
 	g_pfn_ApacheTakeDamage = g_call_original_ApacheTakeDamage = (fnApacheTakeDamage)vtable->TakeDamage;
 	INSTALL_INLINEHOOK(ApacheTakeDamage);
@@ -93,6 +95,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	g_pfn_OspreyKilled = g_call_original_OspreyKilled = (fnOspreyKilled)vtable->Killed;
 	INSTALL_INLINEHOOK(OspreyKilled);
 	g_HookedFlag = true;
+	SET_META_RESULT(MRES_HANDLED);
 }
 void VtableUnhook() {
 	UNINSTALL_HOOK(ApacheTakeDamage);
