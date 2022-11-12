@@ -76,7 +76,7 @@ vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ANGEL(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 void SC_SERVER_DECL ApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.ApacheTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL ApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
@@ -96,7 +96,7 @@ void SC_SERVER_DECL ApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevA
 }
 
 void SC_SERVER_DECL OspreyTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pevAttacker, flDamage, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.OspreyTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 void SC_SERVER_DECL OspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
@@ -121,7 +121,7 @@ void SC_SERVER_DECL SentryKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevA
 }
 
 void SC_SERVER_DECL TurretTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
+	CALL_ANGEL(pMonsterTraceAttack, pThis, pevAttacker, flDamage, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.TurretTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
