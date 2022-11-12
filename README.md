@@ -85,10 +85,10 @@ MapScript | Plugin
 ---
 
 
-### BreakableDie
+### BreakableKilled
 
 ```
-Hooks::Entity const uint32 BreakableDie (CBaseEntity@ pBreakable)
+Hooks::Entity const uint32 BreakableKilled (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib)
 ```
 
 Call before origin CBreakable::Die called.
@@ -106,6 +106,22 @@ Hooks::Entity const uint32 BreakableTakeDamage (DamageInfo@ info)
 ```
 
 Call before origin CBreakable::TakeDamage called.
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+### BreakableTraceAttack
+
+```
+Hooks::Monster const uint32 MonsterTraceAttack (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, const TraceResult& in ptr, int bitDamageType)
+```
+
+Call before origin CBreakable::TraceAttack called.
+
+Notice that player died will call this hook, because player is monster too.
 
 StopMode: CALL_ALL
 
