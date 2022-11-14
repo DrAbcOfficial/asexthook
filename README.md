@@ -37,7 +37,7 @@ linux addons/metamod/dlls/asexthook.so
 
 ---
 
-## Current Expansion Object
+## Current Expansion Objects
 
 ```
 class HealthInfo{
@@ -50,7 +50,13 @@ class HealthInfo{
 
 ---
 
-## Current Expansion Hook
+## Current Expansion Methods
+
+|Class|Method|Explian|
+|---|---|---|
+|CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
+
+## Current Expansion Hooks
 
 ---
 
