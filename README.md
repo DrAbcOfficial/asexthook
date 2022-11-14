@@ -1,7 +1,6 @@
-# ASExtHook [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) <img align="right" src="./img/logo.png" alt="ASExtHook" />
+# `ASExtHook`: A metamod plugin to extend the Sven Co-op script <img align="right" src="./img/logo.png" width="160" height="160" alt="ASExtHook" />
 
-
-# A metamod Plugin to extend the Sven Co-op Hook
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ### Tested plantform
 
