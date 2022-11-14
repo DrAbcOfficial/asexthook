@@ -281,7 +281,6 @@ void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eS
 	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 }
 
-
 /// <summary>
 /// Fiil
 /// </summary>

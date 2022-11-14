@@ -87,11 +87,11 @@ void SC_SERVER_DECL BaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entva
 }
 int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
-			pThis,
-			GetEntVarsVTable(pevInflictor),
-			GetEntVarsVTable(pevAttacker),
-			flDamage,
-			bitsDamageType
+		pThis,
+		GetEntVarsVTable(pevInflictor),
+		GetEntVarsVTable(pevAttacker),
+		flDamage,
+		bitsDamageType
 	};
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg)
 	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
@@ -162,7 +162,7 @@ int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 		return CALL_ORIGIN(gHookItems.TurretTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
-void SC_SERVER_DECL BreakableAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL BreakableTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pBreakableTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BreakableTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
@@ -227,7 +227,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	ITEM_HOOK(gHookItems.TurretTraceAttack, TraceAttack, vtable, TurretTraceAttack);
 	ITEM_HOOK(gHookItems.TurretTakeDamage, TakeDamage, vtable, TurretTakeDamage);
 	vtable = AddEntityVTable("func_breakable");
-	ITEM_HOOK(gHookItems.BreakableTraceAttack, TraceAttack, vtable, BreakableAttack);
+	ITEM_HOOK(gHookItems.BreakableTraceAttack, TraceAttack, vtable, BreakableTraceAttack);
 	ITEM_HOOK(gHookItems.BreakableTakeDamage, TakeDamage, vtable, BreakableTakeDamage);
 	ITEM_HOOK(gHookItems.BreakableKilled, Killed, vtable, BreakableKilled);
 	vtable = AddEntityVTable("monster_bloater");

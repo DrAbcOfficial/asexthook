@@ -6,13 +6,30 @@
 
 angelhook_t g_AngelHook;
 
+uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CString* szBuffer){
+	CRC32_t crc;
+	CRC32_INIT(&crc);
+	CRC32_PROCESS_BUFFER(&crc, (void*)szBuffer->c_str(), szBuffer->length());
+	return CRC32_FINAL(crc);
+}
+
+
+/// <summary>
+/// Regiter
+/// </summary>
 void RegisterAngelScriptMethods(){
 	ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
+		//Regist HealthInfo type
 		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", 0, 0x40001u);
 		ASEXT_RegisterObjectProperty(pASDoc, "Who get healing?", "HealthInfo", "CBaseEntity@ pEntity", offsetof(healthinfo_t, pEntity));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover amount.", "HealthInfo", "float flHealth", offsetof(healthinfo_t, flHealth));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
+	
+		//Regist New Method
+		ASEXT_RegisterObjectMethod(pASDoc,
+			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
+			(void*)CASEngineFuncs_CRC32, 3);
 	});
 }
 
