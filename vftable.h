@@ -1,16 +1,14 @@
 #pragma once
 //just type def
-class CRestore {};
-class CSave {};
-class MonsterEvent {};
-class ItemInfo{};
-class CBaseEntity {};
-class CBasePlayer {};
-class CBaseMonster {};
-class CCustomEntity {};
-class CBasePlayerItem {};
-class CBasePlayerWeapon {};
-class CSquadMonster {};
+typedef void CRestore;
+typedef void CSave;
+typedef void MonsterEvent;
+typedef void ItemInfo;
+typedef void CBaseEntity;
+typedef void CBaseMonster;
+typedef void CCustomEntity;
+typedef void CBasePlayerWeapon;
+typedef void CSquadMonster;
 typedef struct Task_s {
 
 }Task_t;

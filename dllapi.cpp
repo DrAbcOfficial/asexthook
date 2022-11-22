@@ -81,11 +81,11 @@ struct{
 vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 
-void SC_SERVER_DECL BaseMonsterTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BaseMonsterTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 		pThis,
 		GetEntVarsVTable(pevInflictor),
@@ -96,16 +96,16 @@ int SC_SERVER_DECL BaseMonsterTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg)
 	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
-void SC_SERVER_DECL BaseMonsterKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+void SC_SERVER_DECL BaseMonsterKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib)
 	CALL_ORIGIN(gHookItems.BaseMonsterKilled, Killed, pevAttacker, iGib);
 }
 
-void SC_SERVER_DECL ApacheTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL ApacheTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.ApacheTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL ApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL ApacheTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -116,21 +116,21 @@ int SC_SERVER_DECL ApacheTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg)
 	return CALL_ORIGIN(gHookItems.ApacheTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
-void SC_SERVER_DECL ApacheKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+void SC_SERVER_DECL ApacheKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pevAttacker, iGib)
 	CALL_ORIGIN(gHookItems.ApacheKilled, Killed, pevAttacker, iGib);
 }
 
-void SC_SERVER_DECL OspreyTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL OspreyTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.OspreyTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-void SC_SERVER_DECL OspreyKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+void SC_SERVER_DECL OspreyKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib);
 	CALL_ORIGIN(gHookItems.OspreyKilled, Killed, pevAttacker, iGib);
 }
 
-int SC_SERVER_DECL SentryTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL SentryTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -141,16 +141,16 @@ int SC_SERVER_DECL SentryTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg)
 		return CALL_ORIGIN(gHookItems.SentryTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
-void SC_SERVER_DECL SentryKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+void SC_SERVER_DECL SentryKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib)
 	CALL_ORIGIN(gHookItems.SentryKilled, Killed, pevAttacker, iGib);
 }
 
-void SC_SERVER_DECL TurretTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL TurretTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.TurretTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL TurretTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -162,15 +162,15 @@ int SC_SERVER_DECL TurretTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* p
 		return CALL_ORIGIN(gHookItems.TurretTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
-void SC_SERVER_DECL BreakableTraceAttack(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+void SC_SERVER_DECL BreakableTraceAttack(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pBreakableTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BreakableTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-void SC_SERVER_DECL BreakableKilled(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+void SC_SERVER_DECL BreakableKilled(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pBreakableKilled, pThis, pevAttacker, iGib);
 	CALL_ORIGIN(gHookItems.BreakableKilled, Killed, pevAttacker, iGib);
 }
-int SC_SERVER_DECL BreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL BreakableTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -182,7 +182,17 @@ int SC_SERVER_DECL BreakableTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t
 	return CALL_ORIGIN(gHookItems.BreakableTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
 
-int SC_SERVER_DECL PlayerPostTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	entvars_t* pevVictim = VARS(PrivateToEdict(pThis));
+	bool bPvpFlag = (pevVictim != nullptr && pevAttacker != nullptr &&
+		pevVictim->playerclass == PLAYER_PVP_PLAYERCLASS && pevAttacker->playerclass == PLAYER_PVP_PLAYERCLASS &&
+		!strcmp(STRING(pevAttacker->classname), "player"));
+	int temp = 2;
+	vtable_base_t* vtable = GetEntityVTable("player");
+	if (bPvpFlag) {
+		temp = vtable->GetClassification(pThis, SC_SERVER_PASS_DUMMYARG 0);
+		vtable->SetClassification(pThis, SC_SERVER_PASS_DUMMYARG 10);
+	}
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -192,9 +202,11 @@ int SC_SERVER_DECL PlayerPostTakeDamage(void* pThis, SC_SERVER_DUMMYARG entvars_
 	};
 	int result = CALL_ORIGIN(gHookItems.PlayerPostTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	CALL_ANGELSCRIPT(pPlayerPostTakeDamage, &dmg);
+	if (bPvpFlag) 
+		vtable->SetClassification(pThis, SC_SERVER_PASS_DUMMYARG temp);
 	return result;
 }
-int SC_SERVER_DECL PlayerTakeHealth(void* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
+int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
 	healthinfo_t dmg = {
 		pThis,
 		flDamage,
