@@ -10,9 +10,9 @@
 
 Using this plugin makes it easy to perform operations that were previously exceptionally difficult, such as hooking whether a monster is dead or not.
 <!-- vscode-markdown-toc -->
-* 1. [1. Install](#Install)
-* 2. [2. Build](#Build)
-* 3. [3. Document](#Document)
+* 1. [Install](#Install)
+* 2. [Build](#Build)
+* 3. [Document](#Document)
 	* 3.1. [Current Expansion Objects](#CurrentExpansionObjects)
 	* 3.2. [Current Expansion Methods](#CurrentExpansionMethods)
 	* 3.3. [Current Expansion Hooks](#CurrentExpansionHooks)
@@ -31,7 +31,7 @@ Using this plugin makes it easy to perform operations that were previously excep
 <!-- /vscode-markdown-toc -->
 ---
 
-##  1. <a name='Install'></a>1. Install
+##  1. <a name='Install'></a>Install
 
 1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases/tag/s2v1)
 
@@ -56,7 +56,7 @@ linux addons/metamod/dlls/asexthook.so
 
 ---
 
-##  2. <a name='Build'></a>2. Build
+##  2. <a name='Build'></a>Build
 
 If you are using systems that are not covered by automatic builds (yum's and aur's) 
 
@@ -66,19 +66,16 @@ or want to add new hooks yourself, you can follow these steps to configure your 
    
 	<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
 
-	1. [CMake](https://cmake.org/install/)
-	2. [Git](https://git-scm.com/download/win) or `winget install --id Git.Git -e --source winget`
-	3. [Visual Studio with vc143 toolset](https://visualstudio.microsoft.com/) And [C++ desktop development](https://learn.microsoft.com/en-us/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development?view=msvc-170)
+	1. [Git](https://git-scm.com/download/win) or `winget install --id Git.Git -e --source winget`
+	2. [Visual Studio with vc143 toolset](https://visualstudio.microsoft.com/) And [C++ desktop development](https://learn.microsoft.com/en-us/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development?view=msvc-170)
 
 	<img src="https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white"/>
 
-	1. `sudo apt-get install make build-essential gcc gcc-multilib g++-multilib -y`
-	2. `suto apt-get install cmake git -y`
+	1. `sudo apt install git make build-essential gcc gcc-multilib g++-multilib -y`
 
 	<img src="https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white"/>
 
-	1. `sudo yum install make gcc gcc-c++ glibc-devel.i686 libstdc++-devel.i686 -y`
-	2. `sudo yum install cmake git -y`
+	1. `sudo yum install git make gcc gcc-c++ glibc-devel.i686 libstdc++-devel.i686 -y`
 
 	<img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
 
@@ -86,17 +83,17 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 2. Clone metamod modified by hzqst
    
-   `git clone https://github.com/hzqst/metamod-fallguys.git metamod && cd metamod`
+   `git clone https://github.com/hzqst/metamod-fallguys.git metamod`
+
+   `cd metamod`
 
 3. Clone this
 
 	`git clone https://github.com/DrAbcOfficial/asexthook.git`
 
-4. Clone submodule required by metamod
+	`cd asexthook`
 
-	`git submodule update --init --recursive`
-
-5. Build!
+4. Build!
 
 	<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
 
@@ -106,13 +103,15 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 	<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
 
-	1. `cd asexthook && make OPT=opt install`
+	1. `make OPT=opt install`
    
 6. Grab
 	
-	Now you can grab your new library in metamod/build/addons/metamod/dlls/asexthook.so
+	Now you can grab your new library (asexthook.dll/asexthook.so) in 
+	
+	`metamod/build/addons/metamod/dlls/`
 
-##  3. <a name='Document'></a>3. Document
+##  3. <a name='Document'></a>Document
 
 ###  3.1. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
 
