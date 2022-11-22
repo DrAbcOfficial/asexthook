@@ -320,6 +320,7 @@ bool SearchAndHook() {
 #ifdef WIN32
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
+	//TODO: Found the sig
 #define RadiusDamage_Signature "_Z12RadiusDamage6VectorP9entvars_sS1_ffii"
 #else
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
@@ -329,7 +330,7 @@ bool SearchAndHook() {
 	// Fill and Hook
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
-	FILL_AND_HOOK(Server, RadiusDamage);
+	//FILL_AND_HOOK(Server, RadiusDamage);
 	return true;
 }
 void UninstallHook() {
