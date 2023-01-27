@@ -54,6 +54,8 @@ using namespace std;
 bool g_HookedFlag = false;
 
 struct{
+	hookitem_t BaseEntitySpawn;
+
 	hookitem_t BaseMonsterTraceAttack;
 	hookitem_t BaseMonsterTakeDamage;
 	hookitem_t BaseMonsterKilled;
@@ -80,6 +82,7 @@ struct{
 } gHookItems;
 vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
+#define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
 
 void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
@@ -217,6 +220,7 @@ int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float
 	return CALL_ORIGIN(gHookItems.PlayerTakeHealth, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
 }
 #undef CALL_ORIGIN
+#undef CALL_ORIGIN_NOARG
 
 void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	if (g_HookedFlag) {
@@ -245,6 +249,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	vtable = AddEntityVTable("monster_bloater");
 	ITEM_HOOK(gHookItems.BaseMonsterTraceAttack, TraceAttack, vtable, BaseMonsterTraceAttack);
 	ITEM_HOOK(gHookItems.BaseMonsterKilled, Killed, vtable, BaseMonsterKilled);
+
 	vtable = AddEntityVTable("monster_ichthyosaur");
 	ITEM_HOOK(gHookItems.BaseMonsterTakeDamage, TakeDamage, vtable, BaseMonsterTakeDamage);
 	vtable = AddEntityVTable("player");
@@ -282,6 +287,17 @@ void ClientCommand(edict_t* pEntity) {
 		return;
 	}
 	SET_META_RESULT(MRES_IGNORED);
+}
+
+int Spawn_Post(edict_t* pent) {
+	if (pent != nullptr) {
+		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
+		if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+		}
+	}
+	SET_META_RESULT(MRES_HANDLED);
+	return 114514;
 }
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit
@@ -346,8 +362,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnAllowLagCompensation
 };
 C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
-	int* interfaceVersion)
-{
+	int* interfaceVersion){
 	if (!pFunctionTable) {
 		UTIL_LogPrintf("GetEntityAPI2 called with null pFunctionTable");
 		return(FALSE);
@@ -359,5 +374,83 @@ C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 		return(FALSE);
 	}
 	memcpy(pFunctionTable, &gFunctionTable, sizeof(DLL_FUNCTIONS));
+	return(TRUE);
+}
+
+static DLL_FUNCTIONS gFunctionTable_Post = {
+	NULL,					// pfnGameInit
+	Spawn_Post,					// pfnSpawn
+	NULL,					// pfnThink
+	NULL,					// pfnUse
+	NULL,				// pfnTouch
+	NULL,				// pfnBlocked
+	NULL,					// pfnKeyValue
+	NULL,					// pfnSave
+	NULL,					// pfnRestore
+	NULL,					// pfnSetAbsBox
+
+	NULL,					// pfnSaveWriteFields
+	NULL,					// pfnSaveReadFields
+
+	NULL,					// pfnSaveGlobalState
+	NULL,					// pfnRestoreGlobalState
+	NULL,					// pfnResetGlobalState
+
+	NULL,					// pfnClientConnect
+	NULL,					// pfnClientDisconnect
+	NULL,					// pfnClientKill
+	NULL,					// pfnClientPutInServer
+	NULL,					// pfnClientCommand
+	NULL,					// pfnClientUserInfoChanged
+	NULL,					// pfnServerActivate
+	NULL,					// pfnServerDeactivate
+
+	NULL,					// pfnPlayerPreThink
+	NULL,					// pfnPlayerPostThink
+
+	NULL,					// pfnStartFrame
+	NULL,					// pfnParmsNewLevel
+	NULL,					// pfnParmsChangeLevel
+
+	NULL,					// pfnGetGameDescription
+	NULL,					// pfnPlayerCustomization
+
+	NULL,					// pfnSpectatorConnect
+	NULL,					// pfnSpectatorDisconnect
+	NULL,					// pfnSpectatorThink
+
+	NULL,					// pfnSys_Error
+
+	NULL,					// pfnPM_Move
+	NULL,					// pfnPM_Init
+	NULL,					// pfnPM_FindTextureType
+
+	NULL,					// pfnSetupVisibility
+	NULL,					// pfnUpdateClientData
+	NULL,					// pfnAddToFullPack
+	NULL,					// pfnCreateBaseline
+	NULL,					// pfnRegisterEncoders
+	NULL,					// pfnGetWeaponData
+	NULL,					// pfnCmdStart
+	NULL,					// pfnCmdEnd
+	NULL,					// pfnConnectionlessPacket
+	NULL,					// pfnGetHullBounds
+	NULL,					// pfnCreateInstancedBaselines
+	NULL,					// pfnInconsistentFile
+	NULL,					// pfnAllowLagCompensation
+};
+C_DLLEXPORT int GetEntityAPI2_Post(DLL_FUNCTIONS* pFunctionTable,
+	int* interfaceVersion) {
+	if(!pFunctionTable) {
+		UTIL_LogPrintf("GetEntityAPI2 called with null pFunctionTable");
+		return(FALSE);
+	}
+	else if (*interfaceVersion != INTERFACE_VERSION) {
+		UTIL_LogPrintf("GetEntityAPI2 version mismatch; requested=%d ours=%d", *interfaceVersion, INTERFACE_VERSION);
+		//! Tell metamod what version we had, so it can figure out who is out of date.
+		*interfaceVersion = INTERFACE_VERSION;
+		return(FALSE);
+	}
+	memcpy(pFunctionTable, &gFunctionTable_Post, sizeof(DLL_FUNCTIONS));
 	return(TRUE);
 }

@@ -62,7 +62,7 @@ static META_FUNCTIONS gMetaFunctionTable = {
 	NULL,			// pfnGetEntityAPI				HL SDK; called before game DLL
 	NULL,			// pfnGetEntityAPI_Post			META; called after game DLL
 	GetEntityAPI2,	// pfnGetEntityAPI2				HL SDK2; called before game DLL
-	NULL,			// pfnGetEntityAPI2_Post		META; called after game DLL
+	GetEntityAPI2_Post,			// pfnGetEntityAPI2_Post		META; called after game DLL
 	NULL,			// pfnGetNewDLLFunctions		HL SDK2; called before game DLL
 	NULL,			// pfnGetNewDLLFunctions_Post	META; called after game DLL
 	GetEngineFunctions,	// pfnGetEngineFunctions	META; called before HL engine
@@ -75,8 +75,8 @@ static META_FUNCTIONS gMetaFunctionTable = {
 plugin_info_t Plugin_info = {
 	META_INTERFACE_VERSION,	// ifvers
 	"AngelScriptHookExt",	// name
-	"Alpha2",	// version
-	"2022",	// date
+	"Alpha3",	// version
+	"2023",	// date
 	"Dr.Abc",	// author
 	"https://github.com/DrAbcOfficial/asexthook",	// url
 	"ASHEXT",	// logtag, all caps please

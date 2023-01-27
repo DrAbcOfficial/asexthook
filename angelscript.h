@@ -23,6 +23,9 @@ typedef struct angelhook_s {
 	void* pPlayerCallMedic = nullptr;
 	void* pPlayerCallGrenade = nullptr;
 
+	void* pEntitySpawn = nullptr;
+	
+	void* pMonsterSpawn = nullptr;
 	void* pMonsterTakeDamage = nullptr;
 	void* pMonsterKilled = nullptr;
 	void* pMonsterTraceAttack = nullptr;
