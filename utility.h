@@ -1,10 +1,6 @@
 #pragma once
 #define GetEntVarsVTable(var)var==nullptr?nullptr:ENT(var)->pvPrivateData
 
-
-// Use For pvp
-#define PLAYER_PVP_PLAYERCLASS 99
-
 #define OFFSET_WIN_ENTVAR			4
 #define OFFSET_LIN_ENTVAR			4 // first entry in the virtual class (vtable is 0)
 

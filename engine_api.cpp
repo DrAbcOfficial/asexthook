@@ -282,31 +282,6 @@ void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eS
 	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 }
 /// <summary>
-/// RadiusDamage
-/// </summary>
-hook_t* g_phook_RadiusDamage = nullptr;
-PRIVATE_FUNCTION_DEFINE(RadiusDamage);
-void NewRadiusDamage(Vector vecSrc, entvars_s* pevInflictor, entvars_s* pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType) {
-#if WIN32
-#define WINDOWS_DUMMY 0,
-#else
-#define WINDOWS_DUMMY
-#endif
-	if (pevAttacker != nullptr) {
-		CBasePlayer* pPlayer = (CBasePlayer*)ENT(pevAttacker)->pvPrivateData;
-		if (pPlayer != nullptr && pevAttacker->playerclass == PLAYER_PVP_PLAYERCLASS && !strcmp(STRING(pevAttacker->classname), "player")) {
-			vtable_base_t* vtable = GetEntityVTable("player");
-			int temp = vtable->GetClassification(pPlayer, WINDOWS_DUMMY 0);
-			vtable->SetClassification(pPlayer, WINDOWS_DUMMY 10);
-			g_call_original_RadiusDamage(vecSrc, pevInflictor, pevAttacker, flDamage, flRadius, iClassIgnore, bitsDamageType);
-			vtable->SetClassification(pPlayer, WINDOWS_DUMMY temp);
-			return;
-		}
-	}
-	g_call_original_RadiusDamage(vecSrc, pevInflictor, pevAttacker, flDamage, flRadius, iClassIgnore, bitsDamageType);
-#undef WINDOWS_DUMMY
-}
-/// <summary>
 /// Fiil
 /// </summary>
 //PRIVATE_FUNCTION_DEFINE(LookupSoundIndex);
@@ -320,17 +295,13 @@ bool SearchAndHook() {
 #ifdef WIN32
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
-	//TODO: Found the sig
-#define RadiusDamage_Signature "_Z12RadiusDamage6VectorP9entvars_sS1_ffii"
 #else
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
-#define RadiusDamage_Signature "_Z12RadiusDamage6VectorP9entvars_sS1_ffii"
 #endif
 	// Fill and Hook
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
-	//FILL_AND_HOOK(Server, RadiusDamage);
 	return true;
 }
 void UninstallHook() {

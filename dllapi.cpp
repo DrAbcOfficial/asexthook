@@ -184,16 +184,6 @@ int SC_SERVER_DECL BreakableTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG en
 }
 
 int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
-	entvars_t* pevVictim = VARS(PrivateToEdict(pThis));
-	bool bPvpFlag = (pevVictim != nullptr && pevAttacker != nullptr &&
-		pevVictim->playerclass == PLAYER_PVP_PLAYERCLASS && pevAttacker->playerclass == PLAYER_PVP_PLAYERCLASS &&
-		!strcmp(STRING(pevAttacker->classname), "player"));
-	int temp = 2;
-	vtable_base_t* vtable = GetEntityVTable("player");
-	if (bPvpFlag) {
-		temp = vtable->GetClassification(pThis, SC_SERVER_PASS_DUMMYARG 0);
-		vtable->SetClassification(pThis, SC_SERVER_PASS_DUMMYARG 10);
-	}
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -203,8 +193,6 @@ int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG e
 	};
 	int result = CALL_ORIGIN(gHookItems.PlayerPostTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	CALL_ANGELSCRIPT(pPlayerPostTakeDamage, &dmg);
-	if (bPvpFlag) 
-		vtable->SetClassification(pThis, SC_SERVER_PASS_DUMMYARG temp);
 	return result;
 }
 int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
