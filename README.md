@@ -117,6 +117,8 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 ##  3. <a name='Document'></a>Document
 
+this Plugin will enable `sv_unlag` to AllowLagCompensation.
+
 ###  3.1. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
 
 ```

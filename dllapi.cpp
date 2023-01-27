@@ -247,7 +247,6 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	vtable = AddEntityVTable("monster_bloater");
 	ITEM_HOOK(gHookItems.BaseMonsterTraceAttack, TraceAttack, vtable, BaseMonsterTraceAttack);
 	ITEM_HOOK(gHookItems.BaseMonsterKilled, Killed, vtable, BaseMonsterKilled);
-
 	vtable = AddEntityVTable("monster_ichthyosaur");
 	ITEM_HOOK(gHookItems.BaseMonsterTakeDamage, TakeDamage, vtable, BaseMonsterTakeDamage);
 	vtable = AddEntityVTable("player");
@@ -298,6 +297,10 @@ void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 		SET_META_RESULT(MRES_SUPERCEDE);
 	else
 		SET_META_RESULT(MRES_HANDLED);
+}
+int AllowLagCompensation() {
+	SET_META_RESULT(MRES_SUPERCEDE);
+	return CVAR_GET_FLOAT("sv_unlag") > 0 ? 1 : 0;
 }
 
 int Spawn_Post(edict_t* pent) {
@@ -374,7 +377,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGetHullBounds
 	NULL,					// pfnCreateInstancedBaselines
 	NULL,					// pfnInconsistentFile
-	NULL,					// pfnAllowLagCompensation
+	AllowLagCompensation,					// pfnAllowLagCompensation
 };
 C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 	int* interfaceVersion){
