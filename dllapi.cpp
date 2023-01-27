@@ -293,7 +293,7 @@ void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 	}
 	int uiFlag = 0;
 	CALL_ANGELSCRIPT(pPlayerUserInfoChanged, pEntity->pvPrivateData, infobuffer, &uiFlag);
-	if (uiFlag == 0)
+	if (uiFlag != 0)
 		SET_META_RESULT(MRES_SUPERCEDE);
 	else
 		SET_META_RESULT(MRES_HANDLED);
