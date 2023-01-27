@@ -287,6 +287,19 @@ void ClientCommand(edict_t* pEntity) {
 	SET_META_RESULT(MRES_IGNORED);
 }
 
+void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
+	if (pEntity == nullptr) {
+		SET_META_RESULT(MRES_IGNORED);
+		return;
+	}
+	int uiFlag = 0;
+	CALL_ANGELSCRIPT(pPlayerUserInfoChanged, pEntity->pvPrivateData, infobuffer, &uiFlag);
+	if (uiFlag == 0)
+		SET_META_RESULT(MRES_SUPERCEDE);
+	else
+		SET_META_RESULT(MRES_HANDLED);
+}
+
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
@@ -295,11 +308,8 @@ int Spawn_Post(edict_t* pent) {
 		//Why u remove MonsterInit() from CZombie::Spawn????
 		//if ((VARS(pent)->flags & FL_MONSTER) > 0) {
 		const char* szClassName = STRING((VARS(pent)->classname));
-		if (strlen(szClassName) <= 8)
-			return 114514;
-		if (strncmp(szClassName, "monster_", 8) == 0) {
+		if ((strlen(szClassName) > 8) && (strncmp(szClassName, "monster_", 8) == 0))
 			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
-		}
 	}
 	SET_META_RESULT(MRES_HANDLED);
 	return 1919810;
@@ -328,7 +338,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnClientKill
 	NULL,					// pfnClientPutInServer
 	ClientCommand,					// pfnClientCommand
-	NULL,					// pfnClientUserInfoChanged
+	ClientUserInfoChanged,					// pfnClientUserInfoChanged
 	ServerActivate,					// pfnServerActivate
 	NULL,					// pfnServerDeactivate
 

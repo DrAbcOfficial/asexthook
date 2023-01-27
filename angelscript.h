@@ -18,6 +18,7 @@ typedef struct healthinfo_s {
 }healthinfo_t;
 
 typedef struct angelhook_s {
+	void* pPlayerUserInfoChanged = nullptr;
 	void* pPlayerPostTakeDamage = nullptr;
 	void* pPlayerTakeHealth = nullptr;
 	void* pPlayerCallMedic = nullptr;

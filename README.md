@@ -29,9 +29,9 @@ Using this plugin makes it easy to perform operations that were previously excep
 		* 3.3.10. [PlayerTakeHealth](#PlayerTakeHealth)
 		* 3.3.11. [PlayerCallMedic](#PlayerCallMedic)
 		* 3.3.12. [PlayerCallGrenade](#PlayerCallGrenade)
-		* 3.3.13. [GrappleGetMonsterType](#GrappleGetMonsterType)
-		* 3.3.14. [SendScoreInfo](#SendScoreInfo)
-
+		* 3.3.13. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
+		* 3.3.14. [GrappleGetMonsterType](#GrappleGetMonsterType)
+		* 3.3.15. [SendScoreInfo](#SendScoreInfo)
 <!-- /vscode-markdown-toc -->
 ---
 
@@ -319,7 +319,23 @@ MapScript | Plugin
 
 ---
 
-####  3.3.13. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
+####  3.3.13. <a name='PlayerUserInfoChanged'></a>PlayerUserInfoChanged
+
+```
+Hooks::Player const uint32 PlayerUserInfoChanged (CBasePlayer@ pClient, string szInfoBuffer, uint&out uiFlag)
+```
+
+Call before player userinfo changed (e.g: name change)
+
+will block original call if uiFlag not 0
+
+StopMode: CALL_ALL
+
+MapScript | Plugin
+
+---
+
+####  3.3.14. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
 
 ```
 Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out flag)
@@ -342,7 +358,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.14. <a name='SendScoreInfo'></a>SendScoreInfo
+####  3.3.15. <a name='SendScoreInfo'></a>SendScoreInfo
 
 ```
 Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag)
