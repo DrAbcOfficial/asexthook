@@ -294,12 +294,15 @@ int Spawn_Post(edict_t* pent) {
 		//Something(Handgrenade) will be tagged FL_MONSTER
 		//Why u remove MonsterInit() from CZombie::Spawn????
 		//if ((VARS(pent)->flags & FL_MONSTER) > 0) {
-		if (strncmp(STRING((VARS(pent)->classname)), "monster_", 8) == 0) {
+		const char* szClassName = STRING((VARS(pent)->classname));
+		if (strlen(szClassName) <= 8)
+			return 114514;
+		if (strncmp(szClassName, "monster_", 8) == 0) {
 			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
 		}
 	}
 	SET_META_RESULT(MRES_HANDLED);
-	return 114514;
+	return 1919810;
 }
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit
