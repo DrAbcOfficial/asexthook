@@ -54,8 +54,6 @@ using namespace std;
 bool g_HookedFlag = false;
 
 struct{
-	hookitem_t BaseEntitySpawn;
-
 	hookitem_t BaseMonsterTraceAttack;
 	hookitem_t BaseMonsterTakeDamage;
 	hookitem_t BaseMonsterKilled;
