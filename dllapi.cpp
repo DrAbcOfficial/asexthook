@@ -49,8 +49,6 @@
 
 #define CALL_ANGELSCRIPT(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 
-using namespace std;
-
 bool g_HookedFlag = false;
 
 struct{
@@ -78,7 +76,7 @@ struct{
 	hookitem_t PlayerPostTakeDamage;
 	hookitem_t PlayerTakeHealth;
 } gHookItems;
-vector<hook_t*> gHooks;
+std::vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
 
