@@ -290,7 +290,11 @@ void ClientCommand(edict_t* pEntity) {
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
-		if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+		//Something(Zomibes Crab etc) will not be tagged FL_MONSTER
+		//Something(Handgrenade) will be tagged FL_MONSTER
+		//Why u remove MonsterInit() from CZombie::Spawn????
+		//if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+		if (strncmp(STRING((VARS(pent)->classname)), "monster_", 8) == 0) {
 			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
 		}
 	}
