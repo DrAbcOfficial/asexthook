@@ -59,9 +59,6 @@
     <ClInclude Include="angelscript.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="asext_api.h">
-      <Filter>header</Filter>
-    </ClInclude>
     <ClInclude Include="signatures.h">
       <Filter>header</Filter>
     </ClInclude>

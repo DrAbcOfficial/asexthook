@@ -55,6 +55,8 @@
 
 mBOOL dlclose_handle_invalid;
 
+IMPORT_ASEXT_API_DEFINE();
+
 // Must provide at least one of these..
 static META_FUNCTIONS gMetaFunctionTable = {
 	NULL,			// pfnGetEntityAPI				HL SDK; called before game DLL
@@ -106,27 +108,6 @@ C_DLLEXPORT int Meta_Query(char* interfaceVersion, plugin_info_t** pPlugInfo, mu
 	return TRUE;
 }
 
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterDocInitCallback);
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterDirInitCallback);
-
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterObjectMethod);
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterObjectType);
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterObjectProperty);
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterFuncDef);
-IMPORT_FUNCTION_DEFINE(ASEXT_RegisterHook);
-
-IMPORT_FUNCTION_DEFINE(ASEXT_CreateDirectory);
-IMPORT_FUNCTION_DEFINE(ASEXT_CStringAssign);
-IMPORT_FUNCTION_DEFINE(ASEXT_CStringdtor);
-IMPORT_FUNCTION_DEFINE(ASEXT_GetServerManager);
-IMPORT_FUNCTION_DEFINE(ASEXT_CreateCASFunction);
-IMPORT_FUNCTION_DEFINE(ASEXT_CASRefCountedBaseClass_InternalRelease);
-
-fnASEXT_CallHook* ASEXT_CallHook = NULL;
-
-fnASEXT_CallCASBaseCallable* ASEXT_CallCASBaseCallable = NULL;
-
-
 C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
 	META_FUNCTIONS* pFunctionTable, meta_globals_t* pMGlobals,
 	gamedll_funcs_t* pGamedllFuncs)
@@ -162,8 +143,7 @@ C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
 		return FALSE;
 	}
 
-	void* asextHandle = NULL;
-
+	void* asextHandle = nullptr;
 #ifdef _WIN32
 	LOAD_PLUGIN(PLID, "addons/metamod/dlls/asext.dll", PLUG_LOADTIME::PT_ANYTIME, &asextHandle);
 #else
@@ -175,23 +155,7 @@ C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
 		return FALSE;
 	}
 
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CallHook);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CallCASBaseCallable);
-
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterDocInitCallback);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterDirInitCallback);
-
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterObjectMethod);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterObjectType);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterObjectProperty);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterFuncDef);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_RegisterHook);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CreateDirectory);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CStringAssign);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CStringdtor);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_GetServerManager);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CreateCASFunction);
-	IMPORT_FUNCTION_DLSYM(asext, ASEXT_CASRefCountedBaseClass_InternalRelease);
+	IMPORT_ASEXT_API(asext);
 
 	RegisterAngelScriptMethods();
 	RegisterAngelScriptHooks();
