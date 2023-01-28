@@ -292,12 +292,9 @@ int AllowLagCompensation() {
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
-		//Something(Zomibes Crab etc) will not be tagged FL_MONSTER
-		//Something(Handgrenade) will be tagged FL_MONSTER
-		//Why u remove MonsterInit() from CZombie::Spawn????
-		//if ((VARS(pent)->flags & FL_MONSTER) > 0) {
-		const char* szClassName = STRING((VARS(pent)->classname));
-		if ((strlen(szClassName) > 8) && (strncmp(szClassName, "monster_", 8) == 0))
+		//if ((VARS(pent)->flags & FL_MONSTER) > 0)
+		const char* szName = STRING((VARS(pent)->classname));
+		if (strncmp(szName, "monster_", 8) == 0)
 			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
 	}
 	SET_META_RESULT(MRES_HANDLED);
