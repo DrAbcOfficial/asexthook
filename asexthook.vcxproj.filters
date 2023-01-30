@@ -40,6 +40,9 @@
     <ClCompile Include="vftable.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="qrcodegen.cpp">
+      <Filter>qrcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="utility.h">
       <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="qrcodegen.hpp">
+      <Filter>qrcode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
