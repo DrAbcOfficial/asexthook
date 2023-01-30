@@ -137,6 +137,7 @@ class HealthInfo{
 |Class|Method|Explian|
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
+|CEngineFuncs|void QRCode(const string& in szBuffer, int ecc, string& out szOut)|Generate QR code string|
 
 ###  3.3. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
