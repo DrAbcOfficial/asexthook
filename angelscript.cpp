@@ -1,5 +1,7 @@
 #include <extdll.h>
 
+#include "qrcodegen.hpp"
+
 #include "angelscript.h"
 #include "asext_api.h"
 #include <meta_api.h>
@@ -13,6 +15,25 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 	return CRC32_FINAL(crc);
 }
 
+void SC_SERVER_DECL CASEngineFuncs_GenerateQRCode(void* pthis, SC_SERVER_DUMMYARG CString* szBuffer, int _ecc, CString* szOut) {
+	qrcodegen::QrCode::Ecc ecc;
+	switch (_ecc) {
+		default:
+		case 0:ecc = qrcodegen::QrCode::Ecc::LOW; break;
+		case 1:ecc = qrcodegen::QrCode::Ecc::MEDIUM; break;
+		case 2:ecc = qrcodegen::QrCode::Ecc::QUARTILE; break;
+		case 3:ecc = qrcodegen::QrCode::Ecc::HIGH; break;
+	}
+	std::string buffer;
+	qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(szBuffer->c_str(), ecc);
+	for (int y = 0; y < qr.getSize(); y++) {
+		for (int x = 0; x < qr.getSize(); x++) {
+			buffer += qr.getModule(x, y) ? '1' : '0';
+		}
+		buffer += '\n';
+	}
+	szOut->assign(buffer.c_str(), buffer.size());
+}
 
 /// <summary>
 /// Regiter
@@ -30,6 +51,9 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
 			(void*)CASEngineFuncs_CRC32, 3);
+		ASEXT_RegisterObjectMethod(pASDoc,
+			"Generate QRCode for a string", "CEngineFuncs", "void QRCode(const string& in szBuffer, int ecc, string& out szOut)",
+			(void*)CASEngineFuncs_GenerateQRCode, 3);
 	});
 }
 
