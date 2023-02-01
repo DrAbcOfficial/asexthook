@@ -21,6 +21,9 @@
  *   Software.
  */
 
+#include <extdll.h>
+#include <meta_api.h>
+
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -30,7 +33,6 @@
 #include <sstream>
 #include <utility>
 #include "qrcodegen.hpp"
-#include <meta_api.h>
 
 using std::int8_t;
 using std::uint8_t;
@@ -240,7 +242,7 @@ int QrCode::getFormatBits(Ecc ecl) {
 		case Ecc::MEDIUM  :  return 0;
 		case Ecc::QUARTILE:  return 3;
 		case Ecc::HIGH    :  return 2;
-		default:  UTIL_LogPrintf("Unreachable");
+		default:  UTIL_LogPrintf("Unreachable Ecl Level"); return 1;
 	}
 }
 
@@ -300,7 +302,7 @@ QrCode QrCode::encodeSegments(const vector<QrSegment> &segs, Ecc ecl,
 	// Add terminator and pad up to a byte if applicable
 	size_t dataCapacityBits = static_cast<size_t>(getNumDataCodewords(version, ecl)) * 8;
 	assert(bb.size() <= dataCapacityBits);
-	bb.appendBits(0, std::min(4, static_cast<int>(dataCapacityBits - bb.size())));
+	bb.appendBits(0, min(4, static_cast<int>(dataCapacityBits - bb.size())));
 	bb.appendBits(0, (8 - static_cast<int>(bb.size() % 8)) % 8);
 	assert(bb.size() % 8 == 0);
 	
@@ -466,7 +468,7 @@ void QrCode::drawVersion() {
 void QrCode::drawFinderPattern(int x, int y) {
 	for (int dy = -4; dy <= 4; dy++) {
 		for (int dx = -4; dx <= 4; dx++) {
-			int dist = std::max(std::abs(dx), std::abs(dy));  // Chebyshev/infinity norm
+			int dist = max(std::abs(dx), std::abs(dy));  // Chebyshev/infinity norm
 			int xx = x + dx, yy = y + dy;
 			if (0 <= xx && xx < size && 0 <= yy && yy < size)
 				setFunctionModule(xx, yy, dist != 2 && dist != 4);
@@ -478,7 +480,7 @@ void QrCode::drawFinderPattern(int x, int y) {
 void QrCode::drawAlignmentPattern(int x, int y) {
 	for (int dy = -2; dy <= 2; dy++) {
 		for (int dx = -2; dx <= 2; dx++)
-			setFunctionModule(x + dx, y + dy, std::max(std::abs(dx), std::abs(dy)) != 1);
+			setFunctionModule(x + dx, y + dy, max(std::abs(dx), std::abs(dy)) != 1);
 	}
 }
 
