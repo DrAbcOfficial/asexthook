@@ -67,7 +67,7 @@ void TraceLine(const float* v1, const float* v2, int fNoMonsters, edict_t* pentT
 		if (strcmp(szClassName, "player") == 0) {
 			int ping, loss;
 			g_engfuncs.pfnGetPlayerStats(pentToSkip, &ping, &loss);
-			float flRecallTime = g_engfuncs.pfnTime() - ((float)ping / 500.0f);
+			float flRecallTime = g_engfuncs.pfnTime() - ((float)ping / 1000.0f);
 			std::vector<originstate_t*>* temp = new std::vector<originstate_t*>();
 			for (int i = 1; i < gpGlobals->maxEntities; i++) {
 				edict_t* ent = INDEXENT(i);
