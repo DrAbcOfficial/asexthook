@@ -43,7 +43,7 @@
     <ClCompile Include="qrcodegen.cpp">
       <Filter>qrcode</Filter>
     </ClCompile>
-    <ClCompile Include="shar_obj.cpp">
+    <ClCompile Include="share_obj.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

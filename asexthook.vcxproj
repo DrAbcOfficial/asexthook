@@ -97,7 +97,7 @@
     <ClCompile Include="meta_api.cpp" />
     <ClCompile Include="qrcodegen.cpp" />
     <ClCompile Include="sdk_util.cpp" />
-    <ClCompile Include="shar_obj.cpp" />
+    <ClCompile Include="share_obj.cpp" />
     <ClCompile Include="vftable.cpp" />
   </ItemGroup>
   <ItemGroup>
