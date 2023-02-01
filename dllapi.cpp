@@ -292,10 +292,11 @@ int AllowLagCompensation() {
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
-		//if ((VARS(pent)->flags & FL_MONSTER) > 0)
-		const char* szName = STRING((VARS(pent)->classname));
-		if (strncmp(szName, "monster_", 8) == 0)
-			CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+		if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+			const char* szName = STRING((VARS(pent)->classname));
+			if (!strncmp(szName, "monster_", 8))
+				CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+		}
 	}
 	SET_META_RESULT(MRES_HANDLED);
 	return 1919810;
@@ -308,10 +309,10 @@ void EndFrame() {
 		if (ent == nullptr)
 			continue;
 		entvars_t* vars = VARS(ent);
-		if ((vars->flags & FL_MONSTER) != 0)
+		if ((vars->flags & FL_MONSTER) > 0)
 			continue;
 		const char* className = STRING(vars->classname);
-		if (strncmp(className, "monster_", 8) == 0) {
+		if (!strncmp(className, "monster_", 8)) {
 			CEntityObject* obj = GetGameObject(i);
 			if (obj != nullptr) {
 				//entity freed?
