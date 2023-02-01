@@ -10,29 +10,38 @@
 
 Using this plugin makes it easy to perform operations that were previously exceptionally difficult, such as hooking whether a monster is dead or not.
 
+---
+
 <!-- vscode-markdown-toc -->
 * 1. [Install](#Install)
 * 2. [Build](#Build)
 * 3. [Document](#Document)
-	* 3.1. [Current Expansion Objects](#CurrentExpansionObjects)
-	* 3.2. [Current Expansion Methods](#CurrentExpansionMethods)
-	* 3.3. [Current Expansion Hooks](#CurrentExpansionHooks)
-		* 3.3.1. [EntitySpawn](#EntitySpawn)
-		* 3.3.2. [MonsterSpawn](#MonsterSpawn)
-		* 3.3.3. [MonsterTakeDamage](#MonsterTakeDamage)
-		* 3.3.4. [MonsterKilled](#MonsterKilled)
-		* 3.3.5. [MonsterTraceAttack](#MonsterTraceAttack)
-		* 3.3.6. [BreakableKilled](#BreakableKilled)
-		* 3.3.7. [BreakableTakeDamage](#BreakableTakeDamage)
-		* 3.3.8. [BreakableTraceAttack](#BreakableTraceAttack)
-		* 3.3.9. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
-		* 3.3.10. [PlayerTakeHealth](#PlayerTakeHealth)
-		* 3.3.11. [PlayerCallMedic](#PlayerCallMedic)
-		* 3.3.12. [PlayerCallGrenade](#PlayerCallGrenade)
-		* 3.3.13. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
-		* 3.3.14. [GrappleGetMonsterType](#GrappleGetMonsterType)
-		* 3.3.15. [SendScoreInfo](#SendScoreInfo)
+	* 3.1. [Current Expansion Feature](#CurrentExpansionFeature)
+	* 3.2. [Current Expansion Objects](#CurrentExpansionObjects)
+	* 3.3. [Current Expansion Methods](#CurrentExpansionMethods)
+	* 3.4. [Current Expansion Hooks](#CurrentExpansionHooks)
+		* 3.4.1. [EntitySpawn](#EntitySpawn)
+		* 3.4.2. [MonsterSpawn](#MonsterSpawn)
+		* 3.4.3. [MonsterTakeDamage](#MonsterTakeDamage)
+		* 3.4.4. [MonsterKilled](#MonsterKilled)
+		* 3.4.5. [MonsterTraceAttack](#MonsterTraceAttack)
+		* 3.4.6. [BreakableKilled](#BreakableKilled)
+		* 3.4.7. [BreakableTakeDamage](#BreakableTakeDamage)
+		* 3.4.8. [BreakableTraceAttack](#BreakableTraceAttack)
+		* 3.4.9. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
+		* 3.4.10. [PlayerTakeHealth](#PlayerTakeHealth)
+		* 3.4.11. [PlayerCallMedic](#PlayerCallMedic)
+		* 3.4.12. [PlayerCallGrenade](#PlayerCallGrenade)
+		* 3.4.13. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
+		* 3.4.14. [GrappleGetMonsterType](#GrappleGetMonsterType)
+		* 3.4.15. [SendScoreInfo](#SendScoreInfo)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
+
 ---
 
 ##  1. <a name='Install'></a>Install
@@ -117,9 +126,11 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 ##  3. <a name='Document'></a>Document
 
-this Plugin will enable `sv_unlag` to AllowLagCompensation.
+###  3.1. <a name='CurrentExpansionFeature'></a>Current Expansion Feature
 
-###  3.1. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
+this Plugin will enable `sv_unlag` to AllowLagCompensation, In this case, the plugin will add a Ping calculation to the UTIL_TraceLine method by retracing the position of the monster and the player.
+
+###  3.2. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
 
 ```
 class HealthInfo{
@@ -132,18 +143,18 @@ class HealthInfo{
 
 ---
 
-###  3.2. <a name='CurrentExpansionMethods'></a>Current Expansion Methods
+###  3.3. <a name='CurrentExpansionMethods'></a>Current Expansion Methods
 
 |Class|Method|Explian|
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
 |CEngineFuncs|void QRCode(const string& in szBuffer, int ecc, string& out szOut)|Generate QR code string|
 
-###  3.3. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
+###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
 ---
 
-####  3.3.1. <a name='EntitySpawn'></a>EntitySpawn
+####  3.4.1. <a name='EntitySpawn'></a>EntitySpawn
 
 ```
 Hooks::Entity const uint32 EntitySpawn (CBaseEntity@ pEntity)
@@ -157,7 +168,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.2. <a name='MonsterSpawn'></a>MonsterSpawn
+####  3.4.2. <a name='MonsterSpawn'></a>MonsterSpawn
 
 ```
 Hooks::Monster const uint32 MonsterSpawn (CBaseMonster@ pMonster)
@@ -172,7 +183,7 @@ MapScript | Plugin
 ---
 
 
-####  3.3.3. <a name='MonsterTakeDamage'></a>MonsterTakeDamage
+####  3.4.3. <a name='MonsterTakeDamage'></a>MonsterTakeDamage
 
 ```
 Hooks::Monster const uint32 MonsterTakeDamage (DamageInfo@ info)
@@ -188,7 +199,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.4. <a name='MonsterKilled'></a>MonsterKilled
+####  3.4.4. <a name='MonsterKilled'></a>MonsterKilled
 
 ```
 Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)
@@ -204,7 +215,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.5. <a name='MonsterTraceAttack'></a>MonsterTraceAttack
+####  3.4.5. <a name='MonsterTraceAttack'></a>MonsterTraceAttack
 
 ```
 Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
@@ -221,7 +232,7 @@ MapScript | Plugin
 ---
 
 
-####  3.3.6. <a name='BreakableKilled'></a>BreakableKilled
+####  3.4.6. <a name='BreakableKilled'></a>BreakableKilled
 
 ```
 Hooks::Entity const uint32 BreakableKilled (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib)
@@ -235,7 +246,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.7. <a name='BreakableTakeDamage'></a>BreakableTakeDamage
+####  3.4.7. <a name='BreakableTakeDamage'></a>BreakableTakeDamage
 
 ```
 Hooks::Entity const uint32 BreakableTakeDamage (DamageInfo@ info)
@@ -249,7 +260,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.8. <a name='BreakableTraceAttack'></a>BreakableTraceAttack
+####  3.4.8. <a name='BreakableTraceAttack'></a>BreakableTraceAttack
 
 ```
 Hooks::Monster const uint32 MonsterTraceAttack (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
@@ -265,7 +276,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.9. <a name='PlayerPostTakeDamage'></a>PlayerPostTakeDamage
+####  3.4.9. <a name='PlayerPostTakeDamage'></a>PlayerPostTakeDamage
 
 ```
 Hooks::Player const uint32 PlayerPostTakeDamage (DamageInfo@ info)
@@ -279,7 +290,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.10. <a name='PlayerTakeHealth'></a>PlayerTakeHealth
+####  3.4.10. <a name='PlayerTakeHealth'></a>PlayerTakeHealth
 
 ```
 Hooks::Player const uint32 PlayerTakeHealth (HealthInfo@ info)
@@ -293,7 +304,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.11. <a name='PlayerCallMedic'></a>PlayerCallMedic
+####  3.4.11. <a name='PlayerCallMedic'></a>PlayerCallMedic
 
 ```
 Hooks::Player const uint32 PlayerCallMedic (CBasePlayer@ pPlayer)
@@ -308,7 +319,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.12. <a name='PlayerCallGrenade'></a>PlayerCallGrenade
+####  3.4.12. <a name='PlayerCallGrenade'></a>PlayerCallGrenade
 
 ```
 Hooks::Player const uint32 PlayerCallGrenade (CBasePlayer@ pPlayer)
@@ -322,7 +333,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.13. <a name='PlayerUserInfoChanged'></a>PlayerUserInfoChanged
+####  3.4.13. <a name='PlayerUserInfoChanged'></a>PlayerUserInfoChanged
 
 ```
 Hooks::Player const uint32 PlayerUserInfoChanged (CBasePlayer@ pClient, string szInfoBuffer, uint&out uiFlag)
@@ -338,7 +349,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.14. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
+####  3.4.14. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
 
 ```
 Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out flag)
@@ -361,7 +372,7 @@ MapScript | Plugin
 
 ---
 
-####  3.3.15. <a name='SendScoreInfo'></a>SendScoreInfo
+####  3.4.15. <a name='SendScoreInfo'></a>SendScoreInfo
 
 ```
 Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag)
