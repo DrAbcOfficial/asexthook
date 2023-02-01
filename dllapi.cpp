@@ -368,6 +368,9 @@ void CmdStart(const edict_t* player, const struct usercmd_s* cmd, unsigned int r
 				continue;
 			if (ent->free || ent == player)
 				continue;
+			//dead
+			if (ent->v.deadflag > 0)
+				continue;
 			CEntityObject* obj = GetGameObject(i);
 			if (obj != nullptr && obj->aryLagInfo.size() > 0) {
 				entvars_t* vars = VARS(ent);
@@ -398,6 +401,8 @@ void CmdEnd(const edict_t* player) {
 			if (ent == nullptr)
 				continue;
 			if (ent->free || ent == player)
+				continue;
+			if (ent->v.deadflag > 0)
 				continue;
 			CEntityObject* obj = GetGameObject(i);
 			if (obj != nullptr) 
@@ -463,8 +468,8 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnCreateBaseline
 	NULL,					// pfnRegisterEncoders
 	NULL,					// pfnGetWeaponData
-	NULL,					// pfnCmdStart
-	NULL,					// pfnCmdEnd
+	CmdStart,					// pfnCmdStart
+	CmdEnd,					// pfnCmdEnd
 	NULL,					// pfnConnectionlessPacket
 	NULL,					// pfnGetHullBounds
 	NULL,					// pfnCreateInstancedBaselines
