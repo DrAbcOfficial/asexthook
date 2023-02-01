@@ -44,86 +44,7 @@
 #include "utility.h"
 #include "share_obj.h"
 #include "vftable.h"
-
-typedef struct originstate_s {
-	int index;
-	entitylaginfo_t* item;
-}originstate_t;
-
-void SetEntityLagState(edict_t* ent, entitylaginfo_t* lag) {
-	SET_ORIGIN(ent, lag->Origin);
-	entvars_t* vars = VARS(ent);
-	vars->angles = lag->Angles;
-	vars->animtime = lag->AnimTime;
-	vars->frame = lag->Frame;
-	vars->framerate = lag->FrameRate;
-	vars->gaitsequence = lag->GaitSequence;
-	vars->sequence = lag->Sequence;
-}
-
-void TraceLine(const float* v1, const float* v2, int fNoMonsters, edict_t* pentToSkip, TraceResult* ptr) {
-	if (pentToSkip != nullptr && CVAR_GET_FLOAT("sv_unlag") > 0) {
-		const char* szClassName = STRING(VARS(pentToSkip)->classname);
-		if (strcmp(szClassName, "player") == 0) {
-			int ping, loss;
-			g_engfuncs.pfnGetPlayerStats(pentToSkip, &ping, &loss);
-			float flRecallTime = g_engfuncs.pfnTime() - ((float)ping / 1000.0f);
-			std::vector<originstate_t*>* temp = new std::vector<originstate_t*>();
-			for (int i = 1; i < gpGlobals->maxEntities; i++) {
-				edict_t* ent = INDEXENT(i);
-				if (ent == nullptr)
-					continue;
-				if (ent == pentToSkip)
-					continue;
-				CEntityObject* obj = GetGameObject(i);
-				if (obj != nullptr && obj->aryLagInfo.size() > 0) {
-					entvars_t* vars = VARS(ent);
-					entitylaginfo_t* nowState = new entitylaginfo_t();
-					nowState->Angles = vars->angles;
-					nowState->AnimTime = vars->animtime;
-					nowState->Frame = vars->frame;
-					nowState->FrameRate = vars->framerate;
-					nowState->GaitSequence = vars->gaitsequence;
-					nowState->Origin = vars->origin;
-					nowState->Sequence = vars->sequence;
-					obj->pLastInfo = nowState;
-					for (int index = obj->aryLagInfoRecordTime.size()-1; index >= 0 ; index--) {
-						if (obj->aryLagInfoRecordTime[index] <= flRecallTime) {
-							SetEntityLagState(ent, obj->aryLagInfo[index]);
-							break;
-						}
-					}
-				}
-			}
-			SET_META_RESULT(MRES_HANDLED);
-			return;
-		}
-	}
-	SET_META_RESULT(MRES_IGNORED);
-}
-void TraceLine_Post(const float* v1, const float* v2, int fNoMonsters, edict_t* pentToSkip, TraceResult* ptr) {
-	if (pentToSkip != nullptr && CVAR_GET_FLOAT("sv_unlag") > 0) {
-		const char* szClassName = STRING(VARS(pentToSkip)->classname);
-		if (strcmp(szClassName, "player") == 0) {
-			for (int i = 1; i < gpGlobals->maxEntities; i++) {
-				edict_t* ent = INDEXENT(i);
-				if (ent == nullptr)
-					continue;
-				if (ent == pentToSkip)
-					continue;
-				CEntityObject* obj = GetGameObject(i);
-				if (obj != nullptr && obj->pLastInfo != nullptr) {
-					SetEntityLagState(ent, obj->pLastInfo);
-					delete obj->pLastInfo;
-					obj->pLastInfo = nullptr;
-				}
-			}
-			SET_META_RESULT(MRES_HANDLED);
-			return;
-		}
-	}
-	SET_META_RESULT(MRES_IGNORED);
-}
+#include "dlldef.h"
 
 enginefuncs_t meta_engfuncs = 
 {
@@ -167,218 +88,7 @@ enginefuncs_t meta_engfuncs =
 	NULL,						// pfnEmitSound()
 	NULL,						// pfnEmitAmbientSound()
 
-	TraceLine,						// pfnTraceLine()
-	NULL,						// pfnTraceToss()
-	NULL,						// pfnTraceMonsterHull()
-	NULL,						// pfnTraceHull()
-	NULL,						// pfnTraceModel()
-	NULL,						// pfnTraceTexture()
-	NULL,						// pfnTraceSphere()
-	NULL,						// pfnGetAimVector()
-
-	NULL,						// pfnServerCommand()
-	NULL,						// pfnServerExecute()
-	NULL,						// pfnClientCommand()
-
-	NULL,						// pfnParticleEffect()
-	NULL,						// pfnLightStyle()
-	NULL,						// pfnDecalIndex()
-	NULL,						// pfnPointContents()
-
-	NULL,						// pfnMessageBegin()
-	NULL,						// pfnMessageEnd()
-
-	NULL,						// pfnWriteByte()
-	NULL,						// pfnWriteChar()
-	NULL,						// pfnWriteShort()
-	NULL,						// pfnWriteLong()
-	NULL,						// pfnWriteAngle()
-	NULL,						// pfnWriteCoord()
-	NULL,						// pfnWriteString()
-	NULL,						// pfnWriteEntity()
-
-	NULL,						// pfnCVarRegister()
-	NULL,						// pfnCVarGetFloat()
-	NULL,						// pfnCVarGetString()
-	NULL,						// pfnCVarSetFloat()
-	NULL,						// pfnCVarSetString()
-
-	NULL,						// pfnAlertMessage()
-	NULL,						// pfnEngineFprintf()
-
-	NULL,						// pfnPvAllocEntPrivateData()
-	NULL,						// pfnPvEntPrivateData()
-	NULL,						// pfnFreeEntPrivateData()
-
-	NULL,						// pfnSzFromIndex()
-	NULL,						// pfnAllocString()
-
-	NULL, 						// pfnGetVarsOfEnt()
-	NULL,						// pfnPEntityOfEntOffset()
-	NULL,						// pfnEntOffsetOfPEntity()
-	NULL,						// pfnIndexOfEdict()
-	NULL,						// pfnPEntityOfEntIndex()
-	NULL,						// pfnFindEntityByVars()
-	NULL,						// pfnGetModelPtr()
-
-	NULL,						// pfnRegUserMsg()
-
-	NULL,						// pfnAnimationAutomove()
-	NULL,						// pfnGetBonePosition()
-
-	NULL,						// pfnFunctionFromName()
-	NULL,						// pfnNameForFunction()
-
-	NULL,						// pfnClientPrintf()
-	NULL,						// pfnServerPrint()
-
-	NULL,						// pfnCmd_Args()
-	NULL,						// pfnCmd_Argv()
-	NULL,						// pfnCmd_Argc()
-
-	NULL,						// pfnGetAttachment()
-
-	NULL,						// pfnCRC32_Init()
-	NULL,						// pfnCRC32_ProcessBuffer()
-	NULL,						// pfnCRC32_ProcessByte()
-	NULL,						// pfnCRC32_Final()
-
-	NULL,						// pfnRandomLong()
-	NULL,						// pfnRandomFloat()
-
-	NULL,						// pfnSetView()
-	NULL,						// pfnTime()
-	NULL,						// pfnCrosshairAngle()
-
-	NULL,						// pfnLoadFileForMe()
-	NULL,						// pfnFreeFile()
-
-	NULL,						// pfnEndSection()
-	NULL,						// pfnCompareFileTime()
-	NULL,						// pfnGetGameDir()
-	NULL,						// pfnCvar_RegisterVariable()
-	NULL,						// pfnFadeClientVolume()
-	NULL,						// pfnSetClientMaxspeed()
-	NULL,						// pfnCreateFakeClient()
-	NULL,						// pfnRunPlayerMove()
-	NULL,						// pfnNumberOfEntities()
-
-	NULL,						// pfnGetInfoKeyBuffer()
-	NULL,						// pfnInfoKeyValue()
-	NULL,						// pfnSetKeyValue()
-	NULL,						// pfnSetClientKeyValue()
-
-	NULL,						// pfnIsMapValid()
-	NULL,						// pfnStaticDecal()
-	NULL,						// pfnPrecacheGeneric()
-	NULL, 						// pfnGetPlayerUserId()
-	NULL,						// pfnBuildSoundMsg()
-	NULL,						// pfnIsDedicatedServer()
-	NULL,						// pfnCVarGetPointer()
-	NULL,						// pfnGetPlayerWONId()
-
-	NULL,						// pfnInfo_RemoveKey()
-	NULL,						// pfnGetPhysicsKeyValue()
-	NULL,						// pfnSetPhysicsKeyValue()
-	NULL,						// pfnGetPhysicsInfoString()
-	NULL,						// pfnPrecacheEvent()
-	NULL,						// pfnPlaybackEvent()
-
-	NULL,						// pfnSetFatPVS()
-	NULL,						// pfnSetFatPAS()
-
-	NULL,						// pfnCheckVisibility()
-
-	NULL,						// pfnDeltaSetField()
-	NULL,						// pfnDeltaUnsetField()
-	NULL,						// pfnDeltaAddEncoder()
-	NULL,						// pfnGetCurrentPlayer()
-	NULL,						// pfnCanSkipPlayer()
-	NULL,						// pfnDeltaFindField()
-	NULL,						// pfnDeltaSetFieldByIndex()
-	NULL,						// pfnDeltaUnsetFieldByIndex()
-
-	NULL,						// pfnSetGroupMask()
-
-	NULL,						// pfnCreateInstancedBaseline()
-	NULL,						// pfnCvar_DirectSet()
-
-	NULL,						// pfnForceUnmodified()
-
-	NULL,						// pfnGetPlayerStats()
-
-	NULL,						// pfnAddServerCommand()
-
-	// Added in SDK 2.2:
-	NULL,						// pfnVoice_GetClientListening()
-	NULL,						// pfnVoice_SetClientListening()
-
-	// Added for HL 1109 (no SDK update):
-	NULL,						// pfnGetPlayerAuthId()
-
-	// Added 2003/11/10 (no SDK update):
-	NULL,						// pfnSequenceGet()
-	NULL,						// pfnSequencePickSentence()
-	NULL,						// pfnGetFileSize()
-	NULL,						// pfnGetApproxWavePlayLen()
-	NULL,						// pfnIsCareerMatch()
-	NULL,						// pfnGetLocalizedStringLength()
-	NULL,						// pfnRegisterTutorMessageShown()
-	NULL,						// pfnGetTimesTutorMessageShown()
-	NULL,						// pfnProcessTutorMessageDecayBuffer()
-	NULL,						// pfnConstructTutorMessageDecayBuffer()
-	NULL,						// pfnResetTutorMessageDecayData()
-
-	// Added Added 2005-08-11 (no SDK update)
-	NULL,						// pfnQueryClientCvarValue()
-	// Added Added 2005-11-22 (no SDK update)
-	NULL,						// pfnQueryClientCvarValue2()
-	// Added 2009-06-17 (no SDK update)
-	NULL,						// pfnEngCheckParm()
-};
-enginefuncs_t meta_engfuncsPost =
-{
-	NULL,						// pfnPrecacheModel()
-	NULL,						// pfnPrecacheSound()
-	NULL,						// pfnSetModel()
-	NULL,						// pfnModelIndex()
-	NULL,						// pfnModelFrames()
-
-	NULL,						// pfnSetSize()
-	NULL,						// pfnChangeLevel()
-	NULL,						// pfnGetSpawnParms()
-	NULL,						// pfnSaveSpawnParms()
-
-	NULL,						// pfnVecToYaw()
-	NULL,						// pfnVecToAngles()
-	NULL,						// pfnMoveToOrigin()
-	NULL,						// pfnChangeYaw()
-	NULL,						// pfnChangePitch()
-
-	NULL,						// pfnFindEntityByString()
-	NULL,						// pfnGetEntityIllum()
-	NULL,						// pfnFindEntityInSphere()
-	NULL,						// pfnFindClientInPVS()
-	NULL,						// pfnEntitiesInPVS()
-
-	NULL,						// pfnMakeVectors()
-	NULL,						// pfnAngleVectors()
-
-	NULL,						// pfnCreateEntity()
-	NULL,						// pfnRemoveEntity()
-	NULL,						// pfnCreateNamedEntity()
-
-	NULL,						// pfnMakeStatic()
-	NULL,						// pfnEntIsOnFloor()
-	NULL,						// pfnDropToFloor()
-
-	NULL,						// pfnWalkMove()
-	NULL,						// pfnSetOrigin()
-
-	NULL,						// pfnEmitSound()
-	NULL,						// pfnEmitAmbientSound()
-
-	TraceLine_Post,						// pfnTraceLine()
+	NULL,						// pfnTraceLine()
 	NULL,						// pfnTraceToss()
 	NULL,						// pfnTraceMonsterHull()
 	NULL,						// pfnTraceHull()
@@ -573,10 +283,13 @@ void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eS
 		return;
 	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 }
-/// <summary>
-/// Fiil
-/// </summary>
-//PRIVATE_FUNCTION_DEFINE(LookupSoundIndex);
+
+hook_t* g_phook_SV_Physics = nullptr;
+PRIVATE_FUNCTION_DEFINE(SV_Physics);
+void NewSV_Physics(){
+	g_call_original_SV_Physics();
+	EndFrame();
+}
 
 bool SearchAndHook() {
 	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
@@ -587,13 +300,17 @@ bool SearchAndHook() {
 #ifdef WIN32
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
+#define SV_Physics_Signature "\xDD\x05\x2A\x2A\x2A\x2A\x83\xEC\x14\xD9\x1D\x2A\x2A\x2A\x2A\x55\xFF\x15"
 #else
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
+#define SV_Physics_Signature "_Z10SV_Physicsv"
 #endif
 	// Fill and Hook
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
+	// Fill and Engine Hook
+	FILL_AND_HOOK(Engine, SV_Physics);
 	return true;
 }
 void UninstallHook() {
@@ -616,22 +333,5 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	}
 	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
 	
-	return SearchAndHook();
-}
-C_DLLEXPORT int GetEngineFunctions_Post(enginefuncs_t* pengfuncsFromEngine,
-	int* interfaceVersion)
-{
-	if (!pengfuncsFromEngine) {
-		UTIL_LogPrintf("GetEngineFunctions called with null pengfuncsFromEngine");
-		return false;
-	}
-	else if (*interfaceVersion != ENGINE_INTERFACE_VERSION) {
-		UTIL_LogPrintf("GetEngineFunctions version mismatch; requested=%d ours=%d", *interfaceVersion, ENGINE_INTERFACE_VERSION);
-		// Tell metamod what version we had, so it can figure out who is out of date.
-		*interfaceVersion = ENGINE_INTERFACE_VERSION;
-		return false;
-	}
-	memcpy(pengfuncsFromEngine, &meta_engfuncsPost, sizeof(enginefuncs_t));
-
 	return SearchAndHook();
 }

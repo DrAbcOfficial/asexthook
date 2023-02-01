@@ -15,11 +15,7 @@ PRIVATE_FUNCTION_EXTERN(GrappleGetMonsterType);
 typedef void(SC_SERVER_DECL *fnSendScoreInfo)(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName);
 void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName);
 PRIVATE_FUNCTION_EXTERN(SendScoreInfo);
-// RadiusDamage
-typedef void(SC_SERVER_DECL* fnRadiusDamage)(Vector vecSrc, entvars_s* pevInflictor, entvars_s* pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType);
-void NewRadiusDamage(Vector vecSrc, entvars_s* pevInflictor, entvars_s* pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType);
-PRIVATE_FUNCTION_EXTERN(RadiusDamage);
-// LookupSoundIndex
-//typedef int(SC_SERVER_DECL* fnLookupSoundIndex)(void* pThis, SC_SERVER_DUMMYARG char* szSample);
-//PRIVATE_FUNCTION_EXTERN(LookupSoundIndex);
-
+// SV_Physics
+typedef void(*fnSV_Physics)();
+void NewSV_Physics();
+PRIVATE_FUNCTION_EXTERN(SV_Physics);

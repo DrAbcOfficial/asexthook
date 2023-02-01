@@ -10,7 +10,7 @@ typedef struct entitylaginfo_s {
 }entitylaginfo_t;
 class CEntityObject {
 public:
-	entitylaginfo_t* pLastInfo;
+	entitylaginfo_t pLastInfo;
 	std::vector <entitylaginfo_t*> aryLagInfo;
 	std::vector <float> aryLagInfoRecordTime;
 	inline void Clean() {

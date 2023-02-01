@@ -8,3 +8,4 @@ typedef struct hookitem_s {
 	vtable_base_t* pVtable;
 }hookitem_t;
 void VtableUnhook();
+void EndFrame();

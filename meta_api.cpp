@@ -66,7 +66,7 @@ static META_FUNCTIONS gMetaFunctionTable = {
 	NULL,			// pfnGetNewDLLFunctions		HL SDK2; called before game DLL
 	NULL,			// pfnGetNewDLLFunctions_Post	META; called after game DLL
 	GetEngineFunctions,	// pfnGetEngineFunctions	META; called before HL engine
-	GetEngineFunctions_Post,			// pfnGetEngineFunctions_Post	META; called after HL engine
+	NULL,			// pfnGetEngineFunctions_Post	META; called after HL engine
 	NULL,			// pfnGetStudioBlendingInterface 2022/07/02 Added by hzqst
 	NULL,			// pfnGetStudioBlendingInterface_Post 2022/07/02 Added by hzqst
 };
@@ -75,7 +75,7 @@ static META_FUNCTIONS gMetaFunctionTable = {
 plugin_info_t Plugin_info = {
 	META_INTERFACE_VERSION,	// ifvers
 	"AngelScriptHookExt",	// name
-	"Alpha4",	// version
+	"Alpha5",	// version
 	"2023",	// date
 	"Dr.Abc",	// author
 	"https://github.com/DrAbcOfficial/asexthook",	// url
