@@ -24,6 +24,7 @@
 #include <extdll.h>
 #include <meta_api.h>
 
+#include <string>
 #include <cassert>
 #include "qrcodegen.hpp"
 
@@ -34,6 +35,9 @@ using std::vector;
 
 
 namespace qrcodegen {
+
+#define max(a,b)            (((a) > (b)) ? (a) : (b))
+#define min(a,b)            (((a) < (b)) ? (a) : (b))
 
 /*---- Class QrSegment ----*/
 
