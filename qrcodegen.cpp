@@ -235,11 +235,11 @@ const char *QrSegment::ALPHANUMERIC_CHARSET = "0123456789ABCDEFGHIJKLMNOPQRSTUVW
 
 int QrCode::getFormatBits(Ecc ecl) {
 	switch (ecl) {
+		default:
 		case Ecc::LOW     :  return 1;
 		case Ecc::MEDIUM  :  return 0;
 		case Ecc::QUARTILE:  return 3;
 		case Ecc::HIGH    :  return 2;
-		default:  throw std::logic_error("Unreachable");
 	}
 }
 
