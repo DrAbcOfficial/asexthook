@@ -44,6 +44,7 @@
 #include "angelscript.h"
 #include "vftable.h"
 #include "utility.h"
+#include "share_obj.h"
 
 #include "dlldef.h"
 
@@ -241,6 +242,8 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 #undef ITEM_HOOK
 
 	g_HookedFlag = true;
+	ClearGameObject();
+	
 	SET_META_RESULT(MRES_HANDLED);
 }
 void VtableUnhook() {
@@ -252,7 +255,6 @@ void VtableUnhook() {
 	}
 	gHooks.clear();
 }
-
 void ClientCommand(edict_t* pEntity) {
 	if (!pEntity->pvPrivateData) {
 		SET_META_RESULT(MRES_IGNORED);
@@ -271,7 +273,6 @@ void ClientCommand(edict_t* pEntity) {
 	}
 	SET_META_RESULT(MRES_IGNORED);
 }
-
 void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 	if (pEntity == nullptr) {
 		SET_META_RESULT(MRES_IGNORED);
@@ -288,7 +289,6 @@ int AllowLagCompensation() {
 	SET_META_RESULT(MRES_SUPERCEDE);
 	return CVAR_GET_FLOAT("sv_unlag") > 0 ? 1 : 0;
 }
-
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
@@ -299,6 +299,50 @@ int Spawn_Post(edict_t* pent) {
 	}
 	SET_META_RESULT(MRES_HANDLED);
 	return 1919810;
+}
+
+void StartFrame() {
+//¥Û∏≈”–400ms
+#define MAX_RECORD 40
+	for (int i = 1; i < gpGlobals->maxEntities; i++){
+		edict_t* ent = INDEXENT(i);
+		if (ent == nullptr)
+			continue;
+		entvars_t* vars = VARS(ent);
+		const char* className = STRING(vars->classname);
+		if ((strcmp(className, "player") == 0) || (strncmp(className, "monster_", 8) == 0)) {
+			CEntityObject* obj = GetGameObject(i);
+			if (obj != nullptr) {
+				//entity freed?
+				if (ent->free){
+					RemoveGameObject(i);
+					continue;
+				}
+				entitylaginfo_t* lagInfo = new entitylaginfo_t();
+				lagInfo->Angles = vars->angles;
+				lagInfo->AnimTime = vars->animtime;
+				lagInfo->Frame = vars->frame;
+				lagInfo->FrameRate = vars->framerate;
+				lagInfo->GaitSequence = vars->gaitsequence;
+				lagInfo->Origin = vars->origin;
+				lagInfo->Sequence = vars->sequence;
+				obj->aryLagInfo.push_back(lagInfo);
+				obj->aryLagInfoRecordTime.push_back(g_engfuncs.pfnTime());
+				if (obj->aryLagInfo.size() > MAX_RECORD) {
+					delete obj->aryLagInfo.front();
+					obj->aryLagInfo.erase(obj->aryLagInfo.begin());
+					obj->aryLagInfoRecordTime.erase(obj->aryLagInfoRecordTime.begin());
+				}
+			}
+			else {
+				if (ent->free)
+					continue;
+				CreateGameObject(i);
+			}
+		}
+	}
+	SET_META_RESULT(MRES_HANDLED);
+#undef MAX_RECORD
 }
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit
@@ -331,7 +375,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnPlayerPreThink
 	NULL,					// pfnPlayerPostThink
 
-	NULL,					// pfnStartFrame
+	StartFrame,					// pfnStartFrame
 	NULL,					// pfnParmsNewLevel
 	NULL,					// pfnParmsChangeLevel
 

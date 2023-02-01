@@ -43,6 +43,9 @@
     <ClCompile Include="qrcodegen.cpp">
       <Filter>qrcode</Filter>
     </ClCompile>
+    <ClCompile Include="shar_obj.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -82,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="qrcodegen.hpp">
       <Filter>qrcode</Filter>
+    </ClInclude>
+    <ClInclude Include="share_obj.h">
+      <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
