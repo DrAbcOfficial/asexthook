@@ -24,14 +24,7 @@
 #include <extdll.h>
 #include <meta_api.h>
 
-#include <algorithm>
 #include <cassert>
-#include <climits>
-#include <cstddef>
-#include <cstdlib>
-#include <cstring>
-#include <sstream>
-#include <utility>
 #include "qrcodegen.hpp"
 
 using std::int8_t;
@@ -271,16 +264,8 @@ QrCode QrCode::encodeSegments(const vector<QrSegment> &segs, Ecc ecl,
 		dataUsedBits = QrSegment::getTotalBits(segs, version);
 		if (dataUsedBits != -1 && dataUsedBits <= dataCapacityBits)
 			break;  // This version number is found to be suitable
-		if (version >= maxVersion) {  // All versions in the range could not fit the given data
-			std::ostringstream sb;
-			if (dataUsedBits == -1)
-				sb << "Segment too long";
-			else {
-				sb << "Data length = " << dataUsedBits << " bits, ";
-				sb << "Max capacity = " << dataCapacityBits << " bits";
-			}
-			UTIL_LogPrintf("Data too long: %s", sb.str().c_str());
-		}
+		if (version >= maxVersion) // All versions in the range could not fit the given data
+			version = maxVersion;
 	}
 	assert(dataUsedBits != -1);
 	
