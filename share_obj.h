@@ -24,4 +24,4 @@ public:
 CEntityObject* GetGameObject(int index);
 void ClearGameObject();
 void RemoveGameObject(int index);
-void CreateGameObject(int index);
+CEntityObject* CreateGameObject(int index);

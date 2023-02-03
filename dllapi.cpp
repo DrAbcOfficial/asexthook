@@ -302,14 +302,16 @@ int Spawn_Post(edict_t* pent) {
 	return 1919810;
 }
 void EndFrame() {
-//´ó¸ÅÓÐ400ms
+//å¤§æ¦‚æœ‰400ms
 #define MAX_RECORD 40
-	for (int i = 1; i < gpGlobals->maxEntities; i++){
+//0 World
+//1-33 Players
+	for (int i = 34; i < gpGlobals->maxEntities; i++){
 		edict_t* ent = INDEXENT(i);
 		if (ent == nullptr)
 			continue;
 		entvars_t* vars = VARS(ent);
-		if ((vars->flags & FL_MONSTER) > 0)
+		if ((vars->flags & FL_MONSTER) == 0)
 			continue;
 		const char* className = STRING(vars->classname);
 		if (!strncmp(className, "monster_", 8)) {
@@ -320,6 +322,13 @@ void EndFrame() {
 					RemoveGameObject(i);
 					continue;
 				}
+			}
+			else {
+				if (ent->free)
+					continue;
+				obj = CreateGameObject(i);
+			}
+			if(obj != nullptr){
 				entitylaginfo_t* lagInfo = new entitylaginfo_t();
 				lagInfo->Angles = vars->angles;
 				lagInfo->AnimTime = vars->animtime;
@@ -335,11 +344,6 @@ void EndFrame() {
 					obj->aryLagInfo.erase(obj->aryLagInfo.begin());
 					obj->aryLagInfoRecordTime.erase(obj->aryLagInfoRecordTime.begin());
 				}
-			}
-			else {
-				if (ent->free)
-					continue;
-				CreateGameObject(i);
 			}
 		}
 	}

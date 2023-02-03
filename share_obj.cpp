@@ -20,6 +20,8 @@ void RemoveGameObject(int index) {
 	delete g_EntityObjs[index];
 	g_EntityObjs[index] = nullptr;
 }
-void CreateGameObject(int index) {
-	g_EntityObjs[index] = new CEntityObject();
+CEntityObject* CreateGameObject(int index) {
+	CEntityObject* obj = new CEntityObject();
+	g_EntityObjs[index] = obj;
+	return obj;
 }
