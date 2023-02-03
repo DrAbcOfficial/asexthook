@@ -316,6 +316,7 @@ bool SearchAndHook() {
 void UninstallHook() {
 	UNINSTALL_HOOK(GrappleGetMonsterType);
 	UNINSTALL_HOOK(SendScoreInfo);
+	UNINSTALL_HOOK(SV_Physics);
 }
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
