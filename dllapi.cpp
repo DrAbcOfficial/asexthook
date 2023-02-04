@@ -44,7 +44,6 @@
 #include "angelscript.h"
 #include "vftable.h"
 #include "utility.h"
-#include "share_obj.h"
 
 #include "dlldef.h"
 
@@ -242,8 +241,6 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 #undef ITEM_HOOK
 
 	g_HookedFlag = true;
-	ClearGameObject();
-	
 	SET_META_RESULT(MRES_HANDLED);
 }
 void VtableUnhook() {
@@ -285,10 +282,7 @@ void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 	else
 		SET_META_RESULT(MRES_HANDLED);
 }
-int AllowLagCompensation() {
-	SET_META_RESULT(MRES_SUPERCEDE);
-	return CVAR_GET_FLOAT("sv_unlag") > 0 ? 1 : 0;
-}
+
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
 		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
@@ -300,123 +294,6 @@ int Spawn_Post(edict_t* pent) {
 	}
 	SET_META_RESULT(MRES_HANDLED);
 	return 1919810;
-}
-void EndFrame() {
-//大概有400ms
-#define MAX_RECORD 40
-//0 World
-//1-33 Players
-	for (int i = 34; i < gpGlobals->maxEntities; i++){
-		edict_t* ent = INDEXENT(i);
-		if (ent == nullptr)
-			continue;
-		entvars_t* vars = VARS(ent);
-		if ((vars->flags & FL_MONSTER) == 0)
-			continue;
-		const char* className = STRING(vars->classname);
-		if (!strncmp(className, "monster_", 8)) {
-			CEntityObject* obj = GetGameObject(i);
-			if (obj != nullptr) {
-				//entity freed?
-				if (ent->free){
-					RemoveGameObject(i);
-					continue;
-				}
-			}
-			else {
-				if (ent->free)
-					continue;
-				obj = CreateGameObject(i);
-			}
-			if(obj != nullptr){
-				entitylaginfo_t* lagInfo = new entitylaginfo_t();
-				lagInfo->Angles = vars->angles;
-				lagInfo->AnimTime = vars->animtime;
-				lagInfo->Frame = vars->frame;
-				lagInfo->FrameRate = vars->framerate;
-				lagInfo->GaitSequence = vars->gaitsequence;
-				lagInfo->Origin = vars->origin;
-				lagInfo->Sequence = vars->sequence;
-				obj->aryLagInfo.push_back(lagInfo);
-				obj->aryLagInfoRecordTime.push_back(g_engfuncs.pfnTime());
-				if (obj->aryLagInfo.size() > MAX_RECORD) {
-					delete obj->aryLagInfo.front();
-					obj->aryLagInfo.erase(obj->aryLagInfo.begin());
-					obj->aryLagInfoRecordTime.erase(obj->aryLagInfoRecordTime.begin());
-				}
-			}
-		}
-	}
-	SET_META_RESULT(MRES_HANDLED);
-#undef MAX_RECORD
-}
-
-void SetEntityLagState(edict_t* ent, entitylaginfo_t* lag) {
-	SET_ORIGIN(ent, lag->Origin);
-	entvars_t* vars = VARS(ent);
-	vars->angles = lag->Angles;
-	vars->animtime = lag->AnimTime;
-	vars->frame = lag->Frame;
-	vars->framerate = lag->FrameRate;
-	vars->gaitsequence = lag->GaitSequence;
-	vars->sequence = lag->Sequence;
-}
-
-void CmdStart(const edict_t* player, const struct usercmd_s* cmd, unsigned int random_seed) {
-	if (player != nullptr && CVAR_GET_FLOAT("sv_unlag") > 0) {
-		int ping, loss;
-		g_engfuncs.pfnGetPlayerStats(player, &ping, &loss);
-		float flRecallTime = g_engfuncs.pfnTime() - ((float)ping / 1000.0f);
-		for (int i = 1; i < gpGlobals->maxEntities; i++) {
-			edict_t* ent = INDEXENT(i);
-			if (ent == nullptr)
-				continue;
-			if (ent->free || ent == player)
-				continue;
-			//dead
-			if (ent->v.deadflag > 0)
-				continue;
-			CEntityObject* obj = GetGameObject(i);
-			if (obj != nullptr && obj->aryLagInfo.size() > 0) {
-				entvars_t* vars = VARS(ent);
-				obj->pLastInfo.Angles = vars->angles;
-				obj->pLastInfo.AnimTime = vars->animtime;
-				obj->pLastInfo.Frame = vars->frame;
-				obj->pLastInfo.FrameRate = vars->framerate;
-				obj->pLastInfo.GaitSequence = vars->gaitsequence;
-				obj->pLastInfo.Origin = vars->origin;
-				obj->pLastInfo.Sequence = vars->sequence;
-				for (int index = obj->aryLagInfoRecordTime.size() - 1; index >= 0; index--) {
-					if (obj->aryLagInfoRecordTime[index] <= flRecallTime) {
-						SetEntityLagState(ent, obj->aryLagInfo[index]);
-						break;
-					}
-				}
-			}
-		}
-		SET_META_RESULT(MRES_HANDLED);
-		return;
-	}
-	SET_META_RESULT(MRES_IGNORED);
-}
-void CmdEnd(const edict_t* player) {
-	if (player != nullptr && CVAR_GET_FLOAT("sv_unlag") > 0) {
-		for (int i = 1; i < gpGlobals->maxEntities; i++) {
-			edict_t* ent = INDEXENT(i);
-			if (ent == nullptr)
-				continue;
-			if (ent->free || ent == player)
-				continue;
-			if (ent->v.deadflag > 0)
-				continue;
-			CEntityObject* obj = GetGameObject(i);
-			if (obj != nullptr) 
-				SetEntityLagState(ent, &obj->pLastInfo);
-		}
-		SET_META_RESULT(MRES_HANDLED);
-		return;
-	}
-	SET_META_RESULT(MRES_IGNORED);
 }
 
 static DLL_FUNCTIONS gFunctionTable = {
@@ -473,13 +350,13 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnCreateBaseline
 	NULL,					// pfnRegisterEncoders
 	NULL,					// pfnGetWeaponData
-	CmdStart,					// pfnCmdStart
-	CmdEnd,					// pfnCmdEnd
+	NULL,					// pfnCmdStart
+	NULL,					// pfnCmdEnd
 	NULL,					// pfnConnectionlessPacket
 	NULL,					// pfnGetHullBounds
 	NULL,					// pfnCreateInstancedBaselines
 	NULL,					// pfnInconsistentFile
-	AllowLagCompensation,					// pfnAllowLagCompensation
+	NULL,					// pfnAllowLagCompensation
 };
 C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 	int* interfaceVersion){

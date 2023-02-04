@@ -40,12 +40,6 @@
     <ClCompile Include="vftable.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="qrcodegen.cpp">
-      <Filter>qrcode</Filter>
-    </ClCompile>
-    <ClCompile Include="share_obj.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -56,9 +50,6 @@
     </Filter>
     <Filter Include="source">
       <UniqueIdentifier>{f47401e1-9492-4ea2-9248-3653ba782be5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="qrcode">
-      <UniqueIdentifier>{d1dc7c36-52ab-4ea0-8a4c-4fb9aedb7d1b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,12 +72,6 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="utility.h">
-      <Filter>header</Filter>
-    </ClInclude>
-    <ClInclude Include="qrcodegen.hpp">
-      <Filter>qrcode</Filter>
-    </ClInclude>
-    <ClInclude Include="share_obj.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

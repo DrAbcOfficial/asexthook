@@ -42,7 +42,6 @@
 #include "enginedef.h"
 #include "angelscript.h"
 #include "utility.h"
-#include "share_obj.h"
 #include "vftable.h"
 #include "dlldef.h"
 
@@ -284,13 +283,6 @@ void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eS
 	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 }
 
-hook_t* g_phook_SV_Physics = nullptr;
-PRIVATE_FUNCTION_DEFINE(SV_Physics);
-void NewSV_Physics(){
-	g_call_original_SV_Physics();
-	EndFrame();
-}
-
 bool SearchAndHook() {
 	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
 	auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
@@ -300,7 +292,6 @@ bool SearchAndHook() {
 #ifdef WIN32
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
-#define SV_Physics_Signature "\xDD\x05\x2A\x2A\x2A\x2A\x83\xEC\x14\xD9\x1D\x2A\x2A\x2A\x2A\x55\xFF\x15"
 #else
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
@@ -310,13 +301,11 @@ bool SearchAndHook() {
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);
 	// Fill and Engine Hook
-	FILL_AND_HOOK(Engine, SV_Physics);
 	return true;
 }
 void UninstallHook() {
 	UNINSTALL_HOOK(GrappleGetMonsterType);
 	UNINSTALL_HOOK(SendScoreInfo);
-	UNINSTALL_HOOK(SV_Physics);
 }
 
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,

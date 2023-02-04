@@ -95,9 +95,7 @@
     <ClCompile Include="engine_api.cpp" />
     <ClCompile Include="h_export.cpp" />
     <ClCompile Include="meta_api.cpp" />
-    <ClCompile Include="qrcodegen.cpp" />
     <ClCompile Include="sdk_util.cpp" />
-    <ClCompile Include="share_obj.cpp" />
     <ClCompile Include="vftable.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,8 +103,6 @@
     <ClInclude Include="dlldef.h" />
     <ClInclude Include="enginedef.h" />
     <ClInclude Include="info_name.h" />
-    <ClInclude Include="qrcodegen.hpp" />
-    <ClInclude Include="share_obj.h" />
     <ClInclude Include="signatures.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="vftable.h" />
