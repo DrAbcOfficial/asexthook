@@ -127,8 +127,8 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 ##  3. <a name='Document'></a>Document
 
 ###  3.1. <a name='CurrentExpansionFeature'></a>Current Expansion Feature
-
-this Plugin will enable `sv_unlag` to AllowLagCompensation, In this case, the plugin will add a Ping calculation to the UTIL_TraceLine method by retracing the position of the monster and the player.
+ 
+Nothing for now.
 
 ###  3.2. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
 
@@ -148,7 +148,6 @@ class HealthInfo{
 |Class|Method|Explian|
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
-|CEngineFuncs|void QRCode(const string& in szBuffer, int ecc, string& out szOut)|Generate QR code string|
 
 ###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
