@@ -1,7 +1,7 @@
 # `ASExtHook`: Plugin to extend Sven Co-op script <img align="right" src="./img/logo.png" width="140" height="140" alt="ASExtHook" />
 
 [![License: GPL v3](https://img.shields.io/github/license/DrAbcOfficial/asexthook)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build](https://img.shields.io/github/workflow/status/DrAbcOfficial/asexthook/Build)](https://github.com/DrAbcOfficial/asexthook/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/DrAbcOfficial/asexthook/build.yml?branch=main)](https://github.com/DrAbcOfficial/asexthook/actions)
 [![Release](https://img.shields.io/github/v/release/DrAbcOfficial/asexthook)](https://github.com/DrAbcOfficial/asexthook/releases)
 [![Download](https://img.shields.io/github/downloads/DrAbcOfficial/asexthook/total)](https://github.com/DrAbcOfficial/asexthook/releases)
 [![Commit](https://img.shields.io/github/last-commit/DrAbcOfficial/asexthook)](https://github.com/DrAbcOfficial/asexthook)
