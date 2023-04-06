@@ -10,13 +10,15 @@
 
 Using this plugin makes it easy to perform operations that were previously exceptionally difficult, such as hooking whether a monster is dead or not.
 
+Auto-generated HTML documentation for the Sven Co-op AsExtHook Angelscript API is available [Here](https://drabcofficial.github.io/asexthook/)
+
 ---
 
 <!-- vscode-markdown-toc -->
 * 1. [Install](#Install)
 * 2. [Build](#Build)
 * 3. [Document](#Document)
-	* 3.1. [Current Expansion Feature](#CurrentExpansionFeature)
+	* 3.1. [Current Expansion Property](#CurrentExpansionProperty)
 	* 3.2. [Current Expansion Objects](#CurrentExpansionObjects)
 	* 3.3. [Current Expansion Methods](#CurrentExpansionMethods)
 	* 3.4. [Current Expansion Hooks](#CurrentExpansionHooks)
