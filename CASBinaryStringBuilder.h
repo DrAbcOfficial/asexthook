@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 struct BinaryStringBuilder{
-	uint64 iReadPointer = 0;
+	size_t iReadPointer = 0;
 	std::string szBuffer;
 };
 
