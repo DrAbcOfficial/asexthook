@@ -1,59 +1,45 @@
 #include <extdll.h>
-
 #include "angelscript.h"
 #include "asext_api.h"
 #include <meta_api.h>
 
 #include "CASBinaryStringBuilder.h"
 
-void CBinaryStringBuilder::SetBuffer(CString* buffer){
-	this->Buffer = buffer;
-}
-void CBinaryStringBuilder::WriteInt(int value){
+BinaryStringBuilder g_ASBinaryStringBuilder;
 
-}
-void CBinaryStringBuilder::WriteLong(long value){
-}
-
-void CBinaryStringBuilder::WriteFloat(float value){
-}
-
-void CBinaryStringBuilder::WriteDouble(double value){
+template <typename T>
+void WriteBuffer(BinaryStringBuilder* pThis, T value) {
+	size_t length = sizeof(value);
+	for (size_t i = 0; i < length; i++) {
+		INT8 temp = (value << (i*8) >> (length - 1) * 8);
+		pThis->szBuffer += (char)temp;
+	}
 }
 
-void CBinaryStringBuilder::WriteVector(vec3_t value){
+void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer){
+	buffer->empty();
+	buffer->assign(pthis->szBuffer.c_str(), pthis->szBuffer.length());
 }
-
-void CBinaryStringBuilder::WriteString(CString* value){
+void SC_SERVER_DECL ASBinaryBuilder_WriteInt(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int value){
+	WriteBuffer(pthis, value);
 }
-
-void CBinaryStringBuilder::ClearBuffer(){
-	this->Buffer = nullptr;
+void SC_SERVER_DECL ASBinaryBuilder_WriteLong(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int64 value){
+	WriteBuffer(pthis, value);
 }
-
-CBinaryStringBuilder g_ASBinaryStringBuilder;
-
-void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(void* pthis, SC_SERVER_DUMMYARG CString* buffer){
-	g_ASBinaryStringBuilder.SetBuffer(buffer);
+void SC_SERVER_DECL ASBinaryBuilder_WriteFloat(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG float value){
+	WriteBuffer(pthis, *(int*)&value);
 }
-void SC_SERVER_DECL ASBinaryBuilder_WriteInt(void* pthis, SC_SERVER_DUMMYARG int value){
-	g_ASBinaryStringBuilder.WriteInt(value);
+void SC_SERVER_DECL ASBinaryBuilder_WriteDouble(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value){
+	WriteBuffer(pthis, *(int64*)&value);
 }
-void SC_SERVER_DECL ASBinaryBuilder_WriteLong(void* pthis, SC_SERVER_DUMMYARG long value){
-	g_ASBinaryStringBuilder.WriteLong(value);
+void SC_SERVER_DECL ASBinaryBuilder_WriteVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value){
+	WriteBuffer(pthis, *(int*)&value.x);
+	WriteBuffer(pthis, *(int*)&value.y);
+	WriteBuffer(pthis, *(int*)&value.z);
 }
-void SC_SERVER_DECL ASBinaryBuilder_WriteFloat(void* pthis, SC_SERVER_DUMMYARG float value){
-	g_ASBinaryStringBuilder.WriteFloat(value);
+void SC_SERVER_DECL ASBinaryBuilder_WriteString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value){
+	pthis->szBuffer += value->c_str();
 }
-void SC_SERVER_DECL ASBinaryBuilder_WriteDouble(void* pthis, SC_SERVER_DUMMYARG double value){
-	g_ASBinaryStringBuilder.WriteDouble(value);
-}
-void SC_SERVER_DECL ASBinaryBuilder_WriteVector(void* pthis, SC_SERVER_DUMMYARG vec3_t value){
-	g_ASBinaryStringBuilder.WriteVector(value);
-}
-void SC_SERVER_DECL ASBinaryBuilder_WriteString(void* pthis, SC_SERVER_DUMMYARG CString* value){
-	g_ASBinaryStringBuilder.WriteString(value);
-}
-void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(void* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	g_ASBinaryStringBuilder.ClearBuffer();
+void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
+	pthis->szBuffer.clear();
 }

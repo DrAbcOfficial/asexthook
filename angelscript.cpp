@@ -1,7 +1,6 @@
 #include <extdll.h>
 
 #include "angelscript.h"
-#include "angelscriptlib.h"
 #include "asext_api.h"
 #include <meta_api.h>
 #include "CASBinaryStringBuilder.h"
@@ -15,8 +14,6 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 	return CRC32_FINAL(crc);
 }
 
-#define asMETHOD(c,m) asSMethodPtr<sizeof(void (c::*)())>::Convert((void (c::*)())(&c::m))
-#define asMETHODPR(c,m,p,r) asSMethodPtr<sizeof(void (c::*)())>::Convert(AS_METHOD_AMBIGUITY_CAST(r (c::*)p)(&c::m))
 /// <summary>
 /// Regiter
 /// </summary>
@@ -29,25 +26,23 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
 
-		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 4, asEObjTypeFlags::asOBJ_APP_CLASS_CD | asEObjTypeFlags::asOBJ_NOINHERIT);
-		ASEXT_RegisterObjectMethod(pASDoc, "Bind a buffer", "CBinaryStringBuilder", "void Bind(string buffer)", (void*)ASBinaryBuilder_SetBuffer, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(int value)", (void*)ASBinaryBuilder_WriteInt, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(long value)", (void*)ASBinaryBuilder_WriteLong, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(float value)", (void*)ASBinaryBuilder_WriteFloat, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(double value)", (void*)ASBinaryBuilder_WriteDouble, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(Vector value)", (void*)ASBinaryBuilder_WriteVector, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(string value)", (void*)ASBinaryBuilder_WriteString, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Unbind a buffer", "CBinaryStringBuilder", "void Unbind()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
+		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, asEObjTypeFlags::asOBJ_REF | asEObjTypeFlags::asOBJ_NOCOUNT);
+		ASEXT_RegisterObjectMethod(pASDoc, "Copy output to a string", "CBinaryStringBuilder", "void Copy(string& out buffer)", (void*)ASBinaryBuilder_SetBuffer, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteInt(int value)", (void*)ASBinaryBuilder_WriteInt, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteLong(int64 value)", (void*)ASBinaryBuilder_WriteLong, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteFloat(float value)", (void*)ASBinaryBuilder_WriteFloat, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteDouble(double value)", (void*)ASBinaryBuilder_WriteDouble, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteVector(Vector value)", (void*)ASBinaryBuilder_WriteVector, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteString(string&in value)", (void*)ASBinaryBuilder_WriteString, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Reset buffer", "CBinaryStringBuilder", "void Reset()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
 
-		ASEXT_RegisterGlobalProperty(pASDoc, "CBinaryStringBuilder", "CBinaryStringBuilder g_BinaryStringBuilder", (void*)&g_ASBinaryStringBuilder);
+		ASEXT_RegisterGlobalProperty(pASDoc, "Binary String Builder", "CBinaryStringBuilder g_BinaryStringBuilder", (void*)&g_ASBinaryStringBuilder);
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
 			(void*)CASEngineFuncs_CRC32, 3);
 	});
 }
-#undef asMETHOD
-#undef asMETHODPR
 
 #define CREATE_AS_HOOK(item, des, tag, name, arg) g_AngelHook.item=ASEXT_RegisterHook(des,StopMode_CALL_ALL,2,ASFlag_MapScript|ASFlag_Plugin,tag,name,arg)
 void RegisterAngelScriptHooks(){
