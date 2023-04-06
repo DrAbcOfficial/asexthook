@@ -25,7 +25,6 @@ void SC_SERVER_DECL ASBinaryBuilder_SetReadPointer(BinaryStringBuilder* pthis, S
 	pthis->iReadPointer = min(pthis->szBuffer.length(), pointer);
 }
 void SC_SERVER_DECL ASBinaryBuilder_Output(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer){
-	buffer->empty();
 	buffer->assign(pthis->szBuffer.c_str(), pthis->szBuffer.length());
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteInt(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int value){
