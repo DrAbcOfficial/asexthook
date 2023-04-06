@@ -11,8 +11,7 @@ template <typename T>
 void WriteBuffer(BinaryStringBuilder* pThis, T value) {
 	size_t length = sizeof(value);
 	for (size_t i = 0; i < length; i++) {
-		INT8 temp = (value << (i*8) >> (length - 1) * 8);
-		pThis->szBuffer += (char)temp;
+		pThis->szBuffer += (char)(value << (i * 8) >> (length - 1) * 8);
 	}
 }
 void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer) {
