@@ -1,6 +1,7 @@
 #include <extdll.h>
 
 #include "angelscript.h"
+#include "angelscriptlib.h"
 #include "asext_api.h"
 #include <meta_api.h>
 #include "CASBinaryStringBuilder.h"
@@ -22,17 +23,23 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 void RegisterAngelScriptMethods(){
 	ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
 		//Regist HealthInfo type
-		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", sizeof(healthinfo_t), asEObjTypeFlags::asOBJ_VALUE);
+		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", 0, asEObjTypeFlags::asOBJ_REF | asEObjTypeFlags::asOBJ_NOCOUNT);
 		ASEXT_RegisterObjectProperty(pASDoc, "Who get healing?", "HealthInfo", "CBaseEntity@ pEntity", offsetof(healthinfo_t, pEntity));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover amount.", "HealthInfo", "float flHealth", offsetof(healthinfo_t, flHealth));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
 
-		//ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 4, asEObjTypeFlags::asOBJ_APP_CLASS_CD | asEObjTypeFlags::asOBJ_NOINHERIT);
-		//ASEXT_RegisterObjectBehaviour(pASDoc, "constructor", "CBinaryStringBuilder", ObjectBehaviour_Constructor, "void CBinaryStringBuilder()", ConstructBinaryString, asCALL_CDECL_OBJLAST);
-		//ASEXT_RegisterObjectBehaviour(pASDoc, "destructor", "CBinaryStringBuilder", ObjectBehaviour_Destructor, "void DestructCBinaryStringBuilder()", DestructBinaryString, asCALL_CDECL_OBJLAST);
-		//ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(int value)", asMETHODPR(CBinaryStringBuilder::WriteInt), asCALL_THISCALL);
+		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 4, asEObjTypeFlags::asOBJ_APP_CLASS_CD | asEObjTypeFlags::asOBJ_NOINHERIT);
+		ASEXT_RegisterObjectMethod(pASDoc, "Bind a buffer", "CBinaryStringBuilder", "void Bind(string buffer)", (void*)ASBinaryBuilder_SetBuffer, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(int value)", (void*)ASBinaryBuilder_WriteInt, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(long value)", (void*)ASBinaryBuilder_WriteLong, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(float value)", (void*)ASBinaryBuilder_WriteFloat, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(double value)", (void*)ASBinaryBuilder_WriteDouble, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(Vector value)", (void*)ASBinaryBuilder_WriteVector, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(string value)", (void*)ASBinaryBuilder_WriteString, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Unbind a buffer", "CBinaryStringBuilder", "void Unbind()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
 
+		ASEXT_RegisterGlobalProperty(pASDoc, "CBinaryStringBuilder", "CBinaryStringBuilder g_BinaryStringBuilder", (void*)&g_ASBinaryStringBuilder);
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
