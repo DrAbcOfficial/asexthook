@@ -127,9 +127,11 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 ##  3. <a name='Document'></a>Document
 
-###  3.1. <a name='CurrentExpansionFeature'></a>Current Expansion Feature
+###  3.1. <a name='CurrentExpansionProperty'></a>Current Expansion Property
  
-Nothing for now.
+|Class|Namespace|Object|
+|---|---|---|
+|CBinaryStringBuilder|\<Global\>|g_BinaryStringBuilder|
 
 ###  3.2. <a name='CurrentExpansionObjects'></a>Current Expansion Objects
 
@@ -149,6 +151,24 @@ class HealthInfo{
 |Class|Method|Explian|
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
+|---|---|---|
+|CBinaryStringBuilder|void Copy(string&out buffer)|Copy output to a string|
+|CBinaryStringBuilder|void SetReadBuffer(string&in buffer)|Bind a read bufferg|
+|CBinaryStringBuilder|uint GetReadPointer()|Get the read pointer|
+|CBinaryStringBuilder|void SetReadPointer(uint iPointer)|Set the read pointer|
+|CBinaryStringBuilder|void WriteInt(int value)|Write a Value|
+|CBinaryStringBuilder|void WriteLong(int64 value)|Write a Value|
+|CBinaryStringBuilder|void WriteFloat(float value)|Write a Value|
+|CBinaryStringBuilder|void WriteDouble(double value)|Write a Value|
+|CBinaryStringBuilder|void WriteVector(Vector value)|Write a Value|
+|CBinaryStringBuilder|void WriteString(string&in value)|Write a Value|
+|CBinaryStringBuilder|int ReadInt()|Read a Value|
+|CBinaryStringBuilder|int64 ReadLong()|Read a Value|
+|CBinaryStringBuilder|float ReadFloat()|Read a Value|
+|CBinaryStringBuilder|double ReadDouble()|Read a Value|
+|CBinaryStringBuilder|void ReadVector(Vector&out value)|Read a Value|
+|CBinaryStringBuilder|void ReadString(string&out value)|Read a Value|
+|CBinaryStringBuilder|void Reset()|Reset buffer|
 
 ###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 

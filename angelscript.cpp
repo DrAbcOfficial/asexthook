@@ -48,7 +48,7 @@ void RegisterAngelScriptMethods(){
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
-			(void*)CASEngineFuncs_CRC32, 3);
+			(void*)CASEngineFuncs_CRC32, asCALL_THISCALL);
 	});
 }
 
