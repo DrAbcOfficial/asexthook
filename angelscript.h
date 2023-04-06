@@ -38,5 +38,7 @@ typedef struct angelhook_s {
 	void* pGrappleCheckMonsterType = nullptr;
 
 	void* pSendScoreInfo = nullptr;
+
+	void* pEntityIRelationship = nullptr;
 }angelhook_t;
 extern angelhook_t g_AngelHook;

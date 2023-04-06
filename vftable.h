@@ -3,7 +3,19 @@
 typedef void CRestore;
 typedef void CSave;
 typedef void MonsterEvent;
-typedef void ItemInfo;
+typedef struct{
+	int		iSlot;
+	int		iPosition;
+	const char* pszAmmo1;	// ammo 1 type
+	int		iMaxAmmo1;		// max ammo 1
+	const char* pszAmmo2;	// ammo 2 type
+	int		iMaxAmmo2;		// max ammo 2
+	const char* pszName;
+	int		iMaxClip;
+	int		iId;
+	int		iFlags;
+	int		iWeight;// this value used to determine this weapon's importance in autoselection.
+} ItemInfo;
 typedef void CBaseEntity;
 typedef void CBaseMonster;
 typedef void CCustomEntity;
@@ -13,84 +25,102 @@ typedef struct Task_s {
 
 }Task_t;
 
+#ifdef _WIN32
+
+#define SC_SERVER_DECL __fastcall
+#define SC_SERVER_DUMMYARG_NOCOMMA , int dummy
+#define SC_SERVER_DUMMYARG int dummy, 
+#define SC_SERVER_PASS_DUMMYARG dummy, 
+#define SC_SERVER_PASS_DUMMYARG_NOCOMMA dummy
+
+#else
+
+#define SC_SERVER_DECL 
+#define SC_SERVER_DUMMYARG_NOCOMMA
+#define SC_SERVER_DUMMYARG
+#define SC_SERVER_PASS_DUMMYARG
+#define SC_SERVER_PASS_DUMMYARG_NOCOMMA
+
+#endif
+
 //101
 typedef struct vtable_base_s {
-	void (SC_SERVER_DECL* PreSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* Spawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* PostSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* Precache)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* PreSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* Spawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* PostSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* Precache)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* KeyValue)(void* pThis, SC_SERVER_DUMMYARG KeyValueData* pkvd) = nullptr;
 	double(SC_SERVER_DECL* GetKeyValue)(void* pThis, SC_SERVER_DUMMYARG char* szKey, int entvartype) = nullptr;
 	void (SC_SERVER_DECL* OnKeyValueUpdate)(void* pThis, SC_SERVER_DUMMYARG char* szKey) = nullptr;
 	void (SC_SERVER_DECL* Save)(void* pThis, SC_SERVER_DUMMYARG CSave* pSave) = nullptr;
 	void (SC_SERVER_DECL* Restore)(void* pThis, SC_SERVER_DUMMYARG CRestore* pRestore) = nullptr;
-	int (SC_SERVER_DECL* ObjectCaps)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* Activate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* SetObjectCollisionBox)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* ObjectCaps)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* Activate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* SetObjectCollisionBox)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* GetClassification)(void* pThis, SC_SERVER_DUMMYARG int classify) = nullptr;
-	void (SC_SERVER_DECL* GetClassificationTag)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* GetClassificationName)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* GetClassificationTag)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* GetClassificationName)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* SetClassification)(void* pThis, SC_SERVER_DUMMYARG int classify) = nullptr;
 	int (SC_SERVER_DECL* SetClassificationSpecial)(void* pThis, SC_SERVER_DUMMYARG int classify, bool over) = nullptr;
 	int (SC_SERVER_DECL* IRelationship)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool friendly) = nullptr;
-	int (SC_SERVER_DECL* Classify)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* Classify)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* DeathNotice)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevChild) = nullptr;
 	void (SC_SERVER_DECL* TraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeHealth)(void* pThis, SC_SERVER_DUMMYARG float flHealth, int bitsDamageType, int cap) = nullptr;
 	int (SC_SERVER_DECL* TakArmor)(void* pThis, SC_SERVER_DUMMYARG float flHealth, int bitsDamageType, int cap) = nullptr;
 	void (SC_SERVER_DECL* Killed)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) = nullptr;
-	int (SC_SERVER_DECL* BloodColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* BloodColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* TraceBleed)(void* pThis, SC_SERVER_DUMMYARG float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) = nullptr;
 	bool (SC_SERVER_DECL* IsTriggered)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pActivator) = nullptr;
-	CBaseMonster* (SC_SERVER_DECL* MyMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	CSquadMonster* (SC_SERVER_DECL* MySquadMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	CCustomEntity* (SC_SERVER_DECL* MyCustomPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	CBasePlayerItem* (SC_SERVER_DECL* MyItemPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	int (SC_SERVER_DECL* GetToggleState)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	CBaseMonster* (SC_SERVER_DECL* MyMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	CSquadMonster* (SC_SERVER_DECL* MySquadMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	CCustomEntity* (SC_SERVER_DECL* MyCustomPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	CBasePlayerItem* (SC_SERVER_DECL* MyItemPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	int (SC_SERVER_DECL* GetToggleState)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* AddPoints)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
 	void (SC_SERVER_DECL* AddPointsToTeam)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
 	bool (SC_SERVER_DECL* AddPlayerItem)(void* pThis, SC_SERVER_DUMMYARG CBasePlayerItem* pItem) = nullptr;
 	bool (SC_SERVER_DECL* RemovePlayerItem)(void* pThis, SC_SERVER_DUMMYARG CBasePlayerItem* pItem) = nullptr;
 	int (SC_SERVER_DECL* GiveAmmo)(void* pThis, SC_SERVER_DUMMYARG int iAmount, const char* szName, int iMax) = nullptr;
-	float (SC_SERVER_DECL* GetDelay)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	int (SC_SERVER_DECL* IsMoving)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* OverrideReset)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	float (SC_SERVER_DECL* GetDelay)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	int (SC_SERVER_DECL* IsMoving)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* OverrideReset)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* DamageDecal)(void* pThis, SC_SERVER_DUMMYARG int bitsDamageType) = nullptr;
 	void (SC_SERVER_DECL* SetToggleState)(void* pThis, SC_SERVER_DUMMYARG int state) = nullptr;
-	void (SC_SERVER_DECL* StartSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* StopSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* StartSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* StopSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* OnControls)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pev) = nullptr;
-	bool (SC_SERVER_DECL* IsSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsAlive)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsBSPModel)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* ReflectGauss)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	bool (SC_SERVER_DECL* IsSneaking)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsAlive)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsBSPModel)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* ReflectGauss)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* HasTarget)(void* pThis, SC_SERVER_DUMMYARG string_t targetname) = nullptr;
-	bool (SC_SERVER_DECL* IsInWorld)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsMonster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsPlayer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsNetClient)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsPointEnt)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsBreakable)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* IsMachine)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	const char* (SC_SERVER_DECL* TeamID)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* CriticalRemove)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	CBaseEntity* (SC_SERVER_DECL* GetNextTarget)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* Think)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	bool (SC_SERVER_DECL* IsInWorld)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsMonster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsPlayer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsNetClient)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsPointEnt)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsBreakable)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* IsMachine)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	const char* (SC_SERVER_DECL* TeamID)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* CriticalRemove)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	CBaseEntity* (SC_SERVER_DECL* GetNextTarget)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* Think)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Touch)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther) = nullptr;
 	void (SC_SERVER_DECL* Use)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pActivator, CBaseEntity* pCaller, int useType, float value) = nullptr;
 	void (SC_SERVER_DECL* Blocked)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther) = nullptr;
-	void (SC_SERVER_DECL* UpdateOnRemove)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	CBaseEntity* (SC_SERVER_DECL* Respawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* UpdateOnRemove)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	CBaseEntity* (SC_SERVER_DECL* Respawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* SUB_UseTargets)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pActivator, CBaseEntity* pCaller, int useType, float value) = nullptr;
-	void (SC_SERVER_DECL* IsLockedByMaster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* UpdateOwner)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	bool (SC_SERVER_DECL* FBecomeProne)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	Vector* (SC_SERVER_DECL* Center)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	Vector* (SC_SERVER_DECL* EyePosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	Vector* (SC_SERVER_DECL* EarPosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* IsLockedByMaster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* UpdateOwner)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	bool (SC_SERVER_DECL* FBecomeProne)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	Vector* (SC_SERVER_DECL* Center)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	Vector* (SC_SERVER_DECL* EyePosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	Vector* (SC_SERVER_DECL* EarPosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	Vector* (SC_SERVER_DECL* BodyTarget)(void* pThis, SC_SERVER_DUMMYARG const Vector& posSrc) = nullptr;
-	int (SC_SERVER_DECL* Illumination)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* Illumination)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* FVisible)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pEntity) = nullptr;
 	bool (SC_SERVER_DECL* FVisibleVector)(void* pThis, SC_SERVER_DUMMYARG const Vector& vecOrigin) = nullptr;
 	bool (SC_SERVER_DECL* FVisibleFromPos)(void* pThis, SC_SERVER_DUMMYARG Vector* pos, Vector* angle) = nullptr;
@@ -98,24 +128,26 @@ typedef struct vtable_base_s {
 	float (SC_SERVER_DECL* GetPointsForDamage)(void* pThis, SC_SERVER_DUMMYARG float damage) = nullptr;
 	void (SC_SERVER_DECL* GetDamagePoints)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, entvars_t* pevInfictor, float damage) = nullptr;
 	void (SC_SERVER_DECL* SetPlayerAlly)(void* pThis, SC_SERVER_DUMMYARG bool dunno) = nullptr;
-	void (SC_SERVER_DECL* Deconstructor1)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* Deconstructor2)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* OnCreate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* OnDestroy)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* OnSetOriginByMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	int (SC_SERVER_DECL* IsRevivable)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	void (SC_SERVER_DECL* Deconstructor1)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+#ifndef WIN32
+	void (SC_SERVER_DECL* Deconstructor2)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+#endif // !WIN32
+	void (SC_SERVER_DECL* OnCreate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* OnDestroy)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* OnSetOriginByMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	int (SC_SERVER_DECL* IsRevivable)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* BeginRevive)(void* pThis, SC_SERVER_DUMMYARG float flRespawn) = nullptr;
 	void (SC_SERVER_DECL* EndRevive)(void* pThis, SC_SERVER_DUMMYARG float flRespawn) = nullptr;
-	int (SC_SERVER_DECL* ShowHUDInfo)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	int (SC_SERVER_DECL* ShouldDisablePlayerCollisions)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	Vector* (SC_SERVER_DECL* GetAttackVectors)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* ShowHUDInfo)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	int (SC_SERVER_DECL* ShouldDisablePlayerCollisions)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	Vector* (SC_SERVER_DECL* GetAttackVectors)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Teleport)(void* pThis, SC_SERVER_DUMMYARG Vector vecPos, Vector vecAng) = nullptr;
 	void (SC_SERVER_DECL* SetTopColor)(void* pThis, SC_SERVER_DUMMYARG int color) = nullptr;
 	void (SC_SERVER_DECL* SetBottomColor)(void* pThis, SC_SERVER_DUMMYARG int color) = nullptr;
 	void (SC_SERVER_DECL* SetColors)(void* pThis, SC_SERVER_DUMMYARG int topcolor, int bottomcolor) = nullptr;
-	int (SC_SERVER_DECL* GetTopColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	int (SC_SERVER_DECL* GetBottomColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
-	void (SC_SERVER_DECL* UpdateColorMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA ) = nullptr;
+	int (SC_SERVER_DECL* GetTopColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	int (SC_SERVER_DECL* GetBottomColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	void (SC_SERVER_DECL* UpdateColorMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 } vtable_base_t;
 //102
 typedef struct vtable_delay_s : vtable_base_s {
@@ -208,7 +240,7 @@ typedef struct vtable_monster_s : vtable_animating_s {
 	int (SC_SERVER_DECL* HasHumanGibs)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* HasAlienGibs)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* FadeMonster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-	Vector (SC_SERVER_DECL* GetGunPosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	Vector(SC_SERVER_DECL* GetGunPosition)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* CheckTimeBasedDamage)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* ClearTimeBasedDamage)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* DeathSound)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -273,7 +305,7 @@ typedef struct vtable_physicsobject_s : vtable_animating_s {
 //115
 typedef struct vtable_pickupobject_s : vtable_physicsobject_s {
 	void (SC_SERVER_DECL* CanCollect)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, int iCollectType) = nullptr;
-	void (*__purecall)() = nullptr;
+	void(SC_SERVER_DECL* Collect)(CBaseEntity* pThis, SC_SERVER_DUMMYARG int iCollectType) = nullptr;
 	void (SC_SERVER_DECL* Collected)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, int iCollectTyp) = nullptr;
 	void (SC_SERVER_DECL* DefaultUse)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pActivator, CBaseEntity* pCaller, int useType, float value) = nullptr;
 	void (SC_SERVER_DECL* Dropped)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA, CBasePlayerItem* pNewEntity) = nullptr;

@@ -75,6 +75,8 @@ struct{
 	
 	hookitem_t PlayerPostTakeDamage;
 	hookitem_t PlayerTakeHealth;
+
+	hookitem_t IRelationship;
 } gHookItems;
 std::vector<hook_t*> gHooks;
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
@@ -203,6 +205,12 @@ int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float
 	CALL_ANGELSCRIPT(pPlayerTakeHealth, &dmg);
 	return CALL_ORIGIN(gHookItems.PlayerTakeHealth, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
 }
+
+int SC_SERVER_DECL IRelationship(CBasePlayer* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool param_2) {
+	int iNewReturn = 114514;
+	CALL_ANGELSCRIPT(pEntityIRelationship, pThis, pOther, param_2, &iNewReturn);
+	return iNewReturn == 114514 ? CALL_ORIGIN(gHookItems.IRelationship, IRelationship, pOther, param_2) : iNewReturn;
+}
 #undef CALL_ORIGIN
 #undef CALL_ORIGIN_NOARG
 
@@ -238,6 +246,7 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	vtable = AddEntityVTable("player");
 	ITEM_HOOK(gHookItems.PlayerPostTakeDamage, TakeDamage, vtable, PlayerPostTakeDamage);
 	ITEM_HOOK(gHookItems.PlayerTakeHealth, TakeHealth, vtable, PlayerTakeHealth);
+	ITEM_HOOK(gHookItems.IRelationship, IRelationship, vtable, IRelationship);
 #undef ITEM_HOOK
 
 	g_HookedFlag = true;

@@ -3,6 +3,7 @@
 #include "angelscript.h"
 #include "asext_api.h"
 #include <meta_api.h>
+#include "CASBinaryStringBuilder.h"
 
 angelhook_t g_AngelHook;
 
@@ -13,24 +14,33 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 	return CRC32_FINAL(crc);
 }
 
+#define asMETHOD(c,m) asSMethodPtr<sizeof(void (c::*)())>::Convert((void (c::*)())(&c::m))
+#define asMETHODPR(c,m,p,r) asSMethodPtr<sizeof(void (c::*)())>::Convert(AS_METHOD_AMBIGUITY_CAST(r (c::*)p)(&c::m))
 /// <summary>
 /// Regiter
 /// </summary>
 void RegisterAngelScriptMethods(){
 	ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
 		//Regist HealthInfo type
-		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", 0, 0x40001u);
+		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", sizeof(healthinfo_t), asEObjTypeFlags::asOBJ_VALUE);
 		ASEXT_RegisterObjectProperty(pASDoc, "Who get healing?", "HealthInfo", "CBaseEntity@ pEntity", offsetof(healthinfo_t, pEntity));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover amount.", "HealthInfo", "float flHealth", offsetof(healthinfo_t, flHealth));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
-	
+
+		//ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 4, asEObjTypeFlags::asOBJ_APP_CLASS_CD | asEObjTypeFlags::asOBJ_NOINHERIT);
+		//ASEXT_RegisterObjectBehaviour(pASDoc, "constructor", "CBinaryStringBuilder", ObjectBehaviour_Constructor, "void CBinaryStringBuilder()", ConstructBinaryString, asCALL_CDECL_OBJLAST);
+		//ASEXT_RegisterObjectBehaviour(pASDoc, "destructor", "CBinaryStringBuilder", ObjectBehaviour_Destructor, "void DestructCBinaryStringBuilder()", DestructBinaryString, asCALL_CDECL_OBJLAST);
+		//ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void Write(int value)", asMETHODPR(CBinaryStringBuilder::WriteInt), asCALL_THISCALL);
+
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
 			(void*)CASEngineFuncs_CRC32, 3);
 	});
 }
+#undef asMETHOD
+#undef asMETHODPR
 
 #define CREATE_AS_HOOK(item, des, tag, name, arg) g_AngelHook.item=ASEXT_RegisterHook(des,StopMode_CALL_ALL,2,ASFlag_MapScript|ASFlag_Plugin,tag,name,arg)
 void RegisterAngelScriptHooks(){
@@ -41,6 +51,7 @@ void RegisterAngelScriptHooks(){
 	CREATE_AS_HOOK(pPlayerCallGrenade, "Pre call before a player call grenade", "Player", "PlayerCallGrenade", "CBasePlayer@ pPlayer");
 
 	CREATE_AS_HOOK(pEntitySpawn, "Post call after a Entity spawn", "Entity", "EntitySpawn", "CBaseEntity@ pEntity");
+	CREATE_AS_HOOK(pEntityIRelationship, "Pre call before checking relation", "Entity", "IRelationship", "CBaseEntity@ pEntity, CBaseEntity@ pOther, bool param, int& out newValue");
 
 	CREATE_AS_HOOK(pMonsterSpawn, "Post call after a monster spawn", "Monster", "MonsterSpawn", "CBaseMonster@ pEntity");
 	CREATE_AS_HOOK(pMonsterTraceAttack, "Pre call before a monster trace attack", "Monster", "MonsterTraceAttack", "CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType");
