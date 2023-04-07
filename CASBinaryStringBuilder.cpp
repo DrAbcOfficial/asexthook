@@ -85,6 +85,9 @@ void SC_SERVER_DECL ASBinaryBuilder_ReadString(BinaryStringBuilder* pthis, SC_SE
 	}
 	szBuffer->assign(temp.c_str(), temp.length());
 }
+bool SC_SERVER_DECL ASBinaryBuilder_ReadToEnd(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
+	return pthis->iReadPointer >= pthis->szBuffer.length();
+}
 void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
 	pthis->szBuffer.clear();
 	pthis->iReadPointer = 0;

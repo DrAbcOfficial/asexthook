@@ -27,6 +27,8 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
 
 		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, asEObjTypeFlags::asOBJ_REF | asEObjTypeFlags::asOBJ_NOCOUNT);
+		ASEXT_RegisterObjectMethod(pASDoc, "Initial buffer", "CBinaryStringBuilder", "void Init()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Is Read to end?", "CBinaryStringBuilder", "bool ReadToEnd()", (void*)ASBinaryBuilder_ReadToEnd, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Copy output to a string", "CBinaryStringBuilder", "void Copy(string&out buffer)", (void*)ASBinaryBuilder_Output, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Bind a read buffer", "CBinaryStringBuilder", "void SetReadBuffer(string&in buffer)", (void*)ASBinaryBuilder_SetBuffer, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Get the read pointer", "CBinaryStringBuilder", "uint GetReadPointer()", (void*)ASBinaryBuilder_GetReadPointer, asCALL_THISCALL);
@@ -43,7 +45,6 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "double ReadDouble()", (void*)ASBinaryBuilder_ReadDouble, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadVector(Vector&out value)", (void*)ASBinaryBuilder_ReadVector, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadString(string&out value)", (void*)ASBinaryBuilder_ReadString, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Reset buffer", "CBinaryStringBuilder", "void Reset()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
 		ASEXT_RegisterGlobalProperty(pASDoc, "Binary String Builder", "CBinaryStringBuilder g_BinaryStringBuilder", (void*)&g_ASBinaryStringBuilder);
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,

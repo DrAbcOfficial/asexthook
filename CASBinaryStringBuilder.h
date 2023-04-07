@@ -26,5 +26,6 @@ float SC_SERVER_DECL ASBinaryBuilder_ReadFloat(BinaryStringBuilder* pthis SC_SER
 double SC_SERVER_DECL ASBinaryBuilder_ReadDouble(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
 void SC_SERVER_DECL ASBinaryBuilder_ReadVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t vecBuffer);
 void SC_SERVER_DECL ASBinaryBuilder_ReadString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* szBuffer);
+bool SC_SERVER_DECL ASBinaryBuilder_ReadToEnd(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
 
 void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
