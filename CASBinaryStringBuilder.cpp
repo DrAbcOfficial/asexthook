@@ -52,7 +52,7 @@ T1 ReadBuffer(BinaryStringBuilder* pThis) {
 	T2 temp = 0;
 	size_t length = sizeof(T2);
 	for (size_t i = 0; i < length; i++) {
-		temp += std::bit_cast<T2>(pThis->szBuffer[pThis->iReadPointer]) << ((length - 1 - i) * 8);
+		temp += static_cast<T2>(pThis->szBuffer[pThis->iReadPointer]) << ((length - 1 - i) * 8);
 		pThis->iReadPointer++;
 	}
 	return std::bit_cast<T1>(temp);
