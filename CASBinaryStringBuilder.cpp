@@ -11,7 +11,7 @@ template <typename T>
 void WriteBuffer(BinaryStringBuilder* pThis, T value) {
 	size_t length = sizeof(value);
 	for (size_t i = 0; i < length; i++) {
-		pThis->szBuffer += (char)(value << (i * 8) >> ((length - 1) * 8));
+		pThis->szBuffer += static_cast<char>(value << (i * 8) >> ((length - 1) * 8));
 	}
 }
 void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer) {
@@ -34,15 +34,15 @@ void SC_SERVER_DECL ASBinaryBuilder_WriteLong(BinaryStringBuilder* pthis, SC_SER
 	WriteBuffer(pthis, value);
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteFloat(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG float value){
-	WriteBuffer(pthis, *(int*)&value);
+	WriteBuffer(pthis, std::bit_cast<int>(value));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteDouble(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value){
-	WriteBuffer(pthis, *(int64*)&value);
+	WriteBuffer(pthis, std::bit_cast<int>(value));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value){
-	WriteBuffer(pthis, *(int*)&value.x);
-	WriteBuffer(pthis, *(int*)&value.y);
-	WriteBuffer(pthis, *(int*)&value.z);
+	WriteBuffer(pthis, std::bit_cast<int>(value));
+	WriteBuffer(pthis, std::bit_cast<int>(value));
+	WriteBuffer(pthis, std::bit_cast<int>(value));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value){
 	pthis->szBuffer += value->c_str();
@@ -52,10 +52,10 @@ T1 ReadBuffer(BinaryStringBuilder* pThis) {
 	T2 temp = 0;
 	size_t length = sizeof(T2);
 	for (size_t i = 0; i < length; i++) {
-		temp += (T2)(pThis->szBuffer[pThis->iReadPointer]) << ((length - 1 - i) * 8);
+		temp += std::bit_cast<T2>(pThis->szBuffer[pThis->iReadPointer]) << ((length - 1 - i) * 8);
 		pThis->iReadPointer++;
 	}
-	return *(T1*)&temp;
+	return std::bit_cast<T1>(temp);
 }
 int SC_SERVER_DECL ASBinaryBuilder_ReadInt(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
 	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<int, int>(pthis) : 0;
