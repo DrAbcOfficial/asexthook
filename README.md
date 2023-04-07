@@ -154,8 +154,10 @@ class HealthInfo{
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
 |---|---|---|
+|CBinaryStringBuilder|void Init()|InitialInitial buffer|
+|CBinaryStringBuilder|bool ReadToEnd()|Is Read to end?|
 |CBinaryStringBuilder|void Copy(string&out buffer)|Copy output to a string|
-|CBinaryStringBuilder|void SetReadBuffer(string&in buffer)|Bind a read bufferg|
+|CBinaryStringBuilder|void SetReadBuffer(string&in buffer)|Bind a read buffer|
 |CBinaryStringBuilder|uint GetReadPointer()|Get the read pointer|
 |CBinaryStringBuilder|void SetReadPointer(uint iPointer)|Set the read pointer|
 |CBinaryStringBuilder|void WriteInt(int value)|Write a Value|
@@ -170,7 +172,6 @@ class HealthInfo{
 |CBinaryStringBuilder|double ReadDouble()|Read a Value|
 |CBinaryStringBuilder|void ReadVector(Vector&out value)|Read a Value|
 |CBinaryStringBuilder|void ReadString(string&out value)|Read a Value|
-|CBinaryStringBuilder|void Reset()|Reset buffer|
 
 ###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
