@@ -11,7 +11,7 @@ template <typename T>
 void WriteBuffer(BinaryStringBuilder* pThis, T value) {
 	size_t length = sizeof(value);
 	for (size_t i = 0; i < length; i++) {
-		pThis->szBuffer += (char)(value << (i * 8) >> (length - 1) * 8);
+		pThis->szBuffer += (char)(value << (i * 8) >> ((length - 1) * 8));
 	}
 }
 void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer) {
@@ -58,24 +58,16 @@ T1 ReadBuffer(BinaryStringBuilder* pThis) {
 	return *(T1*)&temp;
 }
 int SC_SERVER_DECL ASBinaryBuilder_ReadInt(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	if (pthis->iReadPointer < pthis->szBuffer.length())
-		return ReadBuffer<int, int>(pthis);
-	return 0;
+	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<int, int>(pthis) : 0;
 }
 int64 SC_SERVER_DECL ASBinaryBuilder_ReadLong(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	if (pthis->iReadPointer < pthis->szBuffer.length())
-		return ReadBuffer<int64, int64>(pthis);
-	return 0;
+	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<int64, int64>(pthis) : 0;
 }
 float SC_SERVER_DECL ASBinaryBuilder_ReadFloat(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	if (pthis->iReadPointer < pthis->szBuffer.length())
-		return ReadBuffer<float, int>(pthis);
-	return 0.0f;
+	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<float, int>(pthis) : 0.0f;
 }
 double SC_SERVER_DECL ASBinaryBuilder_ReadDouble(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	if (pthis->iReadPointer < pthis->szBuffer.length())
-		return ReadBuffer<double, int64>(pthis);
-	return 0.0;
+	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<double, int64>(pthis) : 0.0;
 }
 void SC_SERVER_DECL ASBinaryBuilder_ReadVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t vecBuffer){
 	vecBuffer.x = ReadBuffer<float, int>(pthis);
@@ -93,7 +85,6 @@ void SC_SERVER_DECL ASBinaryBuilder_ReadString(BinaryStringBuilder* pthis, SC_SE
 	}
 	szBuffer->assign(temp.c_str(), temp.length());
 }
-
 void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
 	pthis->szBuffer.clear();
 	pthis->iReadPointer = 0;
