@@ -37,12 +37,12 @@ void SC_SERVER_DECL ASBinaryBuilder_WriteFloat(BinaryStringBuilder* pthis, SC_SE
 	WriteBuffer(pthis, std::bit_cast<int>(value));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteDouble(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value){
-	WriteBuffer(pthis, std::bit_cast<int>(value));
+	WriteBuffer(pthis, std::bit_cast<int64>(value));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value){
-	WriteBuffer(pthis, std::bit_cast<int>(value));
-	WriteBuffer(pthis, std::bit_cast<int>(value));
-	WriteBuffer(pthis, std::bit_cast<int>(value));
+	WriteBuffer(pthis, std::bit_cast<int>(value.x));
+	WriteBuffer(pthis, std::bit_cast<int>(value.y));
+	WriteBuffer(pthis, std::bit_cast<int>(value.z));
 }
 void SC_SERVER_DECL ASBinaryBuilder_WriteString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value){
 	pthis->szBuffer += value->c_str();
