@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="angelscript.h" />
-    <ClInclude Include="angelscriptlib.h" />
     <ClInclude Include="CASBinaryStringBuilder.h" />
     <ClInclude Include="dlldef.h" />
     <ClInclude Include="enginedef.h" />

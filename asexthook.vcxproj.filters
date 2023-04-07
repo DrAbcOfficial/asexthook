@@ -80,8 +80,5 @@
     <ClInclude Include="CASBinaryStringBuilder.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="angelscriptlib.h">
-      <Filter>header</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
