@@ -1,6 +1,8 @@
 #include <extdll.h>
 
+#include "angelscriptlib.h"
 #include "angelscript.h"
+#include "CScriptHandle.h"
 #include "asext_api.h"
 #include <meta_api.h>
 #include "CASBinaryStringBuilder.h"
@@ -14,10 +16,14 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 	return CRC32_FINAL(crc);
 }
 
-bool SC_SERVER_DECL CASEngineFuncs_memcpy(void* pthis, SC_SERVER_DUMMYARG void* src, void* dest) {
-	if (sizeof(src) != sizeof(dest))
+bool SC_SERVER_DECL CASEngineFuncs_ClassMemcpy(void* pthis, SC_SERVER_DUMMYARG void* _src, int srctypeid, void* _dst, int dsttypeid) {
+	if (srctypeid != dsttypeid)
 		return false;
-	memcpy_s(dest, sizeof(dest), src, sizeof(src));
+	asIScriptObject* src = *static_cast<asIScriptObject**>(_src);
+	asIScriptObject* dst = *static_cast<asIScriptObject**>(_dst);
+	if (!src || !dst)
+		return false;
+	dst->CopyFrom(src);
 	return true;
 }
 
@@ -58,8 +64,8 @@ void RegisterAngelScriptMethods(){
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
 			(void*)CASEngineFuncs_CRC32, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc,
-			"memcpy, If the size of src and dest is inconsistent, return false", "CEngineFuncs", "bool memcpy(const T& in src, const T& in dest)",
-			(void*)CASEngineFuncs_memcpy, asCALL_THISCALL);
+			"copy class, If src and dst are different type, return false.\nIf not class ref, crash game.", "CEngineFuncs", "bool ClassMemcpy(?& in src, ?& in dst)",
+			(void*)CASEngineFuncs_ClassMemcpy, asCALL_THISCALL);
 	});
 }
 

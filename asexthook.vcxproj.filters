@@ -80,5 +80,8 @@
     <ClInclude Include="CASBinaryStringBuilder.h">
       <Filter>header</Filter>
     </ClInclude>
+    <ClInclude Include="CScriptHandle.h">
+      <Filter>header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

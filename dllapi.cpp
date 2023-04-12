@@ -219,7 +219,6 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
 	}
-
 #define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=(void*)table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
 	vtable_base_t* vtable = AddEntityVTable("monster_apache");
 	ITEM_HOOK(gHookItems.ApacheTraceAttack, TraceAttack, vtable, ApacheTraceAttack);

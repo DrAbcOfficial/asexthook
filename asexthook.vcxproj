@@ -104,6 +104,7 @@
   <ItemGroup>
     <ClInclude Include="angelscript.h" />
     <ClInclude Include="CASBinaryStringBuilder.h" />
+    <ClInclude Include="CScriptHandle.h" />
     <ClInclude Include="dlldef.h" />
     <ClInclude Include="enginedef.h" />
     <ClInclude Include="info_name.h" />
