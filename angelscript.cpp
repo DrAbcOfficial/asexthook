@@ -1,8 +1,6 @@
 #include <extdll.h>
 
-#include "angelscriptlib.h"
 #include "angelscript.h"
-#include "CScriptHandle.h"
 #include "asext_api.h"
 #include <meta_api.h>
 #include "CASBinaryStringBuilder.h"
