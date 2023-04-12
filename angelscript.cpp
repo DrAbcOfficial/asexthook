@@ -14,6 +14,13 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 	return CRC32_FINAL(crc);
 }
 
+bool SC_SERVER_DECL CASEngineFuncs_memcpy(void* pthis, SC_SERVER_DUMMYARG void* src, void* dest) {
+	if (sizeof(src) != sizeof(dest))
+		return false;
+	memcpy_s(dest, sizeof(dest), src, sizeof(src));
+	return true;
+}
+
 /// <summary>
 /// Regiter
 /// </summary>
@@ -50,6 +57,9 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
 			(void*)CASEngineFuncs_CRC32, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc,
+			"memcpy, If the size of src and dest is inconsistent, return false", "CEngineFuncs", "bool memcpy(const T& in src, const T& in dest)",
+			(void*)CASEngineFuncs_memcpy, asCALL_THISCALL);
 	});
 }
 
