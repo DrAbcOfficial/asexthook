@@ -1,31 +1,44 @@
 #pragma once
 #include <string>
-struct BinaryStringBuilder{
-	size_t iReadPointer = 0;
-	std::string szBuffer;
+class CBinaryStringBuilder
+{
+public:
+    CBinaryStringBuilder(asIScriptEngine* engine);
+    static CBinaryStringBuilder* SC_SERVER_DECL Factory(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+
+    // Reference counting
+    static void SC_SERVER_DECL AddRef(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static void SC_SERVER_DECL Release(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+
+    static void SC_SERVER_DECL SetGCFlag(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static bool SC_SERVER_DECL GetGCFlag(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static int SC_SERVER_DECL GetRefCount(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static void SC_SERVER_DECL EnumReferences(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG asIScriptEngine* engine);
+    static void SC_SERVER_DECL ReleaseAllReferences(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG asIScriptEngine* engine);
+
+    static void SC_SERVER_DECL Get(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer);
+    static void SC_SERVER_DECL Set(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer);
+
+    static size_t SC_SERVER_DECL GetReadPointer(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static void SC_SERVER_DECL SetReadPointer(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG size_t pointer);
+
+    static void SC_SERVER_DECL WriteInt(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int value);
+    static void SC_SERVER_DECL WriteLong(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int64 value);
+    static void SC_SERVER_DECL WriteFloat(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG float value);
+    static void SC_SERVER_DECL WriteDouble(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value);
+    static void SC_SERVER_DECL WriteVector(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value);
+    static void SC_SERVER_DECL WriteString(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value);
+
+    static int SC_SERVER_DECL ReadInt(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static int64 SC_SERVER_DECL ReadLong(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static float SC_SERVER_DECL ReadFloat(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static double SC_SERVER_DECL ReadDouble(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+    static void SC_SERVER_DECL ReadVector(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t vecBuffer);
+    static void SC_SERVER_DECL ReadString(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* szBuffer);
+    static bool SC_SERVER_DECL ReadToEnd(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
+
+    size_t iReadPointer = 0;
+    std::string szBuffer;
+private:
+    size_t  refCount;
 };
-
-extern BinaryStringBuilder g_ASBinaryStringBuilder;
-
-void SC_SERVER_DECL ASBinaryBuilder_Output(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer);
-void SC_SERVER_DECL ASBinaryBuilder_SetBuffer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer);
-
-size_t SC_SERVER_DECL ASBinaryBuilder_GetReadPointer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-void SC_SERVER_DECL ASBinaryBuilder_SetReadPointer(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG size_t pointer);
-
-void SC_SERVER_DECL ASBinaryBuilder_WriteInt(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int value);
-void SC_SERVER_DECL ASBinaryBuilder_WriteLong(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int64 value);
-void SC_SERVER_DECL ASBinaryBuilder_WriteFloat(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG float value);
-void SC_SERVER_DECL ASBinaryBuilder_WriteDouble(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value);
-void SC_SERVER_DECL ASBinaryBuilder_WriteVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value);
-void SC_SERVER_DECL ASBinaryBuilder_WriteString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value);
-
-int SC_SERVER_DECL ASBinaryBuilder_ReadInt(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-int64 SC_SERVER_DECL ASBinaryBuilder_ReadLong(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-float SC_SERVER_DECL ASBinaryBuilder_ReadFloat(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-double SC_SERVER_DECL ASBinaryBuilder_ReadDouble(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-void SC_SERVER_DECL ASBinaryBuilder_ReadVector(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t vecBuffer);
-void SC_SERVER_DECL ASBinaryBuilder_ReadString(BinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* szBuffer);
-bool SC_SERVER_DECL ASBinaryBuilder_ReadToEnd(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);
-
-void SC_SERVER_DECL ASBinaryBuilder_ClearBuffer(BinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA);

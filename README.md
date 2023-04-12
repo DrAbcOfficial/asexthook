@@ -49,7 +49,7 @@ Auto-generated HTML documentation for the Sven Co-op AsExtHook Angelscript API i
 
 ##  1. <a name='Install'></a>Install
 
-1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases/tag/s2v1)
+1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases)
 
 2. Install them.
 3. Grab asexthook.dll/asexthook.so, put them into `svencoop/addons/metamod/dlls`
@@ -99,7 +99,7 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 2. Clone metamod modified by hzqst
    
-   `git clone https://github.com/hzqst/metamod-fallguys.git metamod`
+   `git clone https://github.com/DrAbcOfficial/metamod-fallguys.git metamod`
 
    `cd metamod`
 

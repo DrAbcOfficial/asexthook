@@ -29,6 +29,8 @@ bool SC_SERVER_DECL CASEngineFuncs_ClassMemcpy(void* pthis, SC_SERVER_DUMMYARG v
 /// Regiter
 /// </summary>
 void RegisterAngelScriptMethods(){
+	
+
 	ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
 		//Regist HealthInfo type
 		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", 0, asEObjTypeFlags::asOBJ_REF | asEObjTypeFlags::asOBJ_NOCOUNT);
@@ -37,10 +39,39 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
 
+		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, 5);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Default constructor.", "CBinaryStringBuilder", asBEHAVE_CONSTRUCT, "CBinaryStringBuilder@ CBinaryStringBuilder()", CBinaryStringBuilder::Factory, asCALL_THISCALL);
+		//ASEXT_RegisterObjectBehaviour(pASDoc, "Destructor.", "CBinaryStringBuilder", asBEHAVE_DESTRUCT, "void DestructCBinaryStringBuilder()", CBinaryStringBuilder::Release, asCALL_CDECL_OBJLAST);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "AddRef", "CBinaryStringBuilder", asBEHAVE_ADDREF, "void AddRef()", CBinaryStringBuilder::AddRef, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Release", "CBinaryStringBuilder", asBEHAVE_RELEASE, "void Release()", CBinaryStringBuilder::Release, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Set GC Flag", "CBinaryStringBuilder", asBEHAVE_SETGCFLAG, "void SetGCFlag()", CBinaryStringBuilder::SetGCFlag, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Get GC Flag", "CBinaryStringBuilder", asBEHAVE_GETGCFLAG, "bool GetGCFlag() const", CBinaryStringBuilder::GetGCFlag, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Get reference count", "CBinaryStringBuilder", asBEHAVE_GETREFCOUNT, "int GetRefCount() const", CBinaryStringBuilder::GetRefCount, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Enumerate references held by this class", "CBinaryStringBuilder", asBEHAVE_ENUMREFS, "void EnumReferences(int& in a)", CBinaryStringBuilder::EnumReferences, asCALL_THISCALL);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Release all references held by this class", "CBinaryStringBuilder", asBEHAVE_RELEASEREFS, "void ReleaseReferences(int& in a)", CBinaryStringBuilder::ReleaseAllReferences, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Is Read to end?", "CBinaryStringBuilder", "bool ReadToEnd()", CBinaryStringBuilder::ReadToEnd, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Get output to a string", "CBinaryStringBuilder", "void Get(string&out buffer)", CBinaryStringBuilder::Get, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Set a read buffer", "CBinaryStringBuilder", "bool Set(string&in buffer)", CBinaryStringBuilder::Set, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Get the read pointer", "CBinaryStringBuilder", "uint GetReadPointer()", CBinaryStringBuilder::GetReadPointer, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Set the read pointer", "CBinaryStringBuilder", "void SetReadPointer(uint iPointer)", CBinaryStringBuilder::SetReadPointer, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteInt(int value)", CBinaryStringBuilder::WriteInt, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteLong(int64 value)", CBinaryStringBuilder::WriteLong, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteFloat(float value)", CBinaryStringBuilder::WriteFloat, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteDouble(double value)", CBinaryStringBuilder::WriteDouble, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteVector(Vector value)", CBinaryStringBuilder::WriteVector, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Write a Value", "CBinaryStringBuilder", "void WriteString(string&in value)", CBinaryStringBuilder::WriteString, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "int ReadInt()", CBinaryStringBuilder::ReadInt, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "int64 ReadLong()", CBinaryStringBuilder::ReadLong, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "float ReadFloat()", CBinaryStringBuilder::ReadFloat, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "double ReadDouble()", CBinaryStringBuilder::ReadDouble, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadVector(Vector&out value)", CBinaryStringBuilder::ReadVector, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadString(string&out value)", CBinaryStringBuilder::ReadString, asCALL_THISCALL);
+
+		/*
 		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, asEObjTypeFlags::asOBJ_REF | asEObjTypeFlags::asOBJ_NOCOUNT);
 		ASEXT_RegisterObjectMethod(pASDoc, "Initial buffer", "CBinaryStringBuilder", "void Init()", (void*)ASBinaryBuilder_ClearBuffer, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Is Read to end?", "CBinaryStringBuilder", "bool ReadToEnd()", (void*)ASBinaryBuilder_ReadToEnd, asCALL_THISCALL);
-		ASEXT_RegisterObjectMethod(pASDoc, "Copy output to a string", "CBinaryStringBuilder", "void Copy(string&out buffer)", (void*)ASBinaryBuilder_Output, asCALL_THISCALL);
+		ASEXT_RegisterObjectMethod(pASDoc, "Copy ", "CBinaryStringBuilder", "void Copy(string&out buffer)", (void*)ASBinaryBuilder_Output, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Bind a read buffer", "CBinaryStringBuilder", "void SetReadBuffer(string&in buffer)", (void*)ASBinaryBuilder_SetBuffer, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Get the read pointer", "CBinaryStringBuilder", "uint GetReadPointer()", (void*)ASBinaryBuilder_GetReadPointer, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Set the read pointer", "CBinaryStringBuilder", "void SetReadPointer(uint iPointer)", (void*)ASBinaryBuilder_SetReadPointer, asCALL_THISCALL);
@@ -57,13 +88,14 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadVector(Vector&out value)", (void*)ASBinaryBuilder_ReadVector, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadString(string&out value)", (void*)ASBinaryBuilder_ReadString, asCALL_THISCALL);
 		ASEXT_RegisterGlobalProperty(pASDoc, "Binary String Builder", "CBinaryStringBuilder g_BinaryStringBuilder", (void*)&g_ASBinaryStringBuilder);
+		*/
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"Caculate CRC32 for a string", "CEngineFuncs", "uint32 CRC32(const string& in szBuffer)",
-			(void*)CASEngineFuncs_CRC32, asCALL_THISCALL);
+			CASEngineFuncs_CRC32, asCALL_THISCALL);
 		ASEXT_RegisterObjectMethod(pASDoc,
 			"copy class, If src and dst are different type, return false.\nIf not class ref, crash game.", "CEngineFuncs", "bool ClassMemcpy(?& in src, ?& in dst)",
-			(void*)CASEngineFuncs_ClassMemcpy, asCALL_THISCALL);
+			CASEngineFuncs_ClassMemcpy, asCALL_THISCALL);
 	});
 }
 
