@@ -17,7 +17,6 @@ uint32 SC_SERVER_DECL CASEngineFuncs_CRC32(void* pthis, SC_SERVER_DUMMYARG CStri
 bool SC_SERVER_DECL CASEngineFuncs_ClassMemcpy(void* pthis, SC_SERVER_DUMMYARG void* _src, int srctypeid, void* _dst, int dsttypeid) {
 	if (srctypeid != dsttypeid)
 		return false;
-
 	asIScriptObject* src = *static_cast<asIScriptObject**>(_src);
 	asIScriptObject* dst = *static_cast<asIScriptObject**>(_dst);
 	if (!src || !dst)

@@ -153,6 +153,7 @@ class HealthInfo{
 |Class|Method|Explian|
 |---|---|---|
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
+|CEngineFuncs|bool ClassMemcpy(?& in src, ?& in dst)|copy class, If src and dst are different type, return false. If not class ref, crash game.|
 |---|---|---|
 |CBinaryStringBuilder|void Init()|InitialInitial buffer|
 |CBinaryStringBuilder|bool ReadToEnd()|Is Read to end?|
