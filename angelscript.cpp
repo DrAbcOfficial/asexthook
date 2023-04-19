@@ -41,7 +41,7 @@ void RegisterAngelScriptMethods(){
 
 		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, 5);
 		ASEXT_RegisterObjectBehaviour(pASDoc, "Default constructor.", "CBinaryStringBuilder", asBEHAVE_CONSTRUCT, "CBinaryStringBuilder@ CBinaryStringBuilder()", (void*)CBinaryStringBuilder::Factory, asCALL_THISCALL);
-		//ASEXT_RegisterObjectBehaviour(pASDoc, "Destructor.", "CBinaryStringBuilder", asBEHAVE_DESTRUCT, "void DestructCBinaryStringBuilder()", (void*)CBinaryStringBuilder::Release, asCALL_CDECL_OBJLAST);
+		ASEXT_RegisterObjectBehaviour(pASDoc, "Destructor.", "CBinaryStringBuilder", asBEHAVE_DESTRUCT, "void DestructCBinaryStringBuilder()", (void*)CBinaryStringBuilder::Release, asCALL_CDECL_OBJLAST);
 		ASEXT_RegisterObjectBehaviour(pASDoc, "AddRef", "CBinaryStringBuilder", asBEHAVE_ADDREF, "void AddRef()", (void*)CBinaryStringBuilder::AddRef, asCALL_THISCALL);
 		ASEXT_RegisterObjectBehaviour(pASDoc, "Release", "CBinaryStringBuilder", asBEHAVE_RELEASE, "void Release()", (void*)CBinaryStringBuilder::Release, asCALL_THISCALL);
 		ASEXT_RegisterObjectBehaviour(pASDoc, "Set GC Flag", "CBinaryStringBuilder", asBEHAVE_SETGCFLAG, "void SetGCFlag()", (void*)CBinaryStringBuilder::SetGCFlag, asCALL_THISCALL);

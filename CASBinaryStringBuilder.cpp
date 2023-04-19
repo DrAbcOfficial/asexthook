@@ -19,9 +19,9 @@ void SC_SERVER_DECL CBinaryStringBuilder::AddRef(CBinaryStringBuilder* pthis SC_
 	pthis->refCount = (pthis->refCount & 0x7FFFFFFF) + 1;
 }
 void SC_SERVER_DECL CBinaryStringBuilder::Release(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	//pthis->refCount &= 0x7FFFFFFF;
-	//if (--pthis->refCount == 0)
-	//	delete pthis;
+	pthis->refCount &= 0x7FFFFFFF;
+	if (--pthis->refCount == 0)
+		delete pthis;
 }
 void SC_SERVER_DECL CBinaryStringBuilder::SetGCFlag(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
 	pthis->refCount |= 0x80000000;
