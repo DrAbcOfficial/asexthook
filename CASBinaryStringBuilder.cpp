@@ -14,17 +14,17 @@ CBinaryStringBuilder* CBinaryStringBuilder::Factory() {
 }
 
 void CBinaryStringBuilder::Get(CString* buffer){
-	buffer->assign(this->szBuffer.c_str(), this->szBuffer.length());
+	buffer->assign(szBuffer.c_str(), szBuffer.length());
 }
 void CBinaryStringBuilder::Set(CString* buffer){
-	this->szBuffer = buffer->c_str();
-	this->iReadPointer = 0;
+	szBuffer = buffer->c_str();
+	iReadPointer = 0;
 }
 size_t CBinaryStringBuilder::GetReadPointer(){
-	return this->iReadPointer;
+	return iReadPointer;
 }
 void CBinaryStringBuilder::SetReadPointer(size_t pointer){
-	this->iReadPointer = min(this->szBuffer.length(), pointer);
+	iReadPointer = min(szBuffer.length(), pointer);
 }
 template <typename T>
 void WriteBuffer(CBinaryStringBuilder* pThis, T value) {
