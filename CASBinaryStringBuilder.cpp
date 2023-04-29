@@ -12,6 +12,11 @@ CBinaryStringBuilder::CBinaryStringBuilder(){
 CBinaryStringBuilder* CBinaryStringBuilder::Factory() {
 	return new CBinaryStringBuilder();
 }
+CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
+	CBinaryStringBuilder* obj = new CBinaryStringBuilder();
+	obj->Set(str);
+	return obj;
+}
 
 void CBinaryStringBuilder::Get(CString* buffer){
 	buffer->assign(szBuffer.c_str(), szBuffer.length());

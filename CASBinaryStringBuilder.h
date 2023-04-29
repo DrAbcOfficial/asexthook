@@ -6,6 +6,7 @@ class CBinaryStringBuilder : public CASBaseGCObject
 public:
     CBinaryStringBuilder();
     static CBinaryStringBuilder* Factory();
+    static CBinaryStringBuilder* ParamFactory(CString* str);
 
     void Get(CString* buffer);
     void Set(CString* buffer);
