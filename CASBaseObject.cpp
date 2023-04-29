@@ -13,7 +13,7 @@ void CASBaseGCObject::AddRef() {
 }
 void CASBaseGCObject::Release() {
 	refCount &= 0x7FFFFFFF;
-	if (--this->refCount == 0)
+	if (--refCount == 0)
 		delete this;
 }
 void CASBaseGCObject::SetGCFlag() {
