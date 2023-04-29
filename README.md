@@ -173,6 +173,10 @@ class HealthInfo{
 |CBinaryStringBuilder|void ReadVector(Vector&out value)|Read a Value|
 |CBinaryStringBuilder|void ReadString(string&out value)|Read a Value|
 
+
+###  3.4. <a name='ExpansionMethodExamples'></a>Expansion Method Examples
+
+
 ###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
 ---
