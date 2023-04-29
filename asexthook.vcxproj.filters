@@ -46,6 +46,9 @@
     <ClCompile Include="CASBaseObject.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="CASSQLite.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -87,6 +90,9 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="CASBaseObject.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="CASSQLite.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

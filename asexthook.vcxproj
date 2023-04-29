@@ -57,7 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include;./sqlite3/include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include;./sqlite3/include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -94,6 +94,7 @@
     <ClCompile Include="angelscript.cpp" />
     <ClCompile Include="CASBaseObject.cpp" />
     <ClCompile Include="CASBinaryStringBuilder.cpp" />
+    <ClCompile Include="CASSQLite.cpp" />
     <ClCompile Include="dllapi.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="engine_api.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="angelscriptlib.h" />
     <ClInclude Include="CASBaseObject.h" />
     <ClInclude Include="CASBinaryStringBuilder.h" />
+    <ClInclude Include="CASSQLite.h" />
     <ClInclude Include="dlldef.h" />
     <ClInclude Include="enginedef.h" />
     <ClInclude Include="info_name.h" />
