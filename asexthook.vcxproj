@@ -92,6 +92,7 @@
     <ClCompile Include="..\CDetour\libudis86\itab.c" />
     <ClCompile Include="..\CDetour\libudis86\udis86.c" />
     <ClCompile Include="angelscript.cpp" />
+    <ClCompile Include="CASBaseObject.cpp" />
     <ClCompile Include="CASBinaryStringBuilder.cpp" />
     <ClCompile Include="dllapi.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -103,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="angelscript.h" />
+    <ClInclude Include="angelscriptlib.h" />
+    <ClInclude Include="CASBaseObject.h" />
     <ClInclude Include="CASBinaryStringBuilder.h" />
     <ClInclude Include="dlldef.h" />
     <ClInclude Include="enginedef.h" />

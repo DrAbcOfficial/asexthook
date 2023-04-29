@@ -1,55 +1,30 @@
 #include <extdll.h>
+
 #include "angelscript.h"
-#include "asext_api.h"
+
 #include <meta_api.h>
 
 #include "CASBinaryStringBuilder.h"
 
-CBinaryStringBuilder::CBinaryStringBuilder(asIScriptEngine* engine){
+CBinaryStringBuilder::CBinaryStringBuilder(){
 	refCount = 1;
 }
-CBinaryStringBuilder* SC_SERVER_DECL CBinaryStringBuilder::Factory(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA) {
-	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	CBinaryStringBuilder* obj = new CBinaryStringBuilder(engine);
-	asITypeInfo* type = engine->GetTypeInfoByName("gc");
-	engine->NotifyGarbageCollectorOfNewObject(obj, type);
-	return obj;
+CBinaryStringBuilder* CBinaryStringBuilder::Factory() {
+	return new CBinaryStringBuilder();
 }
-void SC_SERVER_DECL CBinaryStringBuilder::AddRef(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA) {
-	pthis->refCount = (pthis->refCount & 0x7FFFFFFF) + 1;
-}
-void SC_SERVER_DECL CBinaryStringBuilder::Release(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	pthis->refCount &= 0x7FFFFFFF;
-	if (--pthis->refCount == 0)
-		delete pthis;
-}
-void SC_SERVER_DECL CBinaryStringBuilder::SetGCFlag(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	pthis->refCount |= 0x80000000;
-}
-bool SC_SERVER_DECL CBinaryStringBuilder::GetGCFlag(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return (pthis->refCount & 0x80000000) ? true : false;
-}
-int SC_SERVER_DECL CBinaryStringBuilder::GetRefCount(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return (pthis->refCount & 0x7FFFFFFF);
-}
-void SC_SERVER_DECL CBinaryStringBuilder::EnumReferences(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG asIScriptEngine* engine){
 
+void CBinaryStringBuilder::Get(CString* buffer){
+	buffer->assign(this->szBuffer.c_str(), this->szBuffer.length());
 }
-void SC_SERVER_DECL CBinaryStringBuilder::ReleaseAllReferences(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG asIScriptEngine* engine){
-
+void CBinaryStringBuilder::Set(CString* buffer){
+	this->szBuffer = buffer->c_str();
+	this->iReadPointer = 0;
 }
-void SC_SERVER_DECL CBinaryStringBuilder::Get(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer){
-	buffer->assign(pthis->szBuffer.c_str(), pthis->szBuffer.length());
+size_t CBinaryStringBuilder::GetReadPointer(){
+	return this->iReadPointer;
 }
-void SC_SERVER_DECL CBinaryStringBuilder::Set(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* buffer){
-	pthis->szBuffer = buffer->c_str();
-	pthis->iReadPointer = 0;
-}
-size_t SC_SERVER_DECL CBinaryStringBuilder::GetReadPointer(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer;
-}
-void SC_SERVER_DECL CBinaryStringBuilder::SetReadPointer(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG size_t pointer){
-	pthis->iReadPointer = min(pthis->szBuffer.length(), pointer);
+void CBinaryStringBuilder::SetReadPointer(size_t pointer){
+	this->iReadPointer = min(this->szBuffer.length(), pointer);
 }
 template <typename T>
 void WriteBuffer(CBinaryStringBuilder* pThis, T value) {
@@ -58,25 +33,25 @@ void WriteBuffer(CBinaryStringBuilder* pThis, T value) {
 		pThis->szBuffer += static_cast<char>(value << (i * 8) >> ((length - 1) * 8));
 	}
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteInt(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int value){
-	WriteBuffer(pthis, value);
+void CBinaryStringBuilder::WriteInt(int value){
+	WriteBuffer(this, value);
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteLong(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG int64 value){
-	WriteBuffer(pthis, value);
+void CBinaryStringBuilder::WriteLong(int64 value){
+	WriteBuffer(this, value);
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteFloat(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG float value){
-	WriteBuffer(pthis, std::bit_cast<int>(value));
+void CBinaryStringBuilder::WriteFloat(float value){
+	WriteBuffer(this, std::bit_cast<int>(value));
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteDouble(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG double value){
-	WriteBuffer(pthis, std::bit_cast<int64>(value));
+void CBinaryStringBuilder::WriteDouble(double value){
+	WriteBuffer(this, std::bit_cast<int64>(value));
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteVector(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t value){
-	WriteBuffer(pthis, std::bit_cast<int>(value.x));
-	WriteBuffer(pthis, std::bit_cast<int>(value.y));
-	WriteBuffer(pthis, std::bit_cast<int>(value.z));
+void CBinaryStringBuilder::WriteVector(vec3_t value){
+	WriteBuffer(this, std::bit_cast<int>(value.x));
+	WriteBuffer(this, std::bit_cast<int>(value.y));
+	WriteBuffer(this, std::bit_cast<int>(value.z));
 }
-void SC_SERVER_DECL CBinaryStringBuilder::WriteString(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* value){
-	pthis->szBuffer += value->c_str();
+void CBinaryStringBuilder::WriteString(CString* value){
+	this->szBuffer += value->c_str();
 }
 template <typename T1, typename T2>
 T1 ReadBuffer(CBinaryStringBuilder* pThis) {
@@ -88,34 +63,34 @@ T1 ReadBuffer(CBinaryStringBuilder* pThis) {
 	}
 	return std::bit_cast<T1>(temp);
 }
-int SC_SERVER_DECL CBinaryStringBuilder::ReadInt(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<int, int>(pthis) : 0;
+int CBinaryStringBuilder::ReadInt(){
+	return iReadPointer < szBuffer.length() ? ReadBuffer<int, int>(this) : 0;
 }
-int64 SC_SERVER_DECL CBinaryStringBuilder::ReadLong(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<int64, int64>(pthis) : 0;
+int64 CBinaryStringBuilder::ReadLong(){
+	return iReadPointer < szBuffer.length() ? ReadBuffer<int64, int64>(this) : 0;
 }
-float SC_SERVER_DECL CBinaryStringBuilder::ReadFloat(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<float, int>(pthis) : 0.0f;
+float CBinaryStringBuilder::ReadFloat(){
+	return iReadPointer < szBuffer.length() ? ReadBuffer<float, int>(this) : 0.0f;
 }
-double SC_SERVER_DECL CBinaryStringBuilder::ReadDouble(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer < pthis->szBuffer.length() ? ReadBuffer<double, int64>(pthis) : 0.0;
+double CBinaryStringBuilder::ReadDouble(){
+	return iReadPointer < szBuffer.length() ? ReadBuffer<double, int64>(this) : 0.0;
 }
-void SC_SERVER_DECL CBinaryStringBuilder::ReadVector(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG vec3_t vecBuffer){
-	vecBuffer.x = ReadBuffer<float, int>(pthis);
-	vecBuffer.y = ReadBuffer<float, int>(pthis);
-	vecBuffer.z = ReadBuffer<float, int>(pthis);
+void CBinaryStringBuilder::ReadVector(vec3_t vecBuffer){
+	vecBuffer.x = ReadBuffer<float, int>(this);
+	vecBuffer.y = ReadBuffer<float, int>(this);
+	vecBuffer.z = ReadBuffer<float, int>(this);
 }
-void SC_SERVER_DECL CBinaryStringBuilder::ReadString(CBinaryStringBuilder* pthis, SC_SERVER_DUMMYARG CString* szBuffer){
+void CBinaryStringBuilder::ReadString(CString* szOutBuffer){
 	std::string temp;
-	for (size_t i = pthis->iReadPointer; i < pthis->szBuffer.length(); i++) {
-		char c = pthis->szBuffer[pthis->iReadPointer];
+	for (size_t i = iReadPointer; i < szBuffer.length(); i++) {
+		char c = szBuffer[iReadPointer];
 		temp += c;
-		pthis->iReadPointer++;
+		iReadPointer++;
 		if (c == '\0')
 			break;
 	}
-	szBuffer->assign(temp.c_str(), temp.length());
+	szOutBuffer->assign(temp.c_str(), temp.length());
 }
-bool SC_SERVER_DECL CBinaryStringBuilder::ReadToEnd(CBinaryStringBuilder* pthis SC_SERVER_DUMMYARG_NOCOMMA){
-	return pthis->iReadPointer >= pthis->szBuffer.length();
+bool CBinaryStringBuilder::IsReadToEnd(){
+	return iReadPointer >= szBuffer.length();
 }

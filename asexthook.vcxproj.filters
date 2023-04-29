@@ -43,6 +43,9 @@
     <ClCompile Include="CASBinaryStringBuilder.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="CASBaseObject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -78,6 +81,12 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="CASBinaryStringBuilder.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="angelscriptlib.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="CASBaseObject.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>
