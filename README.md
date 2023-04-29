@@ -176,6 +176,7 @@ class HealthInfo{
 
 ###  3.4. <a name='ExpansionMethodExamples'></a>Expansion Method Examples
 
+[Example](https://github.com/DrAbcOfficial/asexthook/example)
 
 ###  3.4. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
