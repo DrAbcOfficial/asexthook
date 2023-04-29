@@ -63,7 +63,7 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover amount.", "HealthInfo", "float flHealth", offsetof(healthinfo_t, flHealth));
 		ASEXT_RegisterObjectProperty(pASDoc, "Recover dmg type.", "HealthInfo", "int bitsDamageType", offsetof(healthinfo_t, bitsDamageType));
 		ASEXT_RegisterObjectProperty(pASDoc, "If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.", "HealthInfo", "int health_cap", offsetof(healthinfo_t, health_cap));
-		
+		//CBinaryStringBuilder
 		asSFuncPtr reg;
 		ASEXT_RegisterObjectType(pASDoc, "Binary String Builder", "CBinaryStringBuilder", 0, 5);
 		reg = asFUNCTION(CBinaryStringBuilder::Factory);
@@ -88,6 +88,9 @@ void RegisterAngelScriptMethods(){
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Read a Value", "CBinaryStringBuilder", "double ReadDouble()", CBinaryStringBuilder, ReadDouble, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadVector(Vector&out value)", CBinaryStringBuilder, ReadVector, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Read a Value", "CBinaryStringBuilder", "void ReadString(string&out value)", CBinaryStringBuilder, ReadString, asCALL_THISCALL);
+
+		//CSQLite
+
 
 		//Regist New Method
 		ASEXT_RegisterObjectMethod(pASDoc,
