@@ -16,6 +16,9 @@ fnSQLite3Exec SQLite3_Exec;
 typedef int(*fnSQLite3Close)(sqlite3*);
 fnSQLite3Close SQLite3_Close;
 
+typedef void(*fnSQLite3Free)(void*);
+fnSQLite3Free SQLite3_Free;
+
 CASSQLite::CASSQLite(CString* szPath, int iMode){
 	namespace fs = std::filesystem;
 	std::string szNPath = szPath->c_str();
@@ -35,16 +38,23 @@ CASSQLite* CASSQLite::Factory(CString* szPath, int iMode){
 	CASSQLite* obj = new CASSQLite(szPath, iMode);
 	return obj;
 }
-int CASSQLite::Call(CString* sql, fnSqlCallBack callback, aslScriptFunction* pfnASCallBack, CString* errMsg) {
+int CASSQLite::Call(CString* sql, fnSqlCallBack callback, aslScriptFunction* pfnASCallBack, void* any, CString* errMsg) {
 	if (m_bClosed)
 		return 999;
 	else if (!m_bAviliable)
 		return 1;
 	int iReturn;
-	char* temp = nullptr;
-	iReturn = SQLite3_Exec(m_pDatabase, sql->c_str(), callback, pfnASCallBack, &temp);
-	if (temp)
-		errMsg->assign(temp, strlen(temp));
+	char* zErrMsg = nullptr;
+	if (callback && pfnASCallBack && any) {
+		void* param[2] = { pfnASCallBack , any };
+		iReturn = SQLite3_Exec(m_pDatabase, sql->c_str(), callback, param, &zErrMsg);
+	}
+	else
+		iReturn = SQLite3_Exec(m_pDatabase, sql->c_str(), nullptr, nullptr, &zErrMsg);
+	if (zErrMsg) {
+		errMsg->assign(zErrMsg, strlen(zErrMsg));
+		SQLite3_Free(zErrMsg);
+	}
 	return iReturn;
 }
 int CASSQLite::Open(){
@@ -54,10 +64,10 @@ int CASSQLite::Open(){
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
 int CASSQLite::Exec(CString* sql, CString* errMsg){
-	return Call(sql, nullptr, nullptr, errMsg);
+	return Call(sql, nullptr, nullptr, nullptr, errMsg);
 }
-int CASSQLite::ExecWithCallBack(CString* sql, aslScriptFunction* pfnASCallBack, CString* errMsg){
-	return Call(sql, &Sqlite3Callback, pfnASCallBack, errMsg);
+int CASSQLite::ExecWithCallBack(CString* sql, aslScriptFunction* pfnASCallBack, void* any, CString* errMsg){
+	return Call(sql, &Sqlite3Callback, pfnASCallBack, any, errMsg);
 }
 void CASSQLite::Close(){
 	if (m_pDatabase) {
@@ -70,7 +80,7 @@ void CASSQLite::Close(){
 CASSQLite::~CASSQLite(){
 	Close();
 }
-int CASSQLite::Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size, char* column_value[], char* column_name[]) {
+int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_value[], char* column_name[]) {
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	asIScriptContext* ctx = engine->RequestContext();
@@ -96,8 +106,9 @@ int CASSQLite::Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size
 		ctx->SetArgObject(0, name);
 		ctx->Execute();
 	}
+	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(param[0]);
 	CASFunction* m_callback = ASEXT_CreateCASFunction(pfnASCallBack, ASEXT_GetServerManager()->curModule, 1);
-	(*ASEXT_CallCASBaseCallable)(m_callback, 0, column_size, aryVal, aryName);
+	(*ASEXT_CallCASBaseCallable)(m_callback, 0, param[1], column_size, aryVal, aryName);
 	return 0;
 }
 
@@ -112,7 +123,8 @@ void CASSQLite::LoadSQLite3DLL(){
 	);
 	SQLite3_Open = (decltype(SQLite3_Open))DLSYM(pSqlite3DLLHandle, "sqlite3_open_v2");
 	SQLite3_Exec = (decltype(SQLite3_Exec))DLSYM(pSqlite3DLLHandle, "sqlite3_exec");
-	SQLite3_Close = (decltype(SQLite3_Close))DLSYM(pSqlite3DLLHandle, "sqlite3_close_v2");
+	SQLite3_Close = (decltype(SQLite3_Close))DLSYM(pSqlite3DLLHandle, "sqlite3_close");
+	SQLite3_Free = (decltype(SQLite3_Free))DLSYM(pSqlite3DLLHandle, "sqlite3_free");
 }
 
 void CASSQLite::CloseSQLite3DLL() {

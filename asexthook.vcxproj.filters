@@ -16,37 +16,37 @@
     <ClCompile Include="..\CDetour\libudis86\udis86.c">
       <Filter>detour</Filter>
     </ClCompile>
-    <ClCompile Include="meta_api.cpp">
+    <ClCompile Include="src\source\angelscript.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="dllapi.cpp">
+    <ClCompile Include="src\source\CASBinaryStringBuilder.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="src\source\CASBaseObject.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="engine_api.cpp">
+    <ClCompile Include="src\source\dllapi.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="h_export.cpp">
+    <ClCompile Include="src\source\CASSQLite.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="angelscript.cpp">
+    <ClCompile Include="src\source\engine_api.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="sdk_util.cpp">
+    <ClCompile Include="src\source\dllmain.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="vftable.cpp">
+    <ClCompile Include="src\source\h_export.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="CASBinaryStringBuilder.cpp">
+    <ClCompile Include="src\source\meta_api.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="CASBaseObject.cpp">
+    <ClCompile Include="src\source\sdk_util.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="CASSQLite.cpp">
+    <ClCompile Include="src\source\vftable.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,34 +65,37 @@
     <ClInclude Include="info_name.h">
       <Filter>detour</Filter>
     </ClInclude>
-    <ClInclude Include="angelscript.h">
+    <ClInclude Include="src\header\angelscript.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="signatures.h">
+    <ClInclude Include="src\angelscript\angelscriptlib.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="enginedef.h">
+    <ClInclude Include="src\header\CASBaseObject.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="vftable.h">
+    <ClInclude Include="src\header\CASBinaryStringBuilder.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="dlldef.h">
+    <ClInclude Include="src\header\CASSQLite.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="utility.h">
+    <ClInclude Include="src\header\dlldef.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="CASBinaryStringBuilder.h">
+    <ClInclude Include="src\header\enginedef.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="angelscriptlib.h">
+    <ClInclude Include="src\header\info_name.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="CASBaseObject.h">
+    <ClInclude Include="src\header\signatures.h">
       <Filter>header</Filter>
     </ClInclude>
-    <ClInclude Include="CASSQLite.h">
+    <ClInclude Include="src\header\utility.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\vftable.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>
