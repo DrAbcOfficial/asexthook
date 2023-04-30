@@ -66,7 +66,7 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: mkdir build && cd build && cmake .. && make
+      run: mkdir build && cd build && cmake -DCMAKE_CONFIGURATION_TYPES="Release" .. && make
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
