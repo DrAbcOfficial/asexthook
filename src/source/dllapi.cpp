@@ -33,11 +33,9 @@
 
 #include <vector>
 
-#include <detours.h>
 #include <dllapi.h>
 #include <meta_api.h>
 #include <log_meta.h>
-#include "usercmd.h"
 
 #include "signatures.h"
 #include "asext_api.h"
