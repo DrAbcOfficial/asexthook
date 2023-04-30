@@ -60,10 +60,10 @@ int CASSQLite::ExecWithCallBack(CString* sql, aslScriptFunction* pfnASCallBack, 
 	return Call(sql, &Sqlite3Callback, pfnASCallBack, errMsg);
 }
 void CASSQLite::Close(){
-	if (!m_bAviliable)
-		return;
-	SQLite3_Close(m_pDatabase);
-	m_pDatabase = nullptr;
+	if (m_pDatabase) {
+		SQLite3_Close(m_pDatabase);
+		m_pDatabase = nullptr;
+	}
 	m_bClosed = true;
 	m_bAviliable = false;
 }
