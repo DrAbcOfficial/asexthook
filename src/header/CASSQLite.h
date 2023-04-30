@@ -2,7 +2,7 @@
 #include "CASBaseObject.h"
 #include <string>
 
-typedef struct sqlite3;
+struct sqlite3;
 typedef int (*fnSqlCallBack)(aslScriptFunction*, int, char**, char**);
 
 class CASSQLite : public CASBaseGCObject

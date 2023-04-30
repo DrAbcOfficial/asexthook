@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLATFORM_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../hlsdk/common;../hlsdk/dlls;../hlsdk/pm_shared;../hlsdk/engine;../metamod/;../CDetour;../asext/include;./src/header;./src/angelscript</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -91,30 +91,31 @@
     <ClCompile Include="..\CDetour\libudis86\decode.c" />
     <ClCompile Include="..\CDetour\libudis86\itab.c" />
     <ClCompile Include="..\CDetour\libudis86\udis86.c" />
-    <ClCompile Include="angelscript.cpp" />
-    <ClCompile Include="CASBaseObject.cpp" />
-    <ClCompile Include="CASBinaryStringBuilder.cpp" />
-    <ClCompile Include="CASSQLite.cpp" />
-    <ClCompile Include="dllapi.cpp" />
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="engine_api.cpp" />
-    <ClCompile Include="h_export.cpp" />
-    <ClCompile Include="meta_api.cpp" />
-    <ClCompile Include="sdk_util.cpp" />
-    <ClCompile Include="vftable.cpp" />
+    <ClCompile Include="src\source\angelscript.cpp" />
+    <ClCompile Include="src\source\CASBaseObject.cpp" />
+    <ClCompile Include="src\source\CASBinaryStringBuilder.cpp" />
+    <ClCompile Include="src\source\CASSQLite.cpp" />
+    <ClCompile Include="src\source\dllapi.cpp" />
+    <ClCompile Include="src\source\dllmain.cpp" />
+    <ClCompile Include="src\source\engine_api.cpp" />
+    <ClCompile Include="src\source\h_export.cpp" />
+    <ClCompile Include="src\source\meta_api.cpp" />
+    <ClCompile Include="src\source\sdk_util.cpp" />
+    <ClCompile Include="src\source\vftable.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="angelscript.h" />
-    <ClInclude Include="angelscriptlib.h" />
-    <ClInclude Include="CASBaseObject.h" />
-    <ClInclude Include="CASBinaryStringBuilder.h" />
-    <ClInclude Include="CASSQLite.h" />
-    <ClInclude Include="dlldef.h" />
-    <ClInclude Include="enginedef.h" />
     <ClInclude Include="info_name.h" />
-    <ClInclude Include="signatures.h" />
-    <ClInclude Include="utility.h" />
-    <ClInclude Include="vftable.h" />
+    <ClInclude Include="src\angelscript\angelscriptlib.h" />
+    <ClInclude Include="src\header\angelscript.h" />
+    <ClInclude Include="src\header\CASBaseObject.h" />
+    <ClInclude Include="src\header\CASBinaryStringBuilder.h" />
+    <ClInclude Include="src\header\CASSQLite.h" />
+    <ClInclude Include="src\header\dlldef.h" />
+    <ClInclude Include="src\header\enginedef.h" />
+    <ClInclude Include="src\header\info_name.h" />
+    <ClInclude Include="src\header\signatures.h" />
+    <ClInclude Include="src\header\utility.h" />
+    <ClInclude Include="src\header\vftable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
