@@ -8,7 +8,7 @@ project(asexthook C CXX)
 # Set target arch type if empty. Visual studio solution generator provides it.
 ################################################################################
 if(NOT CMAKE_VS_PLATFORM_NAME)
-    set(CMAKE_VS_PLATFORM_NAME "x64")
+    set(CMAKE_VS_PLATFORM_NAME "Win32")
 endif()
 message("${CMAKE_VS_PLATFORM_NAME} architecture in use")
 
@@ -85,32 +85,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Sub-projects
 ################################################################################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 set(PROJECT_NAME asexthook)
 
 ################################################################################
@@ -148,7 +122,6 @@ set(detour
     "../CDetour/libudis86/decode.c"
     "../CDetour/libudis86/itab.c"
     "../CDetour/libudis86/udis86.c"
-    "info_name.h"
 )
 source_group("detour" FILES ${detour})
 
@@ -190,10 +163,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES MSVC_RUNTIME_LIBRARY ${MSVC_RUN
 # Include directories
 ################################################################################
 target_include_directories(${PROJECT_NAME} PUBLIC
-    "$<$<CONFIG:Debug>:"
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/header;"
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/angelscript"
-    ">"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/header;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/angelscript"
     "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/common;"
     "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/dlls;"
     "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/pm_shared;"
