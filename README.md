@@ -156,26 +156,8 @@ class HealthInfo{
 |CEngineFuncs|uint32 CRC32(const string& in szBuffer)|Caculate CRC32 for a string|
 |CEngineFuncs|bool ClassMemcpy(?& in src, ?& in dst)|copy class, If src and dst are different type, return false. If not class ref, crash game.|
 |---|---|---|
-|CBinaryStringBuilder|bool IsReadToEnd()|Is Read to end?|
-|CBinaryStringBuilder|void Set(string&out buffer)|Set a read buffer|
-|CBinaryStringBuilder|void Get(string&out buffer)|Get output to a string|
-|CBinaryStringBuilder|uint GetReadPointer()|Get the read pointer|
-|CBinaryStringBuilder|void SetReadPointer(uint iPointer)|Set the read pointer|
-|CBinaryStringBuilder|void WriteInt(int value)|Write a Value|
-|CBinaryStringBuilder|void WriteLong(int64 value)|Write a Value|
-|CBinaryStringBuilder|void WriteFloat(float value)|Write a Value|
-|CBinaryStringBuilder|void WriteDouble(double value)|Write a Value|
-|CBinaryStringBuilder|void WriteVector(Vector value)|Write a Value|
-|CBinaryStringBuilder|void WriteString(string&in value)|Write a Value|
-|CBinaryStringBuilder|int ReadInt()|Read a Value|
-|CBinaryStringBuilder|int64 ReadLong()|Read a Value|
-|CBinaryStringBuilder|float ReadFloat()|Read a Value|
-|CBinaryStringBuilder|double ReadDouble()|Read a Value|
-|CBinaryStringBuilder|void ReadVector(Vector&out value)|Read a Value|
-|CBinaryStringBuilder|void ReadString(string&out value)|Read a Value|
-|CSQLite|SQLiteResult Exec(string&in sql, string&out errMsg)|Excute SQL|
-|CSQLite|SQLiteResult Exec(string&in sql, fnSQLiteCallback@ pCallback, string&out errMsg)|Excute SQL|
-|CSQLite|void Close()|Close SQL|
+|CBinaryStringBuilder|More info click url👉|[CBinaryStringBuilder](https://drabcofficial.github.io/asexthook/CBinaryStringBuilder.htm)|
+|CSQLite|More info click url👉|[CSQLite](https://drabcofficial.github.io/asexthook/CSQLite.htm)|
 
 
 ###  3.4. <a name='ExpansionMethodExamples'></a>Expansion Method Examples
