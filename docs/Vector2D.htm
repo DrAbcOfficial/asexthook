@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="2D Vector">
+	<meta property="og:title" content="Vector2D">
+	<meta property="og:description" content="2D Vector">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>Vector2D</title>
+</head>
+<body>
+	<h1>Vector2D</h1>
+	<p>2D Vector</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void Vector2D()</td>
+			<td>Default constructs a 2D vector (0, 0)</td>
+		</tr>
+		<tr>
+			<td>void Vector2D(const Vector2D& in other)</td>
+			<td>Copy constructs a 2D vector</td>
+		</tr>
+		<tr>
+			<td>void Vector2D(float x, float y)</td>
+			<td>Constructs a 2D vector from 2 floats</td>
+		</tr>
+		<tr>
+			<td>Vector2D& opAssign(const Vector2D& in other)</td>
+			<td>Assign vector</td>
+		</tr>
+		<tr>
+			<td>Vector2D opAdd(const Vector2D& in other) const</td>
+			<td>Add vectors</td>
+		</tr>
+		<tr>
+			<td>Vector2D opSub(const Vector2D& in other) const</td>
+			<td>Subtract vectors</td>
+		</tr>
+		<tr>
+			<td>Vector2D opMul(float fl) const</td>
+			<td>Multiply vector by a value</td>
+		</tr>
+		<tr>
+			<td>Vector2D opMul_r(float fl) const</td>
+			<td>Multiply vector by a value</td>
+		</tr>
+		<tr>
+			<td>Vector2D opDiv(float fl) const</td>
+			<td>Divide vector by a value</td>
+		</tr>
+		<tr>
+			<td>Vector2D opDiv_r(float fl) const</td>
+			<td>Divide vector by a value</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(const Vector2D& in other) const</td>
+			<td>Compare vectors</td>
+		</tr>
+		<tr>
+			<td>float Length() const</td>
+			<td>Gets the length of this vector</td>
+		</tr>
+		<tr>
+			<td>Vector2D Normalize() const</td>
+			<td>Returns the normalized form of this vector</td>
+		</tr>
+		<tr>
+			<td>string ToString() const</td>
+			<td>Returns a string representation of this vector</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>float x</td>
+			<td>Vector2D x variable</td>
+		</tr>
+		<tr>
+			<td>float y</td>
+			<td>Vector2D y variable</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Holds parameters for custom numeric/time display.">
+	<meta property="og:title" content="HUDNumDisplayParams">
+	<meta property="og:description" content="Holds parameters for custom numeric/time display.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>HUDNumDisplayParams</title>
+</head>
+<body>
+	<h1>HUDNumDisplayParams</h1>
+	<p>Holds parameters for custom numeric/time display.</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void HUDNumDisplayParams()</td>
+			<td>Constructor</td>
+		</tr>
+		<tr>
+			<td>void HUDNumDisplayParams(const HUDNumDisplayParams& in other)</td>
+			<td>Copy constructor</td>
+		</tr>
+		<tr>
+			<td>HUDNumDisplayParams& opAssign(const HUDNumDisplayParams& in other)</td>
+			<td>Assignment operator</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>uint8 channel</td>
+			<td>Channel.<br>Range: 0-15 (each module type has its own channel group).</td>
+		</tr>
+		<tr>
+			<td>int flags</td>
+			<td>Flags<br>See HUD_ELEM, HUD_NUM (numeric display only) and HUD_TIME (time display only) enums.</td>
+		</tr>
+		<tr>
+			<td>float value</td>
+			<td>Value</td>
+		</tr>
+		<tr>
+			<td>uint8 defdigits</td>
+			<td>Default number of digits (numeric display only)</td>
+		</tr>
+		<tr>
+			<td>uint8 maxdigits</td>
+			<td>Maximum number of digits (numeric display only)</td>
+		</tr>
+		<tr>
+			<td>float x</td>
+			<td>Horizontal position on the screen.<br>&lt;0, 1.0&gt; = left to right<br>(-1.0, 0) = right to left<br>-1.0 = centered</td>
+		</tr>
+		<tr>
+			<td>float y</td>
+			<td>Vertical position on the screen.<br>&lt;0, 1.0&gt; = top to bottom<br>(-1.0, 0) = bottom to top<br>-1.0 = centered</td>
+		</tr>
+		<tr>
+			<td>RGBA color1</td>
+			<td>Color 1</td>
+		</tr>
+		<tr>
+			<td>RGBA color2</td>
+			<td>Color 2</td>
+		</tr>
+		<tr>
+			<td>float fadeinTime</td>
+			<td>Fade in time</td>
+		</tr>
+		<tr>
+			<td>float fadeoutTime</td>
+			<td>Fade out time</td>
+		</tr>
+		<tr>
+			<td>float holdTime</td>
+			<td>Hold time</td>
+		</tr>
+		<tr>
+			<td>float fxTime</td>
+			<td>Effect time</td>
+		</tr>
+		<tr>
+			<td>uint8 effect</td>
+			<td>Effect<br>See HUD_EFFECT enum.</td>
+		</tr>
+		<tr>
+			<td>string_t spritename</td>
+			<td>Sprite name</td>
+		</tr>
+		<tr>
+			<td>uint8 left</td>
+			<td>Sprite left offset<br>Range: 0-255</td>
+		</tr>
+		<tr>
+			<td>uint8 top</td>
+			<td>Sprite top offset<br>Range: 0-255</td>
+		</tr>
+		<tr>
+			<td>int16 width</td>
+			<td>Sprite width<br>Range: 0-512 (0: auto; use total width of the sprite)</td>
+		</tr>
+		<tr>
+			<td>int16 height</td>
+			<td>Sprite height<br>Range: 0-512 (0: auto; use total height of the sprite)</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

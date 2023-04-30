@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Math functions">
+	<meta property="og:title" content="CMath">
+	<meta property="og:description" content="Math functions">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CMath</title>
+</head>
+<body>
+	<h1>CMath</h1>
+	<p>Math functions</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>int32 RandomLong(int32 low, int32 high)</td>
+			<td>Returns a random integer between low and high</td>
+		</tr>
+		<tr>
+			<td>float RandomFloat(float low, float high)</td>
+			<td>Returns a random float between low and high</td>
+		</tr>
+		<tr>
+			<td>void MakeVectors(const Vector& in vecAngles)</td>
+			<td>Makes vectors</td>
+		</tr>
+		<tr>
+			<td>Vector RotateVector(Vector& in vecToRotate,const Vector& in vecAngles, const Vector& in vecOffset)</td>
+			<td>Rotate vector</td>
+		</tr>
+		<tr>
+			<td>void MakeAimVectors(const Vector& in vecAngles)</td>
+			<td>Make aim vectors</td>
+		</tr>
+		<tr>
+			<td>void MakeInvVectors(const Vector& in vecAngles)</td>
+			<td>Make inverted vectors</td>
+		</tr>
+		<tr>
+			<td>float VecToYaw(const Vector& in vec)</td>
+			<td>Transforms a vector to a yaw value</td>
+		</tr>
+		<tr>
+			<td>Vector VecToAngles(const Vector& in vec)</td>
+			<td>Transforms a vector to an angle</td>
+		</tr>
+		<tr>
+			<td>float AngleMod(float flAngle)</td>
+			<td>Clamps the given angle between 0 and 360</td>
+		</tr>
+		<tr>
+			<td>float AngleDiff(float flDestAngle, float flSrcAngle)</td>
+			<td>Returns the difference between 2 angles</td>
+		</tr>
+		<tr>
+			<td>float ApproachAngle(float target, float value, float speed)</td>
+			<td>Given a target and current angle value, and a rotation speed, all in degrees, returns a new angle that is either between value and target, or target, depending on whether the speed is high enough to reach that angle.</td>
+		</tr>
+		<tr>
+			<td>float AngleDistance(float flNext, float flCur)</td>
+			<td>Returns the distance between 2 angles</td>
+		</tr>
+		<tr>
+			<td>uint64 min(uint64 lhs, uint64 rhs) const</td>
+			<td>Returns the smaller of the two values</td>
+		</tr>
+		<tr>
+			<td>int64 min(int64 lhs, int64 rhs) const</td>
+			<td>Returns the smaller of the two values</td>
+		</tr>
+		<tr>
+			<td>float min(float lhs, float rhs) const</td>
+			<td>Returns the smaller of the two values</td>
+		</tr>
+		<tr>
+			<td>uint64 max(uint64 lhs, uint64 rhs) const</td>
+			<td>Returns the larger of the two values</td>
+		</tr>
+		<tr>
+			<td>int64 max(int64 lhs, int64 rhs) const</td>
+			<td>Returns the larger of the two values</td>
+		</tr>
+		<tr>
+			<td>float max(float lhs, float rhs) const</td>
+			<td>Returns the larger of the two values</td>
+		</tr>
+		<tr>
+			<td>int clamp(int min, int max, int value) const</td>
+			<td>Clamps a value between a range</td>
+		</tr>
+		<tr>
+			<td>float clamp(float min, float max, float value) const</td>
+			<td>Clamps a value between a range</td>
+		</tr>
+		<tr>
+			<td>float Floor(float flValue) const</td>
+			<td>Returns the float value, rounded down to the nearest whole number</td>
+		</tr>
+		<tr>
+			<td>float Ceil(float flValue) const</td>
+			<td>Returns the float value, rounded up to the nearest whole number</td>
+		</tr>
+		<tr>
+			<td>float DegreesToRadians(float flDegrees) const</td>
+			<td>Returns the given value in degrees as radians</td>
+		</tr>
+		<tr>
+			<td>float RadiansToDegrees(float flRadians) const</td>
+			<td>Returns the given value in radians as degrees</td>
+		</tr>
+		<tr>
+			<td>bool Compare(float flLhs, float flRhs, float flEpsilon) const</td>
+			<td>Compares the given floating point variables and returns whether they are equal, considering certain variance (epsilon) between them.</td>
+		</tr>
+		<tr>
+			<td>bool Compare(double flLhs, double flRhs, double flEpsilon) const</td>
+			<td>Compares the given floating point variables and returns whether they are equal, considering certain variance (epsilon) between them.</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>const int8 INT8_MIN</td>
+			<td>Int8 minimum value</td>
+		</tr>
+		<tr>
+			<td>const int16 INT16_MIN</td>
+			<td>Int16 minimum value</td>
+		</tr>
+		<tr>
+			<td>const int32 INT32_MIN</td>
+			<td>Int32 minimum value</td>
+		</tr>
+		<tr>
+			<td>const int64 INT64_MIN</td>
+			<td>Int64 minimum value</td>
+		</tr>
+		<tr>
+			<td>const int8 INT8_MAX</td>
+			<td>Int8 maximum value</td>
+		</tr>
+		<tr>
+			<td>const int16 INT16_MAX</td>
+			<td>Int16 maximum value</td>
+		</tr>
+		<tr>
+			<td>const int32 INT32_MAX</td>
+			<td>Int32 maximum value</td>
+		</tr>
+		<tr>
+			<td>const int64 INT64_MAX</td>
+			<td>Int64 maximum value</td>
+		</tr>
+		<tr>
+			<td>const uint8 UINT8_MAX</td>
+			<td>Uint8 maximum value</td>
+		</tr>
+		<tr>
+			<td>const uint16 UINT16_MAX</td>
+			<td>Uint16 maximum value</td>
+		</tr>
+		<tr>
+			<td>const uint32 UINT32_MAX</td>
+			<td>Uint32 maximum value</td>
+		</tr>
+		<tr>
+			<td>const uint64 UINT64_MAX</td>
+			<td>Uint64 maximum value</td>
+		</tr>
+		<tr>
+			<td>const size_t SIZE_MAX</td>
+			<td>Size_t maximum value</td>
+		</tr>
+		<tr>
+			<td>const float FLOAT_MIN</td>
+			<td>Float minimum positive value</td>
+		</tr>
+		<tr>
+			<td>const double DOUBLE_MIN</td>
+			<td>Double minimum positive value</td>
+		</tr>
+		<tr>
+			<td>const float FLOAT_MAX</td>
+			<td>Float maximum positive value</td>
+		</tr>
+		<tr>
+			<td>const double DOUBLE_MAX</td>
+			<td>Double maximum positive value</td>
+		</tr>
+		<tr>
+			<td>const double PI</td>
+			<td>PI</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

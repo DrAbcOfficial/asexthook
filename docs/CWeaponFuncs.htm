@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Weapon functions class.">
+	<meta property="og:title" content="CWeaponFuncs">
+	<meta property="og:description" content="Weapon functions class.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CWeaponFuncs</title>
+</head>
+<body>
+	<h1>CWeaponFuncs</h1>
+	<p>Weapon functions class.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void ClearMultiDamage()</td>
+			<td>Clears the multi damage data.</td>
+		</tr>
+		<tr>
+			<td>void ApplyMultiDamage(entvars_t@ pevInflictor, entvars_t@ pevAttacker)</td>
+			<td>Applies multi damage.</td>
+		</tr>
+		<tr>
+			<td>void AddMultiDamage(entvars_t@ pevInflictor, CBaseEntity@ pEntity, float flDamage, int bitsDamageType)</td>
+			<td>Add multi damage.</td>
+		</tr>
+		<tr>
+			<td>float WeaponTimeBase()</td>
+			<td>Gets the weapon time base.</td>
+		</tr>
+		<tr>
+			<td>void DecalGunshot(TraceResult& in trace, int iBulletType)</td>
+			<td>Creates a gunshot decal at the trace hit point.</td>
+		</tr>
+		<tr>
+			<td>void SpawnBlood(const Vector& in vecSpot, int bloodColor, float flDamage)</td>
+			<td>Spawns blood at the given location.</td>
+		</tr>
+		<tr>
+			<td>int DamageDecal(CBaseEntity@ pEntity, int bitsDamageType)</td>
+			<td>Creates a damage decal on the given entity.</td>
+		</tr>
+		<tr>
+			<td>void RadiusDamage(const Vector& in vecSrc, entvars_t@ pevInflictor, entvars_t@ pevAttacker, float flDamage, float flRadius, int iClassIgnore, int bitsDamageType)</td>
+			<td>Deals radius damage.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

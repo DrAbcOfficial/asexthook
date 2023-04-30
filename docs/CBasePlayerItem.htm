@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Player item base class">
+	<meta property="og:title" content="CBasePlayerItem">
+	<meta property="og:description" content="Player item base class">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CBasePlayerItem</title>
+</head>
+<body>
+	<h1>CBasePlayerItem</h1>
+	<p>Player item base class</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>CBaseAnimating@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseDelay@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>const Vector& GetOrigin() const</td>
+			<td>Gets the entity's (absolute) origin.</td>
+		</tr>
+		<tr>
+			<td>void SetOrigin(const Vector& in vecOrigin)</td>
+			<td>Sets this entity's (absolute) origin</td>
+		</tr>
+		<tr>
+			<td>bool KeyValue(const string& in szKeyName, const string& in szValue)</td>
+			<td>Sets keyvalue data on this entity</td>
+		</tr>
+		<tr>
+			<td>void TraceAttack(entvars_t@ pevAttacker, float flDamage, const Vector& in vecDir, TraceResult& in traceResult, int bitsDamageType)</td>
+			<td>Traces an attack by the given entity to this entity.</td>
+		</tr>
+		<tr>
+			<td>void TraceBleed(float flDamage, const Vector& in vecDir, TraceResult& in traceResult, int bitsDamageType)</td>
+			<td>Traces entity bleed event.</td>
+		</tr>
+		<tr>
+			<td>int GiveAmmo(int iAmount, const string& in szName, int iMax, const bool fFromWeapon = true)</td>
+			<td>Gives ammo to this entity.</td>
+		</tr>
+		<tr>
+			<td>bool HasTarget(const string& in szTarget)</td>
+			<td>Returns whether this entity has the given target.</td>
+		</tr>
+		<tr>
+			<td>string TeamID()</td>
+			<td>Returns this entity's team ID.</td>
+		</tr>
+		<tr>
+			<td>string GetClassname() const</td>
+			<td>Returns this entity's class name.</td>
+		</tr>
+		<tr>
+			<td>string GetClassificationTag() const</td>
+			<td>Returns this entity's classification tag.</td>
+		</tr>
+		<tr>
+			<td>string GetClassificationName() const</td>
+			<td>Returns this entity's classification name.</td>
+		</tr>
+		<tr>
+			<td>string GetTargetname() const</td>
+			<td>Returns this entity's target name.</td>
+		</tr>
+		<tr>
+			<td>bool FVisibleFromPos(const Vector& in vecTarget, const Vector& in vecStart)</td>
+			<td>Returns whether this entity is visible from the given position.</td>
+		</tr>
+		<tr>
+			<td>string SOUNDREPLACEMENT_Find(const string& in szFilename)</td>
+			<td>Find sound replacement for the given file.</td>
+		</tr>
+		<tr>
+			<td>int FindMonstersInWorld(array&lt;CBaseEntity@&gt;@ pArray, int flagMask)</td>
+			<td>Finds monsters in the world</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayerAlly() const</td>
+			<td>Returns whether this entity is allied to players.</td>
+		</tr>
+		<tr>
+			<td>void SetPlayerAlly(bool fState)</td>
+			<td>Sets this entity's player ally status.</td>
+		</tr>
+		<tr>
+			<td>void SetPlayerAllyDirect(bool fState)</td>
+			<td>Sets this entity's player ally status.<br>Use this only if you need the setting to be exactly what you give it (e.g. when copying from another monster)</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(CBaseEntity@ pOther)</td>
+			<td>Compares 2 entities for equality.</td>
+		</tr>
+		<tr>
+			<td>void Precache()</td>
+			<td>Precaches the entity. Do not call directly.</td>
+		</tr>
+		<tr>
+			<td>int ObjectCaps()</td>
+			<td>Gets this entity's objects caps. See the FCAP enum.</td>
+		</tr>
+		<tr>
+			<td>void SetObjectCollisionBox()</td>
+			<td>Sets up the object collision box.</td>
+		</tr>
+		<tr>
+			<td>int GetClassification(int cl)</td>
+			<td>Gets this entity's classification. Returns the given value if none is set. See the CLASSIFICATION enum.</td>
+		</tr>
+		<tr>
+			<td>void SetClassification(int cl)</td>
+			<td>Sets this entity's classification override. Can override the entity's player ally setting.</td>
+		</tr>
+		<tr>
+			<td>void SetClassificationFromEntity(CBaseEntity@ pEntity)</td>
+			<td>Sets this entity's classification override to the classification override set on the given entity. Can override the entity's player ally setting.</td>
+		</tr>
+		<tr>
+			<td>void ClearClassification()</td>
+			<td>Clears this entity's classification override.</td>
+		</tr>
+		<tr>
+			<td>int IRelationship(CBaseEntity@ other, bool ignoreNoTarget = false)</td>
+			<td>Gets the relationship between this entity and the given entity. See the RELATIONSHIP enum.</td>
+		</tr>
+		<tr>
+			<td>int IRelationshipByClass(CLASS iClass)</td>
+			<td>Gets the relationship between this entity and the given entity classification. See the RELATIONSHIP enum.</td>
+		</tr>
+		<tr>
+			<td>int Classify()</td>
+			<td>Gets this entity's classification.</td>
+		</tr>
+		<tr>
+			<td>int TakeDamage(entvars_t@ pevInflictor, entvars_t@ pevAttacker, float flDamage, int bitsDamageType)</td>
+			<td>Causes this entity to take damage. Returns 1 if it took damage, 0 otherwise.</td>
+		</tr>
+		<tr>
+			<td>bool TakeHealth(float flHealth, int bitsDamageType, int health_cap = 0)</td>
+			<td>Takes health from this entity. Note: flHealth is added to entity health. Use negative values to subtract.If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.</td>
+		</tr>
+		<tr>
+			<td>bool TakeArmor(float flArmor, int bitsDamageType, int armor_cap = 0)</td>
+			<td>Takes armor from this entity. Note: flArmor is added to entity armor. Use negative values to subtract.If armor_cap is non-zero, won't add more than armor_cap. Returns 1 if it took damage, 0 otherwise.</td>
+		</tr>
+		<tr>
+			<td>void Killed(entvars_t@pevAtttacker, int iGibbed)</td>
+			<td>Tells this entity it's been killed. See the GIB enum for possible values.</td>
+		</tr>
+		<tr>
+			<td>int BloodColor()</td>
+			<td>Returns the blood color. See the BLOOD_COLOR enum.</td>
+		</tr>
+		<tr>
+			<td>bool IsTriggered(CBaseEntity@ pActivator)</td>
+			<td>Returns whether this entity is triggered by the given entity.</td>
+		</tr>
+		<tr>
+			<td>CBaseMonster@ MyMonsterPointer()</td>
+			<td>Returns this entity as its monster entity, if it is a monster.</td>
+		</tr>
+		<tr>
+			<td>CustomKeyvalues@ GetCustomKeyvalues()</td>
+			<td>Gets this entity's custom keyvalues.</td>
+		</tr>
+		<tr>
+			<td>bool BlockedByEntity(CBaseEntity@ pOther, float flDamage)</td>
+			<td>Returns true if you should be blocked by the entity, false otherwise. Also deals blocking damage to the entity, if applicable.</td>
+		</tr>
+		<tr>
+			<td>void SUB_Remove()</td>
+			<td>Think function. Delay-removes this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_DoNothing()</td>
+			<td>Think function. Explicitly does nothing.</td>
+		</tr>
+		<tr>
+			<td>void SUB_StartFadeOut()</td>
+			<td>Think function. Starts fading this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_FadeOut()</td>
+			<td>Think function. Fades this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_CallUseToggle()</td>
+			<td>Think function. Calls use toggle on this entity.</td>
+		</tr>
+		<tr>
+			<td>bool ShouldToggle(USE_TYPE useType, const bool currentState)</td>
+			<td>Returns whether this entity should toggle.</td>
+		</tr>
+		<tr>
+			<td>void FireBullets(uint cShots, Vector vecSrc, Vector vecDirShooting, Vector vecSpread,float flDistance, Bullet iBulletType, int iTracerFreq = 4, int iDamage = 0, entvars_t@ pevAttacker = null, FireBulletsDrawMode fDraw = FBDM_DRAW)</td>
+			<td>Fires bullets. Must call CMath::MakeAimVectors with an angle vector first.</td>
+		</tr>
+		<tr>
+			<td>bool Intersects(CBaseEntity@ pOther)</td>
+			<td>Returns whether this entity intersects with the given entity.</td>
+		</tr>
+		<tr>
+			<td>void MakeDormant()</td>
+			<td>Makes this entity dormant.</td>
+		</tr>
+		<tr>
+			<td>bool IsDormant()</td>
+			<td>Returns whether this entity is dormant.</td>
+		</tr>
+		<tr>
+			<td>bool IsLockedByMaster()</td>
+			<td>Returns whether this entity is locked by its master.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ edict()</td>
+			<td>Returns this entity's edict.</td>
+		</tr>
+		<tr>
+			<td>int entindex()</td>
+			<td>Returns this entity's index.</td>
+		</tr>
+		<tr>
+			<td>bool SetupModel()</td>
+			<td>Sets up the model.</td>
+		</tr>
+		<tr>
+			<td>int GetToggleState()</td>
+			<td>Gets the toggle state.<br>See the TOGGLE_STATE enum.</td>
+		</tr>
+		<tr>
+			<td>void AddPoints(int score, const bool bAllowNegativeScore)</td>
+			<td>Adds points to this entity.</td>
+		</tr>
+		<tr>
+			<td>void AddPointsToTeam(int score, const bool bAllowNegativeScore)</td>
+			<td>Adds points to this entity's team.</td>
+		</tr>
+		<tr>
+			<td>AddPlayerItemResult AddPlayerItem(CBasePlayerItem@ pItem)</td>
+			<td>Adds the given player item to this entity.</td>
+		</tr>
+		<tr>
+			<td>bool RemovePlayerItem(CBasePlayerItem@ pItem)</td>
+			<td>Removes the given player item to this entity.</td>
+		</tr>
+		<tr>
+			<td>float GetDelay()</td>
+			<td>Gets this entity's trigger delay.</td>
+		</tr>
+		<tr>
+			<td>bool IsMoving()</td>
+			<td>Returns whether this entity is moving.</td>
+		</tr>
+		<tr>
+			<td>void OverrideReset()</td>
+			<td>Resets this entity.</td>
+		</tr>
+		<tr>
+			<td>int DamageDecal(int bitsDamageType)</td>
+			<td>Returns the damage decal<br>See decal_e.</td>
+		</tr>
+		<tr>
+			<td>void SetToggleState(int state)</td>
+			<td>Sets this entity's toggle state.</td>
+		</tr>
+		<tr>
+			<td>void StartSneaking()</td>
+			<td>Starts sneaking.</td>
+		</tr>
+		<tr>
+			<td>void StopSneaking()</td>
+			<td>Stops sneaking.</td>
+		</tr>
+		<tr>
+			<td>bool OnControls(entvars_t@ pev)</td>
+			<td>Reacts to controls set on the pev.</td>
+		</tr>
+		<tr>
+			<td>bool IsSneaking()</td>
+			<td>Returns whether this entity is sneaking.</td>
+		</tr>
+		<tr>
+			<td>bool IsAlive()</td>
+			<td>Returns whether this entity is alive.</td>
+		</tr>
+		<tr>
+			<td>bool IsBSPModel()</td>
+			<td>Returns whether this entity is a BSP model.</td>
+		</tr>
+		<tr>
+			<td>bool ReflectGauss()</td>
+			<td>Returns whether this entity reflects gauss shots.</td>
+		</tr>
+		<tr>
+			<td>bool IsInWorld()</td>
+			<td>Returns whether this entity is in the world.</td>
+		</tr>
+		<tr>
+			<td>bool IsMonster()</td>
+			<td>Returns whether this entity is a monster.</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayer()</td>
+			<td>Returns whether this entity is a player.</td>
+		</tr>
+		<tr>
+			<td>bool IsNetClient()</td>
+			<td>Returns whether this is a net client.</td>
+		</tr>
+		<tr>
+			<td>bool IsPointEnt()</td>
+			<td>Returns whether this is a point entity.</td>
+		</tr>
+		<tr>
+			<td>bool IsBreakable()</td>
+			<td>Returns whether this is a breakable brush entity.</td>
+		</tr>
+		<tr>
+			<td>bool IsMachine()</td>
+			<td>Returns whether this is a machine.</td>
+		</tr>
+		<tr>
+			<td>bool CriticalRemove()</td>
+			<td>Removes this entity in critical situations.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ GetNextTarget()</td>
+			<td>Gets the next target to trigger.</td>
+		</tr>
+		<tr>
+			<td>void Think()</td>
+			<td>Makes this entity think. Do not call directly.</td>
+		</tr>
+		<tr>
+			<td>void Touch(CBaseEntity@ pOther)</td>
+			<td>Triggers this entity's touch function.</td>
+		</tr>
+		<tr>
+			<td>void Use(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue = 0.0f)</td>
+			<td>Trigger's this entity's use function.</td>
+		</tr>
+		<tr>
+			<td>void Blocked(CBaseEntity@ pOther)</td>
+			<td>Triggers this entity's blocked function.</td>
+		</tr>
+		<tr>
+			<td>void UpdateOnRemove()</td>
+			<td>Updates this entity when removed.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ Respawn()</td>
+			<td>Respawns this entity.</td>
+		</tr>
+		<tr>
+			<td>bool FBecomeProne(CBaseEntity@ pOther)</td>
+			<td>Makes this entity become prone.</td>
+		</tr>
+		<tr>
+			<td>Vector Center()</td>
+			<td>Returns this entity's center.</td>
+		</tr>
+		<tr>
+			<td>Vector EyePosition()</td>
+			<td>Returns this entity's eye position.</td>
+		</tr>
+		<tr>
+			<td>Vector EarPosition()</td>
+			<td>Returns this entity's ear position.</td>
+		</tr>
+		<tr>
+			<td>Vector BodyTarget(const Vector& in posSrc)</td>
+			<td>Returns this entity's body target for shooting.</td>
+		</tr>
+		<tr>
+			<td>int Illumination()</td>
+			<td>Returns this entity's illumination.</td>
+		</tr>
+		<tr>
+			<td>bool FVisible(CBaseEntity@ pEntity, bool fIgnoreGlass)</td>
+			<td>Returns whether this entity is visible to the given entity.</td>
+		</tr>
+		<tr>
+			<td>bool FVisible(const Vector& in vecOrigin)</td>
+			<td>Returns whether this entity is visible from the given origin.</td>
+		</tr>
+		<tr>
+			<td>bool IsFacing(entvars_t@ pevTest, float flDotProduct = VIEW_FIELD_ULTRA_NARROW)</td>
+			<td>Returns whether this entity is facing the given entity, within the given view field.</td>
+		</tr>
+		<tr>
+			<td>float GetPointsForDamage(float flDamage)</td>
+			<td>Returns the points received for damage done.</td>
+		</tr>
+		<tr>
+			<td>void GetDamagePoints(entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage)</td>
+			<td>Adds damage points to the inflicting entity.</td>
+		</tr>
+		<tr>
+			<td>void OnCreate()</td>
+			<td>Entity constructor.</td>
+		</tr>
+		<tr>
+			<td>void OnDestroy()</td>
+			<td>Entity destructor.</td>
+		</tr>
+		<tr>
+			<td>bool IsRevivable()</td>
+			<td>Returns whether this entity is revivable at this time.</td>
+		</tr>
+		<tr>
+			<td>void BeginRevive(float flTimeUntilRevive)</td>
+			<td>Prepares this entity for revival. flTimeUntilRevive is the time until the revive action completes.</td>
+		</tr>
+		<tr>
+			<td>void EndRevive(float flTimeUntilRevive)</td>
+			<td>Called when this entity should be revived. flTimeUntilRevive is the time until the revival should start.</td>
+		</tr>
+		<tr>
+			<td>dictionary@ GetUserData()</td>
+			<td>Gets the user data on this entity. Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>dictionaryValue& GetUserData(const string& in szKey)</td>
+			<td>Gets the user data stored under the specified key on this entity.<br>Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>void ClearUserData()</td>
+			<td>Clears the user data on this entity. WARNING: clears all data.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>void SUB_UseTargets(CBaseEntity@ pActivator, USE_TYPE useType, float flValue)</td>
+			<td>Causes this entity to trigger its targets with an optional delay.</td>
+		</tr>
+		<tr>
+			<td>void DelayThink()</td>
+			<td>Think function. Used internally.</td>
+		</tr>
+		<tr>
+			<td>float StudioFrameAdvance(float flInterval = 0.0f)</td>
+			<td>Accumulate animation frame time from last time called until now.</td>
+		</tr>
+		<tr>
+			<td>int GetSequenceFlags()</td>
+			<td>Get sequence flags.</td>
+		</tr>
+		<tr>
+			<td>int LookupActivity(int iActivity)</td>
+			<td>Returns the index of the given activity, or -1 if no such activity exists.</td>
+		</tr>
+		<tr>
+			<td>int LookupActivityHeaviest(int iActivity)</td>
+			<td>Returns the index of the given activity that has the heaviest weight, or -1 if no such activity exists.</td>
+		</tr>
+		<tr>
+			<td>int LookupSequence(const string& in szLabel)</td>
+			<td>Returns the index of the given sequence, or -1 if no such sequence exists.</td>
+		</tr>
+		<tr>
+			<td>void ResetSequenceInfo()</td>
+			<td>Resets sequence info.</td>
+		</tr>
+		<tr>
+			<td>void ResetGaitSequenceInfo()</td>
+			<td>Resets gait sequence info.</td>
+		</tr>
+		<tr>
+			<td>void DispatchAnimEvents(float flFutureInterval = 0.1f)</td>
+			<td>Handle events that have happend since last time called up until X seconds into the future.</td>
+		</tr>
+		<tr>
+			<td>float SetBoneController(int iController, float flValue)</td>
+			<td>Sets the specified bone controller to the given value.</td>
+		</tr>
+		<tr>
+			<td>void InitBoneControllers()</td>
+			<td>Initializes bone controllers.</td>
+		</tr>
+		<tr>
+			<td>float SetBlending(int iBlender, float flValue)</td>
+			<td>Sets the given blending controller to the given value.</td>
+		</tr>
+		<tr>
+			<td>void GetBonePosition(int iBone, Vector& out origin, Vector& out angles)</td>
+			<td>Gets the position of the given bone.</td>
+		</tr>
+		<tr>
+			<td>void GetAutomovement(Vector& out origin, Vector& out angles, float flInterval = 0.1f)</td>
+			<td>Gets automatic movement.</td>
+		</tr>
+		<tr>
+			<td>int FindTransition(int iEndingSequence, int iGoalSequence, int& out iDir)</td>
+			<td>Find the transition between 2 sequences.</td>
+		</tr>
+		<tr>
+			<td>int FindTransition(int iEndingSequence, int iGoalSequence)</td>
+			<td>Find the transition between 2 sequences.</td>
+		</tr>
+		<tr>
+			<td>void GetAttachment(int iAttachment, Vector& out origin, Vector& out angles)</td>
+			<td>Gets the attachment position.</td>
+		</tr>
+		<tr>
+			<td>void SetBodygroup(int iGroup, int iValue)</td>
+			<td>Sets the given body group to the given value.</td>
+		</tr>
+		<tr>
+			<td>int GetBodygroup(int iGroup)</td>
+			<td>Gets the value of the given body group.</td>
+		</tr>
+		<tr>
+			<td>bool ExtractBbox(int iSequence, Vector& out mins, Vector& out maxs)</td>
+			<td>Extracts the bounding box of the current model.</td>
+		</tr>
+		<tr>
+			<td>int GetAttachmentCount()</td>
+			<td>Gets the number of attachments that the current model has.</td>
+		</tr>
+		<tr>
+			<td>void SetSequenceBox()</td>
+			<td>Sets the sequence box.</td>
+		</tr>
+		<tr>
+			<td>int GetSequenceActivityName(int iSequence)</td>
+			<td>Gets activity for the given sequence.</td>
+		</tr>
+		<tr>
+			<td>bool AddToPlayer(CBasePlayer@ pPlayer)</td>
+			<td>Returns true if this item wants itself added to the player's inventory.</td>
+		</tr>
+		<tr>
+			<td>bool AddDuplicate(CBasePlayerItem@ pItem)</td>
+			<td>returns true if this item wants the duplicate removed from the world.</td>
+		</tr>
+		<tr>
+			<td>void DestroyItem()</td>
+			<td>Think function. Destroys this item.</td>
+		</tr>
+		<tr>
+			<td>void Collect(CBaseEntity@ pOther)</td>
+			<td>Attempts to let pOther collect this item.</td>
+		</tr>
+		<tr>
+			<td>void DefaultTouch(CBaseEntity@ pOther)</td>
+			<td>Touch function. Default touch.</td>
+		</tr>
+		<tr>
+			<td>void ItemUse(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue)</td>
+			<td>Default weapon use function.</td>
+		</tr>
+		<tr>
+			<td>void FallThink()</td>
+			<td>Think function. When an item is first spawned, this think is run to determine when the object has hit the ground.</td>
+		</tr>
+		<tr>
+			<td>void Materialize()</td>
+			<td>Make a weapon visible and tangible.</td>
+		</tr>
+		<tr>
+			<td>void AttemptToMaterialize()</td>
+			<td>Think function. The weapon desires to become visible and tangible, if the game rules allow for it.</td>
+		</tr>
+		<tr>
+			<td>CBasePlayerItem@ RespawnItem()</td>
+			<td>Copy a weapon.</td>
+		</tr>
+		<tr>
+			<td>void FallInit()</td>
+			<td>Fall init.</td>
+		</tr>
+		<tr>
+			<td>void CheckRespawn()</td>
+			<td>Check respawn.</td>
+		</tr>
+		<tr>
+			<td>void GetItemInfo(ItemInfo& out info)</td>
+			<td>Gets item info.</td>
+		</tr>
+		<tr>
+			<td>bool CanDeploy()</td>
+			<td>Returns whether this item can deploy.</td>
+		</tr>
+		<tr>
+			<td>bool Deploy()</td>
+			<td>Returns if deploy was successful.</td>
+		</tr>
+		<tr>
+			<td>bool CanHolster()</td>
+			<td>Can this weapon be put away right now?</td>
+		</tr>
+		<tr>
+			<td>void Holster(int iSkipLocal = 0)</td>
+			<td>Holsters this weapon.</td>
+		</tr>
+		<tr>
+			<td>void UpdateItemInfo()</td>
+			<td>Updates item info.</td>
+		</tr>
+		<tr>
+			<td>void LoadSprites(CBasePlayer@ pPlayer, const string& in szName)</td>
+			<td>Load item sprites.</td>
+		</tr>
+		<tr>
+			<td>void Kill()</td>
+			<td>Kills this item.</td>
+		</tr>
+		<tr>
+			<td>void AttachToPlayer(CBasePlayer@ pPlayer)</td>
+			<td>Attach this item to the given player.</td>
+		</tr>
+		<tr>
+			<td>int PrimaryAmmoIndex()</td>
+			<td>Gets the primary ammo index, or -1 if this item doesn't use primary ammo.</td>
+		</tr>
+		<tr>
+			<td>int SecondaryAmmoIndex()</td>
+			<td>Gets the secondary ammo index, or -1 if this item doesn't use secondary ammo.</td>
+		</tr>
+		<tr>
+			<td>bool UpdateClientData(CBasePlayer@ pPlayer)</td>
+			<td>Updates client data.</td>
+		</tr>
+		<tr>
+			<td>CBasePlayerWeapon@ GetWeaponPtr()</td>
+			<td>Gets this item as a weapon. Returns null if this is not a weapon.</td>
+		</tr>
+		<tr>
+			<td>int iItemSlot()</td>
+			<td>Gets the slot this item is in. 0 to MAX_ITEMS_SLOTS.</td>
+		</tr>
+		<tr>
+			<td>int iItemPosition()</td>
+			<td>Gets the item position.</td>
+		</tr>
+		<tr>
+			<td>string pszAmmo1()</td>
+			<td>Gets the name of the primary ammo.</td>
+		</tr>
+		<tr>
+			<td>int iMaxAmmo1()</td>
+			<td>Gets the primary ammo maximum.</td>
+		</tr>
+		<tr>
+			<td>string pszAmmo2()</td>
+			<td>Gets the name of the secondary ammo.</td>
+		</tr>
+		<tr>
+			<td>int iMaxAmmo2()</td>
+			<td>Gets the secondary ammo maximum.</td>
+		</tr>
+		<tr>
+			<td>string pszName()</td>
+			<td>Gets the name of this item.</td>
+		</tr>
+		<tr>
+			<td>int iMaxClip()</td>
+			<td>Gets the max clip amount.</td>
+		</tr>
+		<tr>
+			<td>int iWeight()</td>
+			<td>Gets the item weight.</td>
+		</tr>
+		<tr>
+			<td>int iFlags()</td>
+			<td>Gets the item flags.</td>
+		</tr>
+		<tr>
+			<td>float GetRespawnTime() const</td>
+			<td>Gets this item's respawn time (time from pickup to respawn).</td>
+		</tr>
+		<tr>
+			<td>CBasePlayerItem@ DropItem()</td>
+			<td>CBaseEntity to drop.<br>By default, this entity.</td>
+		</tr>
+		<tr>
+			<td>bool CanHaveDuplicates()</td>
+			<td>Can this weapon have duplicates added?</td>
+		</tr>
+		<tr>
+			<td>CBasePlayerWeapon@ opCast()</td>
+			<td>Explicitly casts to sub type.</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>entvars_t@ pev</td>
+			<td>Entity variables</td>
+		</tr>
+		<tr>
+			<td>bool m_fOverrideClass</td>
+			<td>Whether this entity overrides the classification.</td>
+		</tr>
+		<tr>
+			<td>int m_iClassSelection</td>
+			<td>The overridden classification.</td>
+		</tr>
+		<tr>
+			<td>float m_flMaximumFadeWait</td>
+			<td>Maximum fade wait time.</td>
+		</tr>
+		<tr>
+			<td>float m_flMaximumFadeWaitB</td>
+			<td>Maximum fade wait time B.</td>
+		</tr>
+		<tr>
+			<td>bool m_fCanFadeStart</td>
+			<td>Whether fading can start.</td>
+		</tr>
+		<tr>
+			<td>bool m_fCustomModel</td>
+			<td>Whether a custom model is used.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecLastOrigin</td>
+			<td>Last origin vector</td>
+		</tr>
+		<tr>
+			<td>string_t targetnameOutFilterType</td>
+			<td>Target name out filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t classnameOutFilterType</td>
+			<td>Class name out filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t targetnameInFilterType</td>
+			<td>Target name in filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t classnameInFilterType</td>
+			<td>Class name in filter type.</td>
+		</tr>
+		<tr>
+			<td>int m_iOriginalRenderMode</td>
+			<td>Original render model.</td>
+		</tr>
+		<tr>
+			<td>int m_iOriginalRenderFX</td>
+			<td>Original render FX.</td>
+		</tr>
+		<tr>
+			<td>float m_flOriginalRenderAmount</td>
+			<td>Original render amount.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecOriginalRenderColor</td>
+			<td>Original render color.</td>
+		</tr>
+		<tr>
+			<td>float m_flDelay</td>
+			<td>Delay before fire.</td>
+		</tr>
+		<tr>
+			<td>string_t m_iszKillTarget</td>
+			<td>The name of the kill target, if any.</td>
+		</tr>
+		<tr>
+			<td>float m_flFrameRate</td>
+			<td>Computed FPS for current sequence.</td>
+		</tr>
+		<tr>
+			<td>float m_flGroundSpeed</td>
+			<td>Computed linear movement rate for current sequence.</td>
+		</tr>
+		<tr>
+			<td>float m_flLastEventCheck</td>
+			<td>Last time the event list was checked.</td>
+		</tr>
+		<tr>
+			<td>float m_flLastGaitEventCheck</td>
+			<td>Last time the event list was checked.</td>
+		</tr>
+		<tr>
+			<td>bool m_fSequenceFinished</td>
+			<td>Flag set when StudioAdvanceFrame moves across a frame boundry.</td>
+		</tr>
+		<tr>
+			<td>bool m_fSequenceLoops</td>
+			<td>True if the sequence loops.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hPlayer</td>
+			<td>The owning player. null if no owner.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hNextItem</td>
+			<td>Gets the next item. null if no next item.</td>
+		</tr>
+		<tr>
+			<td>const int m_iId</td>
+			<td>The item id.</td>
+		</tr>
+		<tr>
+			<td>float m_flLastBounce</td>
+			<td>The last bounce time.</td>
+		</tr>
+		<tr>
+			<td>bool m_bExclusiveHold</td>
+			<td>If set, as long as a player has this item, the player must keep this weapon selected.No more than one item with this set can be carried at one time.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

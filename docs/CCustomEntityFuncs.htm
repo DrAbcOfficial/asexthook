@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Custom entity functions.">
+	<meta property="og:title" content="CCustomEntityFuncs">
+	<meta property="og:description" content="Custom entity functions.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CCustomEntityFuncs</title>
+</head>
+<body>
+	<h1>CCustomEntityFuncs</h1>
+	<p>Custom entity functions.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>bool IsCustomEntity(const string& in szEntityname) const</td>
+			<td>Returns whether the given entity name is a registered custom entity</td>
+		</tr>
+		<tr>
+			<td>void RegisterCustomEntity(const string& in szClassname, const string& in szEntityname)</td>
+			<td>Registers a class called szClassname as a custom entity named szEntityname. The class must inherit from a script entity base class.</td>
+		</tr>
+		<tr>
+			<td>void UnRegisterCustomEntity(const string& in szEntityname)</td>
+			<td>Unregisters a custom entity by the given name</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

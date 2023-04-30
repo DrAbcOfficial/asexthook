@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Game functions">
+	<meta property="og:title" content="CGame">
+	<meta property="og:description" content="Game functions">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CGame</title>
+</head>
+<body>
+	<h1>CGame</h1>
+	<p>Game functions</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>bool AlertMessage(ALERT_TYPE aType, const string& in szFormat, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in, ?& in)</td>
+			<td>Outputs a message to the console. Uses SC printf formatting style.</td>
+		</tr>
+		<tr>
+			<td>int PrecacheModel(const string& in szFileName)</td>
+			<td>Precaches a model.<br>Shuts down the game if not found.<br>Can only be called from MapInit.</td>
+		</tr>
+		<tr>
+			<td>int PrecacheModel(CBaseEntity@ pEntity, const string& in szFileName)</td>
+			<td>Precaches a model.<br>Shuts down the game if not found.<br>Can only be called from entity Precache methods.</td>
+		</tr>
+		<tr>
+			<td>void PrecacheOther(const string& in szClassName)</td>
+			<td>Precaches an entity.<br>This effectively instances an entity with the given class name, calls precache on it, and removes the entity.</td>
+		</tr>
+		<tr>
+			<td>void PrecacheMonster(const string& in szClassName, bool fAlly)</td>
+			<td>Precaches a monster entity.<br>This effectively instances a monster entity with the given class name, calls precache on it, and removes the entity.</td>
+		</tr>
+		<tr>
+			<td>void PrecacheGeneric(const string& in szFileName)</td>
+			<td>Precaches a file for download to clients.</td>
+		</tr>
+		<tr>
+			<td>string GetGameName() const</td>
+			<td>Returns the game name.</td>
+		</tr>
+		<tr>
+			<td>string GetGameVersionString() const</td>
+			<td>Returns the game version as a string, e.g. "5.0".</td>
+		</tr>
+		<tr>
+			<td>uint32 GetGameVersion() const</td>
+			<td>Returns the game version as a number, e.g. 500:<br>major version, minor version (3.0 becomes 300, 4.0b1 becomes 401, 4.06 becomes 406, 4.5 becomes 450, etc...)</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

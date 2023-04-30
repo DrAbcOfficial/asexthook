@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Utility methods">
+	<meta property="og:title" content="CUtility">
+	<meta property="og:description" content="Utility methods">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CUtility</title>
+</head>
+<body>
+	<h1>CUtility</h1>
+	<p>Utility methods</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void BloodStream(const Vector& in vecOrigin, const Vector& in vecDirection, int iColor, int iAmount)</td>
+			<td>Creates a blood stream. Use BLOOD_COLOR enum for the color.</td>
+		</tr>
+		<tr>
+			<td>void BloodDrips(const Vector& in vecOrigin, const Vector& in vecDirection, int iColor, int iAmount)</td>
+			<td>Creates blood drips. Use BLOOD_COLOR enum for the color.</td>
+		</tr>
+		<tr>
+			<td>Vector RandomBloodVector()</td>
+			<td>Returns a random blood direction vector</td>
+		</tr>
+		<tr>
+			<td>bool ShouldShowBlood(int iBloodColor)</td>
+			<td>Returns whether blood of the given type should be shown.</td>
+		</tr>
+		<tr>
+			<td>void BloodDecalTrace(TraceResult& in trace, int iBloodColor)</td>
+			<td>Applies blood decal to the trace hit location</td>
+		</tr>
+		<tr>
+			<td>void DecalTrace(TraceResult& in trace, int iDecalNumber)</td>
+			<td>Applies decal to the trace hit location</td>
+		</tr>
+		<tr>
+			<td>void PlayerDecalTrace(TraceResult& in trace, int iPlayerNum, int iDecalNumber, const bool bIsCustom)</td>
+			<td>Applies player decal to the trace hit location</td>
+		</tr>
+		<tr>
+			<td>void GunshotDecalTrace(TraceResult& in trace, int iDecalNumber)</td>
+			<td>Applies gunshot decal to the trace hit location</td>
+		</tr>
+		<tr>
+			<td>void Sparks(const Vector& in vecPosition)</td>
+			<td>Creates sparks at the given location</td>
+		</tr>
+		<tr>
+			<td>void Ricochet(const Vector& in vecPosition, float flScale)</td>
+			<td>Creates a ricochet at the given location</td>
+		</tr>
+		<tr>
+			<td>float WaterLevel(const Vector& in vecPosition, float minz, float maxz)</td>
+			<td>Determines the Z level at which a water surface level is, given a position to start searching from and a range to search.</td>
+		</tr>
+		<tr>
+			<td>void Bubbles(const Vector& in vecMins, const Vector& in vecMaxs, int iCount)</td>
+			<td>Creates a box filled with bubbles</td>
+		</tr>
+		<tr>
+			<td>void BubbleTrail(const Vector& in vecFrom, const Vector& in vecTo, int iCount)</td>
+			<td>Creates a trail of bubbles</td>
+		</tr>
+		<tr>
+			<td>void StringToVector(Vector& out vecVector, const string& in szString, const char delimiter = char(' '))</td>
+			<td>Converts the given string to a vector</td>
+		</tr>
+		<tr>
+			<td>bool IsStringInt(const string& in szString)</td>
+			<td>Returns whether the given string is an integer</td>
+		</tr>
+		<tr>
+			<td>bool IsStringFloat(const string& in szString)</td>
+			<td>Returns whether the given string is a float</td>
+		</tr>
+		<tr>
+			<td>bool IsWholeNumber(const float flNum, int& out iRounded)</td>
+			<td>Returns whether the given float is a whole number, and returns the rounded number</td>
+		</tr>
+		<tr>
+			<td>bool IsString3DVec(const string& in szString)</td>
+			<td>Returns whether the given string is a 3D vector</td>
+		</tr>
+		<tr>
+			<td>void TraceLine(const Vector& in vecStart, const Vector& in vecEnd, IGNORE_MONSTERS igmon,edict_t@ pEntIgnore, TraceResult& out ptr)</td>
+			<td>Calculates a trace along the given line, storing the results in ptr.</td>
+		</tr>
+		<tr>
+			<td>void TraceLine(const Vector& in vecStart, const Vector& in vecEnd, IGNORE_MONSTERS igmon,IGNORE_GLASS ignoreGlass, edict_t@ pEntIgnore, TraceResult& out ptr)</td>
+			<td>Calculates a trace along the given line, storing the results in ptr.</td>
+		</tr>
+		<tr>
+			<td>void TraceHull(const Vector& in vecStart, const Vector& in vecEnd, IGNORE_MONSTERS igmon,HULL_NUMBER hullNumber, edict_t@ pEntIgnore, TraceResult& out ptr)</td>
+			<td>Calculates a trace along the given line, storing the results in ptr, using the specified hull type.</td>
+		</tr>
+		<tr>
+			<td>void TraceToss(edict_t@ pEntity, edict_t@ pEntityToIgnore, TraceResult& out traceResult)</td>
+			<td>Trace toss</td>
+		</tr>
+		<tr>
+			<td>bool TraceMonsterHull(edict_t@ pEntity, const Vector& in vecStart, const Vector& in vecEnd, IGNORE_MONSTERS igmon, edict_t@ pEntityToIgnore, TraceResult& out ptr)</td>
+			<td>Trace monster hull. Returns true if the trace was entirely in a solid object, or hit something.</td>
+		</tr>
+		<tr>
+			<td>void TraceModel(const Vector& in vecStart, const Vector& in vecEnd, int iHullNumber, edict_t@ pEntityToIgnore, TraceResult& out ptr)</td>
+			<td>TraceModel</td>
+		</tr>
+		<tr>
+			<td>string TraceTexture(edict_t@ pEntity, const Vector& in vecStart, const Vector& in vecEnd)</td>
+			<td>Trace texture</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ FindEntityForward(CBaseEntity@ pLooker, float flMaxDistance)</td>
+			<td>Convience function that finds the entity that the given entity is currently looking at.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ FindEntityForward(CBaseEntity@ pLooker)</td>
+			<td>Convience function that finds the entity that the given entity is currently looking at. Uses a maximum distance of 12048 units.</td>
+		</tr>
+		<tr>
+			<td>TraceResult GetGlobalTrace()</td>
+			<td>Gets the global trace data stored in g_Engine as a TraceResult object.</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayerInVolume(CBasePlayer@ pPlayer, CBaseEntity@ pEntityVolume)</td>
+			<td>Returns whether the given player is in the given volume.</td>
+		</tr>
+		<tr>
+			<td>bool VoteActive() const</td>
+			<td>Returns whether a vote is active. This only covers the votes started using the in-game vote menu, trigger_vote and the Vote class.</td>
+		</tr>
+		<tr>
+			<td>void GetCircularGaussianSpread(float& out x, float& out y) const</td>
+			<td>Gets circular gaussian spread.</td>
+		</tr>
+		<tr>
+			<td>int CountPlayersInBrushVolume(const bool fIgnoreDeadPlayers, CBaseEntity@ pBrushVolume,int& out iOutPlayersInsideVolume, int& out iOutPlayersOutsideVolume, PlayerInVolumeListener@ pListener)</td>
+			<td>Counts the number of players inside and outside a brush volume.</td>
+		</tr>
+		<tr>
+			<td>void FindHullIntersection(const Vector& in vecSrc, TraceResult& in inTr, TraceResult& out outTr,const Vector& in vecMins, const Vector& in vecMaxs, edict_t@ pEntity, float flDistance = 1e6f)</td>
+			<td>Finds the hull intersection from a traceline in a given set of bounds. The bounds are relative to the input traceline's endpoint.<br>The given entity is the entity performing the traceline.</td>
+		</tr>
+		<tr>
+			<td>string BuildEntityLogString(const string& in szName, const string& in szUserID = NULL, const string& in szAuthID = NULL, const string& in szTeam = NULL) const</td>
+			<td>Builds a generic entity log string.</td>
+		</tr>
+		<tr>
+			<td>string BuildPlayerLogString(const string& in szName, const string& in szUserID = NULL, const string& in szAuthID = NULL) const</td>
+			<td>Builds a generic player log string.</td>
+		</tr>
+		<tr>
+			<td>string GetPlayerLog(edict_t@ pPlayerEdict) const</td>
+			<td>Get a player log string.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

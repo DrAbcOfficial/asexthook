@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Sound engine.">
+	<meta property="og:title" content="CSoundEngine">
+	<meta property="og:description" content="Sound engine.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CSoundEngine</title>
+</head>
+<body>
+	<h1>CSoundEngine</h1>
+	<p>Sound engine.<br>Can either play sounds given to it directly, or use sound replacement to look up a replacement sample.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void PrecacheSound(const string& in szFilename)</td>
+			<td>Precaches the given sound.<br>Must be called in MapInit</td>
+		</tr>
+		<tr>
+			<td>void PrecacheSound(CBaseEntity@ pEntity, const string& in szFilename)</td>
+			<td>Precaches the given sound for the given entity. Supports entity sound replacement.<br>Must be called in MapInit</td>
+		</tr>
+		<tr>
+			<td>string FindSoundReplacementSample(CBaseEntity@ pEntity, const string& in szSample) const</td>
+			<td>Finds the sound replacement sample for the given entity and sample.If the sample is replaced, it will return the sample used instead. Otherwise, szSample is returned.</td>
+		</tr>
+		<tr>
+			<td>void PlaySound(edict_t@ entity, SOUND_CHANNEL channel, const string& in sample,float volume, float attenuation, int flags = 0, int pitch = PITCH_NORM,int target_ent_unreliable = 0, bool setOrigin = false, const Vector& in vecOrigin = g_vecZero)</td>
+			<td>Plays the given sound with the given parameters. Sound replacement is not used here.</td>
+		</tr>
+		<tr>
+			<td>void StopSound(edict_t@ entity, SOUND_CHANNEL channel, const string& in szSample, const bool fUseSoundReplacement = true)</td>
+			<td>Stops the given sound on the given entity on the given channel. If the sound was started using PlaySound, set fUseSoundReplacement to false.</td>
+		</tr>
+		<tr>
+			<td>void EmitSoundDyn(edict_t@ entity, SOUND_CHANNEL channel, const string& in szSample,float flVolume, float flAttenuation, int iFlags = 0, int iPitch = PITCH_NORM, int target_ent_unreliable = 0)</td>
+			<td>Plays the given sound with the given parameters. Sound replacement will affect this.</td>
+		</tr>
+		<tr>
+			<td>void EmitSound(edict_t@ entity, SOUND_CHANNEL channel, const string& in szSample, float flVolume, float flAttenuation)</td>
+			<td>Plays the given sound with the given parameters. Sound replacement will affect this.</td>
+		</tr>
+		<tr>
+			<td>void EmitSoundSuit(edict_t@ entity, const string& in szSample)</td>
+			<td>Play a specific sentence over the HEV suit speaker - just pass player entity, and !sentencename.</td>
+		</tr>
+		<tr>
+			<td>void EmitGroupIdSuit(edict_t@ entity, int isentencereg)</td>
+			<td>Play a sentence, randomly selected from the passed in group id, over the HEV suit speaker.</td>
+		</tr>
+		<tr>
+			<td>void EmitGroupNameSuit(edict_t@ entity, const string& in szSample)</td>
+			<td>Play a sentence, randomly selected from the passed in groupname.</td>
+		</tr>
+		<tr>
+			<td>int LookupSentenceIndex(const string& in sentenceName)</td>
+			<td>Looks up the sentence index of the given sentence</td>
+		</tr>
+		<tr>
+			<td>int LookupSentenceGroupIndex(const string& in szGroup)</td>
+			<td>Looks up the sentence group index of the given sentence</td>
+		</tr>
+		<tr>
+			<td>int PlaySentenceGroup(edict_t@ entity, const string& in szGroupName, float volume, float attenuation, int flags, int pitch)</td>
+			<td>Plays a sentence group</td>
+		</tr>
+		<tr>
+			<td>int PlaySentenceGroup(edict_t@ entity, int iGroupIndex, float volume, float attenuation, int flags, int pitch)</td>
+			<td>Plays a sentence group</td>
+		</tr>
+		<tr>
+			<td>int PlaySentenceGroupSequential(edict_t@ entity, const string& in szGroupName,float volume, float attenuation, int flags, int pitch, int ipick, const bool bReset)</td>
+			<td>Plays a sentence group sequentially</td>
+		</tr>
+		<tr>
+			<td>void EmitAmbientSound(edict_t@ entity, const Vector& in vecOrigin, const string& in szSample,float flVolume, float flAttenuation, int fFlags, int iPitch)</td>
+			<td>Plays a sentence group sequentially</td>
+		</tr>
+		<tr>
+			<td>float PlayHitSound( TraceResult& in tr, const Vector& in vecSrc, const Vector& in vecEnd, int iBulletType )</td>
+			<td>Plays a hit sound based on the trace result's hit target. Returns the volume at which the hit is being played.</td>
+		</tr>
+		<tr>
+			<td>char FindMaterialType(const string& in szMaterial) const</td>
+			<td>Maps the texture name to a material type. See the TextureType enum.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

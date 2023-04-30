@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Represents the difference between 2 times.">
+	<meta property="og:title" content="TimeDifference">
+	<meta property="og:description" content="Represents the difference between 2 times.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>TimeDifference</title>
+</head>
+<body>
+	<h1>TimeDifference</h1>
+	<p>Represents the difference between 2 times.</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void TimeDifference()</td>
+			<td>Default constructor</td>
+		</tr>
+		<tr>
+			<td>void TimeDifference(const TimeDifference& in other)</td>
+			<td>Copy constructor</td>
+		</tr>
+		<tr>
+			<td>void TimeDifference(double flValue)</td>
+			<td>Sets the time difference to the given value, in seconds</td>
+		</tr>
+		<tr>
+			<td>void TimeDifference(const DateTime& in end, const DateTime& in begin)</td>
+			<td>Sets the time difference to the range between beginning and end. If begin is later than end, is negative.</td>
+		</tr>
+		<tr>
+			<td>void TimeDifference(const DateTime& in time)</td>
+			<td>Sets the time difference to the range between 0 and time.</td>
+		</tr>
+		<tr>
+			<td>TimeDifference& opAssign(const TimeDifference& in other)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>TimeDifference& opAssign(double timeDiff)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>TimeDifference& opAssign( const DateTime& in time)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>double GetTimeDifference() const</td>
+			<td>Gets the time difference</td>
+		</tr>
+		<tr>
+			<td>bool IsPositive() const</td>
+			<td>Returns whether the time difference is positive.</td>
+		</tr>
+		<tr>
+			<td>int GetSeconds() const</td>
+			<td>Gets the time difference in seconds.</td>
+		</tr>
+		<tr>
+			<td>int GetMinutes() const</td>
+			<td>Gets the time difference in minutes.</td>
+		</tr>
+		<tr>
+			<td>int GetHours() const</td>
+			<td>Gets the time difference in hours.</td>
+		</tr>
+		<tr>
+			<td>int GetDays() const</td>
+			<td>Gets the time difference in days.</td>
+		</tr>
+		<tr>
+			<td>int GetYears() const</td>
+			<td>Gets the time difference in years.</td>
+		</tr>
+		<tr>
+			<td>void MakeAbsolute()</td>
+			<td>Makes the time difference absolute.</td>
+		</tr>
+		<tr>
+			<td>void SetDifferenceBetween(const DateTime& in end, const DateTime& in begin)</td>
+			<td>Sets the time difference to the range between beginning and end. If begin is later than end, is negative.</td>
+		</tr>
+		<tr>
+			<td>void SetTime(const DateTime& in time)</td>
+			<td>Sets the time difference to the range between 0 and time.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

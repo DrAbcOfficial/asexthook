@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Admin control panel.">
+	<meta property="og:title" content="CAdminControl">
+	<meta property="og:description" content="Admin control panel.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CAdminControl</title>
+</head>
+<body>
+	<h1>CAdminControl</h1>
+	<p>Admin control panel.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void SetReservedSlots(uint uiReservedSlots)</td>
+			<td>Sets the number of reserved slots.</td>
+		</tr>
+		<tr>
+			<td>uint GetReservedSlots() const</td>
+			<td>Gets the number of reserved slots.</td>
+		</tr>
+		<tr>
+			<td>bool KillPlayer(CBasePlayer@ pKiller, CBasePlayer@ pKillee, float flRespawntime = -1.0f)</td>
+			<td>Kills the given player. Killing player must have admin rights. Target player cannot be an admin.</td>
+		</tr>
+		<tr>
+			<td>bool KillPlayer(CBasePlayer@ pKillee, float flRespawntime = -1.0f)</td>
+			<td>Kills the given player.</td>
+		</tr>
+		<tr>
+			<td>bool KickPlayer(CBasePlayer@ pKicker, CBasePlayer@ pKickee, const float flCustomBanTime = -1)</td>
+			<td>Kicks the given player. Kicking player must have admin rights. Target player cannot be an admin.</td>
+		</tr>
+		<tr>
+			<td>bool KickPlayer(CBasePlayer@ pKickee, const float flCustomBanTime = -1)</td>
+			<td>Kicks the given player.</td>
+		</tr>
+		<tr>
+			<td>bool BanPlayer(CBasePlayer@ pBanner, CBasePlayer@ pBannee, const float flCustomBanTime = -1)</td>
+			<td>Bans the given player. Banning player must have admin rights Target player cannot be an admin.</td>
+		</tr>
+		<tr>
+			<td>bool BanPlayer(CBasePlayer@ pBannee, const float flCustomBanTime = -1)</td>
+			<td>Bans the given player.</td>
+		</tr>
+		<tr>
+			<td>bool SlapPlayer(CBasePlayer@ pSlapper, CBasePlayer@ pSlappee, float flDamage, const Vector& in vecDirection, int iDamageType = 0)</td>
+			<td>Slaps the given player. Slapping player must have admin rights. Target player cannot be an admin.</td>
+		</tr>
+		<tr>
+			<td>bool SlapPlayer(CBasePlayer@ pSlappee, float flDamage, const Vector& in vecDirection, int iDamageType = 0)</td>
+			<td>Slaps the given player.</td>
+		</tr>
+		<tr>
+			<td>bool SlapPlayer(CBasePlayer@ pSlapper, CBasePlayer@ pSlappee, float flDamage, int iDamageType = 0)</td>
+			<td>Slaps the given player. Slapping player must have admin rights. Target player cannot be an admin. Slap direction is randomized.</td>
+		</tr>
+		<tr>
+			<td>bool SlapPlayer(CBasePlayer@ pSlappee, float flDamage, int iDamageType = 0)</td>
+			<td>Slaps the given player. Slap direction is randomized.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

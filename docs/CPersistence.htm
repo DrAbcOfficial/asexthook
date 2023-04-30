@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Persistence manager">
+	<meta property="og:title" content="CPersistence">
+	<meta property="og:description" content="Persistence manager">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CPersistence</title>
+</head>
+<body>
+	<h1>CPersistence</h1>
+	<p>Persistence manager</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>bool Exists(const string& in szName) const</td>
+			<td>Returns whether the given persistence instance exists.</td>
+		</tr>
+		<tr>
+			<td>bool IsValidHandle(const PersistID_t ID) const</td>
+			<td>Returns whether the given persistence instance handle is valid.</td>
+		</tr>
+		<tr>
+			<td>bool ShouldKeep() const</td>
+			<td>Returns whether the previous map's persistence instances will be kept.</td>
+		</tr>
+		<tr>
+			<td>void SetKeep(bool fValue)</td>
+			<td>Sets whether the previous map's persistence instances will be kept.</td>
+		</tr>
+		<tr>
+			<td>bool KeepIfPrevious(const array&lt;string&gt;@ pArray)</td>
+			<td>Will make the persistence manager keep the previous map's persistence instancesif the previous map's name matches any of the elements in the array.</td>
+		</tr>
+		<tr>
+			<td>bool KeepIfPrevious(const string& in szMapName)</td>
+			<td>Will make the persistence manager keep the previous map's persistence instancesif the previous map's name matches the given map name.</td>
+		</tr>
+		<tr>
+			<td>PersistID_t RegisterInstance(const string& in szName)</td>
+			<td>Returns a persistence instance tied to the given name. Will be created if it does not already exist.</td>
+		</tr>
+		<tr>
+			<td>const string& GetPreviousMapName() const</td>
+			<td>Returns the name of the previous map. Can be empty if the server has just started.</td>
+		</tr>
+		<tr>
+			<td>const string& GetCurrentMapName() const</td>
+			<td>Returns the name of the current map.</td>
+		</tr>
+		<tr>
+			<td>void ClearInstance(const string& in szName)</td>
+			<td>Clears the specified persistence instance.</td>
+		</tr>
+		<tr>
+			<td>void ClearInstance(const PersistID_t ID)</td>
+			<td>Clears the specified persistence instance.</td>
+		</tr>
+		<tr>
+			<td>void Clear()</td>
+			<td>Clears all persistence instances.<br>Make sure to avoid calling handles referencing the cleared instances.</td>
+		</tr>
+		<tr>
+			<td>const string& GetName(const PersistID_t ID) const</td>
+			<td>Returns the name of this instance.</td>
+		</tr>
+		<tr>
+			<td>size_t Size(int iId) const</td>
+			<td>Returns the number of persisted items in this instance.</td>
+		</tr>
+		<tr>
+			<td>bool Exists(const PersistID_t ID, const string& in szKey)</td>
+			<td>Returns whether the given key exists in this instance.</td>
+		</tr>
+		<tr>
+			<td>const string& GetString(const PersistID_t ID, const string& in szKey)</td>
+			<td>Returns the given value as a string, or  if it does not exist.</td>
+		</tr>
+		<tr>
+			<td>bool GetBoolean(const PersistID_t ID, const string& in szKey)</td>
+			<td>Returns the given value as a boolean, or false if it does not exist.</td>
+		</tr>
+		<tr>
+			<td>int32 GetLong(const PersistID_t ID, const string& in szKey, int iRadix = 10)</td>
+			<td>Returns the given value as a long, or 0 if it does not exist.</td>
+		</tr>
+		<tr>
+			<td>uint32 GetUlong(const PersistID_t ID, const string& in szKey, int iRadix = 10)</td>
+			<td>Returns the given value as a unsigned long, or 0 if it does not exist.</td>
+		</tr>
+		<tr>
+			<td>float GetFloat(const PersistID_t ID, const string& in szKey)</td>
+			<td>Returns the given value as a float, or 0.0 if it does not exist.</td>
+		</tr>
+		<tr>
+			<td>void Set(const PersistID_t ID, const string& in szKey, const string& in szValue)</td>
+			<td>Sets the given value as a string.</td>
+		</tr>
+		<tr>
+			<td>void Set(const PersistID_t ID, const string& in szKey, bool fValue)</td>
+			<td>Sets the given value as a boolean.</td>
+		</tr>
+		<tr>
+			<td>void Set(const PersistID_t ID, const string& in szKey, int32 iValue)</td>
+			<td>Sets the given value as a string.</td>
+		</tr>
+		<tr>
+			<td>void Set(const PersistID_t ID, const string& in szKey, uint32 uiValue)</td>
+			<td>Sets the given value as a string.</td>
+		</tr>
+		<tr>
+			<td>void Set(const PersistID_t ID, const string& in szKey, float flValue)</td>
+			<td>Sets the given value as a string.</td>
+		</tr>
+		<tr>
+			<td>void Clear(const PersistID_t ID, const string& in szKey)</td>
+			<td>Clears the given value.</td>
+		</tr>
+		<tr>
+			<td>void Clear(const PersistID_t ID)</td>
+			<td>Clears all values.</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>const PersistID_t INVALID_ID</td>
+			<td>Id used by invalid persistence objects.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

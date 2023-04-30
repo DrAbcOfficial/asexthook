@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Network message destination types.">
+	<meta property="og:title" content="NetworkMessageDest">
+	<meta property="og:description" content="Network message destination types.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>NetworkMessageDest</title>
+</head>
+<body>
+	<h1>NetworkMessageDest</h1>
+	<p>Network message destination types.</p>
+	<div><h2>Values</h2>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>MSG_BROADCAST</td>
+			<td>0</td>
+			<td>unreliable to all</td>
+		</tr>
+		<tr>
+			<td>MSG_ONE</td>
+			<td>1</td>
+			<td>reliable to one (msg_entity)</td>
+		</tr>
+		<tr>
+			<td>MSG_ALL</td>
+			<td>2</td>
+			<td>reliable to all</td>
+		</tr>
+		<tr>
+			<td>MSG_INIT</td>
+			<td>3</td>
+			<td>write to the init string</td>
+		</tr>
+		<tr>
+			<td>MSG_PVS</td>
+			<td>4</td>
+			<td>Ents in PVS of org</td>
+		</tr>
+		<tr>
+			<td>MSG_PAS</td>
+			<td>5</td>
+			<td>Ents in PAS of org</td>
+		</tr>
+		<tr>
+			<td>MSG_PVS_R</td>
+			<td>6</td>
+			<td>Reliable to PVS</td>
+		</tr>
+		<tr>
+			<td>MSG_PAS_R</td>
+			<td>7</td>
+			<td>Reliable to PAS</td>
+		</tr>
+		<tr>
+			<td>MSG_ONE_UNRELIABLE</td>
+			<td>8</td>
+			<td>Send to one client, but don't put in reliable stream, put in unreliable datagram ( could be dropped )</td>
+		</tr>
+		<tr>
+			<td>MSG_SPEC</td>
+			<td>9</td>
+			<td>Sends to all spectator proxies</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

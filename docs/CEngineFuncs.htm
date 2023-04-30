@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Engine functions">
+	<meta property="og:title" content="CEngineFuncs">
+	<meta property="og:description" content="Engine functions">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CEngineFuncs</title>
+</head>
+<body>
+	<h1>CEngineFuncs</h1>
+	<p>Engine functions</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>int ModelIndex(const string& in szModelName)</td>
+			<td>Gets the model index of a model.</td>
+		</tr>
+		<tr>
+			<td>int ModelFrames(int iModelIndex)</td>
+			<td>Gets the number of frames in a model.</td>
+		</tr>
+		<tr>
+			<td>void ChangeLevel(const string& in szLevelName)</td>
+			<td>Changes the current level to the one specified.</td>
+		</tr>
+		<tr>
+			<td>float VecToYaw(const Vector& in vec)</td>
+			<td>Vector to yaw</td>
+		</tr>
+		<tr>
+			<td>void VecToAngles(const Vector& in vec, Vector& out angles)</td>
+			<td>Vector to angles</td>
+		</tr>
+		<tr>
+			<td>void MoveToOrigin(edict_t@ pEntity, const Vector& in vecGoal, float flDist, int iMoveType)</td>
+			<td>Move entity to origin.</td>
+		</tr>
+		<tr>
+			<td>void ChangeYaw(edict_t@ pEntity)</td>
+			<td>Change yaw. This updates entvars_t::angles[ 1 ] to approach entvars_t::ideal_yaw, at entvars_t::yaw_speed degrees speed.</td>
+		</tr>
+		<tr>
+			<td>void ChangePitch(edict_t@ pEntity)</td>
+			<td>Change pitch. This updates entvars_t::angles[ 0 ] to approach entvars_t::idealpitch, at entvars_t::pitch_speed degrees speed.</td>
+		</tr>
+		<tr>
+			<td>int GetEntityIllum(edict_t@ pEntity)</td>
+			<td>Get entity illumination. This is a weighted value between 0 and 255, inclusive.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ FindClientInPVS(edict_t@ pStartEntity)</td>
+			<td>Find client in Potentially Visible Set.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ EntitiesInPVS(edict_t@ pStartEntity)</td>
+			<td>Find entities in Potentially Visible Set. Edict::vars::chain is used for this list, and is temporary.</td>
+		</tr>
+		<tr>
+			<td>void MakeVectors(const Vector& in vec)</td>
+			<td>Make vectors. The results are stored in g_Engine::v_forward, v_right, and v_up.</td>
+		</tr>
+		<tr>
+			<td>void AngleVectors(const Vector& in vecIn, Vector& out vecForward, Vector& out vecRight, Vector& out vecUp)</td>
+			<td>Angle vectors</td>
+		</tr>
+		<tr>
+			<td>void MakeStatic(edict_t@ pEntity)</td>
+			<td>Make entity static. This moves the entity to the client.Its current visual state is copied over, and the entity is removed on the server side.Only valid while the level is loading.</td>
+		</tr>
+		<tr>
+			<td>int EntIsOnFloor(edict_t@ pEntity)</td>
+			<td>Returns whether entity is on the floor.</td>
+		</tr>
+		<tr>
+			<td>int DropToFloor(edict_t@ pEntity)</td>
+			<td>Drop entity to floor.</td>
+		</tr>
+		<tr>
+			<td>int WalkMove(edict_t@ pEntity, float flYaw, float flDist, int iMove)</td>
+			<td>Make entity walk.<br>See WALKMOVE enum</td>
+		</tr>
+		<tr>
+			<td>void GetAimVector(edict_t@ pEntity, float flSpeed, Vector& out vecReturn)</td>
+			<td>Get aim vector for entity.</td>
+		</tr>
+		<tr>
+			<td>void ServerCommand(const string& in szCommand)</td>
+			<td>Issues a command to the server. Plugins only.</td>
+		</tr>
+		<tr>
+			<td>void ServerExecute()</td>
+			<td>Executes all pending server commands. Plugins only.</td>
+		</tr>
+		<tr>
+			<td>void ParticleEffect(const Vector& in vecOrigin, const Vector& in vecDir, float flColor, float flCount)</td>
+			<td>Emit a particle effect.</td>
+		</tr>
+		<tr>
+			<td>void LightStyle(int iStyle, const string& in szVal)</td>
+			<td>Set a light style.</td>
+		</tr>
+		<tr>
+			<td>int DecalIndex(const string& in szName)</td>
+			<td>Get decal index.</td>
+		</tr>
+		<tr>
+			<td>CONTENTS PointContents(const Vector& in vecPoint)</td>
+			<td>Check if point is in contents.</td>
+		</tr>
+		<tr>
+			<td>float CVarGetFloat(const string& in szCvar)</td>
+			<td>Get cvar float value.</td>
+		</tr>
+		<tr>
+			<td>string CVarGetString(const string& in szCvar)</td>
+			<td>Get cvar string value.</td>
+		</tr>
+		<tr>
+			<td>void CVarSetFloat(const string& in szCvar, float flValue)</td>
+			<td>Set cvar float value.</td>
+		</tr>
+		<tr>
+			<td>void CVarSetString(const string& in szCvar, const string& in szValue)</td>
+			<td>Set cvar string value.</td>
+		</tr>
+		<tr>
+			<td>entvars_t@ GetVarsOfEnt(edict_t@ pEdict)</td>
+			<td>Gets entity variables of entity.</td>
+		</tr>
+		<tr>
+			<td>int IndexOfEdict(const edict_t@ pEdict)</td>
+			<td>Get index of edict.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ PEntityOfEntIndex(int iIndex)</td>
+			<td>Get entity by entity index.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ FindEntityByVars(entvars_t@ pVars)</td>
+			<td>Find entity by variables.</td>
+		</tr>
+		<tr>
+			<td>void GetBonePosition(const edict_t@ pEdict, int iBone, Vector& out vecOrigin, Vector& out vecAngles)</td>
+			<td>Get bone position.</td>
+		</tr>
+		<tr>
+			<td>void ClientPrintf(CBasePlayer@ pPlayer, PRINT_TYPE printType, const string& in szMessage)</td>
+			<td>Client print</td>
+		</tr>
+		<tr>
+			<td>void ServerPrint(const string& in szMessage)</td>
+			<td>Server print</td>
+		</tr>
+		<tr>
+			<td>string Cmd_Args()</td>
+			<td>Get command arguments.</td>
+		</tr>
+		<tr>
+			<td>string Cmd_Argv(int iIndex)</td>
+			<td>Get command argument by index.</td>
+		</tr>
+		<tr>
+			<td>int Cmd_Argc()</td>
+			<td>Get number of command arguments.</td>
+		</tr>
+		<tr>
+			<td>void GetAttachment(const edict_t@ pEdict, int iAttachment, Vector& out vecOrigin, Vector& out vecAngles)</td>
+			<td>Get attachment position.</td>
+		</tr>
+		<tr>
+			<td>void SetView(const edict_t@ pEdict, const edict_t@ pViewEntity)</td>
+			<td>Set view.</td>
+		</tr>
+		<tr>
+			<td>float Time()</td>
+			<td>Get current time.</td>
+		</tr>
+		<tr>
+			<td>void CrosshairAngle(const edict_t@ pEdict, float flPitch, float flYaw)</td>
+			<td>Sets the angles of the given player's crosshairs to the given settings. Set both to 0 to disable. May not have any effect in SC.</td>
+		</tr>
+		<tr>
+			<td>string GetGameDir()</td>
+			<td>Get game directory.</td>
+		</tr>
+		<tr>
+			<td>void RunPlayerMove(edict_t@ pEdict, const Vector& in vecViewAngles, float flFowardMove, float flSideMove, float flUpMove, uint16 iButtons, uint8 iImpulse, uint8 iMsec)</td>
+			<td>Run player move.</td>
+		</tr>
+		<tr>
+			<td>int NumberOfEntities()</td>
+			<td>Get number of entities.</td>
+		</tr>
+		<tr>
+			<td>KeyValueBuffer@ GetInfoKeyBuffer(edict_t@ pEdict)</td>
+			<td>Get info key buffer.</td>
+		</tr>
+		<tr>
+			<td>KeyValueBuffer@ GetPhysicsKeyBuffer(edict_t@ pEdict)</td>
+			<td>Get physics key buffer.</td>
+		</tr>
+		<tr>
+			<td>bool IsMapValid(const string& in szMapName) const</td>
+			<td>Returns whether the given map is valid.</td>
+		</tr>
+		<tr>
+			<td>void StaticDecal(const Vector& in vecOrigin, int iDecalIndex, int iEntityIndex, int iModelIndex)</td>
+			<td>Project a static decal.</td>
+		</tr>
+		<tr>
+			<td>int GetPlayerUserId(edict_t@ pEdict)</td>
+			<td>Get player user ID. This is a unique id generated when a player connects. It remains valid as long as the player stays connected to the server.</td>
+		</tr>
+		<tr>
+			<td>bool IsDedicatedServer() const</td>
+			<td>Returns whether this is a dedicated server.</td>
+		</tr>
+		<tr>
+			<td>const Cvar@ CVarGetPointer(const string& in szCvar) const</td>
+			<td>Gets a pointer to a cvar.</td>
+		</tr>
+		<tr>
+			<td>void GetPlayerStats(const edict_t@ pEdict, int& out iPing, int& out iPacketLoss)</td>
+			<td>Get player stats.</td>
+		</tr>
+		<tr>
+			<td>bool Voice_GetClientListening(int iReceiver, int iSender)</td>
+			<td>Voice system - Get client listening.</td>
+		</tr>
+		<tr>
+			<td>bool Voice_SetClientListening(int iReceiver, int iSender, bool fListen)</td>
+			<td>Voice system - Set client listening.</td>
+		</tr>
+		<tr>
+			<td>string GetPlayerAuthId(edict_t@ pEdict)</td>
+			<td>Get the player's Auth ID. (WON/Steam ID)</td>
+		</tr>
+		<tr>
+			<td>uint32 CRC32(const string& in szBuffer)</td>
+			<td>Caculate CRC32 for a string</td>
+		</tr>
+		<tr>
+			<td>bool ClassMemcpy(?& in src, ?& in dst)</td>
+			<td>copy class, If src and dst are different type, return false.<br>If not class ref, crash game.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

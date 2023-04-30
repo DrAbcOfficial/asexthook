@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Function definitions are callbacks that can be passed around.">
+	<meta property="og:title" content="FuncDefs">
+	<meta property="og:description" content="Function definitions are callbacks that can be passed around.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>FuncDefs</title>
+</head>
+<body>
+	<div><h1>Function Definitions</h1>
+	<p>Function definitions are callbacks that can be passed around.<br>Consult the <a href="http://www.angelcode.com/angelscript/sdk/docs/manual/doc_callbacks.html">Angelscript documentation</a> for more info.</p>
+	</div>
+	<div><h2>FuncDefs</h2>
+	<table>
+		<tr>
+			<th>Namespace</th>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void ThinkFunction()</td>
+			<td>Function definition for custom entity Think functions</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void UseFunction(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue)</td>
+			<td>Function definition for custom entity Use functions</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void TouchFunction(CBaseEntity@ pOther)</td>
+			<td>Function definition for custom entity Touch functions</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void BlockedFunction(CBaseEntity@ pOther)</td>
+			<td>Function definition for custom entity Blocked functions</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void TextMenuPlayerSlotCallback(CTextMenu@ menu, CBasePlayer@ pPlayer, int iSlot, const CTextMenuItem@ pItem)</td>
+			<td>Player slot callback for text menus.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void VoteBlocked(Vote@ pVote, float flTime)</td>
+			<td>Funcdef for vote blocked callbacks. The given time is when the active vote has ended.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void VoteEnd(Vote@ pVote, bool fResult, int iVoters)</td>
+			<td>Funcdef for vote ended callbacks. If fResult is true, users voted for yes. Otherwise, voted for no.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void ConCommandCallback(const CCommand@ args)</td>
+			<td>Callback for server console commands.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void ClientCommandCallback(const CCommand@ args)</td>
+			<td>Callback for client console commands.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void CVarCallback(CCVar@ cvar, const string& in szOldValue, float flOldValue)</td>
+			<td>Callback for cvars.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>void fnSQLiteCallback(int iColumnSize, array&lt;string&gt;@ aryColumnValue, array&lt;string&gt;@ aryColumnName)</td>
+			<td>SQLite Callback</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode SendScoreInfoHook(CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag)</td>
+			<td>Pre call before sending hud info to edict</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode GrappleGetMonsterTypeHook(CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out flag)</td>
+			<td>Pre call before Weapon Grapple checking monster type</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode BreakableTakeDamageHook(DamageInfo@ info)</td>
+			<td>Pre call before a breakable took damage</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode BreakableDieHook(CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib)</td>
+			<td>Pre call before a breakable died</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode BreakableTraceAttackHook(CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)</td>
+			<td>Pre call before a breakable trace attack</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MonsterKilledHook(CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)</td>
+			<td>Pre call before a monster died</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MonsterTakeDamageHook(DamageInfo@ info)</td>
+			<td>Pre call before a monster took damage</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MonsterTraceAttackHook(CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)</td>
+			<td>Pre call before a monster trace attack</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MonsterSpawnHook(CBaseMonster@ pEntity)</td>
+			<td>Post call after a monster spawn</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode IRelationshipHook(CBaseEntity@ pEntity, CBaseEntity@ pOther, bool param, int& out newValue)</td>
+			<td>Pre call before checking relation</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode EntitySpawnHook(CBaseEntity@ pEntity)</td>
+			<td>Post call after a Entity spawn</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerCallGrenadeHook(CBasePlayer@ pPlayer)</td>
+			<td>Pre call before a player call grenade</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerCallMedicHook(CBasePlayer@ pPlayer)</td>
+			<td>Pre call before a player call medic</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerTakeHealthHook(HealthInfo@ info)</td>
+			<td>Pre call before a player took health</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerPostTakeDamageHook(DamageInfo@ info)</td>
+			<td>Pre call before a player took damage</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerUserInfoChangedHook(CBasePlayer@ pClient, string szInfoBuffer, uint&out uiFlag)</td>
+			<td>Pre call before a player info changed</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode WeaponTertiaryAttackHook(CBasePlayer@, CBasePlayerWeapon@)</td>
+			<td>Called when a player fires a weapon's tertiary attack.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode WeaponSecondaryAttackHook(CBasePlayer@, CBasePlayerWeapon@)</td>
+			<td>Called when a player fires a weapon's secondary attack.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode WeaponPrimaryAttackHook(CBasePlayer@, CBasePlayerWeapon@)</td>
+			<td>Called when a player fires a weapon's primary attack.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerPreDecalHook(CBasePlayer@, const TraceResult& in, bool& out bResult)</td>
+			<td>Called when a player attempts to spraypaint a decal onto a surface. The given trace result contains the surface information. Set bResult to false if the player shouldn't be able to spray. </td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerDecalHook(CBasePlayer@, const TraceResult& in)</td>
+			<td>Called when a player is spraypainting a decal onto a surface. The given trace result contains the surface information. </td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode GetPlayerSpawnSpotHook(CBasePlayer@ pPlayer, CBaseEntity@& out ppEntSpawnSpot)</td>
+			<td>Called when a player is about to get a spawn point before (re)spawning.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerPostThinkHook(CBasePlayer@)</td>
+			<td>Called when the player is processing post think events.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerPreThinkHook(CBasePlayer@, uint& out)</td>
+			<td>Called when the player is processing pre think events.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerUseHook(CBasePlayer@, uint& out)</td>
+			<td>Called when the game is processing player use input. Note that this occurs even if the player has not pressed their use key.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerLeftObserverHook(CBasePlayer@)</td>
+			<td>Called when a player leaves observer mode.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerEnteredObserverHook(CBasePlayer@)</td>
+			<td>Called when a player enters observer mode.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerKilledHook(CBasePlayer@, CBaseEntity@, int)</td>
+			<td>Called when a player is killed.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerTakeDamageHook(DamageInfo@)</td>
+			<td>Called when a player takes damage. Note that the victim entity can't be changed at this point.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerCanRespawnHook(CBasePlayer@, bool& out)</td>
+			<td>Called when the game wants to know if the player should be able to respawn or not.Set bCanRespawn to false to disallow, default true.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode PlayerSpawnHook(CBasePlayer@)</td>
+			<td>Called when a player (re)spawns.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode ClientConnectedHook(edict_t@, const string& in, const string& in, bool& out, string& out)</td>
+			<td>Called when a player connects to the server. if bDisallowJoin is set to false, the player is disconnected. szRejectReason is shown to the player if disconnected. The maximum length of the reject reason string is 127 characters.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode CollectedHook(CBaseEntity@, CBaseEntity@)</td>
+			<td>Called when a pickup object is collected by a player. </td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MaterializeHook(CBaseEntity@)</td>
+			<td>Called when a pickup object materializes.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode CanCollectHook(CBaseEntity@, CBaseEntity@, bool& out)</td>
+			<td>Called when a pickup object is about to be collected by a player. Note that basic checks are done before this hook is called.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode CanPlayerUseReservedSlotHook(edict_t@, const string& in, const string& in, bool& out)</td>
+			<td>Called when a player connects to the server, and the number of slots left on the server is &lt;= the number of reserved slots. Set bAllowJoin to true to allow the player to join (default false).</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode ClientSayHook(SayParameters@)</td>
+			<td>Called when a player says something in game chat. The SayParameters class can be used to manipulate input and veto the message.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode ClientPutInServerHook(CBasePlayer@)</td>
+			<td>Called when a player has finished connecting and is put into the world. It is safe to send network messages to the player at this point.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode ClientDisconnectHook(CBasePlayer@)</td>
+			<td>Called when a player disconnects. Note that this is only called if the player was fully connected, meaning the player went through ClientPutInServer. This is never called for the local host.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode EntityCreatedHook(CBaseEntity@)</td>
+			<td>Called when a new entity is created. At this point the entity is not spawned yet and may not be fully initialized.</td>
+		</tr>
+		<tr>
+			<td>&lt;Global&gt;</td>
+			<td>HookReturnCode MapChangeHook()</td>
+			<td>Called when the map changes. This happens when the world is destroyed. There may still be entities that exist at this point.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="DateTime class.">
+	<meta property="og:title" content="DateTime">
+	<meta property="og:description" content="DateTime class.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>DateTime</title>
+</head>
+<body>
+	<h1>DateTime</h1>
+	<p>DateTime class.<br>Note: milliseconds default to 0 due to limited accuracy.</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void DateTime()</td>
+			<td>Default constructor.</td>
+		</tr>
+		<tr>
+			<td>void DateTime(uint uiMilliseconds, int iSeconds, int iMinutes, int iHour, int iDayOfMonth, int iMonth, int iYear)</td>
+			<td>Init constructor.</td>
+		</tr>
+		<tr>
+			<td>void DateTime(time_t time)</td>
+			<td>Unix timestamp constructor.</td>
+		</tr>
+		<tr>
+			<td>void DateTime(const DateTime& in ref)</td>
+			<td>Copy constructor.</td>
+		</tr>
+		<tr>
+			<td>DateTime& opAssign(const DateTime& in ref)</td>
+			<td>Assignment operator.</td>
+		</tr>
+		<tr>
+			<td>DateTime& opAssign(time_t time)</td>
+			<td>Assignment operator.</td>
+		</tr>
+		<tr>
+			<td>time_t ToUnixTimestamp() const</td>
+			<td>Get time as a unix timestamp.</td>
+		</tr>
+		<tr>
+			<td>void SetUnixTimestamp(time_t time)</td>
+			<td>Sets time as a unix timestamp.</td>
+		</tr>
+		<tr>
+			<td>uint GetMilliseconds() const</td>
+			<td>Get milliseconds.</td>
+		</tr>
+		<tr>
+			<td>int GetSeconds() const</td>
+			<td>Get seconds (0-59).</td>
+		</tr>
+		<tr>
+			<td>int GetMinutes() const</td>
+			<td>Get minutes (0-59).</td>
+		</tr>
+		<tr>
+			<td>int GetHour() const</td>
+			<td>Get hours (0-23).</td>
+		</tr>
+		<tr>
+			<td>int GetDayOfMonth() const</td>
+			<td>Get day of month (0-30).</td>
+		</tr>
+		<tr>
+			<td>int GetMonth() const</td>
+			<td>Get month (0-11).</td>
+		</tr>
+		<tr>
+			<td>int GetYear() const</td>
+			<td>Get year.</td>
+		</tr>
+		<tr>
+			<td>void SetMilliseconds(uint uiMilliseconds)</td>
+			<td>Set milliseconds.</td>
+		</tr>
+		<tr>
+			<td>void SetSeconds(int iSeconds)</td>
+			<td>Set seconds (0-59).</td>
+		</tr>
+		<tr>
+			<td>void SetMinutes(int iMinutes)</td>
+			<td>Set minutes (0-59).</td>
+		</tr>
+		<tr>
+			<td>void SetHour(int iHours)</td>
+			<td>Set hours (0-23).</td>
+		</tr>
+		<tr>
+			<td>void SetDayOfMonth(int iDay)</td>
+			<td>Set day of month (0-30).</td>
+		</tr>
+		<tr>
+			<td>void SetMonth(int iMonth)</td>
+			<td>Set month (0-11).</td>
+		</tr>
+		<tr>
+			<td>void SetYear(int iYear)</td>
+			<td>Set year.</td>
+		</tr>
+		<tr>
+			<td>int Format(string& out szResult, const string& in szFormat) const</td>
+			<td>Formats this datetime as a string.<br>Returns the length of the destination string, or 0 if the buffer was not large enough.</td>
+		</tr>
+		<tr>
+			<td>void ToString(string& out szResult) const</td>
+			<td>Returns a string representation of this datetime.</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(const DateTime& in other) const</td>
+			<td>Returns whether these two DateTimes represent the same time.</td>
+		</tr>
+		<tr>
+			<td>int opCmp(const DateTime& in other) const</td>
+			<td>Comparison operator.</td>
+		</tr>
+		<tr>
+			<td>TimeDifference opSub(const DateTime& in other) const</td>
+			<td>Subtracts the given DateTime from this one, resulting in a TimeDifference object.</td>
+		</tr>
+		<tr>
+			<td>DateTime& opAddAssign(const TimeDifference& in diffTime)</td>
+			<td>Adds the given TimeDifference to this one.</td>
+		</tr>
+		<tr>
+			<td>DateTime opAdd(const TimeDifference& in diffTime) const</td>
+			<td>Adds this DateTime and the given TimeDifferene together, returning a copy containing the new time.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

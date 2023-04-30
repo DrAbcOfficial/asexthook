@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Opaque handle to a pooled string.">
+	<meta property="og:title" content="string_t">
+	<meta property="og:description" content="Opaque handle to a pooled string.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>string_t</title>
+</head>
+<body>
+	<h1>string_t</h1>
+	<p>Opaque handle to a pooled string.</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void string_t()</td>
+			<td>Default Constructor</td>
+		</tr>
+		<tr>
+			<td>void string_t(const string_t& in str)</td>
+			<td>Copy Constructor</td>
+		</tr>
+		<tr>
+			<td>void string_t(const string& in str)</td>
+			<td>Construct a string_t from a string</td>
+		</tr>
+		<tr>
+			<td>void string_t(int str)</td>
+			<td>Construct a string_t from an integer</td>
+		</tr>
+		<tr>
+			<td>string_t& opAssign(const string_t& in str)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>string_t& opAssign(const string& in str)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>string_t& opAssign(int str)</td>
+			<td>Assignment operator</td>
+		</tr>
+		<tr>
+			<td>string opImplConv() const</td>
+			<td>Converts this string_t to a string.</td>
+		</tr>
+		<tr>
+			<td>int opImplConv() const</td>
+			<td>Converts this string_t to an integer.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

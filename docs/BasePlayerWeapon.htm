@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Baseclass for CBasePlayerWeapon.">
+	<meta property="og:title" content="BasePlayerWeapon">
+	<meta property="og:description" content="Baseclass for CBasePlayerWeapon.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>BasePlayerWeapon</title>
+</head>
+<body>
+	<h1>BasePlayerWeapon</h1>
+	<p>Baseclass for CBasePlayerWeapon.<br>Allows calling of the base implementation of certain methods.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>BaseEntity@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>bool KeyValue(const string& in szKeyName, const string& in szValue)</td>
+			<td>Calls the base class implementation of KeyValue</td>
+		</tr>
+		<tr>
+			<td>void Precache()</td>
+			<td>Calls the base class implementation of Precache</td>
+		</tr>
+		<tr>
+			<td>void PreSpawn()</td>
+			<td>Calls the base class implementation of PreSpawn</td>
+		</tr>
+		<tr>
+			<td>void Spawn()</td>
+			<td>Calls the base class implementation of Spawn</td>
+		</tr>
+		<tr>
+			<td>void PostSpawn()</td>
+			<td>Calls the base class implementation of PostSpawn</td>
+		</tr>
+		<tr>
+			<td>void Think()</td>
+			<td>Calls the base class implementation of Think</td>
+		</tr>
+		<tr>
+			<td>void Touch(CBaseEntity@ pOther)</td>
+			<td>Calls the base class implementation of Touch</td>
+		</tr>
+		<tr>
+			<td>void Use(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue = 0.0f)</td>
+			<td>Calls the base class implementation of Use</td>
+		</tr>
+		<tr>
+			<td>void Blocked(CBaseEntity@ pOther)</td>
+			<td>Calls the base class implementation of Blocked</td>
+		</tr>
+		<tr>
+			<td>void UpdateOnRemove()</td>
+			<td>Calls the base class implementation of UpdateOnRemove</td>
+		</tr>
+		<tr>
+			<td>int ObjectCaps()</td>
+			<td>Calls the base class implementation of ObjectCaps</td>
+		</tr>
+		<tr>
+			<td>void TraceAttack(entvars_t@ pevAttacker, float flDamage, const Vector& in vecDir, TraceResult& in ptr, int bitsDamageType)</td>
+			<td>Calls the base class implementation of TraceAttack</td>
+		</tr>
+		<tr>
+			<td>int TakeDamage(entvars_t@ pevInflictor, entvars_t@ pevAttacker, float flDamage, int bitsDamageType)</td>
+			<td>Calls the base class implementation of TakeDamage</td>
+		</tr>
+		<tr>
+			<td>bool TakeHealth(float flHealth, int bitsDamageType, float health_cap = 0)</td>
+			<td>Calls the base class implementation of TakeHealth</td>
+		</tr>
+		<tr>
+			<td>bool TakeArmor(float flArmor, int bitsDamageType, float armor_cap = 0)</td>
+			<td>Calls the base class implementation of TakeArmor</td>
+		</tr>
+		<tr>
+			<td>void Killed(entvars_t@ pevAttacker, int iGib)</td>
+			<td>Calls the base class implementation of Killed</td>
+		</tr>
+		<tr>
+			<td>int BloodColor()</td>
+			<td>Calls the base class implementation of BloodColor</td>
+		</tr>
+		<tr>
+			<td>void TraceBleed(float flDamage, const Vector& in vecDir, TraceResult& in traceResult, int bitsDamageType)</td>
+			<td>Calls the base class implementation of TraceBleed</td>
+		</tr>
+		<tr>
+			<td>float GetPointsForDamage(float flDamage)</td>
+			<td>Calls the base class implementation of GetPointsForDamage</td>
+		</tr>
+		<tr>
+			<td>bool IsRevivable()</td>
+			<td>Calls the base class implementation of IsRevivable</td>
+		</tr>
+		<tr>
+			<td>void BeginRevive(float flTimeUntilRevive)</td>
+			<td>Calls the base class implementation of BeginRevive</td>
+		</tr>
+		<tr>
+			<td>void EndRevive(float flTimeUntilRevive)</td>
+			<td>Calls the base class implementation of EndRevive</td>
+		</tr>
+		<tr>
+			<td>BasePlayerItem@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>bool AddToPlayer(CBasePlayer@ pPlayer)</td>
+			<td>Calls the base class implementation of AddToPlayer</td>
+		</tr>
+		<tr>
+			<td>bool AddDuplicate(CBasePlayerItem@ pItem)</td>
+			<td>Calls the base class implementation of AddDuplicate</td>
+		</tr>
+		<tr>
+			<td>void Materialize()</td>
+			<td>Calls the base class implementation of Materialize</td>
+		</tr>
+		<tr>
+			<td>void GetItemInfo(ItemInfo& out info)</td>
+			<td>Calls the base class implementation of GetItemInfo</td>
+		</tr>
+		<tr>
+			<td>bool CanDeploy()</td>
+			<td>Calls the base class implementation of CanDeploy</td>
+		</tr>
+		<tr>
+			<td>bool Deploy()</td>
+			<td>Calls the base class implementation of Deploy</td>
+		</tr>
+		<tr>
+			<td>bool CanHolster()</td>
+			<td>Calls the base class implementation of CanHolster</td>
+		</tr>
+		<tr>
+			<td>void Holster(int skiplocal = 0)</td>
+			<td>Calls the base class implementation of Holster</td>
+		</tr>
+		<tr>
+			<td>void UpdateItemInfo()</td>
+			<td>Calls the base class implementation of UpdateItemInfo</td>
+		</tr>
+		<tr>
+			<td>void ItemPreFrame()</td>
+			<td>Calls the base class implementation of ItemPreFrame</td>
+		</tr>
+		<tr>
+			<td>void ItemPostFrame()</td>
+			<td>Calls the base class implementation of ItemPostFrame</td>
+		</tr>
+		<tr>
+			<td>void InactiveItemPreFrame()</td>
+			<td>Calls the base class implementation of InactiveItemPreFrame</td>
+		</tr>
+		<tr>
+			<td>void InactiveItemPostFrame()</td>
+			<td>Calls the base class implementation of InactiveItemPostFrame</td>
+		</tr>
+		<tr>
+			<td>void Kill()</td>
+			<td>Calls the base class implementation of Kill</td>
+		</tr>
+		<tr>
+			<td>void AttachToPlayer(CBasePlayer@ pPlayer)</td>
+			<td>Calls the base class implementation of AttachToPlayer</td>
+		</tr>
+		<tr>
+			<td>int PrimaryAmmoIndex()</td>
+			<td>Calls the base class implementation of PrimaryAmmoIndex</td>
+		</tr>
+		<tr>
+			<td>int SecondaryAmmoIndex()</td>
+			<td>Calls the base class implementation of SecondaryAmmoIndex</td>
+		</tr>
+		<tr>
+			<td>bool UpdateClientData(CBasePlayer@ pPlayer)</td>
+			<td>Calls the base class implementation of UpdateClientData</td>
+		</tr>
+		<tr>
+			<td>float GetRespawnTime() const</td>
+			<td>Calls the base class implementation of GetRespawnTime</td>
+		</tr>
+		<tr>
+			<td>CBasePlayerItem@ DropItem()</td>
+			<td>Calls the base class implementation of DropItem</td>
+		</tr>
+		<tr>
+			<td>bool CanHaveDuplicates()</td>
+			<td>Calls the base class implementation of CanHaveDuplicates</td>
+		</tr>
+		<tr>
+			<td>bool ExtractAmmo(CBasePlayerWeapon@ pWeapon)</td>
+			<td>Calls the base class implementation of ExtractAmmo</td>
+		</tr>
+		<tr>
+			<td>bool AddWeapon()</td>
+			<td>Calls the base class implementation of AddWeapon</td>
+		</tr>
+		<tr>
+			<td>bool PlayEmptySound()</td>
+			<td>Calls the base class implementation of PlayEmptySound</td>
+		</tr>
+		<tr>
+			<td>void ResetEmptySound()</td>
+			<td>Calls the base class implementation of ResetEmptySound</td>
+		</tr>
+		<tr>
+			<td>void SendWeaponAnim(int iAnim, int skiplocal = 0, int body = 0)</td>
+			<td>Calls the base class implementation of SendWeaponAnim</td>
+		</tr>
+		<tr>
+			<td>Vector BulletAccuracy(const Vector& in vecMoving, const Vector& in vecStanding, const Vector& in vecCrouched)</td>
+			<td>Calls the base class implementation of BulletAccuracy</td>
+		</tr>
+		<tr>
+			<td>bool IsUseable()</td>
+			<td>Calls the base class implementation of IsUseable</td>
+		</tr>
+		<tr>
+			<td>void PrimaryAttack()</td>
+			<td>Calls the base class implementation of PrimaryAttack</td>
+		</tr>
+		<tr>
+			<td>void SecondaryAttack()</td>
+			<td>Calls the base class implementation of SecondaryAttack</td>
+		</tr>
+		<tr>
+			<td>void TertiaryAttack()</td>
+			<td>Calls the base class implementation of TertiaryAttack</td>
+		</tr>
+		<tr>
+			<td>void Reload()</td>
+			<td>Calls the base class implementation of Reload</td>
+		</tr>
+		<tr>
+			<td>void FinishReload()</td>
+			<td>Calls the base class implementation of FinishReload</td>
+		</tr>
+		<tr>
+			<td>bool ShouldReload()</td>
+			<td>Calls the base class implementation of ShouldReload</td>
+		</tr>
+		<tr>
+			<td>void WeaponIdle()</td>
+			<td>Calls the base class implementation of WeaponIdle</td>
+		</tr>
+		<tr>
+			<td>void RetireWeapon()</td>
+			<td>Calls the base class implementation of RetireWeapon</td>
+		</tr>
+		<tr>
+			<td>bool ShouldWeaponIdle()</td>
+			<td>Calls the base class implementation of ShouldWeaponIdle</td>
+		</tr>
+		<tr>
+			<td>bool UseDecrement()</td>
+			<td>Calls the base class implementation of UseDecrement</td>
+		</tr>
+		<tr>
+			<td>void BurstSupplement()</td>
+			<td>Calls the base class implementation of BurstSupplement</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

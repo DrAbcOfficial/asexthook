@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Console variable flags.">
+	<meta property="og:title" content="FCVAR">
+	<meta property="og:description" content="Console variable flags.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>FCVAR</title>
+</head>
+<body>
+	<h1>FCVAR</h1>
+	<p>Console variable flags.</p>
+	<div><h2>Values</h2>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Value</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>FCVAR_ARCHIVE</td>
+			<td>1</td>
+			<td>Save this cvar.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_USERINFO</td>
+			<td>2</td>
+			<td>Changes the client's info string.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_SERVER</td>
+			<td>4</td>
+			<td>Notifies players when changed.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_EXTDLL</td>
+			<td>8</td>
+			<td>Defined by external dll.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_CLIENTDLL</td>
+			<td>16</td>
+			<td>Defined by the client dll.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_PROTECTED</td>
+			<td>32</td>
+			<td>It's a server cvar, but we don't send the data since it's a password, etc.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_SPONLY</td>
+			<td>64</td>
+			<td>This cvar cannot be changed by clients connected to a multiplayer server.</td>
+		</tr>
+		<tr>
+			<td>FCVAR_PRINTABLEONLY</td>
+			<td>128</td>
+			<td>This cvar's string cannot contain unprintable characters (e.g. used for player name etc)</td>
+		</tr>
+		<tr>
+			<td>FCVAR_UNLOGGED</td>
+			<td>256</td>
+			<td>If this is a FCVAR_SERVER, don't log changes to the log file / console if we are creating a log</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Grenade class">
+	<meta property="og:title" content="CGrenade">
+	<meta property="og:description" content="Grenade class">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CGrenade</title>
+</head>
+<body>
+	<h1>CGrenade</h1>
+	<p>Grenade class</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>CBaseMonster@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseToggle@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseAnimating@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseDelay@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ opImplCast()</td>
+			<td>Implicitly casts to base type.</td>
+		</tr>
+		<tr>
+			<td>const Vector& GetOrigin() const</td>
+			<td>Gets the entity's (absolute) origin.</td>
+		</tr>
+		<tr>
+			<td>void SetOrigin(const Vector& in vecOrigin)</td>
+			<td>Sets this entity's (absolute) origin</td>
+		</tr>
+		<tr>
+			<td>bool KeyValue(const string& in szKeyName, const string& in szValue)</td>
+			<td>Sets keyvalue data on this entity</td>
+		</tr>
+		<tr>
+			<td>void TraceAttack(entvars_t@ pevAttacker, float flDamage, const Vector& in vecDir, TraceResult& in traceResult, int bitsDamageType)</td>
+			<td>Traces an attack by the given entity to this entity.</td>
+		</tr>
+		<tr>
+			<td>void TraceBleed(float flDamage, const Vector& in vecDir, TraceResult& in traceResult, int bitsDamageType)</td>
+			<td>Traces entity bleed event.</td>
+		</tr>
+		<tr>
+			<td>int GiveAmmo(int iAmount, const string& in szName, int iMax, const bool fFromWeapon = true)</td>
+			<td>Gives ammo to this entity.</td>
+		</tr>
+		<tr>
+			<td>bool HasTarget(const string& in szTarget)</td>
+			<td>Returns whether this entity has the given target.</td>
+		</tr>
+		<tr>
+			<td>string TeamID()</td>
+			<td>Returns this entity's team ID.</td>
+		</tr>
+		<tr>
+			<td>string GetClassname() const</td>
+			<td>Returns this entity's class name.</td>
+		</tr>
+		<tr>
+			<td>string GetClassificationTag() const</td>
+			<td>Returns this entity's classification tag.</td>
+		</tr>
+		<tr>
+			<td>string GetClassificationName() const</td>
+			<td>Returns this entity's classification name.</td>
+		</tr>
+		<tr>
+			<td>string GetTargetname() const</td>
+			<td>Returns this entity's target name.</td>
+		</tr>
+		<tr>
+			<td>bool FVisibleFromPos(const Vector& in vecTarget, const Vector& in vecStart)</td>
+			<td>Returns whether this entity is visible from the given position.</td>
+		</tr>
+		<tr>
+			<td>string SOUNDREPLACEMENT_Find(const string& in szFilename)</td>
+			<td>Find sound replacement for the given file.</td>
+		</tr>
+		<tr>
+			<td>int FindMonstersInWorld(array&lt;CBaseEntity@&gt;@ pArray, int flagMask)</td>
+			<td>Finds monsters in the world</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayerAlly() const</td>
+			<td>Returns whether this entity is allied to players.</td>
+		</tr>
+		<tr>
+			<td>void SetPlayerAlly(bool fState)</td>
+			<td>Sets this entity's player ally status.</td>
+		</tr>
+		<tr>
+			<td>void SetPlayerAllyDirect(bool fState)</td>
+			<td>Sets this entity's player ally status.<br>Use this only if you need the setting to be exactly what you give it (e.g. when copying from another monster)</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(CBaseEntity@ pOther)</td>
+			<td>Compares 2 entities for equality.</td>
+		</tr>
+		<tr>
+			<td>void Precache()</td>
+			<td>Precaches the entity. Do not call directly.</td>
+		</tr>
+		<tr>
+			<td>int ObjectCaps()</td>
+			<td>Gets this entity's objects caps. See the FCAP enum.</td>
+		</tr>
+		<tr>
+			<td>void SetObjectCollisionBox()</td>
+			<td>Sets up the object collision box.</td>
+		</tr>
+		<tr>
+			<td>int GetClassification(int cl)</td>
+			<td>Gets this entity's classification. Returns the given value if none is set. See the CLASSIFICATION enum.</td>
+		</tr>
+		<tr>
+			<td>void SetClassification(int cl)</td>
+			<td>Sets this entity's classification override. Can override the entity's player ally setting.</td>
+		</tr>
+		<tr>
+			<td>void SetClassificationFromEntity(CBaseEntity@ pEntity)</td>
+			<td>Sets this entity's classification override to the classification override set on the given entity. Can override the entity's player ally setting.</td>
+		</tr>
+		<tr>
+			<td>void ClearClassification()</td>
+			<td>Clears this entity's classification override.</td>
+		</tr>
+		<tr>
+			<td>int IRelationship(CBaseEntity@ other, bool ignoreNoTarget = false)</td>
+			<td>Gets the relationship between this entity and the given entity. See the RELATIONSHIP enum.</td>
+		</tr>
+		<tr>
+			<td>int IRelationshipByClass(CLASS iClass)</td>
+			<td>Gets the relationship between this entity and the given entity classification. See the RELATIONSHIP enum.</td>
+		</tr>
+		<tr>
+			<td>int Classify()</td>
+			<td>Gets this entity's classification.</td>
+		</tr>
+		<tr>
+			<td>int TakeDamage(entvars_t@ pevInflictor, entvars_t@ pevAttacker, float flDamage, int bitsDamageType)</td>
+			<td>Causes this entity to take damage. Returns 1 if it took damage, 0 otherwise.</td>
+		</tr>
+		<tr>
+			<td>bool TakeHealth(float flHealth, int bitsDamageType, int health_cap = 0)</td>
+			<td>Takes health from this entity. Note: flHealth is added to entity health. Use negative values to subtract.If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.</td>
+		</tr>
+		<tr>
+			<td>bool TakeArmor(float flArmor, int bitsDamageType, int armor_cap = 0)</td>
+			<td>Takes armor from this entity. Note: flArmor is added to entity armor. Use negative values to subtract.If armor_cap is non-zero, won't add more than armor_cap. Returns 1 if it took damage, 0 otherwise.</td>
+		</tr>
+		<tr>
+			<td>void Killed(entvars_t@pevAtttacker, int iGibbed)</td>
+			<td>Tells this entity it's been killed. See the GIB enum for possible values.</td>
+		</tr>
+		<tr>
+			<td>int BloodColor()</td>
+			<td>Returns the blood color. See the BLOOD_COLOR enum.</td>
+		</tr>
+		<tr>
+			<td>bool IsTriggered(CBaseEntity@ pActivator)</td>
+			<td>Returns whether this entity is triggered by the given entity.</td>
+		</tr>
+		<tr>
+			<td>CBaseMonster@ MyMonsterPointer()</td>
+			<td>Returns this entity as its monster entity, if it is a monster.</td>
+		</tr>
+		<tr>
+			<td>CustomKeyvalues@ GetCustomKeyvalues()</td>
+			<td>Gets this entity's custom keyvalues.</td>
+		</tr>
+		<tr>
+			<td>bool BlockedByEntity(CBaseEntity@ pOther, float flDamage)</td>
+			<td>Returns true if you should be blocked by the entity, false otherwise. Also deals blocking damage to the entity, if applicable.</td>
+		</tr>
+		<tr>
+			<td>void SUB_Remove()</td>
+			<td>Think function. Delay-removes this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_DoNothing()</td>
+			<td>Think function. Explicitly does nothing.</td>
+		</tr>
+		<tr>
+			<td>void SUB_StartFadeOut()</td>
+			<td>Think function. Starts fading this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_FadeOut()</td>
+			<td>Think function. Fades this entity.</td>
+		</tr>
+		<tr>
+			<td>void SUB_CallUseToggle()</td>
+			<td>Think function. Calls use toggle on this entity.</td>
+		</tr>
+		<tr>
+			<td>bool ShouldToggle(USE_TYPE useType, const bool currentState)</td>
+			<td>Returns whether this entity should toggle.</td>
+		</tr>
+		<tr>
+			<td>void FireBullets(uint cShots, Vector vecSrc, Vector vecDirShooting, Vector vecSpread,float flDistance, Bullet iBulletType, int iTracerFreq = 4, int iDamage = 0, entvars_t@ pevAttacker = null, FireBulletsDrawMode fDraw = FBDM_DRAW)</td>
+			<td>Fires bullets. Must call CMath::MakeAimVectors with an angle vector first.</td>
+		</tr>
+		<tr>
+			<td>bool Intersects(CBaseEntity@ pOther)</td>
+			<td>Returns whether this entity intersects with the given entity.</td>
+		</tr>
+		<tr>
+			<td>void MakeDormant()</td>
+			<td>Makes this entity dormant.</td>
+		</tr>
+		<tr>
+			<td>bool IsDormant()</td>
+			<td>Returns whether this entity is dormant.</td>
+		</tr>
+		<tr>
+			<td>bool IsLockedByMaster()</td>
+			<td>Returns whether this entity is locked by its master.</td>
+		</tr>
+		<tr>
+			<td>edict_t@ edict()</td>
+			<td>Returns this entity's edict.</td>
+		</tr>
+		<tr>
+			<td>int entindex()</td>
+			<td>Returns this entity's index.</td>
+		</tr>
+		<tr>
+			<td>bool SetupModel()</td>
+			<td>Sets up the model.</td>
+		</tr>
+		<tr>
+			<td>int GetToggleState()</td>
+			<td>Gets the toggle state.<br>See the TOGGLE_STATE enum.</td>
+		</tr>
+		<tr>
+			<td>void AddPoints(int score, const bool bAllowNegativeScore)</td>
+			<td>Adds points to this entity.</td>
+		</tr>
+		<tr>
+			<td>void AddPointsToTeam(int score, const bool bAllowNegativeScore)</td>
+			<td>Adds points to this entity's team.</td>
+		</tr>
+		<tr>
+			<td>AddPlayerItemResult AddPlayerItem(CBasePlayerItem@ pItem)</td>
+			<td>Adds the given player item to this entity.</td>
+		</tr>
+		<tr>
+			<td>bool RemovePlayerItem(CBasePlayerItem@ pItem)</td>
+			<td>Removes the given player item to this entity.</td>
+		</tr>
+		<tr>
+			<td>float GetDelay()</td>
+			<td>Gets this entity's trigger delay.</td>
+		</tr>
+		<tr>
+			<td>bool IsMoving()</td>
+			<td>Returns whether this entity is moving.</td>
+		</tr>
+		<tr>
+			<td>void OverrideReset()</td>
+			<td>Resets this entity.</td>
+		</tr>
+		<tr>
+			<td>int DamageDecal(int bitsDamageType)</td>
+			<td>Returns the damage decal<br>See decal_e.</td>
+		</tr>
+		<tr>
+			<td>void SetToggleState(int state)</td>
+			<td>Sets this entity's toggle state.</td>
+		</tr>
+		<tr>
+			<td>void StartSneaking()</td>
+			<td>Starts sneaking.</td>
+		</tr>
+		<tr>
+			<td>void StopSneaking()</td>
+			<td>Stops sneaking.</td>
+		</tr>
+		<tr>
+			<td>bool OnControls(entvars_t@ pev)</td>
+			<td>Reacts to controls set on the pev.</td>
+		</tr>
+		<tr>
+			<td>bool IsSneaking()</td>
+			<td>Returns whether this entity is sneaking.</td>
+		</tr>
+		<tr>
+			<td>bool IsAlive()</td>
+			<td>Returns whether this entity is alive.</td>
+		</tr>
+		<tr>
+			<td>bool IsBSPModel()</td>
+			<td>Returns whether this entity is a BSP model.</td>
+		</tr>
+		<tr>
+			<td>bool ReflectGauss()</td>
+			<td>Returns whether this entity reflects gauss shots.</td>
+		</tr>
+		<tr>
+			<td>bool IsInWorld()</td>
+			<td>Returns whether this entity is in the world.</td>
+		</tr>
+		<tr>
+			<td>bool IsMonster()</td>
+			<td>Returns whether this entity is a monster.</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayer()</td>
+			<td>Returns whether this entity is a player.</td>
+		</tr>
+		<tr>
+			<td>bool IsNetClient()</td>
+			<td>Returns whether this is a net client.</td>
+		</tr>
+		<tr>
+			<td>bool IsPointEnt()</td>
+			<td>Returns whether this is a point entity.</td>
+		</tr>
+		<tr>
+			<td>bool IsBreakable()</td>
+			<td>Returns whether this is a breakable brush entity.</td>
+		</tr>
+		<tr>
+			<td>bool IsMachine()</td>
+			<td>Returns whether this is a machine.</td>
+		</tr>
+		<tr>
+			<td>bool CriticalRemove()</td>
+			<td>Removes this entity in critical situations.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ GetNextTarget()</td>
+			<td>Gets the next target to trigger.</td>
+		</tr>
+		<tr>
+			<td>void Think()</td>
+			<td>Makes this entity think. Do not call directly.</td>
+		</tr>
+		<tr>
+			<td>void Touch(CBaseEntity@ pOther)</td>
+			<td>Triggers this entity's touch function.</td>
+		</tr>
+		<tr>
+			<td>void Use(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue = 0.0f)</td>
+			<td>Trigger's this entity's use function.</td>
+		</tr>
+		<tr>
+			<td>void Blocked(CBaseEntity@ pOther)</td>
+			<td>Triggers this entity's blocked function.</td>
+		</tr>
+		<tr>
+			<td>void UpdateOnRemove()</td>
+			<td>Updates this entity when removed.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ Respawn()</td>
+			<td>Respawns this entity.</td>
+		</tr>
+		<tr>
+			<td>bool FBecomeProne(CBaseEntity@ pOther)</td>
+			<td>Makes this entity become prone.</td>
+		</tr>
+		<tr>
+			<td>Vector Center()</td>
+			<td>Returns this entity's center.</td>
+		</tr>
+		<tr>
+			<td>Vector EyePosition()</td>
+			<td>Returns this entity's eye position.</td>
+		</tr>
+		<tr>
+			<td>Vector EarPosition()</td>
+			<td>Returns this entity's ear position.</td>
+		</tr>
+		<tr>
+			<td>Vector BodyTarget(const Vector& in posSrc)</td>
+			<td>Returns this entity's body target for shooting.</td>
+		</tr>
+		<tr>
+			<td>int Illumination()</td>
+			<td>Returns this entity's illumination.</td>
+		</tr>
+		<tr>
+			<td>bool FVisible(CBaseEntity@ pEntity, bool fIgnoreGlass)</td>
+			<td>Returns whether this entity is visible to the given entity.</td>
+		</tr>
+		<tr>
+			<td>bool FVisible(const Vector& in vecOrigin)</td>
+			<td>Returns whether this entity is visible from the given origin.</td>
+		</tr>
+		<tr>
+			<td>bool IsFacing(entvars_t@ pevTest, float flDotProduct = VIEW_FIELD_ULTRA_NARROW)</td>
+			<td>Returns whether this entity is facing the given entity, within the given view field.</td>
+		</tr>
+		<tr>
+			<td>float GetPointsForDamage(float flDamage)</td>
+			<td>Returns the points received for damage done.</td>
+		</tr>
+		<tr>
+			<td>void GetDamagePoints(entvars_t@ pevAttacker, entvars_t@ pevInflictor, float flDamage)</td>
+			<td>Adds damage points to the inflicting entity.</td>
+		</tr>
+		<tr>
+			<td>void OnCreate()</td>
+			<td>Entity constructor.</td>
+		</tr>
+		<tr>
+			<td>void OnDestroy()</td>
+			<td>Entity destructor.</td>
+		</tr>
+		<tr>
+			<td>bool IsRevivable()</td>
+			<td>Returns whether this entity is revivable at this time.</td>
+		</tr>
+		<tr>
+			<td>void BeginRevive(float flTimeUntilRevive)</td>
+			<td>Prepares this entity for revival. flTimeUntilRevive is the time until the revive action completes.</td>
+		</tr>
+		<tr>
+			<td>void EndRevive(float flTimeUntilRevive)</td>
+			<td>Called when this entity should be revived. flTimeUntilRevive is the time until the revival should start.</td>
+		</tr>
+		<tr>
+			<td>dictionary@ GetUserData()</td>
+			<td>Gets the user data on this entity. Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>dictionaryValue& GetUserData(const string& in szKey)</td>
+			<td>Gets the user data stored under the specified key on this entity.<br>Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>void ClearUserData()</td>
+			<td>Clears the user data on this entity. WARNING: clears all data.<br>Only map scripts can use this.</td>
+		</tr>
+		<tr>
+			<td>void SUB_UseTargets(CBaseEntity@ pActivator, USE_TYPE useType, float flValue)</td>
+			<td>Causes this entity to trigger its targets with an optional delay.</td>
+		</tr>
+		<tr>
+			<td>void DelayThink()</td>
+			<td>Think function. Used internally.</td>
+		</tr>
+		<tr>
+			<td>float StudioFrameAdvance(float flInterval = 0.0f)</td>
+			<td>Accumulate animation frame time from last time called until now.</td>
+		</tr>
+		<tr>
+			<td>int GetSequenceFlags()</td>
+			<td>Get sequence flags.</td>
+		</tr>
+		<tr>
+			<td>int LookupActivity(int iActivity)</td>
+			<td>Returns the index of the given activity, or -1 if no such activity exists.</td>
+		</tr>
+		<tr>
+			<td>int LookupActivityHeaviest(int iActivity)</td>
+			<td>Returns the index of the given activity that has the heaviest weight, or -1 if no such activity exists.</td>
+		</tr>
+		<tr>
+			<td>int LookupSequence(const string& in szLabel)</td>
+			<td>Returns the index of the given sequence, or -1 if no such sequence exists.</td>
+		</tr>
+		<tr>
+			<td>void ResetSequenceInfo()</td>
+			<td>Resets sequence info.</td>
+		</tr>
+		<tr>
+			<td>void ResetGaitSequenceInfo()</td>
+			<td>Resets gait sequence info.</td>
+		</tr>
+		<tr>
+			<td>void DispatchAnimEvents(float flFutureInterval = 0.1f)</td>
+			<td>Handle events that have happend since last time called up until X seconds into the future.</td>
+		</tr>
+		<tr>
+			<td>float SetBoneController(int iController, float flValue)</td>
+			<td>Sets the specified bone controller to the given value.</td>
+		</tr>
+		<tr>
+			<td>void InitBoneControllers()</td>
+			<td>Initializes bone controllers.</td>
+		</tr>
+		<tr>
+			<td>float SetBlending(int iBlender, float flValue)</td>
+			<td>Sets the given blending controller to the given value.</td>
+		</tr>
+		<tr>
+			<td>void GetBonePosition(int iBone, Vector& out origin, Vector& out angles)</td>
+			<td>Gets the position of the given bone.</td>
+		</tr>
+		<tr>
+			<td>void GetAutomovement(Vector& out origin, Vector& out angles, float flInterval = 0.1f)</td>
+			<td>Gets automatic movement.</td>
+		</tr>
+		<tr>
+			<td>int FindTransition(int iEndingSequence, int iGoalSequence, int& out iDir)</td>
+			<td>Find the transition between 2 sequences.</td>
+		</tr>
+		<tr>
+			<td>int FindTransition(int iEndingSequence, int iGoalSequence)</td>
+			<td>Find the transition between 2 sequences.</td>
+		</tr>
+		<tr>
+			<td>void GetAttachment(int iAttachment, Vector& out origin, Vector& out angles)</td>
+			<td>Gets the attachment position.</td>
+		</tr>
+		<tr>
+			<td>void SetBodygroup(int iGroup, int iValue)</td>
+			<td>Sets the given body group to the given value.</td>
+		</tr>
+		<tr>
+			<td>int GetBodygroup(int iGroup)</td>
+			<td>Gets the value of the given body group.</td>
+		</tr>
+		<tr>
+			<td>bool ExtractBbox(int iSequence, Vector& out mins, Vector& out maxs)</td>
+			<td>Extracts the bounding box of the current model.</td>
+		</tr>
+		<tr>
+			<td>int GetAttachmentCount()</td>
+			<td>Gets the number of attachments that the current model has.</td>
+		</tr>
+		<tr>
+			<td>void SetSequenceBox()</td>
+			<td>Sets the sequence box.</td>
+		</tr>
+		<tr>
+			<td>int GetSequenceActivityName(int iSequence)</td>
+			<td>Gets activity for the given sequence.</td>
+		</tr>
+		<tr>
+			<td>void LinearMove(Vector vecDest, float flSpeed)</td>
+			<td>Performs linear movement.</td>
+		</tr>
+		<tr>
+			<td>void AngularMove(Vector vecDestAngle, float flSpeed)</td>
+			<td>Performs angular movement.</td>
+		</tr>
+		<tr>
+			<td>bool IsToggleLockedByMaster()</td>
+			<td>Returns whether this entity is locked by its master.<br>Separate from IsLockedByMaster due to limitations.</td>
+		</tr>
+		<tr>
+			<td>InventoryRules@ get_m_pInventoryRules() const</td>
+			<td>The inventory rules.</td>
+		</tr>
+		<tr>
+			<td>EHandle& m_hOldEnemy(size_t uiIndex)</td>
+			<td>Target tank to control. Index must be between 0 and MAX_OLD_ENEMIES.</td>
+		</tr>
+		<tr>
+			<td>Vector& m_vecOldEnemy(size_t uiIndex)</td>
+			<td>Target tank to control. Index must be between 0 and MAX_OLD_ENEMIES.</td>
+		</tr>
+		<tr>
+			<td>Waypoint& m_Route(size_t uiIndex)</td>
+			<td>Positions of movement. Index must be between 0 and ROUTE_SIZE</td>
+		</tr>
+		<tr>
+			<td>int8& m_rgbTimeBasedDamage(size_t uiIndex)</td>
+			<td>time based damage counters, decr. 1 per 2 seconds. Index must be between 0 and CMG_TIMEBASED.</td>
+		</tr>
+		<tr>
+			<td>void MonsterUse(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue = 0.0f)</td>
+			<td>Will make a monster angry at whomever activated it.</td>
+		</tr>
+		<tr>
+			<td>void Look(int iDistance)</td>
+			<td>Look - Base class monster function to find enemies or<br>food by sight. iDistance is distance ( in units ) that the<br>monster can see.<br>Sets the sight bits of the m_afConditions mask to indicate<br>which types of entities were sighted.<br>Function also sets the Looker's m_pLink<br>to the head of a link list that contains all visible ents.<br>(linked via each ent's m_pLink field)</td>
+		</tr>
+		<tr>
+			<td>void RunAI()</td>
+			<td>Runs this monster's AI.</td>
+		</tr>
+		<tr>
+			<td>void Listen()</td>
+			<td>Listens for anything that is within audible distance.</td>
+		</tr>
+		<tr>
+			<td>bool ShouldFadeOnDeath()</td>
+			<td>Returns whether this monster should fade on death.</td>
+		</tr>
+		<tr>
+			<td>float ChangeYaw(int iSpeed)</td>
+			<td>turns a monster towards its ideal_yaw</td>
+		</tr>
+		<tr>
+			<td>float VecToYaw(Vector vecDir)</td>
+			<td>turns a directional vector into a yaw value that points down that vector.</td>
+		</tr>
+		<tr>
+			<td>float FlYawDiff()</td>
+			<td>returns the difference ( in degrees ) between monster's current yaw and ideal_yaw.<br>Positive result is left turn, negative is right turn.</td>
+		</tr>
+		<tr>
+			<td>float DamageForce(float flDamage)</td>
+			<td>Returns the amount of force applied to this monster when the given amount of damage is done.</td>
+		</tr>
+		<tr>
+			<td>void SetupFriendly()</td>
+			<td>use this overridden to make some other friendly monsters</td>
+		</tr>
+		<tr>
+			<td>void MonsterInit()</td>
+			<td>Initializes the monster</td>
+		</tr>
+		<tr>
+			<td>void MonsterInitDead()</td>
+			<td>Call after animation/pose is set up</td>
+		</tr>
+		<tr>
+			<td>void BecomeDead(float flSavedHealth)</td>
+			<td>Makes the monster become dead</td>
+		</tr>
+		<tr>
+			<td>void Revive()</td>
+			<td>Revives the monster</td>
+		</tr>
+		<tr>
+			<td>void StartMonster()</td>
+			<td>Starts the monster</td>
+		</tr>
+		<tr>
+			<td>void BestVisibleEnemy()</td>
+			<td>finds best visible enemy for attack</td>
+		</tr>
+		<tr>
+			<td>bool FInViewCone(CBaseEntity@ pEntity)</td>
+			<td>see if pEntity is in monster's view cone</td>
+		</tr>
+		<tr>
+			<td>bool FInViewCone(const Vector& in vecOrigin)</td>
+			<td>see if given location is in monster's view cone</td>
+		</tr>
+		<tr>
+			<td>int CheckLocalMove(const Vector& in vecStart, const Vector& in vecEnd,CBaseEntity@ pTarget, float& out flDist, Vector& out vecEndPosition, bool fOriginalCheck = false)</td>
+			<td>finds best visible enemy for attack</td>
+		</tr>
+		<tr>
+			<td>void Move(float flInterval = 0.1f)</td>
+			<td>Starts the monster</td>
+		</tr>
+		<tr>
+			<td>void MoveExecute(CBaseEntity@ pTargetEnt, const Vector& in vecDir, float flInterval)</td>
+			<td>Starts the monster</td>
+		</tr>
+		<tr>
+			<td>bool ShouldAdvanceRoute(float flWaypointDist)</td>
+			<td>Returns whether this monster should advance its route</td>
+		</tr>
+		<tr>
+			<td>Activity GetStoppedActivity()</td>
+			<td>Gets the stopped activity</td>
+		</tr>
+		<tr>
+			<td>void Stop()</td>
+			<td>Stops this monster moving</td>
+		</tr>
+		<tr>
+			<td>void StopAnimation()</td>
+			<td>This will stop animation until you call ResetSequenceInfo() at some point in the future</td>
+		</tr>
+		<tr>
+			<td>bool CheckRangeAttack1(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckRangeAttack1_Move(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckRangeAttack2(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckRangeAttack2_Move(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckMeleeAttack1(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckMeleeAttack1_Move(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckMeleeAttack2(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckMeleeAttack2_Move(float flDot, float flDist)</td>
+			<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+		</tr>
+		<tr>
+			<td>bool CheckTankUsage()</td>
+			<td>Checks whether the monster can use a func_tank. Return true if possible.</td>
+		</tr>
+		<tr>
+			<td>bool FHaveSchedule()</td>
+			<td>Returns whether this monster has a schedule.</td>
+		</tr>
+		<tr>
+			<td>bool FScheduleValid()</td>
+			<td>Returns whether this monster's schedule is valid.</td>
+		</tr>
+		<tr>
+			<td>void ClearSchedule()</td>
+			<td>Clears this monster's schedule.</td>
+		</tr>
+		<tr>
+			<td>bool FScheduleDone()</td>
+			<td>Returns whether this monster's schedule is done.</td>
+		</tr>
+		<tr>
+			<td>void ChangeSchedule(Schedule@ pNewSchedule)</td>
+			<td>Changes this monster's schedule.</td>
+		</tr>
+		<tr>
+			<td>bool NextScheduledTask()</td>
+			<td>Moves to the next scheduled task.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ ScheduleInList(const string& in szName, array&lt;Schedule@&gt;@ pArray)</td>
+			<td>Returns the schedule with name szName if it's in the list, NULL otherwise.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ ScheduleFromName(const string& in szName)</td>
+			<td>Returns the schedule with name szName if it exists, NULL otherwise.</td>
+		</tr>
+		<tr>
+			<td>void MaintainSchedule()</td>
+			<td>Maintains the monster's schedule.</td>
+		</tr>
+		<tr>
+			<td>void StartTask(Task@ pTask)</td>
+			<td>Starts the given task.</td>
+		</tr>
+		<tr>
+			<td>void RunTask(Task@ pTask)</td>
+			<td>Runs the given task.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ GetScheduleOfType(int iType)</td>
+			<td>Gets one of the available schedules of the given type.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ GetSchedule()</td>
+			<td>Gets the current schedule.</td>
+		</tr>
+		<tr>
+			<td>void ScheduleChange()</td>
+			<td>Called after the monster's schedule changes.</td>
+		</tr>
+		<tr>
+			<td>bool CanPlaySequence(const bool bDisregardState, int iInterruptLevel)</td>
+			<td>Returns whether this monster can play its sequence.</td>
+		</tr>
+		<tr>
+			<td>bool CanPlaySentence(const bool bDisregardState)</td>
+			<td>Returns whether this monster can play its sentence.</td>
+		</tr>
+		<tr>
+			<td>void PlaySentence(const string& in szSentence, float duration, float volume, float attenuation)</td>
+			<td>Plays the given sentence.</td>
+		</tr>
+		<tr>
+			<td>void PlayScriptedSentence(const string& in szSentence, float duration, float volume, float attenuation, const bool bConcurrent, CBaseEntity@ pListener)</td>
+			<td>Plays the given scripted sentence.</td>
+		</tr>
+		<tr>
+			<td>void SentenceStop()</td>
+			<td>Stops playing its current sentence.</td>
+		</tr>
+		<tr>
+			<td>Task@ GetTask()</td>
+			<td>Gets the current task.</td>
+		</tr>
+		<tr>
+			<td>MONSTERSTATE GetIdealState()</td>
+			<td>Gets the ideal monster state.</td>
+		</tr>
+		<tr>
+			<td>void SetActivity(Activity newActivity)</td>
+			<td>Sets the current activity.</td>
+		</tr>
+		<tr>
+			<td>void SetGaitActivity(Activity newActivity)</td>
+			<td>Sets the current gait activity.</td>
+		</tr>
+		<tr>
+			<td>void SetSequenceByName(const string& in szSequence)</td>
+			<td>Sets the current sequence by name.</td>
+		</tr>
+		<tr>
+			<td>void SetState(MONSTERSTATE state)</td>
+			<td>Sets the current monster state.</td>
+		</tr>
+		<tr>
+			<td>void ReportAIState()</td>
+			<td>Reports the AI state.</td>
+		</tr>
+		<tr>
+			<td>void CheckAttacks(CBaseEntity@ pTarget, float flDist)</td>
+			<td>Check attacks to the given enemy at the given distance.</td>
+		</tr>
+		<tr>
+			<td>void CheckAttacks_Move(CBaseEntity@ pTarget, float flDist)</td>
+			<td>Check attacks to the given enemy at the given distance while moving.</td>
+		</tr>
+		<tr>
+			<td>bool CheckAttacksFromPosition(CBaseEntity@ pTarget, float flDist, Vector vecPos)</td>
+			<td>Check whether attacks are possible from the given position.</td>
+		</tr>
+		<tr>
+			<td>bool CheckEnemy(CBaseEntity@ pEnemy)</td>
+			<td>part of the Condition collection process, gets and stores data and conditions pertaining to a monster's enemy.<br>Returns true if Enemy LKP was updated.</td>
+		</tr>
+		<tr>
+			<td>void PushEnemy(CBaseEntity@ pTarget, Vector& in vecLastKnownPos)</td>
+			<td>Remember the last few enemies, always remember the player.</td>
+		</tr>
+		<tr>
+			<td>bool PopEnemy()</td>
+			<td>Try remembering the last few enemies.</td>
+		</tr>
+		<tr>
+			<td>bool FGetNodeRoute(Vector vecDest)</td>
+			<td>tries to build an entire node path from<br>the callers origin to the passed vector.<br>If this is  possible, ROUTE_SIZE waypoints will be copied into the callers m_Route.<br>true is returned if the operation  succeeds (path is valid) or false if failed (no path  exists ).</td>
+		</tr>
+		<tr>
+			<td>bool TestFGetNodeRoute(Vector vecDest)</td>
+			<td>TEST FGetNodeRoute.</td>
+		</tr>
+		<tr>
+			<td>void TaskComplete()</td>
+			<td>Sets the task status to complete.</td>
+		</tr>
+		<tr>
+			<td>void MovementComplete()</td>
+			<td>Called when movement has completed.</td>
+		</tr>
+		<tr>
+			<td>void TaskFail()</td>
+			<td>Sets the condition bit for a failed task.</td>
+		</tr>
+		<tr>
+			<td>void TaskBegin()</td>
+			<td>Sets the task status to running.</td>
+		</tr>
+		<tr>
+			<td>bool TaskIsRunning()</td>
+			<td>Returns whether a task is running.</td>
+		</tr>
+		<tr>
+			<td>bool TaskIsComplete()</td>
+			<td>Returns whether the task is complete.</td>
+		</tr>
+		<tr>
+			<td>bool MovementIsComplete()</td>
+			<td>Returns whether movement is complete.</td>
+		</tr>
+		<tr>
+			<td>int IScheduleFlags()</td>
+			<td>Returns an integer with all Conditions<br>bits that are currently set and also set in the current<br>schedule's Interrupt mask.</td>
+		</tr>
+		<tr>
+			<td>void MakeIdealYaw(Vector vecTarget)</td>
+			<td>gets a yaw value for the caller that would<br>face the supplied vector. Value is stuffed into the monster's<br>ideal_yaw.</td>
+		</tr>
+		<tr>
+			<td>void SetYawSpeed()</td>
+			<td>Allows different yaw_speeds for each activity.</td>
+		</tr>
+		<tr>
+			<td>int RouteClassify(int iMoveFlag)</td>
+			<td>Returns the MOVEGOAL for the given move flag.</td>
+		</tr>
+		<tr>
+			<td>bool CheckAttacker(CBaseEntity@ pAttacker)</td>
+			<td>Determine if we should ignore damage.</td>
+		</tr>
+		<tr>
+			<td>void SetConditions(int iConditions)</td>
+			<td>Sets AI conditions.</td>
+		</tr>
+		<tr>
+			<td>void ClearConditions(int iConditions)</td>
+			<td>Clears AI conditions.</td>
+		</tr>
+		<tr>
+			<td>bool HasConditions(int iConditions) const</td>
+			<td>Returns whether this monster has any of the given AI conditions.</td>
+		</tr>
+		<tr>
+			<td>bool HasAllConditions(int iConditions) const</td>
+			<td>Returns whether this monster has all of the given AI conditions.</td>
+		</tr>
+		<tr>
+			<td>CSound@ PBestSound()</td>
+			<td>Returns a pointer to the sound the monster should react to.</td>
+		</tr>
+		<tr>
+			<td>bool FShouldEat()</td>
+			<td>Returns whether this monster should eat.</td>
+		</tr>
+		<tr>
+			<td>void Eat(float flFullDuration)</td>
+			<td>Make the monster 'full' for a while.</td>
+		</tr>
+		<tr>
+			<td>bool FCheckAITrigger()</td>
+			<td>Checks and, if necessary, fires the monster's trigger target.</td>
+		</tr>
+		<tr>
+			<td>bool NoFriendlyFire()</td>
+			<td>Returns whether attacking at this time would result in friendly fire</td>
+		</tr>
+		<tr>
+			<td>bool NoFriendlyFire(Vector vecPos)</td>
+			<td>Returns whether attacking at this time from the given location would result in friendly fire</td>
+		</tr>
+		<tr>
+			<td>bool NoFriendlyFire(Vector vecPos, CBaseEntity@ pTarget)</td>
+			<td>Returns whether attacking the given target at this time from the given location would result in friendly fire</td>
+		</tr>
+		<tr>
+			<td>bool NoFriendlyFireToPos(Vector vecPos)</td>
+			<td>Returns whether attacking the target location at this time would result in friendly fire</td>
+		</tr>
+		<tr>
+			<td>bool GetEnemy()</td>
+			<td>Tries to find the best suitable enemy for this monster.</td>
+		</tr>
+		<tr>
+			<td>void GibMonster()</td>
+			<td>Gibs the monster.</td>
+		</tr>
+		<tr>
+			<td>bool ShouldGibMonster(int iGib)</td>
+			<td>Returns whether the monster should be gibbed given the gib type.<br>See GIB enum.</td>
+		</tr>
+		<tr>
+			<td>void CallGibMonster()</td>
+			<td>Determines whether to gib or fade this monster, and acts accordingly.</td>
+		</tr>
+		<tr>
+			<td>bool HasHumanGibs()</td>
+			<td>Returns whether this monster has human gibs.</td>
+		</tr>
+		<tr>
+			<td>bool HasAlienGibs()</td>
+			<td>Returns whether this monster has alien gibs.</td>
+		</tr>
+		<tr>
+			<td>void FadeMonster()</td>
+			<td>Fades this monster.<br>Note: does not kill the monster.</td>
+		</tr>
+		<tr>
+			<td>Vector ShootAtEnemy(const Vector& in vecShootOrigin)</td>
+			<td>Shoots at the specified location.</td>
+		</tr>
+		<tr>
+			<td>Vector GetGunPosition()</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>void DeathSound()</td>
+			<td>Plays this monster's death sound.</td>
+		</tr>
+		<tr>
+			<td>void AlertSound()</td>
+			<td>Plays this monster's alert sound.</td>
+		</tr>
+		<tr>
+			<td>void IdleSound()</td>
+			<td>Plays this monster's idle sound.</td>
+		</tr>
+		<tr>
+			<td>void PainSound()</td>
+			<td>Plays this monster's pain sound.</td>
+		</tr>
+		<tr>
+			<td>void StartPlayerFollowing(CBaseEntity@ pLeader, bool bSilent = false)</td>
+			<td>Starts following its target.</td>
+		</tr>
+		<tr>
+			<td>void StopPlayerFollowing(const bool clearSchedule, bool bSilent = false)</td>
+			<td>Stops following its target.</td>
+		</tr>
+		<tr>
+			<td>void Remember(int iMemory)</td>
+			<td>Makes this monster remember the given memories.</td>
+		</tr>
+		<tr>
+			<td>void Forget(int iMemory)</td>
+			<td>Makes this monster forget the given memories.</td>
+		</tr>
+		<tr>
+			<td>bool HasMemory(int iMemory) const</td>
+			<td>Returns whether this monster remembers any of the given memories.</td>
+		</tr>
+		<tr>
+			<td>bool HasAllMemories(int iMemory) const</td>
+			<td>Returns whether this monster remembers all of the given memories.</td>
+		</tr>
+		<tr>
+			<td>bool ExitScriptedSequence()</td>
+			<td>Exits the scripted sequence this monster is currently in, if any.</td>
+		</tr>
+		<tr>
+			<td>bool CineCleanup()</td>
+			<td>Cleans up after a cinematic event.</td>
+		</tr>
+		<tr>
+			<td>CBaseEntity@ DropItem(const string& in szItemName, const Vector& in vecPos, const Vector& in vecAng)</td>
+			<td>Drops the given item from the given position at the given angle.</td>
+		</tr>
+		<tr>
+			<td>void ShockGlowEffect(bool fMode)</td>
+			<td>Turns the shock glow effect on or off.</td>
+		</tr>
+		<tr>
+			<td>void FollowerPlayerUse(CBaseEntity@ pActivator, CBaseEntity@ pCaller, USE_TYPE useType, float flValue)</td>
+			<td>Use method for following players (set only if friendly)</td>
+		</tr>
+		<tr>
+			<td>bool IsPlayerFollowing()</td>
+			<td>Returns whether this monster is following a player.</td>
+		</tr>
+		<tr>
+			<td>bool CanPlayerFollow()</td>
+			<td>Returns whether this monster can follow a player.</td>
+		</tr>
+		<tr>
+			<td>void StartPlayerFollowing(CBaseEntity@ pLeader)</td>
+			<td>Starts following a given player.</td>
+		</tr>
+		<tr>
+			<td>void StopPlayerFollowing(const bool bClearSchedule)</td>
+			<td>Stops following a player.</td>
+		</tr>
+		<tr>
+			<td>string m_szTextureName()</td>
+			<td>Current texture name we're standing on.</td>
+		</tr>
+		<tr>
+			<td>void MedicCallSound(float flDistance = 0.0f)</td>
+			<td>Medic call sound.</td>
+		</tr>
+		<tr>
+			<td>InventoryList@ get_m_pInventory() const</td>
+			<td>The inventory items this monster has</td>
+		</tr>
+		<tr>
+			<td>void ClearEnemyList()</td>
+			<td>Clears this monster's list of enemies</td>
+		</tr>
+		<tr>
+			<td>void ApplyEffects()</td>
+			<td>Re-calculate compounded effect modifiers and apply to the monster</td>
+		</tr>
+		<tr>
+			<td>void ResetEffects()</td>
+			<td>Reset all effect modifiers</td>
+		</tr>
+		<tr>
+			<td>void Explode(Vector vecSrc, Vector vecAim)</td>
+			<td>Makes this grenade explode</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>entvars_t@ pev</td>
+			<td>Entity variables</td>
+		</tr>
+		<tr>
+			<td>bool m_fOverrideClass</td>
+			<td>Whether this entity overrides the classification.</td>
+		</tr>
+		<tr>
+			<td>int m_iClassSelection</td>
+			<td>The overridden classification.</td>
+		</tr>
+		<tr>
+			<td>float m_flMaximumFadeWait</td>
+			<td>Maximum fade wait time.</td>
+		</tr>
+		<tr>
+			<td>float m_flMaximumFadeWaitB</td>
+			<td>Maximum fade wait time B.</td>
+		</tr>
+		<tr>
+			<td>bool m_fCanFadeStart</td>
+			<td>Whether fading can start.</td>
+		</tr>
+		<tr>
+			<td>bool m_fCustomModel</td>
+			<td>Whether a custom model is used.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecLastOrigin</td>
+			<td>Last origin vector</td>
+		</tr>
+		<tr>
+			<td>string_t targetnameOutFilterType</td>
+			<td>Target name out filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t classnameOutFilterType</td>
+			<td>Class name out filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t targetnameInFilterType</td>
+			<td>Target name in filter type.</td>
+		</tr>
+		<tr>
+			<td>string_t classnameInFilterType</td>
+			<td>Class name in filter type.</td>
+		</tr>
+		<tr>
+			<td>int m_iOriginalRenderMode</td>
+			<td>Original render model.</td>
+		</tr>
+		<tr>
+			<td>int m_iOriginalRenderFX</td>
+			<td>Original render FX.</td>
+		</tr>
+		<tr>
+			<td>float m_flOriginalRenderAmount</td>
+			<td>Original render amount.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecOriginalRenderColor</td>
+			<td>Original render color.</td>
+		</tr>
+		<tr>
+			<td>float m_flDelay</td>
+			<td>Delay before fire.</td>
+		</tr>
+		<tr>
+			<td>string_t m_iszKillTarget</td>
+			<td>The name of the kill target, if any.</td>
+		</tr>
+		<tr>
+			<td>float m_flFrameRate</td>
+			<td>Computed FPS for current sequence.</td>
+		</tr>
+		<tr>
+			<td>float m_flGroundSpeed</td>
+			<td>Computed linear movement rate for current sequence.</td>
+		</tr>
+		<tr>
+			<td>float m_flLastEventCheck</td>
+			<td>Last time the event list was checked.</td>
+		</tr>
+		<tr>
+			<td>float m_flLastGaitEventCheck</td>
+			<td>Last time the event list was checked.</td>
+		</tr>
+		<tr>
+			<td>bool m_fSequenceFinished</td>
+			<td>Flag set when StudioAdvanceFrame moves across a frame boundry.</td>
+		</tr>
+		<tr>
+			<td>bool m_fSequenceLoops</td>
+			<td>True if the sequence loops.</td>
+		</tr>
+		<tr>
+			<td>TOGGLE_STATE m_toggle_state</td>
+			<td>Current toggle state.</td>
+		</tr>
+		<tr>
+			<td>float m_flMoveDistance</td>
+			<td>How far a door should slide or rotate.</td>
+		</tr>
+		<tr>
+			<td>float m_flWait</td>
+			<td>How long to wait before resetting.</td>
+		</tr>
+		<tr>
+			<td>float m_flLip</td>
+			<td>How much to stick out of a wall. Will recede further into walls if negative.</td>
+		</tr>
+		<tr>
+			<td>float m_flTWidth</td>
+			<td>For plats.</td>
+		</tr>
+		<tr>
+			<td>float m_flTLength</td>
+			<td>For plats.</td>
+		</tr>
+		<tr>
+			<td>int m_cTriggersLeft</td>
+			<td>Trigger_counter only: # of activations remaining.</td>
+		</tr>
+		<tr>
+			<td>float m_flHeight</td>
+			<td>Height.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hActivator</td>
+			<td>Handle to the activator.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecPosition1</td>
+			<td>Closed position.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecPosition2</td>
+			<td>Open position.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecAngle1</td>
+			<td>Closed angle.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecAngle2</td>
+			<td>Open angle.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecFinalDest</td>
+			<td>Final destination.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecFinalAngle</td>
+			<td>Final angle.</td>
+		</tr>
+		<tr>
+			<td>int m_bitsDamageInflict</td>
+			<td>DMG_ damage type that the door or trigger does.</td>
+		</tr>
+		<tr>
+			<td>string_t m_sMaster</td>
+			<td>This entity's master, if any.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hEnemy</td>
+			<td>the entity that the monster is fighting.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hTargetEnt</td>
+			<td>the entity that the monster is trying to reach.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hTargetTank</td>
+			<td>Target tank to control.</td>
+		</tr>
+		<tr>
+			<td>float m_flFieldOfView</td>
+			<td>width of monster's field of view ( dot product ).</td>
+		</tr>
+		<tr>
+			<td>float m_flWaitFinished</td>
+			<td>if we're told to wait, this is the time that the wait will be over.</td>
+		</tr>
+		<tr>
+			<td>float m_flMoveWaitFinished</td>
+			<td>if we're told to wait before moving, this is the time that the wait will be over.</td>
+		</tr>
+		<tr>
+			<td>Activity m_Activity</td>
+			<td>what the monster is doing (animation).</td>
+		</tr>
+		<tr>
+			<td>Activity m_IdealActivity</td>
+			<td>monster should switch to this activity.</td>
+		</tr>
+		<tr>
+			<td>Activity m_GaitActivity</td>
+			<td>gaitsequence.</td>
+		</tr>
+		<tr>
+			<td>int m_LastHitGroup</td>
+			<td>the last body region that took damage.</td>
+		</tr>
+		<tr>
+			<td>MONSTERSTATE m_MonsterState</td>
+			<td>monster's current state.</td>
+		</tr>
+		<tr>
+			<td>MONSTERSTATE m_IdealMonsterState</td>
+			<td>monster should change to this state.</td>
+		</tr>
+		<tr>
+			<td>int m_iTaskStatus</td>
+			<td>Task status.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ m_pSchedule</td>
+			<td>Current schedule.</td>
+		</tr>
+		<tr>
+			<td>Schedule@ m_pScheduleSaved</td>
+			<td>For land_on_ground schedules (remember last schedule and continue).</td>
+		</tr>
+		<tr>
+			<td>int m_iScheduleIndex</td>
+			<td>Schedule index.</td>
+		</tr>
+		<tr>
+			<td>int m_movementGoal</td>
+			<td>Goal that defines route.</td>
+		</tr>
+		<tr>
+			<td>int m_iRouteIndex</td>
+			<td>Index into m_Route[].</td>
+		</tr>
+		<tr>
+			<td>float m_moveWaitTime</td>
+			<td>How long I should wait for something to move.</td>
+		</tr>
+		<tr>
+			<td>float m_moveradius</td>
+			<td>Minimum radius.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecMoveGoal</td>
+			<td>Kept around for node graph moves, so we know our ultimate goal.</td>
+		</tr>
+		<tr>
+			<td>Activity m_movementActivity</td>
+			<td>When moving, set this activity.</td>
+		</tr>
+		<tr>
+			<td>int m_iAudibleList</td>
+			<td>first index of a linked list of sounds that the monster can hear.</td>
+		</tr>
+		<tr>
+			<td>int m_afSoundTypes</td>
+			<td>Sound types that can be heard.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecLastPosition</td>
+			<td>monster sometimes wants to return to where it started after an operation..</td>
+		</tr>
+		<tr>
+			<td>int m_iHintNode</td>
+			<td>this is the hint node that the monster is moving towards or performing active idle on..</td>
+		</tr>
+		<tr>
+			<td>int m_afMemory</td>
+			<td>Monster memory.</td>
+		</tr>
+		<tr>
+			<td>int m_bloodColor</td>
+			<td>color of blood particles.</td>
+		</tr>
+		<tr>
+			<td>int m_iMaxHealth</td>
+			<td>keeps track of monster's maximum health value (for re-healing, etc).</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecEnemyLKP</td>
+			<td>last known position of enemy. (enemy's origin).</td>
+		</tr>
+		<tr>
+			<td>int m_cAmmoLoaded</td>
+			<td>how much ammo is in the weapon (used to trigger reload anim sequences).</td>
+		</tr>
+		<tr>
+			<td>int m_afCapability</td>
+			<td>tells us what a monster can/can't do.</td>
+		</tr>
+		<tr>
+			<td>int m_afMoveShootCap</td>
+			<td>tells us what a monster can/can't do, while moving.</td>
+		</tr>
+		<tr>
+			<td>float m_flNextAttack</td>
+			<td>cannot attack again until this time.</td>
+		</tr>
+		<tr>
+			<td>int m_bitsDamageType</td>
+			<td>what types of damage has monster (player) taken.</td>
+		</tr>
+		<tr>
+			<td>float m_lastDamageAmount</td>
+			<td>how much damage did monster (player) last take.</td>
+		</tr>
+		<tr>
+			<td>float m_tbdPrev</td>
+			<td>Time-based damage timer.</td>
+		</tr>
+		<tr>
+			<td>entvars_t@ pevTimeBasedInflictor</td>
+			<td>Time based damage inflictor.</td>
+		</tr>
+		<tr>
+			<td>int m_failSchedule</td>
+			<td>Schedule type to choose if current schedule fails.</td>
+		</tr>
+		<tr>
+			<td>float m_flHungryTime</td>
+			<td>Time based damage inflictor.</td>
+		</tr>
+		<tr>
+			<td>float m_flDistTooFar</td>
+			<td>if enemy farther away than this, bits_COND_ENEMY_TOOFAR set in CheckEnemy.</td>
+		</tr>
+		<tr>
+			<td>float m_flDistLook</td>
+			<td>distance monster sees (Default 2048).</td>
+		</tr>
+		<tr>
+			<td>int m_iTriggerCondition</td>
+			<td>for scripted AI, this is the condition that will cause the activation of the monster's TriggerTarget.</td>
+		</tr>
+		<tr>
+			<td>string_t m_iszTriggerTarget</td>
+			<td>Name of target that should be fired.</td>
+		</tr>
+		<tr>
+			<td>Vector m_HackedGunPos</td>
+			<td>HACK until we can query end of gun.</td>
+		</tr>
+		<tr>
+			<td>SCRIPTSTATE m_scriptState</td>
+			<td>internal cinematic state.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hCine</td>
+			<td>Cinematic entity.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hCineBlocker</td>
+			<td>Entity that is blocking cinematic execution.</td>
+		</tr>
+		<tr>
+			<td>float m_useTime</td>
+			<td>Don't allow +USE until this time.</td>
+		</tr>
+		<tr>
+			<td>string_t m_FormattedName</td>
+			<td>The formatted name.<br>For better name outputs. E.g. "Alien Slave" rather than "alien_slave".</td>
+		</tr>
+		<tr>
+			<td>int8 m_chTextureType</td>
+			<td>Current texture type.<br>See TextureType enum.</td>
+		</tr>
+		<tr>
+			<td>bool m_fCanFearCreatures</td>
+			<td>Whether this monster can fear creatures.</td>
+		</tr>
+		<tr>
+			<td>float m_flAutomaticAttackTime</td>
+			<td>How long an npc will attempt to fire full auto.</td>
+		</tr>
+		<tr>
+			<td>float m_flFallVelocity</td>
+			<td>Current fall speed.</td>
+		</tr>
+		<tr>
+			<td>EHandle m_hGuardEnt</td>
+			<td>Monster will guard this entity and turn down follow requests.</td>
+		</tr>
+		<tr>
+			<td>string_t m_iszGuardEntName</td>
+			<td>Guard entity name.</td>
+		</tr>
+		<tr>
+			<td>Vector m_vecEffectGlowColor</td>
+			<td>Glow shell.</td>
+		</tr>
+		<tr>
+			<td>int m_iEffectBlockWeapons</td>
+			<td>Monster can't use weapons.</td>
+		</tr>
+		<tr>
+			<td>int m_iEffectInvulnerable</td>
+			<td>is invulnerable (god mode)</td>
+		</tr>
+		<tr>
+			<td>int m_iEffectInvisible</td>
+			<td>is invisible (render + non-targetable)</td>
+		</tr>
+		<tr>
+			<td>int m_iEffectNonSolid</td>
+			<td>is non-solid</td>
+		</tr>
+		<tr>
+			<td>float m_flEffectRespiration</td>
+			<td>Extra/less breathing time underwater in seconds</td>
+		</tr>
+		<tr>
+			<td>float m_flEffectGravity</td>
+			<td>Gravity modifier (%)</td>
+		</tr>
+		<tr>
+			<td>float m_flEffectFriction</td>
+			<td>Movement friction modifier (%)</td>
+		</tr>
+		<tr>
+			<td>float m_flEffectSpeed</td>
+			<td>Movement speed modifier (%)</td>
+		</tr>
+		<tr>
+			<td>float m_flEffectDamage</td>
+			<td>Damage modifier (%)</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

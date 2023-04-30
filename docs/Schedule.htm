@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Schedule for monsters to follow.">
+	<meta property="og:title" content="Schedule">
+	<meta property="og:description" content="Schedule for monsters to follow.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>Schedule</title>
+</head>
+<body>
+	<h1>Schedule</h1>
+	<p>Schedule for monsters to follow.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>Task@ GetTask(int iIndex) const</td>
+			<td>Gets a task in this schedule.<br>Must be between 0 and cTasks.</td>
+		</tr>
+		<tr>
+			<td>string szName() const</td>
+			<td>Gets the name of this schedule.</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>int cTasks</td>
+			<td>Number of tasks in this schedule.</td>
+		</tr>
+		<tr>
+			<td>int iInterruptMask</td>
+			<td>A bit mask of conditions that can interrupt this schedule.</td>
+		</tr>
+		<tr>
+			<td>int iSoundMask</td>
+			<td>A more specific mask that indicates which TYPES of sounds will interrupt the schedule in the event that the schedule is broken by COND_HEAR_SOUND.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

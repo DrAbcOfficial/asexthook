@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="3D Vector">
+	<meta property="og:title" content="Vector">
+	<meta property="og:description" content="3D Vector">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>Vector</title>
+</head>
+<body>
+	<h1>Vector</h1>
+	<p>3D Vector</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void Vector()</td>
+			<td>Default constructs a 3D vector (0, 0, 0)</td>
+		</tr>
+		<tr>
+			<td>void Vector(const Vector& in vec)</td>
+			<td>Copy constructs a 3D vector</td>
+		</tr>
+		<tr>
+			<td>void Vector(float x, float y, float z)</td>
+			<td>Constructs a 3D vector from 3 floats</td>
+		</tr>
+		<tr>
+			<td>Vector& opAssign(const Vector& in other)</td>
+			<td>Assign vector</td>
+		</tr>
+		<tr>
+			<td>Vector opNeg() const</td>
+			<td>Negate vector</td>
+		</tr>
+		<tr>
+			<td>Vector opAdd(const Vector& in other) const</td>
+			<td>Add vectors</td>
+		</tr>
+		<tr>
+			<td>Vector opSub(const Vector& in other) const</td>
+			<td>Subtract vectors</td>
+		</tr>
+		<tr>
+			<td>Vector opMul(float fl) const</td>
+			<td>Multiply vector by value</td>
+		</tr>
+		<tr>
+			<td>Vector opMul_r(float fl) const</td>
+			<td>Multiply vector by value</td>
+		</tr>
+		<tr>
+			<td>Vector opDiv(float fl) const</td>
+			<td>Divide vector by value</td>
+		</tr>
+		<tr>
+			<td>Vector opDiv_r(float fl) const</td>
+			<td>Divide vector by value</td>
+		</tr>
+		<tr>
+			<td>float& opIndex(size_t uiIndex)</td>
+			<td>Index operator</td>
+		</tr>
+		<tr>
+			<td>float opIndex(size_t uiIndex) const</td>
+			<td>Index operator</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(const Vector& in other) const</td>
+			<td>Compare vectors</td>
+		</tr>
+		<tr>
+			<td>Vector opMul(const Vector& in other) const</td>
+			<td>Multiply vectors</td>
+		</tr>
+		<tr>
+			<td>Vector opDiv(const Vector& in other) const</td>
+			<td>Divide vectors</td>
+		</tr>
+		<tr>
+			<td>float Length() const</td>
+			<td>Gets the length of this vector</td>
+		</tr>
+		<tr>
+			<td>float Length2D() const</td>
+			<td>Gets the length of this vector in 2D</td>
+		</tr>
+		<tr>
+			<td>Vector Normalize() const</td>
+			<td>Returns the normalized form of this vector</td>
+		</tr>
+		<tr>
+			<td>Vector2D Make2D() const</td>
+			<td>Returns the 2D form of this vector</td>
+		</tr>
+		<tr>
+			<td>string ToString() const</td>
+			<td>Returns a string representation of this vector</td>
+		</tr>
+	</table>
+	</div>
+	<div><h2>Properties</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>float x</td>
+			<td>Vector x variable</td>
+		</tr>
+		<tr>
+			<td>float y</td>
+			<td>Vector y variable</td>
+		</tr>
+		<tr>
+			<td>float z</td>
+			<td>Vector z variable</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

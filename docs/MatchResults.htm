@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Regular expression match results">
+	<meta property="og:title" content="MatchResults">
+	<meta property="og:description" content="Regular expression match results">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>MatchResults</title>
+</head>
+<body>
+	<h1>MatchResults</h1>
+	<p><b>Namespace:</b>&nbsp;Regex</p>
+	<p>Regular expression match results</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>MatchResults@ MatchResults()</td>
+			<td>Constructor</td>
+		</tr>
+		<tr>
+			<td>MatchResults@ MatchResults(const MatchResults@ pOther)</td>
+			<td>Copy constructor</td>
+		</tr>
+		<tr>
+			<td>bool IsEmpty() const</td>
+			<td>Returns whether this match results object is empty or not</td>
+		</tr>
+		<tr>
+			<td>size_t GetSize() const</td>
+			<td>Returns the number of matches</td>
+		</tr>
+		<tr>
+			<td>size_t GetMaxSize() const</td>
+			<td>Returns the maximum size</td>
+		</tr>
+		<tr>
+			<td>SubMatch opIndex(size_t uiIndex) const</td>
+			<td>Returns the sub match object at the given index</td>
+		</tr>
+		<tr>
+			<td>SubMatch GetPrefix() const</td>
+			<td>Gets the prefix submatch</td>
+		</tr>
+		<tr>
+			<td>SubMatch GetSuffix() const</td>
+			<td>Gets the suffix submatch</td>
+		</tr>
+		<tr>
+			<td>int GetLength(size_t uiIndex = 0) const</td>
+			<td>Gets the length of the given submatch</td>
+		</tr>
+		<tr>
+			<td>int GetPosition(size_t uiIndex = 0) const</td>
+			<td>Gets the position of the given submatch</td>
+		</tr>
+		<tr>
+			<td>string GetString(size_t uiIndex = 0) const</td>
+			<td>Gets the given submatch as a string</td>
+		</tr>
+		<tr>
+			<td>string Format(const string& in szFormat, MatchFlagType flags = Regex::match_default) const</td>
+			<td>Gets the length of the given submatch</td>
+		</tr>
+		<tr>
+			<td>void Swap(MatchResults@ other)</td>
+			<td>Swaps these match results with the given results.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

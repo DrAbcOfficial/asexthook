@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Reflection group. Represents a group of reflectable objects.">
+	<meta property="og:title" content="IReflectionGroup">
+	<meta property="og:description" content="Reflection group. Represents a group of reflectable objects.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>IReflectionGroup</title>
+</head>
+<body>
+	<h1>IReflectionGroup</h1>
+	<p><b>Namespace:</b>&nbsp;Reflection</p>
+	<p>Reflection group. Represents a group of reflectable objects.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>Function@ FindGlobalFunction(const string& in szName, bool fSearchByDecl = false)</td>
+			<td>Finds a global function. Searches by name by default, searches by declaration if fSearchByDecl is set to true.</td>
+		</tr>
+		<tr>
+			<td>uint GetGlobalFunctionCount() const</td>
+			<td>Gets the number of global functions.</td>
+		</tr>
+		<tr>
+			<td>Function@ GetGlobalFunctionByIndex(uint uiIndex)</td>
+			<td>Gets the global function at the given index.</td>
+		</tr>
+		<tr>
+			<td>ObjectType@ FindObjectType(const string& in szName, bool fSearchByDecl = false)</td>
+			<td>Finds an object type. Searches by name by default, searches by declaration if fSearchByDecl is set to true.</td>
+		</tr>
+		<tr>
+			<td>uint GetObjectTypeCount() const</td>
+			<td>Gets the number of object types.</td>
+		</tr>
+		<tr>
+			<td>ObjectType@ GetObjectTypeByIndex(uint uiIndex) const</td>
+			<td>Gets the object type at the given index.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

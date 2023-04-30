@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="String type">
+	<meta property="og:title" content="string">
+	<meta property="og:description" content="String type">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>string</title>
+</head>
+<body>
+	<h1>string</h1>
+	<p>String type</p>
+	<p><b>Type:</b> Value type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>void string()</td>
+			<td>Constructor</td>
+		</tr>
+		<tr>
+			<td>void string(const string& in szString)</td>
+			<td>Copy constructor</td>
+		</tr>
+		<tr>
+			<td>void string(double flValue)</td>
+			<td>Construct a string from a double.</td>
+		</tr>
+		<tr>
+			<td>void string(int64 iValue)</td>
+			<td>Construct a string from a 64 bit integer.</td>
+		</tr>
+		<tr>
+			<td>void string(uint64 uiValue)</td>
+			<td>Construct a string from a 64 bit unsigned integer.</td>
+		</tr>
+		<tr>
+			<td>void string(bool bValue)</td>
+			<td>Construct a string from a boolean.</td>
+		</tr>
+		<tr>
+			<td>void string(char character)</td>
+			<td>Construct a string from a char.</td>
+		</tr>
+		<tr>
+			<td>string& Assign(const string& in szString, uint uiBegin, uint uiCount)</td>
+			<td>Assigns a string to this, copying up to uiCount characters.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(const string& in szString)</td>
+			<td>Assigns a string to this one.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(double flValue)</td>
+			<td>Assigns a double to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(int64 iValue)</td>
+			<td>Assigns a 64 bit integer to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(uint64 uiValue)</td>
+			<td>Assigns a 64 bit unsigned int to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(bool bValue)</td>
+			<td>Assigns a boolean to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAssign(char character)</td>
+			<td>Assigns a character to this string.</td>
+		</tr>
+		<tr>
+			<td>uint Length() const</td>
+			<td>Gets the length of this string.</td>
+		</tr>
+		<tr>
+			<td>bool IsEmpty() const</td>
+			<td>Returns whether this string is empty.</td>
+		</tr>
+		<tr>
+			<td>void Resize(uint uiSize, bool bKeepData = true)</td>
+			<td>Shrinks this string to uiSize. If bKeepData is true, the original string is kept.</td>
+		</tr>
+		<tr>
+			<td>void Reserve(uint iMinimum, bool bKeepData = true)</td>
+			<td>Reserves at least iMinimum characters worth of capacity. If bKeepData is true, the original string is kept.</td>
+		</tr>
+		<tr>
+			<td>void Clear()</td>
+			<td>Clears the contents of this string.</td>
+		</tr>
+		<tr>
+			<td>char opIndex(uint uiIndex) const</td>
+			<td>Gets a character by index.</td>
+		</tr>
+		<tr>
+			<td>void SetCharAt(uint uiIndex, char character)</td>
+			<td>Sets a character by index.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(const string& in szString)</td>
+			<td>Appends the given string to this one.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(double flValue)</td>
+			<td>Appends the given double to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(int64 iValue)</td>
+			<td>Appends the given 64 bit integer to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(uint64 uiValue)</td>
+			<td>Appends the given 64 bit unsigned integer to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(bool bValue)</td>
+			<td>Appends the given boolean to this string.</td>
+		</tr>
+		<tr>
+			<td>string& opAddAssign(char character)</td>
+			<td>Appends the given character to this string.</td>
+		</tr>
+		<tr>
+			<td>int opCmp(const string& in szString) const</td>
+			<td>Compares strings.</td>
+		</tr>
+		<tr>
+			<td>int Compare(const string& in szString) const</td>
+			<td>Compares strings.</td>
+		</tr>
+		<tr>
+			<td>int CompareN(const string& in szString, const uint amount) const</td>
+			<td>Compares strings up to amount characters.</td>
+		</tr>
+		<tr>
+			<td>int ICompare(const string& in szString) const</td>
+			<td>Compares strings case-insensitively.</td>
+		</tr>
+		<tr>
+			<td>int ICompareN(const string& in szString, const uint amount) const</td>
+			<td>Compares strings up to amount characters case-insensitively.</td>
+		</tr>
+		<tr>
+			<td>bool opEquals(const string& in szString) const</td>
+			<td>Returns whether strings are equal.</td>
+		</tr>
+		<tr>
+			<td>void Trim(const string& in szCharacter = ' ')</td>
+			<td>Trims leading and trailing whitespace, or a given character.</td>
+		</tr>
+		<tr>
+			<td>bool StartsWith(const string& in szString, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Returns true if the string starts with the given string.</td>
+		</tr>
+		<tr>
+			<td>bool EndsWith(const string& in szString, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Returns true if the string ends with the given string.</td>
+		</tr>
+		<tr>
+			<td>uint Find(const string& in szString, const uint startIndex = 0, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the first instance of the given string.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>uint RFind(const string& in szString, uint startIndex = String::INVALID_INDEX, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the first instance of the given string, searching in reverse.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>uint FindFirstOf(const string& in szString, const uint startIndex = 0, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the first instance of any character in the given string.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>uint FindLastOf(const string& in szString, const uint startIndex = 0, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the last instance of any character in the given string.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>uint FindFirstNotOf(const string& in szString, uint startIndex = 0, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the first instance of the given string.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>uint FindLastNotOf(const string& in szString, uint startIndex = String::INVALID_INDEX, const String::CompareType compareType = String::DEFAULT_COMPARE) const</td>
+			<td>Find the first instance of the given string, searching in reverse.<br>Returns String::INVALID_INDEX if not found.</td>
+		</tr>
+		<tr>
+			<td>string Tokenize(const string& in delimiter) const</td>
+			<td>Get the next token of the given string.<br>Returns String::NO_MORE_TOKENS if none remaining.</td>
+		</tr>
+		<tr>
+			<td>string& ToLowercase()</td>
+			<td>Converts this string to lower case.</td>
+		</tr>
+		<tr>
+			<td>string& ToUppercase()</td>
+			<td>Converts this string to upper case.</td>
+		</tr>
+		<tr>
+			<td>string SubString(uint startIndex = 0, uint count = String::INVALID_INDEX) const</td>
+			<td>Returns a substring of this string.</td>
+		</tr>
+		<tr>
+			<td>string& Replace(const string& in szSubstring, const string& in szReplacement, const String::CompareType compareType = String::DEFAULT_COMPARE)</td>
+			<td>Replaces the given substring with the given replacement string.</td>
+		</tr>
+		<tr>
+			<td>void Truncate(const size_t uiMaxLength)</td>
+			<td>Truncates the string to uiMaxLength characters.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(const string& in szString) const</td>
+			<td>Returns a copy of this string with the given string appended.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(double flValue) const</td>
+			<td>Returns a copy of this string with the given double appended.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(int64 iValue) const</td>
+			<td>Returns a copy of this string with the given 64 bit integer appended.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(uint64 uiValue) const</td>
+			<td>Returns a copy of this string with the given 64 bit unsigned integer appended.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(bool bValue) const</td>
+			<td>Returns a copy of this string with the given boolean appended.</td>
+		</tr>
+		<tr>
+			<td>string opAdd(char character) const</td>
+			<td>Returns a copy of this string with the given character appended.</td>
+		</tr>
+		<tr>
+			<td>array&lt;string&gt;@ Split(const string& in szDelimiter) const</td>
+			<td>Splits this string by the given delimiter.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

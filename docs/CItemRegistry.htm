@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta name="generator" content="ASDocGenerator 1.1">
+	<meta name="description" content="Item registry.">
+	<meta property="og:title" content="CItemRegistry">
+	<meta property="og:description" content="Item registry.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/baso88/SC_AngelScript/wiki/images/sc_as_logo_media.png">
+	<meta property="og:site_name" content="Sven Co-op AngelScript API">
+	<link rel="stylesheet" type="text/css" href="doc.css">
+	<title>CItemRegistry</title>
+</head>
+<body>
+	<h1>CItemRegistry</h1>
+	<p>Item registry.</p>
+	<p><b>Type:</b> Reference type</p>
+	<div><h2>Methods</h2>
+	<table>
+		<tr>
+			<th>Declaration</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>int GetIdForName(const string& in szName) const</td>
+			<td>Gets the id associated with the given weapon name. Returns WEAPON_NONE if no id is associated with the given name.</td>
+		</tr>
+		<tr>
+			<td>int RegisterItem(const string& in szName, const string& in szSpriteDir, const string& in szPrimaryAmmoName = "", const string& in szSecondaryAmmoName = "", const string& in szPrimaryAmmoClass = "", const string& in szSecondaryAmmoClass = "")</td>
+			<td>Registers the given entity name as an item and returns the id associated with it.<br>Returns WEAPON_NONE if no id could be assigned to it.</td>
+		</tr>
+		<tr>
+			<td>int RegisterWeapon(const string& in szName, const string& in szSpriteDir, const string& in szPrimaryAmmoName = "", const string& in szSecondaryAmmoName = "", const string& in szPrimaryAmmoClass = "", const string& in szSecondaryAmmoClass = "")</td>
+			<td>Registers the given entity name as a weapon and returns the id associated with it.<br>Returns WEAPON_NONE if no id could be assigned to it.</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>
