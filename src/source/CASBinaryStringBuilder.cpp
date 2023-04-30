@@ -38,7 +38,10 @@ size_t CBinaryStringBuilder::GetReadPointer(){
 	return iReadPointer;
 }
 void CBinaryStringBuilder::SetReadPointer(size_t pointer){
-	iReadPointer = min(szBuffer.size(), pointer);
+#ifdef _WIN32
+#undef min
+#endif // _WIN32
+	iReadPointer = std::min(szBuffer.size(), pointer);
 }
 template <typename T>
 void WriteBuffer(CBinaryStringBuilder* pThis, T value) {
