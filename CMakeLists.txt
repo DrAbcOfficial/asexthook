@@ -110,7 +110,6 @@ set(no_group_source_files
     "src/source/CASBinaryStringBuilder.cpp"
     "src/source/CASSQLite.cpp"
     "src/source/dllapi.cpp"
-    "src/source/dllmain.cpp"
     "src/source/engine_api.cpp"
     "src/source/h_export.cpp"
     "src/source/meta_api.cpp"
