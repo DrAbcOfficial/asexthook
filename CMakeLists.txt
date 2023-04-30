@@ -31,15 +31,12 @@ set(CMAKE_CONFIGURATION_TYPES
 ################################################################################
 # Global compiler options
 ################################################################################
-if(MSVC)
-    # remove default flags provided with CMake for MSVC
-    set(CMAKE_C_FLAGS "")
-    set(CMAKE_C_FLAGS_DEBUG "")
-    set(CMAKE_C_FLAGS_RELEASE "")
-    set(CMAKE_CXX_FLAGS "")
-    set(CMAKE_CXX_FLAGS_DEBUG "")
-    set(CMAKE_CXX_FLAGS_RELEASE "")
-endif()
+
+set(CMAKE_C_FLAGS_DEBUG "-m32")
+set(CMAKE_C_FLAGS_RELEASE "-m32")
+set(CMAKE_CXX_FLAGS "-m32")
+set(CMAKE_CXX_FLAGS_DEBUG "-m32")
+set(CMAKE_CXX_FLAGS_RELEASE "-m32")
 
 ################################################################################
 # Global linker options
