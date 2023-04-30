@@ -1,4 +1,6 @@
 #pragma once
+#include <extdll.h>
+
 #include "asext_api.h"
 #include "angelscriptlib.h"
 class CASBaseRefObject {
