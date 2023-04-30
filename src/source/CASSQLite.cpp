@@ -102,9 +102,9 @@ int CASSQLite::Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size
 }
 
 void CASSQLite::LoadSQLite3Dll(){
-	auto pDllHandle = LoadLibraryA(
+	auto pDllHandle = LoadLibrary(
 #ifdef _WIN32
-	"svencoop/sqlite3.dll"
+	L"svencoop/sqlite3.dll"
 #else
 	"svencoop/dlls/libsqlite3.so"
 #endif
