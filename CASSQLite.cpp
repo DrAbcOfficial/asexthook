@@ -17,11 +17,16 @@ typedef int(*fnSQLite3Close)(sqlite3*);
 fnSQLite3Close SQLite3_Close;
 
 CASSQLite::CASSQLite(CString* szPath, int iMode){
-	std::filesystem::path path = szPath->c_str();
-	if (path.compare("./svencoop/scripts/store") >= 0) {
-		m_szStoredPath = szPath->c_str();
+	namespace fs = std::filesystem;
+	std::string szNPath = szPath->c_str();
+	szNPath = "./svencoop/scripts/plugins/store/" + szNPath;
+	fs::path path = fs::relative(szNPath);
+	if (path.native().starts_with(fs::relative("svencoop/scripts/plugins/store").native())){
+		if (!fs::exists(path.remove_filename()))
+			fs::create_directories(path.remove_filename());
+		m_szStoredPath = szNPath;
 		m_iMode = iMode;
-		SQLite3_Open(szPath->c_str(), &m_pDatabase, iMode, nullptr);
+		SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 		m_bAviliable = true;
 		m_bClosed = false;
 	}
