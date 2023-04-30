@@ -57,7 +57,7 @@ void RegisteGCObject(CASDocumentation* pASDoc, const char* szName) {
 #define REGISTE_OBJMETHODEX(r, d, e, c, m, cc, mm, call) r=asMETHOD(cc,mm);ASEXT_RegisterObjectMethodEx(d,e,c,m,&r,call)
 #define REGISTE_OBJMETHODPREX(r, d, e, c, m, cc, mm, pp, rr, call) r=asMETHODPR(cc,mm, pp, rr);ASEXT_RegisterObjectMethodEx(d,e,c,m,&r,call)
 void RegisterAngelScriptMethods(){
-	CASSQLite::LoadSQLite3Dll();
+	CASSQLite::LoadSQLite3DLL();
 	ASEXT_RegisterDocInitCallback([](CASDocumentation* pASDoc) {
 		//Regist HealthInfo type
 		ASEXT_RegisterObjectType(pASDoc, "Entity takehealth info", "HealthInfo", 0, asOBJ_REF | asOBJ_NOCOUNT);
