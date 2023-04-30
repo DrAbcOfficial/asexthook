@@ -4,6 +4,7 @@
 
 #include <meta_api.h>
 #include <string>
+#include <bit>
 #include "CASBinaryStringBuilder.h"
 
 CBinaryStringBuilder::CBinaryStringBuilder(){
