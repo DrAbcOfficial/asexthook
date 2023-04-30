@@ -18,8 +18,11 @@ CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
 	return obj;
 }
 
-void CBinaryStringBuilder::Get(CString* buffer){
-	buffer->assign(szBuffer.c_str(), szBuffer.length());
+CString* CBinaryStringBuilder::Get(){
+	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
+	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("string")));
+	szOutBuffer->assign(szBuffer.c_str(), szBuffer.length());
+	return szOutBuffer;
 }
 void CBinaryStringBuilder::Set(CString* buffer){
 	szBuffer = buffer->c_str();
@@ -80,12 +83,15 @@ float CBinaryStringBuilder::ReadFloat(){
 double CBinaryStringBuilder::ReadDouble(){
 	return iReadPointer < szBuffer.length() ? ReadBuffer<double, int64>(this) : 0.0;
 }
-void CBinaryStringBuilder::ReadVector(vec3_t vecBuffer){
-	vecBuffer.x = ReadBuffer<float, int>(this);
-	vecBuffer.y = ReadBuffer<float, int>(this);
-	vecBuffer.z = ReadBuffer<float, int>(this);
+vec3_t CBinaryStringBuilder::ReadVector(){
+	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
+	vec3_t* vecBuffer = static_cast<vec3_t*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("Vector")));
+	vecBuffer->x = ReadBuffer<float, int>(this);
+	vecBuffer->y = ReadBuffer<float, int>(this);
+	vecBuffer->z = ReadBuffer<float, int>(this);
+	return *vecBuffer;
 }
-void CBinaryStringBuilder::ReadString(CString* szOutBuffer){
+CString* CBinaryStringBuilder::ReadString(){
 	std::string temp;
 	for (size_t i = iReadPointer; i < szBuffer.length(); i++) {
 		char c = szBuffer[iReadPointer];
@@ -94,7 +100,10 @@ void CBinaryStringBuilder::ReadString(CString* szOutBuffer){
 		if (c == '\0')
 			break;
 	}
+	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
+	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("string")));
 	szOutBuffer->assign(temp.c_str(), temp.length());
+	return szOutBuffer;
 }
 bool CBinaryStringBuilder::IsReadToEnd(){
 	return iReadPointer >= szBuffer.length();

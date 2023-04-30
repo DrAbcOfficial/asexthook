@@ -8,7 +8,7 @@ public:
     static CBinaryStringBuilder* Factory();
     static CBinaryStringBuilder* ParamFactory(CString* str);
 
-    void Get(CString* buffer);
+    CString* Get();
     void Set(CString* buffer);
 
     size_t GetReadPointer();
@@ -25,8 +25,8 @@ public:
     int64 ReadLong();
     float ReadFloat();
     double ReadDouble();
-    void ReadVector(vec3_t vecBuffer);
-    void ReadString(CString* szBuffer);
+    vec3_t ReadVector();
+    CString* ReadString();
     bool IsReadToEnd();
 
     size_t iReadPointer = 0;
