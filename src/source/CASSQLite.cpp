@@ -102,15 +102,14 @@ int CASSQLite::Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size
 }
 
 void CASSQLite::LoadSQLite3Dll(){
+	auto pDllHandle = DLOPEN(
 #ifdef _WIN32
-	auto pDllHandle = LoadLibraryA("svencoop/sqlite3.dll");
+		"svencoop/sqlite3.dll"
+#else
+		"svencoop/dlls/libsqlite3.so"
+#endif
+	);
 	SQLite3_Open = (decltype(SQLite3_Open))DLSYM((DLHANDLE)pDllHandle, "sqlite3_open_v2");
 	SQLite3_Exec = (decltype(SQLite3_Exec))DLSYM((DLHANDLE)pDllHandle, "sqlite3_exec");
 	SQLite3_Close = (decltype(SQLite3_Close))DLSYM((DLHANDLE)pDllHandle, "sqlite3_close_v2");
-#else
-	auto pDllHandle = dlopen("svencoop/dlls/libsqlite3.so", RTLD_LAZY);
-	SQLite3_Open = (decltype(SQLite3_Open))dlsym((DLHANDLE)pDllHandle, "sqlite3_open_v2");
-	SQLite3_Exec = (decltype(SQLite3_Exec))dlsym((DLHANDLE)pDllHandle, "sqlite3_exec");
-	SQLite3_Close = (decltype(SQLite3_Close))dlsym((DLHANDLE)pDllHandle, "sqlite3_close_v2");
-#endif
 }
