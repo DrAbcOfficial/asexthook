@@ -57,9 +57,9 @@ int CASSQLite::Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size
 	asIScriptEngine* engine = manager->scriptEngine;
 	asIScriptContext* ctx = engine->RequestContext();
 
-    asITypeInfo* aryInfo = engine->GetTypeInfoByName("array<string>");
+    asITypeInfo* aryInfo = engine->GetTypeInfoByDecl("array<string>");
 	asITypeInfo* strInfo = engine->GetTypeInfoByName("string");
-	asIScriptFunction* funcAryInsert = aryInfo->GetMethodByDecl("void insertLast(const T& in)");
+	asIScriptFunction* funcAryInsert = aryInfo->GetMethodByName("insertLast");
 
 	void* aryVal = engine->CreateScriptObject(aryInfo);
 	void* aryName = engine->CreateScriptObject(aryInfo);
