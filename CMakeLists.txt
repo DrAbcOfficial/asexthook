@@ -31,7 +31,7 @@ set(CMAKE_CONFIGURATION_TYPES
 ################################################################################
 # Global compiler options
 ################################################################################
-
+set(CMAKE_C_FLAGS "-m32")
 set(CMAKE_C_FLAGS_DEBUG "-m32")
 set(CMAKE_C_FLAGS_RELEASE "-m32")
 set(CMAKE_CXX_FLAGS "-m32")
