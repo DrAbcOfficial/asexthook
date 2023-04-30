@@ -3,7 +3,7 @@
 #include "angelscript.h"
 
 #include <meta_api.h>
-
+#include <string>
 #include "CASBinaryStringBuilder.h"
 
 CBinaryStringBuilder::CBinaryStringBuilder(){
@@ -18,27 +18,33 @@ CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
 	return obj;
 }
 
-CString* CBinaryStringBuilder::Get(){
+CString CBinaryStringBuilder::Get(){
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
 	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("string")));
-	szOutBuffer->assign(szBuffer.c_str(), szBuffer.length());
-	return szOutBuffer;
+	char* temp = new char[szBuffer.size() + 1];
+	std::copy(szBuffer.begin(), szBuffer.end(), temp);
+	szOutBuffer->assign(temp, szBuffer.size());
+	delete[] temp;
+	return *szOutBuffer;
 }
 void CBinaryStringBuilder::Set(CString* buffer){
-	szBuffer = buffer->c_str();
+	szBuffer.clear();
+	for (size_t i = 0; i < buffer->length(); i++) {
+		szBuffer.push_back(buffer->chatAt(i));
+	}
 	iReadPointer = 0;
 }
 size_t CBinaryStringBuilder::GetReadPointer(){
 	return iReadPointer;
 }
 void CBinaryStringBuilder::SetReadPointer(size_t pointer){
-	iReadPointer = min(szBuffer.length(), pointer);
+	iReadPointer = min(szBuffer.size(), pointer);
 }
 template <typename T>
 void WriteBuffer(CBinaryStringBuilder* pThis, T value) {
 	size_t length = sizeof(value);
 	for (size_t i = 0; i < length; i++) {
-		pThis->szBuffer += static_cast<char>(value << (i * 8) >> ((length - 1) * 8));
+		pThis->szBuffer.push_back(static_cast<unsigned char>(value << (i * 8) >> ((length - 1) * 8)));
 	}
 }
 void CBinaryStringBuilder::WriteInt(int value){
@@ -59,7 +65,9 @@ void CBinaryStringBuilder::WriteVector(vec3_t value){
 	WriteBuffer(this, std::bit_cast<int>(value.z));
 }
 void CBinaryStringBuilder::WriteString(CString* value){
-	this->szBuffer += value->c_str();
+	for (size_t i = 0; i < value->length(); i++) {
+		szBuffer.push_back(value->chatAt(i));
+	}
 }
 template <typename T1, typename T2>
 T1 ReadBuffer(CBinaryStringBuilder* pThis) {
@@ -72,16 +80,16 @@ T1 ReadBuffer(CBinaryStringBuilder* pThis) {
 	return std::bit_cast<T1>(temp);
 }
 int CBinaryStringBuilder::ReadInt(){
-	return iReadPointer < szBuffer.length() ? ReadBuffer<int, int>(this) : 0;
+	return iReadPointer < szBuffer.size() ? ReadBuffer<int, int>(this) : 0;
 }
 int64 CBinaryStringBuilder::ReadLong(){
-	return iReadPointer < szBuffer.length() ? ReadBuffer<int64, int64>(this) : 0;
+	return iReadPointer < szBuffer.size() ? ReadBuffer<int64, int64>(this) : 0;
 }
 float CBinaryStringBuilder::ReadFloat(){
-	return iReadPointer < szBuffer.length() ? ReadBuffer<float, int>(this) : 0.0f;
+	return iReadPointer < szBuffer.size() ? ReadBuffer<float, int>(this) : 0.0f;
 }
 double CBinaryStringBuilder::ReadDouble(){
-	return iReadPointer < szBuffer.length() ? ReadBuffer<double, int64>(this) : 0.0;
+	return iReadPointer < szBuffer.size() ? ReadBuffer<double, int64>(this) : 0.0;
 }
 vec3_t CBinaryStringBuilder::ReadVector(){
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
@@ -93,7 +101,7 @@ vec3_t CBinaryStringBuilder::ReadVector(){
 }
 CString* CBinaryStringBuilder::ReadString(){
 	std::string temp;
-	for (size_t i = iReadPointer; i < szBuffer.length(); i++) {
+	for (size_t i = iReadPointer; i < szBuffer.size(); i++) {
 		char c = szBuffer[iReadPointer];
 		temp += c;
 		iReadPointer++;
@@ -106,5 +114,5 @@ CString* CBinaryStringBuilder::ReadString(){
 	return szOutBuffer;
 }
 bool CBinaryStringBuilder::IsReadToEnd(){
-	return iReadPointer >= szBuffer.length();
+	return iReadPointer >= szBuffer.size();
 }

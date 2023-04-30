@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <vector>
 #include "CASBaseObject.h"
 class CBinaryStringBuilder : public CASBaseGCObject
 {
@@ -8,7 +8,7 @@ public:
     static CBinaryStringBuilder* Factory();
     static CBinaryStringBuilder* ParamFactory(CString* str);
 
-    CString* Get();
+    CString Get();
     void Set(CString* buffer);
 
     size_t GetReadPointer();
@@ -30,5 +30,5 @@ public:
     bool IsReadToEnd();
 
     size_t iReadPointer = 0;
-    std::string szBuffer;
+    std::vector<unsigned char> szBuffer;
 };

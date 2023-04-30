@@ -10,8 +10,7 @@ void Read(){
 	//or
 	//CBinaryStringBuilder pBR();
 	//pBR.Set(binary);
-	string a;
-	pBR.ReadString(a)
+	string a = pBR.ReadString();
 	array<int> ary = {};
 	while(!pBR.IsReadToEnd()){
 		ary.insertLast(pBR.ReadInt());
@@ -19,13 +18,11 @@ void Read(){
 }
 void Write(){
 	CBinaryStringBuilder pBW();
-	string a = "sodayo";
-	pBW.WriteString(a)
+	pBW.WriteString("sodayo")
 	pBW.WriteInt(114514);
 	pBW.WriteFloat(1919.810f);
 
-	string binary;
-	pBW.Get(binary);
+	string binary = pBW.Get();
 	File@ pFile = g_FileSystem.OpenFile("./anybinaryshit", OpenFile::WRITE);
 	pFile.Write(binary);
 	pFile.Close();
