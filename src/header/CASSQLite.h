@@ -11,7 +11,8 @@ public:
 	CASSQLite(CString* szPath, int iMode);
 	static CASSQLite* Factory(CString* szPath, int iMode);
 	static int Sqlite3Callback(aslScriptFunction* pfnASCallBack, int column_size, char* column_value[], char* column_name[]);
-	static void LoadSQLite3Dll();
+	static void LoadSQLite3DLL();
+	static void CloseSQLite3DLL();
 
 	int Open();
 	int Exec(CString* sql, CString* errMsg);

@@ -196,3 +196,7 @@ void RegisterAngelScriptHooks(){
 	CREATE_AS_HOOK(pSendScoreInfo, "Pre call before sending hud info to edict", "Player", "SendScoreInfo", "CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag");
 }
 #undef CREATE_AS_HOOK
+
+void CloseAngelScriptsItem() {
+	CASSQLite::CloseSQLite3DLL();
+}

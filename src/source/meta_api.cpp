@@ -170,5 +170,7 @@ C_DLLEXPORT int Meta_Detach(PLUG_LOADTIME /* now */,
 	PL_UNLOAD_REASON /* reason */){
 	UninstallHook();
 	VtableUnhook();
+	CloseAngelScriptsItem();
+
 	return TRUE;
 }

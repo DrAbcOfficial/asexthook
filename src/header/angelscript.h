@@ -1,6 +1,7 @@
 #pragma once
 void RegisterAngelScriptMethods();
 void RegisterAngelScriptHooks();
+void CloseAngelScriptsItem();
 
 typedef struct damageinfo_s{
 	void* pVictim;
