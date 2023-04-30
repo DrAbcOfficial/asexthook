@@ -66,10 +66,10 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: make OPT=opt install
+      run: mkdir build && cd build && cmake .. && make
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
         name: asexthook.so
-        path: metamod/build/addons/metamod/dlls/asexthook.so
+        path: ${{env.SOLUTION_FILE_PATH}}/build/libasexthook.so

@@ -73,13 +73,13 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: make OPT=opt install
+      run: mkdir build && cd build && cmake .. && make && mv libasexthook.so asexthook.so
 
     - name: Zipping All
       uses: vimtor/action-zip@v1
       with:
-          files: metamod/build/addons/metamod/dlls/asexthook.so
-          dest: asexthook-ubuntu-x86.zip
+          files: ${{env.SOLUTION_FILE_PATH}}/build/asexthook.so
+          dest: asexthook-ubuntu-i386.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
@@ -87,4 +87,4 @@ jobs:
       with:
           name: asexthook-${{ github.ref }}
           files: |
-            asexthook-ubuntu-x86.zip
+            asexthook-ubuntu-i386.zip
