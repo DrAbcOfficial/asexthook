@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+html {
+	font-family: Inconsolata, Consolas, monospace;
+	font-size: 16px;
+}
+
+body {
+	margin: 24px 42px 30px 50px;
+}
+
+/* TABLES */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	border: 1px solid #cbcbcb;
+}
+tbody > tr:last-child > td {
+	border-bottom-width: 0;
+}
+tbody > tr:last-child > td {
+	border-bottom-width: 0;
+}
+td,
+th {
+	border-left: 1px solid #cbcbcb;
+	border-bottom: 1px solid #cbcbcb;
+	border-width: 0 0 1px 1px;
+	font-size: inherit;
+	margin: 0;
+	overflow: visible;
+	padding: 0.4em 0.8em;
+}
+td:first-child,
+th:first-child {
+	border-left-width: 0;
+}
+tr:first-child {
+	background: linear-gradient(45deg, rgb(0 207 255 / 38%) 0%, rgb(0 85 255 / 30%) 33%, rgb(228 0 255 / 30%) 66%, rgb(3 162 74 / 30%) 100%);
+    background-size: 100%;
+    background-position: 0% 100%;
+    border-radius:4px;
+    animation: gradient 7.5s ease-in-out infinite;
+    backdrop-filter: blur(5px);
+    box-shadow:0px 12px 8px -12px black;
+}
+tr:nth-child(2n-1) td {
+	background: linear-gradient(45deg, #e0eaff29 0%, #acd6ff63 33%, #72bfff4f 66%, #54aaff61 100%);
+}
+tr:nth-child(2n) td {
+	background: linear-gradient(45deg, #ffffff88 0%, #ffffffa8 33%, #ffffffcb 66%, #ffffff 100%);
+}
+tr{
+	transition-duration:0.5s;
+}
+tr:hover{
+	transform: scale(1.05);
+    z-index:2;
+    animation: gradient 3s ease-in-out infinite;
+    background: linear-gradient(45deg, #ffc00357 0%, #dba22863 33%, #ba94214f 66%, #ff1e0a61 100%);
+    background-size: 100%;
+    background-position: 0% 100%;
+    backdrop-filter: blur(5px);
+    border-radius:4px;
+    box-shadow:0px 12px 8px -12px black;
+}
+
+/* LISTS */
+
+li {
+	margin: 0 0 4px 0;
+}
+
+/* LINKS */
+
+a:link {
+	color: #2f6cb6;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #2f6cb6;
+	text-decoration: none;
+}
