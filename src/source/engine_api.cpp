@@ -35,7 +35,6 @@
 #include <extdll.h>
 
 #include <meta_api.h>
-#include <detours.h>
 #include <vector>
 #include "signatures.h"
 #include "asext_api.h"
