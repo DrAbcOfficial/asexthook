@@ -1,6 +1,8 @@
 #include "CASSQLite.h"
 #include <extdll.h>
 #include <meta_api.h>
+#include <filesystem>
+
 typedef int(*fnSQLite3Open)(const char* filename, sqlite3** ppDb, int flags, const char* zVfs);
 fnSQLite3Open SQLite3_Open;
 
@@ -15,9 +17,14 @@ typedef int(*fnSQLite3Close)(sqlite3*);
 fnSQLite3Close SQLite3_Close;
 
 CASSQLite::CASSQLite(CString* szPath, int iMode){
-	m_szStoredPath = szPath->c_str();
-	m_iMode = iMode;
-	SQLite3_Open(szPath->c_str(), &m_pDatabase, iMode, nullptr);
+	std::filesystem::path path = szPath->c_str();
+	if (path.compare("./svencoop/scripts/store") >= 0) {
+		m_szStoredPath = szPath->c_str();
+		m_iMode = iMode;
+		SQLite3_Open(szPath->c_str(), &m_pDatabase, iMode, nullptr);
+		m_bAviliable = true;
+		m_bClosed = false;
+	}
 }
 CASSQLite* CASSQLite::Factory(CString* szPath, int iMode){
 	CASSQLite* obj = new CASSQLite(szPath, iMode);
@@ -26,6 +33,8 @@ CASSQLite* CASSQLite::Factory(CString* szPath, int iMode){
 int CASSQLite::Call(CString* sql, fnSqlCallBack callback, aslScriptFunction* pfnASCallBack, CString* errMsg) {
 	if (m_bClosed)
 		return 999;
+	else if (!m_bAviliable)
+		return 1;
 	int iReturn;
 	char* temp = nullptr;
 	iReturn = SQLite3_Exec(m_pDatabase, sql->c_str(), callback, pfnASCallBack, &temp);
@@ -34,8 +43,9 @@ int CASSQLite::Call(CString* sql, fnSqlCallBack callback, aslScriptFunction* pfn
 	return iReturn;
 }
 int CASSQLite::Open(){
-	if (!m_bClosed)
+	if (!m_bClosed || !m_bAviliable)
 		return 1;
+	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
 int CASSQLite::Exec(CString* sql, CString* errMsg){
@@ -45,9 +55,12 @@ int CASSQLite::ExecWithCallBack(CString* sql, aslScriptFunction* pfnASCallBack, 
 	return Call(sql, &Sqlite3Callback, pfnASCallBack, errMsg);
 }
 void CASSQLite::Close(){
+	if (!m_bAviliable)
+		return;
 	SQLite3_Close(m_pDatabase);
 	m_pDatabase = nullptr;
 	m_bClosed = true;
+	m_bAviliable = false;
 }
 CASSQLite::~CASSQLite(){
 	Close();
@@ -88,7 +101,7 @@ void CASSQLite::LoadSQLite3Dll(){
 #ifdef _WIN32
 	"svencoop/sqlite3.dll"
 #else
-	"svencoop/sqlite3.so"
+	"svencoop/dlls/libsqlite3.so"
 #endif
 	);
 	SQLite3_Open = (decltype(SQLite3_Open))DLSYM((DLHANDLE)pDllHandle, "sqlite3_open_v2");
