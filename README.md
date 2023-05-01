@@ -120,7 +120,7 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 	<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
 
-	1. `make OPT=opt install`
+	1. `mkdir build && cd build && cmake .. && make`
    
 6. Grab
 	
