@@ -88,11 +88,11 @@ or want to add new hooks yourself, you can follow these steps to configure your 
 
 	<img src="https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white"/>
 
-	1. `sudo apt install git make build-essential gcc gcc-multilib g++-multilib -y`
+	1. `sudo apt install git make build-essential gcc gcc-multilib g++-multilib cmake -y`
 
 	<img src="https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white"/>
 
-	1. `sudo yum install git make gcc gcc-c++ glibc-devel.i686 libstdc++-devel.i686 -y`
+	1. `sudo yum install git make gcc gcc-c++ glibc-devel.i686 libstdc++-devel.i686 cmake -y`
 
 	<img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
 
