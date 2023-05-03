@@ -379,9 +379,13 @@ C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 	memcpy(pFunctionTable, &gFunctionTable, sizeof(DLL_FUNCTIONS));
 	return(TRUE);
 }
-
+void GameInitPost() {
+	cvar_t	fixgmr = { (char*)"sv_fixgmr",(char*)"1", FCVAR_SERVER };
+	CVAR_REGISTER(&fixgmr);
+	SET_META_RESULT(MRES_HANDLED);
+}
 static DLL_FUNCTIONS gFunctionTable_Post = {
-	NULL,					// pfnGameInit
+	GameInitPost,					// pfnGameInit
 	Spawn_Post,					// pfnSpawn
 	NULL,					// pfnThink
 	NULL,					// pfnUse

@@ -44,12 +44,23 @@
 #include "vftable.h"
 #include "dlldef.h"
 
+int SV_ModelIndex(const char* m) {
+	if (CVAR_GET_FLOAT("sv_fixgmr") > 0) {
+		SC_SERVER_DUMMYVAR
+		m = g_call_original_CWorldMODELREPLACEMENTFind(INDEXENT(0)->pvPrivateData, SC_SERVER_PASS_DUMMYARG m);
+		SET_META_RESULT(MRES_HANDLED);
+	}
+	else
+		SET_META_RESULT(MRES_IGNORED);
+	return 0;
+}
+
 enginefuncs_t meta_engfuncs = 
 {
 	NULL,						// pfnPrecacheModel()
 	NULL,						// pfnPrecacheSound()
 	NULL,						// pfnSetModel()
-	NULL,						// pfnModelIndex()
+	SV_ModelIndex,						// pfnModelIndex()
 	NULL,						// pfnModelFrames()
 
 	NULL,						// pfnSetSize()
@@ -281,6 +292,10 @@ void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eS
 		return;
 	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 }
+/// <summary>
+/// CWorldMODELREPLACEMENTFind
+/// </summary>
+PRIVATE_FUNCTION_DEFINE(CWorldMODELREPLACEMENTFind);
 
 bool SearchAndHook() {
 	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
@@ -291,11 +306,15 @@ bool SearchAndHook() {
 #ifdef WIN32
 #define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
 #define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
+#define CWorldMODELREPLACEMENTFind_Signature "\x56\x8B\x74\x24\x08\x81\xC1\x40\x02\x00\x00\x56\xE8\x2A\x2A\x2A\x2A\x85\xC0\x0F\x45\xF0\x8B\xC6\x5E\xC2\x04\x00\xCC\xCC\xCC\xCC"
 #else
 #define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
 #define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
 #define SV_Physics_Signature "_Z10SV_Physicsv"
+#define CWorldMODELREPLACEMENTFind_Signature "_ZN6CWorld21MODELREPLACEMENT_FindEPKc"
 #endif
+	//Fill
+	FILL_FROM_SIGNATURE(Server, CWorldMODELREPLACEMENTFind);
 	// Fill and Hook
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	FILL_AND_HOOK(Server, SendScoreInfo);

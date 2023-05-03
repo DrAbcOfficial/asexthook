@@ -31,7 +31,10 @@ typedef struct Task_s {
 #define SC_SERVER_DUMMYARG_NOCOMMA , int dummy
 #define SC_SERVER_DUMMYARG int dummy, 
 #define SC_SERVER_PASS_DUMMYARG dummy, 
+#define SC_SERVER_PASS_DUMMYARG2 ,dummy
 #define SC_SERVER_PASS_DUMMYARG_NOCOMMA dummy
+#define SC_SERVER_DUMMYVAR int dummy = 0;
+#define SERVER_DLL_NAME "server.dll"
 
 #else
 
@@ -39,7 +42,10 @@ typedef struct Task_s {
 #define SC_SERVER_DUMMYARG_NOCOMMA
 #define SC_SERVER_DUMMYARG
 #define SC_SERVER_PASS_DUMMYARG
+#define SC_SERVER_PASS_DUMMYARG2 
 #define SC_SERVER_PASS_DUMMYARG_NOCOMMA
+#define SC_SERVER_DUMMYVAR
+#define SERVER_DLL_NAME "server.so"
 
 #endif
 
