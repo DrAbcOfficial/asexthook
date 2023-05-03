@@ -164,6 +164,13 @@ class HealthInfo{
 
 [Example](https://github.com/DrAbcOfficial/asexthook/tree/main/example)
 
+
+### 3.5 Expansion CVar
+
+|CVar|default|explain|
+|--|--|--|
+|sv_fixgmr|1|add gmr found before SV_ModelIndex to fix gmr crash game|
+
 ###  3.5. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
 ---
