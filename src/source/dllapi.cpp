@@ -380,7 +380,7 @@ C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 	return(TRUE);
 }
 void GameInitPost() {
-	cvar_t	fixgmr = { (char*)"sv_fixgmr",(char*)"1", FCVAR_SERVER };
+	cvar_t	fixgmr = { const_cast<char*>("sv_fixgmr"),const_cast<char*>("1"), FCVAR_SERVER };
 	CVAR_REGISTER(&fixgmr);
 	SET_META_RESULT(MRES_HANDLED);
 }
