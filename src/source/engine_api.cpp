@@ -47,8 +47,9 @@
 int SV_ModelIndex(const char* m) {
 	if (CVAR_GET_FLOAT("sv_fixgmr") > 0) {
 		SC_SERVER_DUMMYVAR
-		m = g_call_original_CWorldMODELREPLACEMENTFind(INDEXENT(0)->pvPrivateData, SC_SERVER_PASS_DUMMYARG m);
-		SET_META_RESULT(MRES_HANDLED);
+		auto x = g_call_original_CWorldMODELREPLACEMENTFind(INDEXENT(0)->pvPrivateData, SC_SERVER_PASS_DUMMYARG m);
+		SET_META_RESULT(MRES_SUPERCEDE);
+		return MODEL_INDEX(x);
 	}
 	else
 		SET_META_RESULT(MRES_IGNORED);
