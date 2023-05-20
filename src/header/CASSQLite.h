@@ -15,6 +15,7 @@ public:
 	static void CloseSQLite3DLL();
 
 	int Open();
+	void* ExecSync(CString* sql, int iReturnCode, CString* errMsg);
 	int Exec(CString* sql, CString* errMsg);
 	int ExecWithCallBack(CString* sql, aslScriptFunction* pfnCallBack, void* any, CString* errMsg);
 	void Close();

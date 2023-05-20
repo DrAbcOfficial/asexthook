@@ -13,6 +13,18 @@ typedef int(*fnSQLite3Exec)(sqlite3*,           /* An open database */
 	char** errmsg                              /* Error msg written here */);
 fnSQLite3Exec SQLite3_Exec;
 
+typedef int (*fnSQLite3GetTable)(
+	sqlite3* db,          /* An open database */
+	const char* zSql,     /* SQL to be evaluated */
+	char*** pazResult,    /* Results of the query */
+	int* pnRow,           /* Number of result rows written here */
+	int* pnColumn,        /* Number of result columns written here */
+	char** pzErrmsg       /* Error msg written here */);
+fnSQLite3GetTable SQLite3_GetTable;
+
+typedef int (*fnSQLite3FreeTable)(char** result);
+fnSQLite3FreeTable SQLite3_FreeTable;
+
 typedef int(*fnSQLite3Close)(sqlite3*);
 fnSQLite3Close SQLite3_Close;
 
@@ -62,6 +74,59 @@ int CASSQLite::Open(){
 		return 1;
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
+}
+void* CASSQLite::ExecSync(CString* sql, int iReturnCode, CString* errMsg){
+	if (m_bClosed) {
+		iReturnCode = 999;
+		return nullptr;
+	}
+	else if (!m_bAviliable) {
+		iReturnCode = 1;
+		return nullptr;
+	}
+	int iReturn = 0;
+	char* zErrMsg = NULL;
+	char** pResult = NULL;
+	int nRow = 0;
+	int nColumn = 0;
+	iReturn = SQLite3_GetTable(m_pDatabase, sql->c_str(), &pResult, &nRow, &nColumn, &zErrMsg);
+	if (iReturn != 0) {
+		iReturnCode = iReturn;
+		return nullptr;
+	}
+	CASServerManager* manager = ASEXT_GetServerManager();
+	asIScriptEngine* engine = manager->scriptEngine;
+	asIScriptContext* ctx = engine->RequestContext();
+	asITypeInfo* aryInfoAll = engine->GetTypeInfoByDecl("array<array<string>@>");
+	asIScriptFunction* funcAryInsertAll = aryInfoAll->GetMethodByName("insertLast");
+	asITypeInfo* aryInfo = engine->GetTypeInfoByDecl("array<string>");
+	asIScriptFunction* funcAryInsert = aryInfo->GetMethodByName("insertLast");
+	asITypeInfo* strInfo = engine->GetTypeInfoByName("string");
+	
+	void* aryAll = engine->CreateScriptObject(aryInfoAll);
+	int iIndex = 0;
+	for (int i = 0; i < nRow; i++){
+		void* ary = engine->CreateScriptObject(aryInfo);
+		for (int j = 0; j < nColumn; j++){
+			CString* val = static_cast<CString*>(engine->CreateScriptObject(strInfo));
+			val->assign(pResult[iIndex], strlen(pResult[iIndex]));
+			ctx->Prepare(funcAryInsert);
+			ctx->SetObject(ary);
+			ctx->SetArgObject(0, val);
+			ctx->Execute();
+			iIndex++;
+		}
+		ctx->Prepare(funcAryInsertAll);
+		ctx->SetObject(aryAll);
+		ctx->SetArgObject(0, ary);
+		ctx->Execute();
+	}
+	if (zErrMsg) {
+		errMsg->assign(zErrMsg, strlen(zErrMsg));
+		SQLite3_Free(zErrMsg);
+	}
+	SQLite3_FreeTable(pResult);
+	return aryAll;
 }
 int CASSQLite::Exec(CString* sql, CString* errMsg){
 	return Call(sql, nullptr, nullptr, nullptr, errMsg);
@@ -121,10 +186,14 @@ void CASSQLite::LoadSQLite3DLL(){
 		"svencoop/dlls/libsqlite3.so"
 #endif
 	);
-	SQLite3_Open = (decltype(SQLite3_Open))DLSYM(pSqlite3DLLHandle, "sqlite3_open_v2");
-	SQLite3_Exec = (decltype(SQLite3_Exec))DLSYM(pSqlite3DLLHandle, "sqlite3_exec");
-	SQLite3_Close = (decltype(SQLite3_Close))DLSYM(pSqlite3DLLHandle, "sqlite3_close");
-	SQLite3_Free = (decltype(SQLite3_Free))DLSYM(pSqlite3DLLHandle, "sqlite3_free");
+#define DLSYM_SQLite(pfn, handle, name) pfn = (decltype(pfn))DLSYM(handle, name)
+	DLSYM_SQLite(SQLite3_Open, pSqlite3DLLHandle, "sqlite3_open_v2");
+	DLSYM_SQLite(SQLite3_GetTable, pSqlite3DLLHandle, "sqlite3_get_table");
+	DLSYM_SQLite(SQLite3_FreeTable, pSqlite3DLLHandle, "sqlite3_free_table");
+	DLSYM_SQLite(SQLite3_Exec, pSqlite3DLLHandle, "sqlite3_exec");
+	DLSYM_SQLite(SQLite3_Close, pSqlite3DLLHandle, "sqlite3_close");
+	DLSYM_SQLite(SQLite3_Free, pSqlite3DLLHandle, "sqlite3_free");
+#undef DLSYM_SQLite
 }
 
 void CASSQLite::CloseSQLite3DLL() {
