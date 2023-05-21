@@ -75,35 +75,29 @@ int CASSQLite::Open(){
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
-void* CASSQLite::ExecSync(CString* sql, int iReturnCode, CString* errMsg){
-	if (m_bClosed) {
-		iReturnCode = 999;
-		return nullptr;
-	}
-	else if (!m_bAviliable) {
-		iReturnCode = 1;
-		return nullptr;
-	}
+int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
+	if (m_bClosed) 
+		return 999;
+	else if (!m_bAviliable)
+		return 1;
 	int iReturn = 0;
 	char* zErrMsg = NULL;
 	char** pResult = NULL;
 	int nRow = 0;
 	int nColumn = 0;
 	iReturn = SQLite3_GetTable(m_pDatabase, sql->c_str(), &pResult, &nRow, &nColumn, &zErrMsg);
-	if (iReturn != 0) {
-		iReturnCode = iReturn;
-		return nullptr;
-	}
+	if (iReturn != 0)
+		return iReturn;
+
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	asIScriptContext* ctx = engine->RequestContext();
-	asITypeInfo* aryInfoAll = engine->GetTypeInfoByDecl("array<array<string>@>");
+	asITypeInfo* aryInfoAll = engine->GetTypeInfoByDecl("array<array<string>>@");
 	asIScriptFunction* funcAryInsertAll = aryInfoAll->GetMethodByName("insertLast");
 	asITypeInfo* aryInfo = engine->GetTypeInfoByDecl("array<string>");
 	asIScriptFunction* funcAryInsert = aryInfo->GetMethodByName("insertLast");
 	asITypeInfo* strInfo = engine->GetTypeInfoByName("string");
 	
-	void* aryAll = engine->CreateScriptObject(aryInfoAll);
 	int iIndex = 0;
 	for (int i = 0; i < nRow; i++){
 		void* ary = engine->CreateScriptObject(aryInfo);
@@ -117,7 +111,7 @@ void* CASSQLite::ExecSync(CString* sql, int iReturnCode, CString* errMsg){
 			iIndex++;
 		}
 		ctx->Prepare(funcAryInsertAll);
-		ctx->SetObject(aryAll);
+		ctx->SetObject(arrayOut);
 		ctx->SetArgObject(0, ary);
 		ctx->Execute();
 	}
@@ -126,7 +120,7 @@ void* CASSQLite::ExecSync(CString* sql, int iReturnCode, CString* errMsg){
 		SQLite3_Free(zErrMsg);
 	}
 	SQLite3_FreeTable(pResult);
-	return aryAll;
+	return iReturn;
 }
 int CASSQLite::Exec(CString* sql, CString* errMsg){
 	return Call(sql, nullptr, nullptr, nullptr, errMsg);

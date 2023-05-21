@@ -157,7 +157,7 @@ void RegisterAngelScriptMethods(){
 		ASEXT_RegisterObjectBehaviourEx(pASDoc, "Factory", "CSQLite", asBEHAVE_FACTORY, "CSQLite@ CSQLite(string&in path, SQLiteMode iMode)", &reg, asCALL_CDECL);
 		RegisteGCObject<CASSQLite>(pASDoc, "CSQLite");
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL", "CSQLite", "SQLiteResult Exec(string&in sql, string&out errMsg)", CASSQLite, Exec,asCALL_THISCALL);
-		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL In Sync", "CSQLite", "array<array<string>@> Exec(string&in sql, SQLiteResult&out iReturnCode, string&out errMsg)", CASSQLite, ExecSync, asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL In Sync", "CSQLite", "SQLiteResult Exec(string&in sql, array<array<string>>@ aryResult, string&out errMsg)", CASSQLite, ExecSync, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL", "CSQLite", "SQLiteResult Exec(string&in sql, fnSQLiteCallback@ pCallback, any@ pCallBackparam, string&out errMsg)", CASSQLite, ExecWithCallBack, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Close SQL", "CSQLite", "void Close()", CASSQLite, Close, asCALL_THISCALL);
 
