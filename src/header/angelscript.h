@@ -31,6 +31,7 @@ typedef struct angelhook_s {
 	void* pMonsterTakeDamage = nullptr;
 	void* pMonsterKilled = nullptr;
 	void* pMonsterTraceAttack = nullptr;
+	void* pMonsterPostTakeDamage = nullptr;
 
 	void* pBreakableTraceAttack = nullptr;
 	void* pBreakableKilled = nullptr;
