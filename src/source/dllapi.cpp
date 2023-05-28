@@ -132,7 +132,7 @@ int SC_SERVER_DECL ApacheTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 			bitsDamageType
 	};
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
-	int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	int value = CALL_ORIGIN(gHookItems.ApacheTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
@@ -159,7 +159,7 @@ int SC_SERVER_DECL SentryTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 			bitsDamageType
 	};
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
-	int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	int value = CALL_ORIGIN(gHookItems.SentryTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
@@ -181,7 +181,7 @@ int SC_SERVER_DECL TurretTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 			bitsDamageType
 	};
 	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
-	int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+	int value = CALL_ORIGIN(gHookItems.TurretTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
