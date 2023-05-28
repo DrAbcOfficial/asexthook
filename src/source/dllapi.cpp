@@ -81,24 +81,41 @@ std::vector<hook_t*> gHooks;
 #define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
 
 void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
-	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	edict_t* ent = PrivateToEdict(pThis);
+	if (ent) {
+		entvars_t* var = &ent->v;
+		if (var->flags & FL_MONSTER)
+			CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
+	}
 	CALL_ORIGIN(gHookItems.BaseMonsterTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
 int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
-	damageinfo_t dmg = {
-		pThis,
-		GetEntVarsVTable(pevInflictor),
-		GetEntVarsVTable(pevAttacker),
-		flDamage,
-		bitsDamageType
-	};
-	CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
-	int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
-	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
-	return value;
+	edict_t* ent = PrivateToEdict(pThis);
+	if (ent) {
+		entvars_t* var = &ent->v;
+		if (var->flags & FL_MONSTER) {
+			damageinfo_t dmg = {
+				pThis,
+				GetEntVarsVTable(pevInflictor),
+				GetEntVarsVTable(pevAttacker),
+				flDamage,
+				bitsDamageType
+			};
+			CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
+			int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+			CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
+			return value;
+		}
+	}
+	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
 void SC_SERVER_DECL BaseMonsterKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
-	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib)
+	edict_t* ent = PrivateToEdict(pThis);
+	if (ent) {
+		entvars_t* var = &ent->v;
+		if (var->flags & FL_MONSTER)
+			CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib)
+	}
 	CALL_ORIGIN(gHookItems.BaseMonsterKilled, Killed, pevAttacker, iGib);
 }
 
