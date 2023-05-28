@@ -22,23 +22,24 @@ Auto-generated HTML documentation for the Sven Co-op AsExtHook Angelscript API i
 	* 3.2. [Current Expansion Objects](#CurrentExpansionObjects)
 	* 3.3. [Current Expansion Methods](#CurrentExpansionMethods)
 	* 3.4. [Expansion Method Examples](#ExpansionMethodExamples)
-	* 3.5. [Current Expansion Hooks](#CurrentExpansionHooks)
-		* 3.5.1. [EntitySpawn](#EntitySpawn)
-		* 3.5.2. [IRelationship](#IRelationship)
-		* 3.5.3. [MonsterSpawn](#MonsterSpawn)
-		* 3.5.4. [MonsterTakeDamage](#MonsterTakeDamage)
-		* 3.5.5. [MonsterKilled](#MonsterKilled)
-		* 3.5.6. [MonsterTraceAttack](#MonsterTraceAttack)
-		* 3.5.7. [BreakableKilled](#BreakableKilled)
-		* 3.5.8. [BreakableTakeDamage](#BreakableTakeDamage)
-		* 3.5.9. [BreakableTraceAttack](#BreakableTraceAttack)
-		* 3.5.10. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
-		* 3.5.11. [PlayerTakeHealth](#PlayerTakeHealth)
-		* 3.5.12. [PlayerCallMedic](#PlayerCallMedic)
-		* 3.5.13. [PlayerCallGrenade](#PlayerCallGrenade)
-		* 3.5.14. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
-		* 3.5.15. [GrappleGetMonsterType](#GrappleGetMonsterType)
-		* 3.5.16. [SendScoreInfo](#SendScoreInfo)
+	* 3.5. [3.5 Expansion CVar](#ExpansionCVar)
+	* 3.6. [Current Expansion Hooks](#CurrentExpansionHooks)
+		* 3.6.1. [EntitySpawn](#EntitySpawn)
+		* 3.6.2. [IRelationship](#IRelationship)
+		* 3.6.3. [MonsterSpawn](#MonsterSpawn)
+		* 3.6.4. [MonsterTakeDamage](#MonsterTakeDamage)
+		* 3.6.5. [MonsterKilled](#MonsterKilled)
+		* 3.6.6. [MonsterTraceAttack](#MonsterTraceAttack)
+		* 3.6.7. [BreakableKilled](#BreakableKilled)
+		* 3.6.8. [BreakableTakeDamage](#BreakableTakeDamage)
+		* 3.6.9. [BreakableTraceAttack](#BreakableTraceAttack)
+		* 3.6.10. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
+		* 3.6.11. [PlayerTakeHealth](#PlayerTakeHealth)
+		* 3.6.12. [PlayerCallMedic](#PlayerCallMedic)
+		* 3.6.13. [PlayerCallGrenade](#PlayerCallGrenade)
+		* 3.6.14. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
+		* 3.6.15. [GrappleGetMonsterType](#GrappleGetMonsterType)
+		* 3.6.16. [SendScoreInfo](#SendScoreInfo)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -165,17 +166,17 @@ class HealthInfo{
 [Example](https://github.com/DrAbcOfficial/asexthook/tree/main/example)
 
 
-### 3.5 Expansion CVar
+###  3.5. <a name='ExpansionCVar'></a>3.5 Expansion CVar
 
 |CVar|default|explain|
 |--|--|--|
 |sv_fixgmr|1|add gmr found before SV_ModelIndex to fix gmr crash game|
 
-###  3.5. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
+###  3.6. <a name='CurrentExpansionHooks'></a>Current Expansion Hooks
 
 ---
 
-####  3.5.1. <a name='EntitySpawn'></a>EntitySpawn
+####  3.6.1. <a name='EntitySpawn'></a>EntitySpawn
 
 ```
 Hooks::Entity const uint32 EntitySpawn (CBaseEntity@ pEntity)
@@ -189,7 +190,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.2. <a name='IRelationship'></a>IRelationship
+####  3.6.2. <a name='IRelationship'></a>IRelationship
 
 ```
 Hooks::Entity const uint32 IRelationship (CBaseEntity@ pEntity, CBaseEntity@ pOther, bool param, int& out newValue)
@@ -205,7 +206,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.3. <a name='MonsterSpawn'></a>MonsterSpawn
+####  3.6.3. <a name='MonsterSpawn'></a>MonsterSpawn
 
 ```
 Hooks::Monster const uint32 MonsterSpawn (CBaseMonster@ pMonster)
@@ -220,7 +221,7 @@ MapScript | Plugin
 ---
 
 
-####  3.5.4. <a name='MonsterTakeDamage'></a>MonsterTakeDamage
+####  3.6.4. <a name='MonsterTakeDamage'></a>MonsterTakeDamage
 
 ```
 Hooks::Monster const uint32 MonsterTakeDamage (DamageInfo@ info)
@@ -228,7 +229,6 @@ Hooks::Monster const uint32 MonsterTakeDamage (DamageInfo@ info)
 
 Call before origin CBaseMonster::TakeDamage called.
 
-Notice that player died will call this hook, because player is monster too.
 
 StopMode: CALL_ALL
 
@@ -236,7 +236,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.5. <a name='MonsterKilled'></a>MonsterKilled
+####  3.6.5. <a name='MonsterKilled'></a>MonsterKilled
 
 ```
 Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)
@@ -244,15 +244,13 @@ Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pe
 
 Call before origin CBaseMonster::Killed called.
 
-Notice that player died will call this hook, because player is monster too.
-
 StopMode: CALL_ALL
 
 MapScript | Plugin
 
 ---
 
-####  3.5.6. <a name='MonsterTraceAttack'></a>MonsterTraceAttack
+####  3.6.6. <a name='MonsterTraceAttack'></a>MonsterTraceAttack
 
 ```
 Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
@@ -260,8 +258,6 @@ Hooks::Monster const uint32 MonsterTraceAttack (CBaseMonster@ pMonster, entvars_
 
 Call before origin CBaseMonster::TraceAttack called.
 
-Notice that player died will call this hook, because player is monster too.
-
 StopMode: CALL_ALL
 
 MapScript | Plugin
@@ -269,7 +265,7 @@ MapScript | Plugin
 ---
 
 
-####  3.5.7. <a name='BreakableKilled'></a>BreakableKilled
+####  3.6.7. <a name='BreakableKilled'></a>BreakableKilled
 
 ```
 Hooks::Entity const uint32 BreakableKilled (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, int iGib)
@@ -283,7 +279,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.8. <a name='BreakableTakeDamage'></a>BreakableTakeDamage
+####  3.6.8. <a name='BreakableTakeDamage'></a>BreakableTakeDamage
 
 ```
 Hooks::Entity const uint32 BreakableTakeDamage (DamageInfo@ info)
@@ -297,7 +293,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.9. <a name='BreakableTraceAttack'></a>BreakableTraceAttack
+####  3.6.9. <a name='BreakableTraceAttack'></a>BreakableTraceAttack
 
 ```
 Hooks::Monster const uint32 MonsterTraceAttack (CBaseEntity@ pBreakable, entvars_t@ pevAttacker, float flDamage, Vector vecDir, const TraceResult& in ptr, int bitDamageType)
@@ -313,7 +309,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.10. <a name='PlayerPostTakeDamage'></a>PlayerPostTakeDamage
+####  3.6.10. <a name='PlayerPostTakeDamage'></a>PlayerPostTakeDamage
 
 ```
 Hooks::Player const uint32 PlayerPostTakeDamage (DamageInfo@ info)
@@ -327,7 +323,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.11. <a name='PlayerTakeHealth'></a>PlayerTakeHealth
+####  3.6.11. <a name='PlayerTakeHealth'></a>PlayerTakeHealth
 
 ```
 Hooks::Player const uint32 PlayerTakeHealth (HealthInfo@ info)
@@ -341,7 +337,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.12. <a name='PlayerCallMedic'></a>PlayerCallMedic
+####  3.6.12. <a name='PlayerCallMedic'></a>PlayerCallMedic
 
 ```
 Hooks::Player const uint32 PlayerCallMedic (CBasePlayer@ pPlayer)
@@ -356,7 +352,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.13. <a name='PlayerCallGrenade'></a>PlayerCallGrenade
+####  3.6.13. <a name='PlayerCallGrenade'></a>PlayerCallGrenade
 
 ```
 Hooks::Player const uint32 PlayerCallGrenade (CBasePlayer@ pPlayer)
@@ -370,7 +366,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.14. <a name='PlayerUserInfoChanged'></a>PlayerUserInfoChanged
+####  3.6.14. <a name='PlayerUserInfoChanged'></a>PlayerUserInfoChanged
 
 ```
 Hooks::Player const uint32 PlayerUserInfoChanged (CBasePlayer@ pClient, string szInfoBuffer, uint&out uiFlag)
@@ -386,7 +382,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.15. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
+####  3.6.15. <a name='GrappleGetMonsterType'></a>GrappleGetMonsterType
 
 ```
 Hooks::Weapon const uint32 GrappleGetMonsterType (CBaseEntity@ pThis, CBaseEntity@ pEntity, uint& out flag)
@@ -409,7 +405,7 @@ MapScript | Plugin
 
 ---
 
-####  3.5.16. <a name='SendScoreInfo'></a>SendScoreInfo
+####  3.6.16. <a name='SendScoreInfo'></a>SendScoreInfo
 
 ```
 Hooks::Player const uint32 SendScoreInfo (CBasePlayer@ pPlayer, edict_t@ pTarget, int iTeamID, string szTeamName, uint& out flag)
