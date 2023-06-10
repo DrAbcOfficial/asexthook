@@ -220,7 +220,8 @@ if(MSVC)
         /DEBUG
     )
 else()
-	add_compile_options(-Os)
+	set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+    	set(CMAKE_CXX_FLAGS_RELEASE "-Os")
 endif()
 
 ################################################################################
