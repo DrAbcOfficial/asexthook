@@ -36,191 +36,191 @@
         	</thead>
         	<tbody>
         				<tr id='CreateEntity'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateEntity(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassName, <span class="type">dictionary</span><span class="type">@</span> pDictionary = null, <span class="type">bool</span> fSpawn = true)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateEntity(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassName, <span class="type">dictionary</span><span class="type">@</span> pDictionary = null, <span class="type">bool</span> fSpawn = true)</td>
         					<td>Create an entity by class name. Pass keyvalues in using the dictionary, if any. Keyvalues must be strings.<br>The class name can be either one of the entities included with the game or a custom entity.</td>
         				</tr>
         				<tr id='Create'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Create(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassname, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <span class="type">bool</span> fCreateAndDontSpawn, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entOwner = null)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Create(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassname, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <span class="type">bool</span> fCreateAndDontSpawn, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entOwner = null)</td>
         					<td>Creates an entity by class name.</td>
         				</tr>
         				<tr id='CreateDecal'>
-        					<td><span class="type">void</span> CreateDecal(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szDecalName, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetName = "")</td>
+        					<td><span class="type">void</span> CreateDecal(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szDecalName, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetName = "")</td>
         					<td>Creates a decal with the specified name.<br>If given a name, has to be triggered to be placed, otherwise, is placed immediately.</td>
         				</tr>
         				<tr id='CreateSprite'>
-        					<td><a class="type" href='/CSprite'>CSprite</a><span class="type">@</span> CreateSprite(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteName, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">bool</span> fAnimated, <span class="type">float</span> flFrameRate = 10.0f)</td>
+        					<td><a class="type" href='/asexthook/CSprite'>CSprite</a><span class="type">@</span> CreateSprite(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteName, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">bool</span> fAnimated, <span class="type">float</span> flFrameRate = 10.0f)</td>
         					<td>Creates a sprite. flFrameRate must be set to a valid value to animate the sprite.</td>
         				</tr>
         				<tr id='CreateBeam'>
-        					<td><a class="type" href='/CBeam'>CBeam</a><span class="type">@</span> CreateBeam(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteName, <span class="type">int</span> width)</td>
+        					<td><a class="type" href='/asexthook/CBeam'>CBeam</a><span class="type">@</span> CreateBeam(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteName, <span class="type">int</span> width)</td>
         					<td>Creates a beam entity with the given sprite and width set.</td>
         				</tr>
         				<tr id='CreateExplosion'>
-        					<td><span class="type">void</span> CreateExplosion(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pOwner, <span class="type">int</span> iMagnitude, <span class="type">bool</span> fDoDamage)</td>
+        					<td><span class="type">void</span> CreateExplosion(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pOwner, <span class="type">int</span> iMagnitude, <span class="type">bool</span> fDoDamage)</td>
         					<td>Creates an explosion.<br>If fDoDamage is true, also deals damage to entities within its effect radius, which is determined by the magnitude.</td>
         				</tr>
         				<tr id='CreateDisplacerPortal'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateDisplacerPortal(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pOwner, <span class="type">float</span> flDamage, <span class="type">float</span> flRadius)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateDisplacerPortal(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pOwner, <span class="type">float</span> flDamage, <span class="type">float</span> flRadius)</td>
         					<td>Creates a displacer portal.</td>
         				</tr>
         				<tr id='CreateRPGRocket'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateRPGRocket(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pOwner)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateRPGRocket(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pOwner)</td>
         					<td>Creates an rpg rocket.</td>
         				</tr>
         				<tr id='CreateRPGRocket@2'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateRPGRocket(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pOwner)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> CreateRPGRocket(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pOwner)</td>
         					<td>Creates an rpg rocket with custom velocity.</td>
         				</tr>
         				<tr id='CreateGib'>
-        					<td><a class="type" href='/CGib'>CGib</a><span class="type">@</span> CreateGib( <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles)</td>
+        					<td><a class="type" href='/asexthook/CGib'>CGib</a><span class="type">@</span> CreateGib( <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles)</td>
         					<td>Creates a server side gib.</td>
         				</tr>
         				<tr id='ShootTimed'>
-        					<td><a class="type" href='/CGrenade'>CGrenade</a><span class="type">@</span> ShootTimed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <span class="type">float</span> flTime)</td>
+        					<td><a class="type" href='/asexthook/CGrenade'>CGrenade</a><span class="type">@</span> ShootTimed(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <span class="type">float</span> flTime)</td>
         					<td>Spawns a timed grenade.</td>
         				</tr>
         				<tr id='ShootContact'>
-        					<td><a class="type" href='/CGrenade'>CGrenade</a><span class="type">@</span> ShootContact(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
+        					<td><a class="type" href='/asexthook/CGrenade'>CGrenade</a><span class="type">@</span> ShootContact(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
         					<td>Spawns a contact grenade.</td>
         				</tr>
         				<tr id='ShootMortar'>
-        					<td><a class="type" href='/CGrenade'>CGrenade</a><span class="type">@</span> ShootMortar(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
+        					<td><a class="type" href='/asexthook/CGrenade'>CGrenade</a><span class="type">@</span> ShootMortar(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
         					<td>Spawns a mortar grenade.</td>
         				</tr>
         				<tr id='ShootBananaCluster'>
-        					<td><a class="type" href='/CGrenade'>CGrenade</a><span class="type">@</span> ShootBananaCluster(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
+        					<td><a class="type" href='/asexthook/CGrenade'>CGrenade</a><span class="type">@</span> ShootBananaCluster(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity)</td>
         					<td>Spawn a banana bomb.</td>
         				</tr>
         				<tr id='UseSatchelCharges'>
-        					<td><span class="type">void</span> UseSatchelCharges(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <a class="type" href='/SATCHELCODE'>SATCHELCODE</a> code)</td>
+        					<td><span class="type">void</span> UseSatchelCharges(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevOwner, <a class="type" href='/asexthook/SATCHELCODE'>SATCHELCODE</a> code)</td>
         					<td>Triggers all satchel charges owned by pevOwner to either be released from ownership, or detonated.</td>
         				</tr>
         				<tr id='SpawnHeadGib'>
-        					<td><span class="type">void</span> SpawnHeadGib(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim)</td>
+        					<td><span class="type">void</span> SpawnHeadGib(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim)</td>
         					<td>Spawns a head gib for the target victim.</td>
         				</tr>
         				<tr id='SpawnRandomGibs'>
-        					<td><span class="type">void</span> SpawnRandomGibs(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim, <span class="type">int</span> cGibs, <span class="type">int</span> iHuman)</td>
+        					<td><span class="type">void</span> SpawnRandomGibs(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim, <span class="type">int</span> cGibs, <span class="type">int</span> iHuman)</td>
         					<td>Spawns random gibs for the target victim.<br>iHuman specifies whether the gibs are human or alien.</td>
         				</tr>
         				<tr id='SpawnStickyGibs'>
-        					<td><span class="type">void</span> SpawnStickyGibs(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> cGibs)</td>
+        					<td><span class="type">void</span> SpawnStickyGibs(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevVictim, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> cGibs)</td>
         					<td>Spawns sticky gibs for the target victim.<br>cGibs specifies how many gibs there are.</td>
         				</tr>
         				<tr id='SetOrigin'>
-        					<td><span class="type">void</span> SetOrigin(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td><span class="type">void</span> SetOrigin(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
         					<td>Set the origin of an entity</td>
         				</tr>
         				<tr id='SetModel'>
-        					<td><span class="type">void</span> SetModel(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFileName)</td>
+        					<td><span class="type">void</span> SetModel(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFileName)</td>
         					<td>Set the model of an entity</td>
         				</tr>
         				<tr id='SetSize'>
-        					<td><span class="type">void</span> SetSize(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMax)</td>
+        					<td><span class="type">void</span> SetSize(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pev, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMax)</td>
         					<td>Set the size of an entity</td>
         				</tr>
         				<tr id='FindEntityInSphere'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityInSphere(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pStartEntity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">float</span> flRadius,<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyword = "targetname")</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityInSphere(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pStartEntity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">float</span> flRadius,<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyword = "targetname")</td>
         					<td>Finds an entity in a sphere</td>
         				</tr>
         				<tr id='FindEntityByString'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByString(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pStartEntity,<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyword, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByString(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pStartEntity,<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyword, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
         					<td>Finds an entity based on a key value pair</td>
         				</tr>
         				<tr id='FindEntityByClassname'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByClassname(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> startEntity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> name)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByClassname(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> startEntity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> name)</td>
         					<td>Finds an entity by class name</td>
         				</tr>
         				<tr id='FindEntityByTargetname'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByTargetname(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> startEntity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> name)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityByTargetname(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> startEntity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> name)</td>
         					<td>Finds an entity by target name</td>
         				</tr>
         				<tr id='FindEntityGeneric'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityGeneric(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <span class="type">float</span> flRadius)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityGeneric(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <span class="type">float</span> flRadius)</td>
         					<td>Finds an entity by target name in a sphere</td>
         				</tr>
         				<tr id='MonstersInSphere'>
-        					<td><span class="type">int</span> MonstersInSphere(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">float</span> flRadius)</td>
+        					<td><span class="type">int</span> MonstersInSphere(<span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCenter, <span class="type">float</span> flRadius)</td>
         					<td>Finds monsters in a sphere</td>
         				</tr>
         				<tr id='EntitiesInBox'>
-        					<td><span class="type">int</span> EntitiesInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs, <span class="type">int</span> flagMask)</td>
+        					<td><span class="type">int</span> EntitiesInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs, <span class="type">int</span> flagMask)</td>
         					<td>Finds entities in a box</td>
         				</tr>
         				<tr id='TargetsInBox'>
-        					<td><span class="type">int</span> TargetsInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs)</td>
+        					<td><span class="type">int</span> TargetsInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs)</td>
         					<td>Finds targets in a box</td>
         				</tr>
         				<tr id='BrushEntsInBox'>
-        					<td><span class="type">int</span> BrushEntsInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs )</td>
+        					<td><span class="type">int</span> BrushEntsInBox(<span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs )</td>
         					<td>Finds brush entities in a box</td>
         				</tr>
         				<tr id='DispatchSpawn'>
-        					<td><span class="type">int</span> DispatchSpawn(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity)</td>
+        					<td><span class="type">int</span> DispatchSpawn(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity)</td>
         					<td>Dispatches the spawning of an entity</td>
         				</tr>
         				<tr id='DispatchKeyValue'>
-        					<td><span class="type">bool</span> DispatchKeyValue(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td><span class="type">bool</span> DispatchKeyValue(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
         					<td>Dispatches the passing of a key value pair to an entity</td>
         				</tr>
         				<tr id='EntvarsKeyvalue'>
-        					<td><span class="type">bool</span> EntvarsKeyvalue(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
-        					<td>Handles the initialization of keyvalues located in the entity's <a href='/entvars_t'>entvars_t</a> object.</td>
+        					<td><span class="type">bool</span> EntvarsKeyvalue(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Handles the initialization of keyvalues located in the entity's <a href='/asexthook/entvars_t'>entvars_t</a> object.</td>
         				</tr>
         				<tr id='DispatchObjectCollisionBox'>
-        					<td><span class="type">void</span> DispatchObjectCollisionBox(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity)</td>
+        					<td><span class="type">void</span> DispatchObjectCollisionBox(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity)</td>
         					<td>Dispatches the initialization of the collision box of an entity</td>
         				</tr>
         				<tr id='Instance'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> edict)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> edict)</td>
         					<td>Gets the entity instance of an edict instance</td>
         				</tr>
         				<tr id='Instance@2'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> vars)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> vars)</td>
         					<td>Gets the entity instance of an entvars instance</td>
         				</tr>
         				<tr id='Instance@3'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<span class="type">int</span> iEdictNum)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Instance(<span class="type">int</span> iEdictNum)</td>
         					<td>Gets the entity instance based on an edict number</td>
         				</tr>
         				<tr id='FireTargets'>
-        					<td><span class="type">void</span> FireTargets(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetName, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f, <span class="type">float</span> flDelay = 0.0f)</td>
+        					<td><span class="type">void</span> FireTargets(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetName, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f, <span class="type">float</span> flDelay = 0.0f)</td>
         					<td>Triggers targets. If flDelay is nonzero, causes a temporary entity to be spawned to trigger the target at the given time.<br>The temporary entity becomes the caller, not the entity passed in.</td>
         				</tr>
         				<tr id='IsMasterTriggered'>
-        					<td><span class="type">bool</span> IsMasterTriggered(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMaster, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
+        					<td><span class="type">bool</span> IsMasterTriggered(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMaster, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
         					<td>Returns whether the master with the given name would be triggered if activated by the given entity.</td>
         				</tr>
         				<tr id='Remove'>
-        					<td><span class="type">void</span> Remove(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td><span class="type">void</span> Remove(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
         					<td>Removes the given entity before the next frame starts.</td>
         				</tr>
         				<tr id='IsValidEntity'>
-        					<td><span class="type">bool</span> IsValidEntity(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td><span class="type">bool</span> IsValidEntity(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
         					<td>Returns whether this is a valid entity.</td>
         				</tr>
         				<tr id='EntIndex'>
-        					<td><span class="type">int</span> EntIndex(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td><span class="type">int</span> EntIndex(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
         					<td>Gets the index for the given edict.</td>
         				</tr>
         				<tr id='IndexEnt'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> IndexEnt(<span class="type">int</span> iEdictNum)</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> IndexEnt(<span class="type">int</span> iEdictNum)</td>
         					<td>Gets the edict for the given index.</td>
         				</tr>
         				<tr id='EjectBrass'>
-        					<td><span class="type">void</span> EjectBrass(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <span class="type">float</span> flRotation, <span class="type">int</span> iModel, <a class="type" href='/TE_BOUNCE'>TE_BOUNCE</a> soundtype)</td>
+        					<td><span class="type">void</span> EjectBrass(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVelocity, <span class="type">float</span> flRotation, <span class="type">int</span> iModel, <a class="type" href='/asexthook/TE_BOUNCE'>TE_BOUNCE</a> soundtype)</td>
         					<td>tosses a brass shell from passed origin at passed velocity.</td>
         				</tr>
         				<tr id='CastToScriptClass'>
-        					<td><a class="type" href='/ScriptClassInterface'>ScriptClassInterface</a><span class="type">@</span> CastToScriptClass(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
-        					<td>Casts an <a href='/CBaseEntity'>CBaseEntity</a>@ representing a custom entity to the ScriptClassBaseClass type</td>
+        					<td><a class="type" href='/asexthook/ScriptClassInterface'>ScriptClassInterface</a><span class="type">@</span> CastToScriptClass(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Casts an <a href='/asexthook/CBaseEntity'>CBaseEntity</a>@ representing a custom entity to the ScriptClassBaseClass type</td>
         				</tr>
         				<tr id='RandomTargetname'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> RandomTargetname(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetname)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> RandomTargetname(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTargetname)</td>
         					<td>Returns a randomly selected entity that has the given target name.</td>
         				</tr>
         				<tr id='PrecacheMaterialSounds'>
-        					<td><span class="type">void</span> PrecacheMaterialSounds(<span class="type">const</span> <a class="type" href='/Materials'>Materials</a> material)</td>
+        					<td><span class="type">void</span> PrecacheMaterialSounds(<span class="type">const</span> <a class="type" href='/asexthook/Materials'>Materials</a> material)</td>
         					<td>Precaches the sounds used by a particular material</td>
         				</tr>
         	</tbody>

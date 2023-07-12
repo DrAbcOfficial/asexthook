@@ -24,7 +24,7 @@
 	</header>
     <main>
       <h1>InventoryRules</h1>
-      <p>Inventory rules: Contained by <a href='/CBaseToggle'>CBaseToggle</a> to hold and<br>manage inventory rules attached to a triggerable entity</p>
+      <p>Inventory rules: Contained by <a href='/asexthook/CBaseToggle'>CBaseToggle</a> to hold and<br>manage inventory rules attached to a triggerable entity</p>
       <p><b>Type:</b> Reference</p>
       <ul>
       	<li><a href="#Methods">Methods</a></li>
@@ -40,7 +40,7 @@
         	</thead>
         	<tbody>
         				<tr id='CanUseTrigger'>
-        					<td><span class="type">bool</span> CanUseTrigger(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <span class="type">bool</span> fContinueByDefault = false)</td>
+        					<td><span class="type">bool</span> CanUseTrigger(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <span class="type">bool</span> fContinueByDefault = false)</td>
         					<td>Returns whether the owning trigger can be triggered by the given activator.</td>
         				</tr>
         	</tbody>
@@ -54,15 +54,15 @@
         	</thead>
         	<tbody>
         				<tr id='m_hEntity'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hEntity</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hEntity</td>
         					<td>Owning entity</td>
         				</tr>
         				<tr id='m_szRequiresItemName'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szRequiresItemName</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szRequiresItemName</td>
         					<td>Inventory: Require these item(s)</td>
         				</tr>
         				<tr id='m_szRequiresItemGroup'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szRequiresItemGroup</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szRequiresItemGroup</td>
         					<td>Inventory: Require an item from these group(s)</td>
         				</tr>
         				<tr id='m_iRequiresItemGroupNum'>
@@ -70,11 +70,11 @@
         					<td>Inventory: Number of item(s) from the required group(s) required (0 = all)</td>
         				</tr>
         				<tr id='m_szCantHaveItemName'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szCantHaveItemName</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szCantHaveItemName</td>
         					<td>Inventory: Must not have these item(s)</td>
         				</tr>
         				<tr id='m_szCantHaveItemGroup'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szCantHaveItemGroup</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szCantHaveItemGroup</td>
         					<td>Inventory: Must not have an item in these group(s)</td>
         				</tr>
         				<tr id='m_iCantHaveItemGroupNum'>
@@ -86,11 +86,11 @@
         					<td>On pass: Ignore item's on use triggers?</td>
         				</tr>
         				<tr id='m_szDropItemNameOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szDropItemNameOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szDropItemNameOnUse</td>
         					<td>On pass: Drop item(s)</td>
         				</tr>
         				<tr id='m_szDropItemGroupOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szDropItemGroupOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szDropItemGroupOnUse</td>
         					<td>On pass: Drop item(s) in these group(s)</td>
         				</tr>
         				<tr id='m_fIgnoreDropTriggers'>
@@ -98,11 +98,11 @@
         					<td>On pass: Ignore item's on drop triggers?</td>
         				</tr>
         				<tr id='m_szReturnItemNameOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szReturnItemNameOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szReturnItemNameOnUse</td>
         					<td>On pass: Return item(s)</td>
         				</tr>
         				<tr id='m_szReturnItemGroupOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szReturnItemGroupOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szReturnItemGroupOnUse</td>
         					<td>On pass: Return item(s) in these group(s)</td>
         				</tr>
         				<tr id='m_fIgnoreReturnTriggers'>
@@ -110,11 +110,11 @@
         					<td>On pass: Ignore item's on return triggers?</td>
         				</tr>
         				<tr id='m_szDestroyItemNameOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szDestroyItemNameOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szDestroyItemNameOnUse</td>
         					<td>On pass: Destroy item(s)</td>
         				</tr>
         				<tr id='m_szDestroyItemGroupOnUse'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szDestroyItemGroupOnUse</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szDestroyItemGroupOnUse</td>
         					<td>On pass: Destroy item(s) in these group(s)</td>
         				</tr>
         				<tr id='m_fIgnoreDestroyTriggers'>
@@ -122,7 +122,7 @@
         					<td>On pass: Ignore item's on destroy triggers?</td>
         				</tr>
         				<tr id='m_szTargetOnFail'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_szTargetOnFail</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_szTargetOnFail</td>
         					<td>Target: Inventory rules failed</td>
         				</tr>
         	</tbody>

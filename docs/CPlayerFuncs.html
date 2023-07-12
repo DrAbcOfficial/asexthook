@@ -36,79 +36,79 @@
         	</thead>
         	<tbody>
         				<tr id='SayText'>
-        					<td><span class="type">void</span> SayText(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szText)</td>
+        					<td><span class="type">void</span> SayText(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szText)</td>
         					<td>Says text to a specific player</td>
         				</tr>
         				<tr id='SayTextAll'>
-        					<td><span class="type">void</span> SayTextAll(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pOriginatingPlayer, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szText)</td>
+        					<td><span class="type">void</span> SayTextAll(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pOriginatingPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szText)</td>
         					<td>Says text to all players</td>
         				</tr>
         				<tr id='ClientPrint'>
-        					<td><span class="type">void</span> ClientPrint(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <a class="type" href='/HUD'>HUD</a> iMsgDest, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
+        					<td><span class="type">void</span> ClientPrint(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <a class="type" href='/asexthook/HUD'>HUD</a> iMsgDest, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
         					<td>Prints one or more messages on the HUD of the given player.<br>See HUD enum.</td>
         				</tr>
         				<tr id='ClientPrintAll'>
-        					<td><span class="type">void</span> ClientPrintAll(<a class="type" href='/HUD'>HUD</a> iMsgDest, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
+        					<td><span class="type">void</span> ClientPrintAll(<a class="type" href='/asexthook/HUD'>HUD</a> iMsgDest, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
         					<td>Prints one or more messages on the HUD of all players.<br>See HUD enum.</td>
         				</tr>
         				<tr id='CenterPrintAll'>
-        					<td><span class="type">void</span> CenterPrintAll(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
+        					<td><span class="type">void</span> CenterPrintAll(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine2 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine3 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine4 = "", <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLine5 = "")</td>
         					<td>Prints one or more messages centered on the HUD of all players.</td>
         				</tr>
         				<tr id='ShowMessage'>
-        					<td><span class="type">void</span> ShowMessage(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td><span class="type">void</span> ShowMessage(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
         					<td>Shows a message to the given player.</td>
         				</tr>
         				<tr id='ShowMessageAll'>
-        					<td><span class="type">void</span> ShowMessageAll(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td><span class="type">void</span> ShowMessageAll(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
         					<td>Shows a message to all players.</td>
         				</tr>
         				<tr id='HudMessage'>
-        					<td><span class="type">void</span> HudMessage(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/HUDTextParams'>HUDTextParams</a><span class="type">&</span> <span class="inout">in</span> textParams, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
+        					<td><span class="type">void</span> HudMessage(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/HUDTextParams'>HUDTextParams</a><span class="type">&</span> <span class="inout">in</span> textParams, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
         					<td>Shows a HUD message to a given player.</td>
         				</tr>
         				<tr id='HudMessageAll'>
-        					<td><span class="type">void</span> HudMessageAll(<span class="type">const</span> <a class="type" href='/HUDTextParams'>HUDTextParams</a><span class="type">&</span> <span class="inout">in</span> textParams, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
+        					<td><span class="type">void</span> HudMessageAll(<span class="type">const</span> <a class="type" href='/asexthook/HUDTextParams'>HUDTextParams</a><span class="type">&</span> <span class="inout">in</span> textParams, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
         					<td>Shows a HUD message to all players.</td>
         				</tr>
         				<tr id='PrintKeyBindingString'>
-        					<td><span class="type">void</span> PrintKeyBindingString(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Prints a <a href='/string'>string</a> containing key bindings to the screen of the given player.</td>
+        					<td><span class="type">void</span> PrintKeyBindingString(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Prints a <a href='/asexthook/string'>string</a> containing key bindings to the screen of the given player.</td>
         				</tr>
         				<tr id='PrintKeyBindingStringAll'>
-        					<td><span class="type">void</span> PrintKeyBindingStringAll(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Prints a <a href='/string'>string</a> containing key bindings to the screen of all players.</td>
+        					<td><span class="type">void</span> PrintKeyBindingStringAll(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Prints a <a href='/asexthook/string'>string</a> containing key bindings to the screen of all players.</td>
         				</tr>
         				<tr id='HudToggleElement'>
-        					<td><span class="type">void</span> HudToggleElement(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">bool</span> fVisible)</td>
+        					<td><span class="type">void</span> HudToggleElement(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">bool</span> fVisible)</td>
         					<td>Shows or hides HUD element occupying a given channel.</td>
         				</tr>
         				<tr id='HudCustomSprite'>
-        					<td><span class="type">void</span> HudCustomSprite(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/HUDSpriteParams'>HUDSpriteParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
+        					<td><span class="type">void</span> HudCustomSprite(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/HUDSpriteParams'>HUDSpriteParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
         					<td>Shows a custom HUD sprite to a given player or to all players if pTargetPlayer is not specified.</td>
         				</tr>
         				<tr id='HudNumDisplay'>
-        					<td><span class="type">void</span> HudNumDisplay(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/HUDNumDisplayParams'>HUDNumDisplayParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
+        					<td><span class="type">void</span> HudNumDisplay(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/HUDNumDisplayParams'>HUDNumDisplayParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
         					<td>Shows a custom numeric display to a given player or to all players if pTargetPlayer is not specified.</td>
         				</tr>
         				<tr id='HudUpdateNum'>
-        					<td><span class="type">void</span> HudUpdateNum(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">float</span> flValue)</td>
+        					<td><span class="type">void</span> HudUpdateNum(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">float</span> flValue)</td>
         					<td>Updates value of a custom numberic display.</td>
         				</tr>
         				<tr id='HudTimeDisplay'>
-        					<td><span class="type">void</span> HudTimeDisplay(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/HUDNumDisplayParams'>HUDNumDisplayParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
+        					<td><span class="type">void</span> HudTimeDisplay(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">const</span> <a class="type" href='/asexthook/HUDNumDisplayParams'>HUDNumDisplayParams</a><span class="type">&</span> <span class="inout">in</span> params)</td>
         					<td>Shows a custom time display to a given player or to all players if pTargetPlayer is not specified.</td>
         				</tr>
         				<tr id='HudUpdateTime'>
-        					<td><span class="type">void</span> HudUpdateTime(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">float</span> flTime)</td>
+        					<td><span class="type">void</span> HudUpdateTime(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pTargetPlayer, <span class="type">uint8</span> iChannel, <span class="type">float</span> flTime)</td>
         					<td>Updates value of a custom time display.</td>
         				</tr>
         				<tr id='FindPlayerByIndex'>
-        					<td><a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> FindPlayerByIndex(<span class="type">int</span> index)</td>
+        					<td><a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> FindPlayerByIndex(<span class="type">int</span> index)</td>
         					<td>Finds a player by index</td>
         				</tr>
         				<tr id='FindPlayerByName'>
-        					<td><a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> FindPlayerByName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">bool</span> bCaseSensitive = true)</td>
+        					<td><a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> FindPlayerByName(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">bool</span> bCaseSensitive = true)</td>
         					<td>Finds a player by name</td>
         				</tr>
         				<tr id='GetNumPlayers'>
@@ -116,51 +116,51 @@
         					<td>Gets the number of players that are currently connected to the server.</td>
         				</tr>
         				<tr id='ScreenShake'>
-        					<td><span class="type">void</span> ScreenShake(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> center, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> duration, <span class="type">float</span> radius)</td>
+        					<td><span class="type">void</span> ScreenShake(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> center, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> duration, <span class="type">float</span> radius)</td>
         					<td>Shakes the screen for players near a certain location</td>
         				</tr>
         				<tr id='ScreenShakeAll'>
-        					<td><span class="type">void</span> ScreenShakeAll(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> center, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> duration)</td>
+        					<td><span class="type">void</span> ScreenShakeAll(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> center, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> duration)</td>
         					<td>Shakes the screen for all players</td>
         				</tr>
         				<tr id='ScreenFade'>
-        					<td><span class="type">void</span> ScreenFade(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> color, <span class="type">float</span> fadeTime, <span class="type">float</span> fadeHold, <span class="type">int</span> alpha, <span class="type">int</span> flags)</td>
+        					<td><span class="type">void</span> ScreenFade(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> color, <span class="type">float</span> fadeTime, <span class="type">float</span> fadeHold, <span class="type">int</span> alpha, <span class="type">int</span> flags)</td>
         					<td>Shows a message to a given player.</td>
         				</tr>
         				<tr id='ScreenFadeAll'>
-        					<td><span class="type">void</span> ScreenFadeAll(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> color, <span class="type">float</span> fadeTime, <span class="type">float</span> fadeHold, <span class="type">int</span> alpha, <span class="type">int</span> flags)</td>
+        					<td><span class="type">void</span> ScreenFadeAll(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> color, <span class="type">float</span> fadeTime, <span class="type">float</span> fadeHold, <span class="type">int</span> alpha, <span class="type">int</span> flags)</td>
         					<td>Shows a message to all players.</td>
         				</tr>
         				<tr id='ConcussionEffect'>
-        					<td><span class="type">void</span> ConcussionEffect(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> fadeTime)</td>
+        					<td><span class="type">void</span> ConcussionEffect(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">float</span> amplitude, <span class="type">float</span> frequency, <span class="type">float</span> fadeTime)</td>
         					<td>Applies concussion effect to a given player.</td>
         				</tr>
         				<tr id='GetNextBestWeapon'>
-        					<td><span class="type">bool</span> GetNextBestWeapon(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pCurrentWeapon)</td>
+        					<td><span class="type">bool</span> GetNextBestWeapon(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pCurrentWeapon)</td>
         					<td>Makes the given player select the next best weapon available, based on the current weapon.</td>
         				</tr>
         				<tr id='CheatsAllowed'>
-        					<td><span class="type">bool</span> CheatsAllowed(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCheatName, <span class="type">bool</span> fMustBeAlive = true, <span class="type">bool</span> fNoMessage = false) <span class="type">const</span></td>
+        					<td><span class="type">bool</span> CheatsAllowed(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCheatName, <span class="type">bool</span> fMustBeAlive = true, <span class="type">bool</span> fNoMessage = false) <span class="type">const</span></td>
         					<td>Returns whether cheats are enabled for the given player.</td>
         				</tr>
         				<tr id='AdminLevel'>
-        					<td><a class="type" href='/AdminLevel_t'>AdminLevel_t</a> AdminLevel(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer) <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/AdminLevel_t'>AdminLevel_t</a> AdminLevel(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer) <span class="type">const</span></td>
         					<td>Returns the admin level for a given player.</td>
         				</tr>
         				<tr id='AdminLevelToString'>
-        					<td><a class="type" href='/string'>string</a> AdminLevelToString(<span class="type">const</span> <a class="type" href='/AdminLevel_t'>AdminLevel_t</a> adminLevel) <span class="type">const</span></td>
-        					<td>Converts the admin level to a <a href='/string'>string</a>. If the level is an invalid value, an empty <a href='/string'>string</a> is returned</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> AdminLevelToString(<span class="type">const</span> <a class="type" href='/asexthook/AdminLevel_t'>AdminLevel_t</a> adminLevel) <span class="type">const</span></td>
+        					<td>Converts the admin level to a <a href='/asexthook/string'>string</a>. If the level is an invalid value, an empty <a href='/asexthook/string'>string</a> is returned</td>
         				</tr>
         				<tr id='StringToAdminLevel'>
-        					<td><a class="type" href='/AdminLevel_t'>AdminLevel_t</a> StringToAdminLevel(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
-        					<td>Converts a <a href='/string'>string</a> containing one of AdminLevelToString's return values to an admin level.Returns <a href='/AdminLevel_t#ADMIN_NO'>ADMIN_NO</a> if the <a href='/string'>string</a> cannot be converted to a suitable constant</td>
+        					<td><a class="type" href='/asexthook/AdminLevel_t'>AdminLevel_t</a> StringToAdminLevel(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Converts a <a href='/asexthook/string'>string</a> containing one of AdminLevelToString's return values to an admin level.Returns <a href='/asexthook/AdminLevel_t#ADMIN_NO'>ADMIN_NO</a> if the <a href='/asexthook/string'>string</a> cannot be converted to a suitable constant</td>
         				</tr>
         				<tr id='ApplyMapCfgToPlayer'>
-        					<td><span class="type">void</span> ApplyMapCfgToPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">bool</span> fReEquip = false)</td>
+        					<td><span class="type">void</span> ApplyMapCfgToPlayer(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">bool</span> fReEquip = false)</td>
         					<td>Applies the map configuration on the given player.<br>Will stack if called multiple times, unless fReEquip is true, in which case the player is stripped of all weapons and ammo first.</td>
         				</tr>
         				<tr id='RespawnPlayer'>
-        					<td><span class="type">void</span> RespawnPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">bool</span> fMoveLivingPlayers = true, <span class="type">bool</span> fRespawnDeadPlayers = false)</td>
+        					<td><span class="type">void</span> RespawnPlayer(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">bool</span> fMoveLivingPlayers = true, <span class="type">bool</span> fRespawnDeadPlayers = false)</td>
         					<td>Relocates the given player to an active spawn point. If the player is dead and fRespawnDeadPlayers is true, the player is respawned.</td>
         				</tr>
         				<tr id='RespawnAllPlayers'>
@@ -168,15 +168,15 @@
         					<td>Relocates all players to active spawn points. If a player is dead and fRespawnDeadPlayers is true, the player is respawned.</td>
         				</tr>
         				<tr id='SpawnPointFilterPasses'>
-        					<td><span class="type">bool</span> SpawnPointFilterPasses(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pPlayer)</td>
+        					<td><span class="type">bool</span> SpawnPointFilterPasses(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pPlayer)</td>
         					<td>Returns whether the given player passes the given spawn point's filter</td>
         				</tr>
         				<tr id='IsSpawnPointValid'>
-        					<td><span class="type">bool</span> IsSpawnPointValid(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pPlayer)</td>
+        					<td><span class="type">bool</span> IsSpawnPointValid(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pPlayer)</td>
         					<td>Returns whether the given spawn point is valid for the given player</td>
         				</tr>
         				<tr id='IsSpawnPointOccupied'>
-        					<td><span class="type">bool</span> IsSpawnPointOccupied(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt)</td>
+        					<td><span class="type">bool</span> IsSpawnPointOccupied(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pSpawnEnt)</td>
         					<td>Returns whether the given spawn point entity is occupied</td>
         				</tr>
         				<tr id='SharedRandomLong'>
@@ -188,16 +188,16 @@
         					<td>Gets a random float whose value is the same on both the client and server.</td>
         				</tr>
         				<tr id='GetAmmoIndex'>
-        					<td><span class="type">int</span> GetAmmoIndex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAmmoName)</td>
+        					<td><span class="type">int</span> GetAmmoIndex(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAmmoName)</td>
         					<td>Gets the index of the given ammo, or -1 if it is invalid</td>
         				</tr>
         				<tr id='CreateBot'>
-        					<td><a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> CreateBot(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td><a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> CreateBot(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
         					<td>Creates a bot with the given name.</td>
         				</tr>
         				<tr id='BotDisconnect'>
-        					<td> <span class="type">void</span> BotDisconnect(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pBot)</td>
-        					<td>Disconnects the bot. This will call <a href='/Properties#ClientDisconnect'>ClientDisconnect</a> and removes the entity. Do not use the entity after this call.</td>
+        					<td> <span class="type">void</span> BotDisconnect(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pBot)</td>
+        					<td>Disconnects the bot. This will call <a href='/asexthook/Properties#ClientDisconnect'>ClientDisconnect</a> and removes the entity. Do not use the entity after this call.</td>
         				</tr>
         	</tbody>
         </table>    </main>

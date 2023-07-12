@@ -24,7 +24,7 @@
 	</header>
     <main>
       <h1>File</h1>
-      <p><a href='/File'>File</a> class.<br>Is used to read from/write to files in disk.</p>
+      <p><a href='/asexthook/File'>File</a> class.<br>Is used to read from/write to files in disk.</p>
       <p><b>Type:</b> Reference</p>
         <h2 id="Methods">Methods</h2>
         <table>
@@ -48,15 +48,15 @@
         					<td>Removes the file. The file must be open, and you must have write access.</td>
         				</tr>
         				<tr id='GetSize'>
-        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetSize() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> GetSize() <span class="type">const</span></td>
         					<td>Returns the size of the file.</td>
         				</tr>
         				<tr id='Tell'>
-        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> Tell() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> Tell() <span class="type">const</span></td>
         					<td>Tells the position of the read/write pointer.</td>
         				</tr>
         				<tr id='Seek'>
-        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> Seek(<span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> uiPosition, <span class="type">const</span> <a class="type" href='/Typedefs#SeekFileFlags_t'>SeekFileFlags_t</a> uiSeekMode)</td>
+        					<td><a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> Seek(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiPosition, <span class="type">const</span> <a class="type" href='/asexthook/Typedefs#SeekFileFlags_t'>SeekFileFlags_t</a> uiSeekMode)</td>
         					<td>Sets the read/write pointer to a new position. Returns the new position within the file.</td>
         				</tr>
         				<tr id='EOFReached'>
@@ -64,36 +64,36 @@
         					<td>Returns whether end of file was reached.</td>
         				</tr>
         				<tr id='ReadCharacter'>
-        					<td><a class="type" href='/string'>string</a> ReadCharacter()</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> ReadCharacter()</td>
         					<td>Reads a single character.</td>
         				</tr>
         				<tr id='ReadLine'>
-        					<td><span class="type">void</span> ReadLine(<a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">out</span> szOutLine, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szDelim = '
+        					<td><span class="type">void</span> ReadLine(<a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">out</span> szOutLine, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szDelim = '
         ')</td>
         					<td>Reads a line from the file.</td>
         				</tr>
         				<tr id='Read'>
-        					<td><span class="type">bool</span> Read(<a class="type" href='/BLOB'>BLOB</a><span class="type">@</span> pBlob, <a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes)</td>
-        					<td>Reads a number of bytes into the given <a href='/BLOB'>BLOB</a>.</td>
+        					<td><span class="type">bool</span> Read(<a class="type" href='/asexthook/BLOB'>BLOB</a><span class="type">@</span> pBlob, <a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiSizeInBytes)</td>
+        					<td>Reads a number of bytes into the given <a href='/asexthook/BLOB'>BLOB</a>.</td>
         				</tr>
         				<tr id='Read@2'>
-        					<td><span class="type">bool</span> Read(<a class="type" href='/BLOB'>BLOB</a><span class="type">@</span> pBlob)</td>
-        					<td>Reads as much as possible data into the given <a href='/BLOB'>BLOB</a>.</td>
+        					<td><span class="type">bool</span> Read(<a class="type" href='/asexthook/BLOB'>BLOB</a><span class="type">@</span> pBlob)</td>
+        					<td>Reads as much as possible data into the given <a href='/asexthook/BLOB'>BLOB</a>.</td>
         				</tr>
         				<tr id='ReadBlob'>
-        					<td><a class="type" href='/BLOB'>BLOB</a><span class="type">@</span> ReadBlob(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes, <span class="type">bool</span> fCanResize = true)</td>
-        					<td>Reads a number of bytes into a <a href='/BLOB'>BLOB</a>.</td>
+        					<td><a class="type" href='/asexthook/BLOB'>BLOB</a><span class="type">@</span> ReadBlob(<a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiSizeInBytes, <span class="type">bool</span> fCanResize = true)</td>
+        					<td>Reads a number of bytes into a <a href='/asexthook/BLOB'>BLOB</a>.</td>
         				</tr>
         				<tr id='ReadBlob@2'>
-        					<td><a class="type" href='/BLOB'>BLOB</a><span class="type">@</span> ReadBlob()</td>
-        					<td>Reads as much as possible data into a <a href='/BLOB'>BLOB</a>.</td>
+        					<td><a class="type" href='/asexthook/BLOB'>BLOB</a><span class="type">@</span> ReadBlob()</td>
+        					<td>Reads as much as possible data into a <a href='/asexthook/BLOB'>BLOB</a>.</td>
         				</tr>
         				<tr id='Write'>
-        					<td><span class="type">void</span> Write(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Writes a <a href='/string'>string</a> to the file.</td>
+        					<td><span class="type">void</span> Write(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Writes a <a href='/asexthook/string'>string</a> to the file.</td>
         				</tr>
         				<tr id='Write@2'>
-        					<td><span class="type">void</span> Write(<span class="type">const</span> <a class="type" href='/BLOB'>BLOB</a><span class="type">@</span> pBlob)</td>
+        					<td><span class="type">void</span> Write(<span class="type">const</span> <a class="type" href='/asexthook/BLOB'>BLOB</a><span class="type">@</span> pBlob)</td>
         					<td>Writes a blob to the file.</td>
         				</tr>
         	</tbody>

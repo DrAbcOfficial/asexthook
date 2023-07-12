@@ -40,35 +40,35 @@
         					<td>Returns whether inventory modification is available.</td>
         				</tr>
         				<tr id='Exists'>
-        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry) <span class="type">const</span></td>
+        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry) <span class="type">const</span></td>
         					<td>Returns whether the given entry is present in the inventory.</td>
         				</tr>
         				<tr id='Set'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
         					<td>Set an item in the inventory.<br>Sets the amount if the item is already in the inventory.</td>
         				</tr>
         				<tr id='Set@2'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry)</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry)</td>
         					<td>Set an entry to the inventory.</td>
         				</tr>
         				<tr id='Add'>
-        					<td><span class="type">bool</span> Add(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry, <span class="type">uint</span> uiAmount, <span class="type">bool</span> fAdd = true)</td>
+        					<td><span class="type">bool</span> Add(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry, <span class="type">uint</span> uiAmount, <span class="type">bool</span> fAdd = true)</td>
         					<td>Add or subtract from an existing value.<br>Inserts if the value is not already in the inventory.</td>
         				</tr>
         				<tr id='Remove'>
-        					<td><span class="type">bool</span> Remove(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry)</td>
+        					<td><span class="type">bool</span> Remove(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry)</td>
         					<td>Removes an entry from the inventory.</td>
         				</tr>
         				<tr id='Restock'>
-        					<td><span class="type">bool</span> Restock(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
+        					<td><span class="type">bool</span> Restock(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
         					<td>Restocks the inventory with up to uiAmount of the given item.<br>Does nothing if the current amount already exceeds the given amount.</td>
         				</tr>
         				<tr id='Limit'>
-        					<td><span class="type">bool</span> Limit(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
+        					<td><span class="type">bool</span> Limit(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItem, <span class="type">uint</span> uiAmount)</td>
         					<td>Limits the inventory content of the given item to at most uiAmount.<br>Does nothing if there is less than uiAmount in the inventory.</td>
         				</tr>
         				<tr id='GetAmount'>
-        					<td><span class="type">uint</span> GetAmount(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry) <span class="type">const</span></td>
+        					<td><span class="type">uint</span> GetAmount(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntry) <span class="type">const</span></td>
         					<td>Gets the amount of a given entry.<br>Returns 0 if the entry doesn't exist.</td>
         				</tr>
         	</tbody>

@@ -36,76 +36,76 @@
         	</thead>
         	<tbody>
         				<tr id='PrecacheSound'>
-        					<td><span class="type">void</span> PrecacheSound(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
+        					<td><span class="type">void</span> PrecacheSound(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
         					<td>Precaches the given sound.<br>Must be called in MapInit</td>
         				</tr>
         				<tr id='PrecacheSound@2'>
-        					<td><span class="type">void</span> PrecacheSound(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
+        					<td><span class="type">void</span> PrecacheSound(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
         					<td>Precaches the given sound for the given entity. Supports entity sound replacement.<br>Must be called in MapInit</td>
         				</tr>
         				<tr id='FindSoundReplacementSample'>
-        					<td><a class="type" href='/string'>string</a> FindSoundReplacementSample(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample) <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/string'>string</a> FindSoundReplacementSample(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample) <span class="type">const</span></td>
         					<td>Finds the sound replacement sample for the given entity and sample.If the sample is replaced, it will return the sample used instead. Otherwise, szSample is returned.</td>
         				</tr>
         				<tr id='PlaySound'>
-        					<td><span class="type">void</span> PlaySound(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> sample,<span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags = 0, <span class="type">int</span> pitch = <a class="value" href='/PITCH#PITCH_NORM'>PITCH_NORM</a>,<span class="type">int</span> target_ent_unreliable = 0, <span class="type">bool</span> setOrigin = false, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin = <a class="value" href='/Properties#g_vecZero'>g_vecZero</a>)</td>
+        					<td><span class="type">void</span> PlaySound(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/asexthook/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> sample,<span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags = 0, <span class="type">int</span> pitch = <a class="value" href='/asexthook/PITCH#PITCH_NORM'>PITCH_NORM</a>,<span class="type">int</span> target_ent_unreliable = 0, <span class="type">bool</span> setOrigin = false, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin = <a class="value" href='/asexthook/Properties#g_vecZero'>g_vecZero</a>)</td>
         					<td>Plays the given sound with the given parameters. Sound replacement is not used here.</td>
         				</tr>
         				<tr id='StopSound'>
-        					<td><span class="type">void</span> StopSound(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample, <span class="type">const</span> <span class="type">bool</span> fUseSoundReplacement = true)</td>
+        					<td><span class="type">void</span> StopSound(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/asexthook/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample, <span class="type">const</span> <span class="type">bool</span> fUseSoundReplacement = true)</td>
         					<td>Stops the given sound on the given entity on the given channel. If the sound was started using PlaySound, set fUseSoundReplacement to false.</td>
         				</tr>
         				<tr id='EmitSoundDyn'>
-        					<td><span class="type">void</span> EmitSoundDyn(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample,<span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation, <span class="type">int</span> iFlags = 0, <span class="type">int</span> iPitch = <a class="value" href='/PITCH#PITCH_NORM'>PITCH_NORM</a>, <span class="type">int</span> target_ent_unreliable = 0)</td>
+        					<td><span class="type">void</span> EmitSoundDyn(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/asexthook/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample,<span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation, <span class="type">int</span> iFlags = 0, <span class="type">int</span> iPitch = <a class="value" href='/asexthook/PITCH#PITCH_NORM'>PITCH_NORM</a>, <span class="type">int</span> target_ent_unreliable = 0)</td>
         					<td>Plays the given sound with the given parameters. Sound replacement will affect this.</td>
         				</tr>
         				<tr id='EmitSound'>
-        					<td><span class="type">void</span> EmitSound(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample, <span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation)</td>
+        					<td><span class="type">void</span> EmitSound(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <a class="type" href='/asexthook/SOUND_CHANNEL'>SOUND_CHANNEL</a> channel, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample, <span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation)</td>
         					<td>Plays the given sound with the given parameters. Sound replacement will affect this.</td>
         				</tr>
         				<tr id='EmitSoundSuit'>
-        					<td><span class="type">void</span> EmitSoundSuit(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample)</td>
+        					<td><span class="type">void</span> EmitSoundSuit(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample)</td>
         					<td>Play a specific sentence over the HEV suit speaker - just pass player entity, and !sentencename.</td>
         				</tr>
         				<tr id='EmitGroupIdSuit'>
-        					<td><span class="type">void</span> EmitGroupIdSuit(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">int</span> isentencereg)</td>
+        					<td><span class="type">void</span> EmitGroupIdSuit(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">int</span> isentencereg)</td>
         					<td>Play a sentence, randomly selected from the passed in group id, over the HEV suit speaker.</td>
         				</tr>
         				<tr id='EmitGroupNameSuit'>
-        					<td><span class="type">void</span> EmitGroupNameSuit(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample)</td>
+        					<td><span class="type">void</span> EmitGroupNameSuit(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample)</td>
         					<td>Play a sentence, randomly selected from the passed in groupname.</td>
         				</tr>
         				<tr id='LookupSentenceIndex'>
-        					<td><span class="type">int</span> LookupSentenceIndex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> sentenceName)</td>
+        					<td><span class="type">int</span> LookupSentenceIndex(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> sentenceName)</td>
         					<td>Looks up the sentence index of the given sentence</td>
         				</tr>
         				<tr id='LookupSentenceGroupIndex'>
-        					<td><span class="type">int</span> LookupSentenceGroupIndex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroup)</td>
+        					<td><span class="type">int</span> LookupSentenceGroupIndex(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroup)</td>
         					<td>Looks up the sentence group index of the given sentence</td>
         				</tr>
         				<tr id='PlaySentenceGroup'>
-        					<td><span class="type">int</span> PlaySentenceGroup(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroupName, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch)</td>
+        					<td><span class="type">int</span> PlaySentenceGroup(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroupName, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch)</td>
         					<td>Plays a sentence group</td>
         				</tr>
         				<tr id='PlaySentenceGroup@2'>
-        					<td><span class="type">int</span> PlaySentenceGroup(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">int</span> iGroupIndex, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch)</td>
+        					<td><span class="type">int</span> PlaySentenceGroup(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">int</span> iGroupIndex, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch)</td>
         					<td>Plays a sentence group</td>
         				</tr>
         				<tr id='PlaySentenceGroupSequential'>
-        					<td><span class="type">int</span> PlaySentenceGroupSequential(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroupName,<span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch, <span class="type">int</span> ipick, <span class="type">const</span> <span class="type">bool</span> bReset)</td>
+        					<td><span class="type">int</span> PlaySentenceGroupSequential(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroupName,<span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">int</span> flags, <span class="type">int</span> pitch, <span class="type">int</span> ipick, <span class="type">const</span> <span class="type">bool</span> bReset)</td>
         					<td>Plays a sentence group sequentially</td>
         				</tr>
         				<tr id='EmitAmbientSound'>
-        					<td><span class="type">void</span> EmitAmbientSound(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample,<span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation, <span class="type">int</span> fFlags, <span class="type">int</span> iPitch)</td>
+        					<td><span class="type">void</span> EmitAmbientSound(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> entity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSample,<span class="type">float</span> flVolume, <span class="type">float</span> flAttenuation, <span class="type">int</span> fFlags, <span class="type">int</span> iPitch)</td>
         					<td>Plays a sentence group sequentially</td>
         				</tr>
         				<tr id='PlayHitSound'>
-        					<td><span class="type">float</span> PlayHitSound( <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> tr, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <span class="type">int</span> iBulletType )</td>
+        					<td><span class="type">float</span> PlayHitSound( <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> tr, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <span class="type">int</span> iBulletType )</td>
         					<td>Plays a hit sound based on the trace result's hit target. Returns the volume at which the hit is being played.</td>
         				</tr>
         				<tr id='FindMaterialType'>
-        					<td><a class="type" href='/char'>char</a> FindMaterialType(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMaterial) <span class="type">const</span></td>
-        					<td>Maps the texture name to a material type. See the <a href='/TextureType'>TextureType</a> enum.</td>
+        					<td><a class="type" href='/asexthook/char'>char</a> FindMaterialType(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMaterial) <span class="type">const</span></td>
+        					<td>Maps the texture name to a material type. See the <a href='/asexthook/TextureType'>TextureType</a> enum.</td>
         				</tr>
         	</tbody>
         </table>    </main>

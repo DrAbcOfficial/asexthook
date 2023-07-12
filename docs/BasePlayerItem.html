@@ -24,7 +24,7 @@
 	</header>
     <main>
       <h1>BasePlayerItem</h1>
-      <p>Baseclass for <a href='/CBasePlayerItem'>CBasePlayerItem</a>.<br>Allows calling of the base implementation of certain methods.</p>
+      <p>Baseclass for <a href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a>.<br>Allows calling of the base implementation of certain methods.</p>
       <p><b>Type:</b> Reference</p>
         <h2 id="Methods">Methods</h2>
         <table>
@@ -36,11 +36,11 @@
         	</thead>
         	<tbody>
         				<tr id='opImplCast'>
-        					<td><a class="type" href='/BaseEntity'>BaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/BaseEntity'>BaseEntity</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='KeyValue'>
-        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
         					<td>Calls the base class implementation of KeyValue</td>
         				</tr>
         				<tr id='Precache'>
@@ -64,15 +64,15 @@
         					<td>Calls the base class implementation of Think</td>
         				</tr>
         				<tr id='Touch'>
-        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Calls the base class implementation of Touch</td>
         				</tr>
         				<tr id='Use'>
-        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td><span class="type">void</span> Use(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
         					<td>Calls the base class implementation of Use</td>
         				</tr>
         				<tr id='Blocked'>
-        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Calls the base class implementation of Blocked</td>
         				</tr>
         				<tr id='UpdateOnRemove'>
@@ -84,11 +84,11 @@
         					<td>Calls the base class implementation of ObjectCaps</td>
         				</tr>
         				<tr id='TraceAttack'>
-        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TraceAttack</td>
         				</tr>
         				<tr id='TakeDamage'>
-        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TakeDamage</td>
         				</tr>
         				<tr id='TakeHealth'>
@@ -100,7 +100,7 @@
         					<td>Calls the base class implementation of TakeArmor</td>
         				</tr>
         				<tr id='Killed'>
-        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
         					<td>Calls the base class implementation of Killed</td>
         				</tr>
         				<tr id='BloodColor'>
@@ -108,7 +108,7 @@
         					<td>Calls the base class implementation of BloodColor</td>
         				</tr>
         				<tr id='TraceBleed'>
-        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TraceBleed</td>
         				</tr>
         				<tr id='GetPointsForDamage'>
@@ -128,19 +128,19 @@
         					<td>Calls the base class implementation of EndRevive</td>
         				</tr>
         				<tr id='AddToPlayer'>
-        					<td><span class="type">bool</span> AddToPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td><span class="type">bool</span> AddToPlayer(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
         					<td>Calls the base class implementation of AddToPlayer</td>
         				</tr>
         				<tr id='AddDuplicate'>
-        					<td><span class="type">bool</span> AddDuplicate(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td><span class="type">bool</span> AddDuplicate(<a class="type" href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
         					<td>Calls the base class implementation of AddDuplicate</td>
         				</tr>
         				<tr id='Materialize'>
         					<td><span class="type">void</span> Materialize()</td>
-        					<td>Calls the base class implementation of <a href='/Properties#Materialize'>Materialize</a></td>
+        					<td>Calls the base class implementation of <a href='/asexthook/Properties#Materialize'>Materialize</a></td>
         				</tr>
         				<tr id='GetItemInfo'>
-        					<td><span class="type">void</span> GetItemInfo(<a class="type" href='/ItemInfo'>ItemInfo</a><span class="type">&</span> <span class="inout">out</span> info)</td>
+        					<td><span class="type">void</span> GetItemInfo(<a class="type" href='/asexthook/ItemInfo'>ItemInfo</a><span class="type">&</span> <span class="inout">out</span> info)</td>
         					<td>Calls the base class implementation of GetItemInfo</td>
         				</tr>
         				<tr id='CanDeploy'>
@@ -184,7 +184,7 @@
         					<td>Calls the base class implementation of Kill</td>
         				</tr>
         				<tr id='AttachToPlayer'>
-        					<td><span class="type">void</span> AttachToPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td><span class="type">void</span> AttachToPlayer(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
         					<td>Calls the base class implementation of AttachToPlayer</td>
         				</tr>
         				<tr id='PrimaryAmmoIndex'>
@@ -196,7 +196,7 @@
         					<td>Calls the base class implementation of SecondaryAmmoIndex</td>
         				</tr>
         				<tr id='UpdateClientData'>
-        					<td><span class="type">bool</span> UpdateClientData(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td><span class="type">bool</span> UpdateClientData(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
         					<td>Calls the base class implementation of UpdateClientData</td>
         				</tr>
         				<tr id='GetRespawnTime'>
@@ -204,7 +204,7 @@
         					<td>Calls the base class implementation of GetRespawnTime</td>
         				</tr>
         				<tr id='DropItem'>
-        					<td><a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> DropItem()</td>
+        					<td><a class="type" href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> DropItem()</td>
         					<td>Calls the base class implementation of DropItem</td>
         				</tr>
         				<tr id='CanHaveDuplicates'>
@@ -212,7 +212,7 @@
         					<td>Calls the base class implementation of CanHaveDuplicates</td>
         				</tr>
         				<tr id='opCast'>
-        					<td><a class="type" href='/BasePlayerWeapon'>BasePlayerWeapon</a><span class="type">@</span> opCast()</td>
+        					<td><a class="type" href='/asexthook/BasePlayerWeapon'>BasePlayerWeapon</a><span class="type">@</span> opCast()</td>
         					<td>Explicitly casts to sub type.</td>
         				</tr>
         	</tbody>

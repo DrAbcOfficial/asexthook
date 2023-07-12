@@ -40,11 +40,11 @@
         	</thead>
         	<tbody>
         				<tr id='Exists'>
-        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName) <span class="type">const</span></td>
+        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName) <span class="type">const</span></td>
         					<td>Returns whether the given persistence instance exists.</td>
         				</tr>
         				<tr id='IsValidHandle'>
-        					<td><span class="type">bool</span> IsValidHandle(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID) <span class="type">const</span></td>
+        					<td><span class="type">bool</span> IsValidHandle(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID) <span class="type">const</span></td>
         					<td>Returns whether the given persistence instance handle is valid.</td>
         				</tr>
         				<tr id='ShouldKeep'>
@@ -56,31 +56,31 @@
         					<td>Sets whether the previous map's persistence instances will be kept.</td>
         				</tr>
         				<tr id='KeepIfPrevious'>
-        					<td><span class="type">bool</span> KeepIfPrevious(<span class="type">const</span> <span class="type">array</span><span class="type"><</span><a class="type" href='/string'>string</a><span class="type">></span><span class="type">@</span> pArray)</td>
+        					<td><span class="type">bool</span> KeepIfPrevious(<span class="type">const</span> <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/string'>string</a><span class="type">></span><span class="type">@</span> pArray)</td>
         					<td>Will make the persistence manager keep the previous map's persistence instancesif the previous map's name matches any of the elements in the array.</td>
         				</tr>
         				<tr id='KeepIfPrevious@2'>
-        					<td><span class="type">bool</span> KeepIfPrevious(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMapName)</td>
+        					<td><span class="type">bool</span> KeepIfPrevious(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMapName)</td>
         					<td>Will make the persistence manager keep the previous map's persistence instancesif the previous map's name matches the given map name.</td>
         				</tr>
         				<tr id='RegisterInstance'>
-        					<td><a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> RegisterInstance(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td><a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> RegisterInstance(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
         					<td>Returns a persistence instance tied to the given name. Will be created if it does not already exist.</td>
         				</tr>
         				<tr id='GetPreviousMapName'>
-        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetPreviousMapName() <span class="type">const</span></td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> GetPreviousMapName() <span class="type">const</span></td>
         					<td>Returns the name of the previous map. Can be empty if the server has just started.</td>
         				</tr>
         				<tr id='GetCurrentMapName'>
-        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetCurrentMapName() <span class="type">const</span></td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> GetCurrentMapName() <span class="type">const</span></td>
         					<td>Returns the name of the current map.</td>
         				</tr>
         				<tr id='ClearInstance'>
-        					<td><span class="type">void</span> ClearInstance(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td><span class="type">void</span> ClearInstance(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
         					<td>Clears the specified persistence instance.</td>
         				</tr>
         				<tr id='ClearInstance@2'>
-        					<td><span class="type">void</span> ClearInstance(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID)</td>
+        					<td><span class="type">void</span> ClearInstance(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID)</td>
         					<td>Clears the specified persistence instance.</td>
         				</tr>
         				<tr id='Clear'>
@@ -88,63 +88,63 @@
         					<td>Clears all persistence instances.<br>Make sure to avoid calling handles referencing the cleared instances.</td>
         				</tr>
         				<tr id='GetName'>
-        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetName(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID) <span class="type">const</span></td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> GetName(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID) <span class="type">const</span></td>
         					<td>Returns the name of this instance.</td>
         				</tr>
         				<tr id='Size'>
-        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> Size(<span class="type">int</span> iId) <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> Size(<span class="type">int</span> iId) <span class="type">const</span></td>
         					<td>Returns the number of persisted items in this instance.</td>
         				</tr>
         				<tr id='Exists@2'>
-        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td><span class="type">bool</span> Exists(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
         					<td>Returns whether the given key exists in this instance.</td>
         				</tr>
         				<tr id='GetString'>
-        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetString(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
-        					<td>Returns the given value as a <a href='/string'>string</a>, or  if it does not exist.</td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> GetString(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td>Returns the given value as a <a href='/asexthook/string'>string</a>, or  if it does not exist.</td>
         				</tr>
         				<tr id='GetBoolean'>
-        					<td><span class="type">bool</span> GetBoolean(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td><span class="type">bool</span> GetBoolean(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
         					<td>Returns the given value as a boolean, or false if it does not exist.</td>
         				</tr>
         				<tr id='GetLong'>
-        					<td><span class="type">int32</span> GetLong(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int</span> iRadix = 10)</td>
+        					<td><span class="type">int32</span> GetLong(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int</span> iRadix = 10)</td>
         					<td>Returns the given value as a long, or 0 if it does not exist.</td>
         				</tr>
         				<tr id='GetUlong'>
-        					<td><span class="type">uint32</span> GetUlong(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int</span> iRadix = 10)</td>
+        					<td><span class="type">uint32</span> GetUlong(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int</span> iRadix = 10)</td>
         					<td>Returns the given value as a unsigned long, or 0 if it does not exist.</td>
         				</tr>
         				<tr id='GetFloat'>
-        					<td><span class="type">float</span> GetFloat(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td><span class="type">float</span> GetFloat(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
         					<td>Returns the given value as a float, or 0.0 if it does not exist.</td>
         				</tr>
         				<tr id='Set'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
-        					<td>Sets the given value as a <a href='/string'>string</a>.</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Sets the given value as a <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='Set@2'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">bool</span> fValue)</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">bool</span> fValue)</td>
         					<td>Sets the given value as a boolean.</td>
         				</tr>
         				<tr id='Set@3'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int32</span> iValue)</td>
-        					<td>Sets the given value as a <a href='/string'>string</a>.</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">int32</span> iValue)</td>
+        					<td>Sets the given value as a <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='Set@4'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">uint32</span> uiValue)</td>
-        					<td>Sets the given value as a <a href='/string'>string</a>.</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">uint32</span> uiValue)</td>
+        					<td>Sets the given value as a <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='Set@5'>
-        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">float</span> flValue)</td>
-        					<td>Sets the given value as a <a href='/string'>string</a>.</td>
+        					<td><span class="type">void</span> Set(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey, <span class="type">float</span> flValue)</td>
+        					<td>Sets the given value as a <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='Clear@2'>
-        					<td><span class="type">void</span> Clear(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td><span class="type">void</span> Clear(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
         					<td>Clears the given value.</td>
         				</tr>
         				<tr id='Clear@3'>
-        					<td><span class="type">void</span> Clear(<span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> ID)</td>
+        					<td><span class="type">void</span> Clear(<span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> ID)</td>
         					<td>Clears all values.</td>
         				</tr>
         	</tbody>
@@ -158,7 +158,7 @@
         	</thead>
         	<tbody>
         				<tr id='INVALID_ID'>
-        					<td><span class="type">const</span> <a class="type" href='/Typedefs#PersistID_t'>PersistID_t</a> INVALID_ID</td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/Typedefs#PersistID_t'>PersistID_t</a> INVALID_ID</td>
         					<td>Id used by invalid persistence objects.</td>
         				</tr>
         	</tbody>

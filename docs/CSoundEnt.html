@@ -24,7 +24,7 @@
 	</header>
     <main>
       <h1>CSoundEnt</h1>
-      <p>Sound manager entity. Manages sound events made in the world, like gunfire.<br>Does not handle the playing of sounds, see <a href='/CSoundEngine'>CSoundEngine</a> for actual sound playing.</p>
+      <p>Sound manager entity. Manages sound events made in the world, like gunfire.<br>Does not handle the playing of sounds, see <a href='/asexthook/CSoundEngine'>CSoundEngine</a> for actual sound playing.</p>
       <p><b>Type:</b> Reference</p>
       <ul>
       	<li><a href="#Methods">Methods</a></li>
@@ -40,8 +40,8 @@
         	</thead>
         	<tbody>
         				<tr id='InsertSound'>
-        					<td><span class="type">void</span> InsertSound(<span class="type">int</span> iType, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> iVolume, <span class="type">float</span> flDuration, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOwner)</td>
-        					<td>Inserts a sound. iType is one of the <a href='/bits_SOUND'>bits_SOUND</a> enum.</td>
+        					<td><span class="type">void</span> InsertSound(<span class="type">int</span> iType, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> iVolume, <span class="type">float</span> flDuration, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOwner)</td>
+        					<td>Inserts a sound. iType is one of the <a href='/asexthook/bits_SOUND'>bits_SOUND</a> enum.</td>
         				</tr>
         				<tr id='ActiveList'>
         					<td><span class="type">int</span> ActiveList()</td>
@@ -52,11 +52,11 @@
         					<td>Returns the head of the free list.</td>
         				</tr>
         				<tr id='SoundPointerForIndex'>
-        					<td><a class="type" href='/CSound'>CSound</a><span class="type">@</span> SoundPointerForIndex(<span class="type">int</span> iIndex)</td>
-        					<td>Return a pointer for this index in the sound list.<br>Index must be between 0 and <a href='/Properties#MAX_WORLD_SOUNDS'>MAX_WORLD_SOUNDS</a>.</td>
+        					<td><a class="type" href='/asexthook/CSound'>CSound</a><span class="type">@</span> SoundPointerForIndex(<span class="type">int</span> iIndex)</td>
+        					<td>Return a pointer for this index in the sound list.<br>Index must be between 0 and <a href='/asexthook/Properties#MAX_WORLD_SOUNDS'>MAX_WORLD_SOUNDS</a>.</td>
         				</tr>
         				<tr id='ClientSoundIndex'>
-        					<td><span class="type">int</span> ClientSoundIndex(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pClient)</td>
+        					<td><span class="type">int</span> ClientSoundIndex(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pClient)</td>
         					<td>Gets the index for the given client.</td>
         				</tr>
         				<tr id='IsEmpty'>
@@ -65,7 +65,7 @@
         				</tr>
         				<tr id='ISoundsInList'>
         					<td><span class="type">int</span> ISoundsInList(<span class="type">int</span> iListType)</td>
-        					<td>Returns the number of sounds in the given list. Must be either <a href='/Properties#SOUNDLISTTYPE_FREE'>SOUNDLISTTYPE_FREE</a> or <a href='/Properties#SOUNDLISTTYPE_ACTIVE'>SOUNDLISTTYPE_ACTIVE</a>.</td>
+        					<td>Returns the number of sounds in the given list. Must be either <a href='/asexthook/Properties#SOUNDLISTTYPE_FREE'>SOUNDLISTTYPE_FREE</a> or <a href='/asexthook/Properties#SOUNDLISTTYPE_ACTIVE'>SOUNDLISTTYPE_ACTIVE</a>.</td>
         				</tr>
         	</tbody>
         </table>  <h2 id="Properties">Properties</h2>

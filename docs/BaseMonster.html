@@ -24,7 +24,7 @@
 	</header>
     <main>
       <h1>BaseMonster</h1>
-      <p>Baseclass for <a href='/CBaseMonster'>CBaseMonster</a>.<br>Allows calling of the base implementation of certain methods.</p>
+      <p>Baseclass for <a href='/asexthook/CBaseMonster'>CBaseMonster</a>.<br>Allows calling of the base implementation of certain methods.</p>
       <p><b>Type:</b> Reference</p>
         <h2 id="Methods">Methods</h2>
         <table>
@@ -36,11 +36,11 @@
         	</thead>
         	<tbody>
         				<tr id='opImplCast'>
-        					<td><a class="type" href='/BaseEntity'>BaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/BaseEntity'>BaseEntity</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='KeyValue'>
-        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
         					<td>Calls the base class implementation of KeyValue</td>
         				</tr>
         				<tr id='Precache'>
@@ -64,15 +64,15 @@
         					<td>Calls the base class implementation of Think</td>
         				</tr>
         				<tr id='Touch'>
-        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Calls the base class implementation of Touch</td>
         				</tr>
         				<tr id='Use'>
-        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td><span class="type">void</span> Use(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
         					<td>Calls the base class implementation of Use</td>
         				</tr>
         				<tr id='Blocked'>
-        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Calls the base class implementation of Blocked</td>
         				</tr>
         				<tr id='UpdateOnRemove'>
@@ -84,11 +84,11 @@
         					<td>Calls the base class implementation of ObjectCaps</td>
         				</tr>
         				<tr id='TraceAttack'>
-        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TraceAttack</td>
         				</tr>
         				<tr id='TakeDamage'>
-        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TakeDamage</td>
         				</tr>
         				<tr id='TakeHealth'>
@@ -100,7 +100,7 @@
         					<td>Calls the base class implementation of TakeArmor</td>
         				</tr>
         				<tr id='Killed'>
-        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
         					<td>Calls the base class implementation of Killed</td>
         				</tr>
         				<tr id='BloodColor'>
@@ -108,7 +108,7 @@
         					<td>Calls the base class implementation of BloodColor</td>
         				</tr>
         				<tr id='TraceBleed'>
-        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
         					<td>Calls the base class implementation of TraceBleed</td>
         				</tr>
         				<tr id='GetPointsForDamage'>
@@ -196,27 +196,27 @@
         					<td>Calls the base class implementation of SetYawSpeed</td>
         				</tr>
         				<tr id='StartTask'>
-        					<td><span class="type">void</span> StartTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td><span class="type">void</span> StartTask(<a class="type" href='/asexthook/Task'>Task</a><span class="type">@</span> pTask)</td>
         					<td>Calls the base class implementation of StartTask</td>
         				</tr>
         				<tr id='RunTask'>
-        					<td><span class="type">void</span> RunTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td><span class="type">void</span> RunTask(<a class="type" href='/asexthook/Task'>Task</a><span class="type">@</span> pTask)</td>
         					<td>Calls the base class implementation of RunTask</td>
         				</tr>
         				<tr id='HandleAnimEvent'>
-        					<td><span class="type">void</span> HandleAnimEvent(<a class="type" href='/MonsterEvent'>MonsterEvent</a><span class="type">@</span> pEvent)</td>
+        					<td><span class="type">void</span> HandleAnimEvent(<a class="type" href='/asexthook/MonsterEvent'>MonsterEvent</a><span class="type">@</span> pEvent)</td>
         					<td>Calls the base class implementation of HandleAnimEvent</td>
         				</tr>
         				<tr id='GetScheduleOfType'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetScheduleOfType(<span class="type">int</span> iType)</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> GetScheduleOfType(<span class="type">int</span> iType)</td>
         					<td>Calls the base class implementation of GetScheduleOfType</td>
         				</tr>
         				<tr id='GetSchedule'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetSchedule()</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> GetSchedule()</td>
         					<td>Calls the base class implementation of GetSchedule</td>
         				</tr>
         				<tr id='ScheduleFromName'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> ScheduleFromName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> ScheduleFromName(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
         					<td>Calls the base class implementation of ScheduleFromName</td>
         				</tr>
         				<tr id='RunAI'>

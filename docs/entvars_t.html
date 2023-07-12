@@ -40,7 +40,7 @@
         	</thead>
         	<tbody>
         				<tr id='ClassNameIs'>
-        					<td><span class="type">bool</span> ClassNameIs(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassName)</td>
+        					<td><span class="type">bool</span> ClassNameIs(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassName)</td>
         					<td>Returns whether the given class name is this entity's class name</td>
         				</tr>
         				<tr id='get_controller'>
@@ -68,7 +68,7 @@
         					<td>Returns whether the given flag(s) are set on the entvars flags variable</td>
         				</tr>
         				<tr id='get_pContainingEntity'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> get_pContainingEntity() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> get_pContainingEntity() <span class="type">const</span></td>
         					<td>Entity containing entity. pContainingEntity.vars equals this entvars instance.</td>
         				</tr>
         	</tbody>
@@ -82,55 +82,55 @@
         	</thead>
         	<tbody>
         				<tr id='classname'>
-        					<td><span class="type">const</span> <a class="type" href='/string_t'>string_t</a> classname</td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/string_t'>string_t</a> classname</td>
         					<td>The entity class name</td>
         				</tr>
         				<tr id='globalname'>
-        					<td><a class="type" href='/string_t'>string_t</a> globalname</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> globalname</td>
         					<td>The entity global name</td>
         				</tr>
         				<tr id='origin'>
-        					<td><a class="type" href='/Vector'>Vector</a> origin</td>
-        					<td>Entity origin. Must be set using <a href='/Properties#g_EntityFuncs'>g_EntityFuncs</a>.SetOrigin.</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> origin</td>
+        					<td>Entity origin. Must be set using <a href='/asexthook/Properties#g_EntityFuncs'>g_EntityFuncs</a>.SetOrigin.</td>
         				</tr>
         				<tr id='oldorigin'>
-        					<td><a class="type" href='/Vector'>Vector</a> oldorigin</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> oldorigin</td>
         					<td>Old entity origin. Used by some entities to store off their original origin before moving to a different location.</td>
         				</tr>
         				<tr id='velocity'>
-        					<td><a class="type" href='/Vector'>Vector</a> velocity</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> velocity</td>
         					<td>Entity velocity</td>
         				</tr>
         				<tr id='basevelocity'>
-        					<td><a class="type" href='/Vector'>Vector</a> basevelocity</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> basevelocity</td>
         					<td>Entity base velocity. Used when standing on another entity that applies velocity to entities standing on it, for instance conveyors.</td>
         				</tr>
         				<tr id='movedir'>
-        					<td><a class="type" href='/Vector'>Vector</a> movedir</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> movedir</td>
         					<td>Entity move direction. Used by some entities for movement directions, but some entities use it for other purposes.</td>
         				</tr>
         				<tr id='angles'>
-        					<td><a class="type" href='/Vector'>Vector</a> angles</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> angles</td>
         					<td>Entity angles, in degrees.</td>
         				</tr>
         				<tr id='avelocity'>
-        					<td><a class="type" href='/Vector'>Vector</a> avelocity</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> avelocity</td>
         					<td>Entity angular velocity, in degrees/sec. Applied to the entity's angles.</td>
         				</tr>
         				<tr id='punchangle'>
-        					<td><a class="type" href='/Vector'>Vector</a> punchangle</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> punchangle</td>
         					<td>Player punch angle. These angles are applied to players when they are 'punched'.These angles are automatically interpolated back to the null vector over time.</td>
         				</tr>
         				<tr id='v_angle'>
-        					<td><a class="type" href='/Vector'>Vector</a> v_angle</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> v_angle</td>
         					<td>Player view angle. These are the angles used for the player's view, and differ from the regular angles variable.</td>
         				</tr>
         				<tr id='endpos'>
-        					<td><a class="type" href='/Vector'>Vector</a> endpos</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> endpos</td>
         					<td>Entity end position. Reserved for future use.</td>
         				</tr>
         				<tr id='startpos'>
-        					<td><a class="type" href='/Vector'>Vector</a> startpos</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> startpos</td>
         					<td>Entity start position. Reserved for future use.</td>
         				</tr>
         				<tr id='impacttime'>
@@ -143,7 +143,7 @@
         				</tr>
         				<tr id='fixangle'>
         					<td><span class="type">int</span> fixangle</td>
-        					<td>Entity fix angle. Engine uses this value to change player view angles, and then resets it to <a href='/FixAngleMode#FAM_NOTHING'>FAM_NOTHING</a>. See <a href='/FixAngleMode'>FixAngleMode</a> enum.</td>
+        					<td>Entity fix angle. Engine uses this value to change player view angles, and then resets it to <a href='/asexthook/FixAngleMode#FAM_NOTHING'>FAM_NOTHING</a>. See <a href='/asexthook/FixAngleMode'>FixAngleMode</a> enum.</td>
         				</tr>
         				<tr id='idealpitch'>
         					<td><span class="type">float</span> idealpitch</td>
@@ -166,35 +166,35 @@
         					<td>Entity model index. If this entity has a model, is the unique index of the model. Otherwise, is 0.</td>
         				</tr>
         				<tr id='model'>
-        					<td><a class="type" href='/string_t'>string_t</a> model</td>
-        					<td>The entity model name. If this entity has a model, is the name of that model. Otherwise, is an empty <a href='/string'>string</a>.Use <a href='/Properties#g_EntityFuncs'>g_EntityFuncs</a>.SetModel to set this variable.</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> model</td>
+        					<td>The entity model name. If this entity has a model, is the name of that model. Otherwise, is an empty <a href='/asexthook/string'>string</a>.Use <a href='/asexthook/Properties#g_EntityFuncs'>g_EntityFuncs</a>.SetModel to set this variable.</td>
         				</tr>
         				<tr id='viewmodel'>
-        					<td><a class="type" href='/string_t'>string_t</a> viewmodel</td>
-        					<td>Player view model index. If this player has a visible weapon, is the name of that view (v_) model. Otherwise, is an empty <a href='/string'>string</a>.</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> viewmodel</td>
+        					<td>Player view model index. If this player has a visible weapon, is the name of that view (v_) model. Otherwise, is an empty <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='weaponmodel'>
-        					<td><a class="type" href='/string_t'>string_t</a> weaponmodel</td>
-        					<td>Entity weapon model index. If this player has a visible weapon, is the name of that third person (p_) model. Otherwise, is an empty <a href='/string'>string</a>.</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> weaponmodel</td>
+        					<td>Entity weapon model index. If this player has a visible weapon, is the name of that third person (p_) model. Otherwise, is an empty <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='absmin'>
-        					<td><a class="type" href='/Vector'>Vector</a> absmin</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> absmin</td>
         					<td>Entity absolute minimum size. Is an absolute position in the world. Automatically updated by the engine.</td>
         				</tr>
         				<tr id='absmax'>
-        					<td><a class="type" href='/Vector'>Vector</a> absmax</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> absmax</td>
         					<td>Entity absolute maximum size. Is an absolute position in the world. Automatically updated by the engine.</td>
         				</tr>
         				<tr id='mins'>
-        					<td><a class="type" href='/Vector'>Vector</a> mins</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> mins</td>
         					<td>Entity minimum size. Relative to the player's origin.</td>
         				</tr>
         				<tr id='maxs'>
-        					<td><a class="type" href='/Vector'>Vector</a> maxs</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> maxs</td>
         					<td>Entity maximum size. Relative to the player's origin.</td>
         				</tr>
         				<tr id='size'>
-        					<td><a class="type" href='/Vector'>Vector</a> size</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> size</td>
         					<td>Entity size. Equivalent to maxs - mins</td>
         				</tr>
         				<tr id='ltime'>
@@ -207,11 +207,11 @@
         				</tr>
         				<tr id='movetype'>
         					<td><span class="type">int</span> movetype</td>
-        					<td>Entity movetype<br>See <a href='/MOVETYPE'>MOVETYPE</a> enum.</td>
+        					<td>Entity movetype<br>See <a href='/asexthook/MOVETYPE'>MOVETYPE</a> enum.</td>
         				</tr>
         				<tr id='solid'>
         					<td><span class="type">int</span> solid</td>
-        					<td>Entity solid flag<br>See <a href='/SOLID'>SOLID</a> enum.</td>
+        					<td>Entity solid flag<br>See <a href='/asexthook/SOLID'>SOLID</a> enum.</td>
         				</tr>
         				<tr id='skin'>
         					<td><span class="type">int</span> skin</td>
@@ -223,7 +223,7 @@
         				</tr>
         				<tr id='effects'>
         					<td><span class="type">int</span> effects</td>
-        					<td>Entity effects<br>See <a href='/EFFECTS'>EFFECTS</a> enum.</td>
+        					<td>Entity effects<br>See <a href='/asexthook/EFFECTS'>EFFECTS</a> enum.</td>
         				</tr>
         				<tr id='gravity'>
         					<td><span class="type">float</span> gravity</td>
@@ -235,7 +235,7 @@
         				</tr>
         				<tr id='light_level'>
         					<td><span class="type">int</span> light_level</td>
-        					<td>Player only light level. This is a single value between 0 and 255 inclusive. Use <a href='/Properties#g_EngineFuncs'>g_EngineFuncs</a>.GetEntityIllum to retrieve this value.</td>
+        					<td>Player only light level. This is a single value between 0 and 255 inclusive. Use <a href='/asexthook/Properties#g_EngineFuncs'>g_EngineFuncs</a>.GetEntityIllum to retrieve this value.</td>
         				</tr>
         				<tr id='sequence'>
         					<td><span class="type">int</span> sequence</td>
@@ -263,14 +263,14 @@
         				</tr>
         				<tr id='rendermode'>
         					<td><span class="type">int</span> rendermode</td>
-        					<td>Entity render mode. See <a href='/RenderModes'>RenderModes</a> enum.</td>
+        					<td>Entity render mode. See <a href='/asexthook/RenderModes'>RenderModes</a> enum.</td>
         				</tr>
         				<tr id='renderamt'>
         					<td><span class="type">float</span> renderamt</td>
         					<td>Entity render amount (0..255)</td>
         				</tr>
         				<tr id='rendercolor'>
-        					<td><a class="type" href='/Vector'>Vector</a> rendercolor</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> rendercolor</td>
         					<td>Entity render color (rgb)</td>
         				</tr>
         				<tr id='renderfx'>
@@ -291,14 +291,14 @@
         				</tr>
         				<tr id='takedamage'>
         					<td><span class="type">float</span> takedamage</td>
-        					<td>Entity take damage flag<br>See <a href='/DAMAGE'>DAMAGE</a> enum.</td>
+        					<td>Entity take damage flag<br>See <a href='/asexthook/DAMAGE'>DAMAGE</a> enum.</td>
         				</tr>
         				<tr id='deadflag'>
         					<td><span class="type">int</span> deadflag</td>
-        					<td>Entity dead flag<br>See <a href='/DEAD'>DEAD</a> enum.</td>
+        					<td>Entity dead flag<br>See <a href='/asexthook/DEAD'>DEAD</a> enum.</td>
         				</tr>
         				<tr id='view_ofs'>
-        					<td><a class="type" href='/Vector'>Vector</a> view_ofs</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> view_ofs</td>
         					<td>Entity view offset. Used to set an eye offset.</td>
         				</tr>
         				<tr id='button'>
@@ -310,27 +310,27 @@
         					<td>Entity impulse bit vector. Used for various internal operations.</td>
         				</tr>
         				<tr id='chain'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> chain</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> chain</td>
         					<td>Entity pointer when linked into a linked list. Used for temporary lists.</td>
         				</tr>
         				<tr id='dmg_inflictor'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> dmg_inflictor</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> dmg_inflictor</td>
         					<td>Entity damage inflictor</td>
         				</tr>
         				<tr id='enemy'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> enemy</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> enemy</td>
         					<td>Entity enemy</td>
         				</tr>
         				<tr id='aiment'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> aiment</td>
-        					<td>Entity pointer when <a href='/MOVETYPE#MOVETYPE_FOLLOW'>MOVETYPE_FOLLOW</a></td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> aiment</td>
+        					<td>Entity pointer when <a href='/asexthook/MOVETYPE#MOVETYPE_FOLLOW'>MOVETYPE_FOLLOW</a></td>
         				</tr>
         				<tr id='owner'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> owner</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> owner</td>
         					<td>Entity owner</td>
         				</tr>
         				<tr id='groundentity'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> groundentity</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> groundentity</td>
         					<td>Entity ground entity</td>
         				</tr>
         				<tr id='spawnflags'>
@@ -339,7 +339,7 @@
         				</tr>
         				<tr id='flags'>
         					<td><span class="type">int</span> flags</td>
-        					<td>Entity flags<br>See <a href='/EdictFlags'>EdictFlags</a> enum.</td>
+        					<td>Entity flags<br>See <a href='/asexthook/EdictFlags'>EdictFlags</a> enum.</td>
         				</tr>
         				<tr id='colormap'>
         					<td><span class="type">int</span> colormap</td>
@@ -367,26 +367,26 @@
         				</tr>
         				<tr id='waterlevel'>
         					<td><span class="type">int</span> waterlevel</td>
-        					<td>Entity water level<br>See <a href='/WATERLEVEL'>WATERLEVEL</a> enum.</td>
+        					<td>Entity water level<br>See <a href='/asexthook/WATERLEVEL'>WATERLEVEL</a> enum.</td>
         				</tr>
         				<tr id='watertype'>
         					<td><span class="type">int</span> watertype</td>
-        					<td>Player only. Contains the type of water contents the player is currently in. See <a href='/CONTENTS'>CONTENTS</a> enum.</td>
+        					<td>Player only. Contains the type of water contents the player is currently in. See <a href='/asexthook/CONTENTS'>CONTENTS</a> enum.</td>
         				</tr>
         				<tr id='target'>
-        					<td><a class="type" href='/string_t'>string_t</a> target</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> target</td>
         					<td>The entity target. If set, is the name of one or more targets to trigger. Otherwise, is empty.</td>
         				</tr>
         				<tr id='targetname'>
-        					<td><a class="type" href='/string_t'>string_t</a> targetname</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> targetname</td>
         					<td>The entity target name</td>
         				</tr>
         				<tr id='netname'>
-        					<td><a class="type" href='/string_t'>string_t</a> netname</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> netname</td>
         					<td>The entity net name. Used for various things, such as the player's name.</td>
         				</tr>
         				<tr id='message'>
-        					<td><a class="type" href='/string_t'>string_t</a> message</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> message</td>
         					<td>The entity message. Used for various things.</td>
         				</tr>
         				<tr id='dmg_take'>
@@ -406,19 +406,19 @@
         					<td>Entity damage time. Time at which this entity last took damage. Usually used to limit damage effects from being shown too often.</td>
         				</tr>
         				<tr id='noise'>
-        					<td><a class="type" href='/string_t'>string_t</a> noise</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> noise</td>
         					<td>Entity noise. Usually used to store a sound name.</td>
         				</tr>
         				<tr id='noise1'>
-        					<td><a class="type" href='/string_t'>string_t</a> noise1</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> noise1</td>
         					<td>Entity noise 1. Usually used to store a sound name.</td>
         				</tr>
         				<tr id='noise2'>
-        					<td><a class="type" href='/string_t'>string_t</a> noise2</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> noise2</td>
         					<td>Entity noise 2. Usually used to store a sound name.</td>
         				</tr>
         				<tr id='noise3'>
-        					<td><a class="type" href='/string_t'>string_t</a> noise3</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> noise3</td>
         					<td>Entity noise 3. Usually used to store a sound name.</td>
         				</tr>
         				<tr id='speed'>
@@ -526,35 +526,35 @@
         					<td>User variable 4 (float)</td>
         				</tr>
         				<tr id='vuser1'>
-        					<td><a class="type" href='/Vector'>Vector</a> vuser1</td>
-        					<td>User variable 1 (<a href='/Vector'>Vector</a>)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser1</td>
+        					<td>User variable 1 (<a href='/asexthook/Vector'>Vector</a>)</td>
         				</tr>
         				<tr id='vuser2'>
-        					<td><a class="type" href='/Vector'>Vector</a> vuser2</td>
-        					<td>User variable 2 (<a href='/Vector'>Vector</a>)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser2</td>
+        					<td>User variable 2 (<a href='/asexthook/Vector'>Vector</a>)</td>
         				</tr>
         				<tr id='vuser3'>
-        					<td><a class="type" href='/Vector'>Vector</a> vuser3</td>
-        					<td>User variable 3 (<a href='/Vector'>Vector</a>)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser3</td>
+        					<td>User variable 3 (<a href='/asexthook/Vector'>Vector</a>)</td>
         				</tr>
         				<tr id='vuser4'>
-        					<td><a class="type" href='/Vector'>Vector</a> vuser4</td>
-        					<td>User variable 4 (<a href='/Vector'>Vector</a>)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser4</td>
+        					<td>User variable 4 (<a href='/asexthook/Vector'>Vector</a>)</td>
         				</tr>
         				<tr id='euser1'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> euser1</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> euser1</td>
         					<td>User variable 1 (Edict)</td>
         				</tr>
         				<tr id='euser2'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> euser2</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> euser2</td>
         					<td>User variable 2 (Edict)</td>
         				</tr>
         				<tr id='euser3'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> euser3</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> euser3</td>
         					<td>User variable 3 (Edict)</td>
         				</tr>
         				<tr id='euser4'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> euser4</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> euser4</td>
         					<td>User variable 4 (Edict)</td>
         				</tr>
         	</tbody>

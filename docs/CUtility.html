@@ -36,15 +36,15 @@
         	</thead>
         	<tbody>
         				<tr id='BloodStream'>
-        					<td><span class="type">void</span> BloodStream(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iColor, <span class="type">int</span> iAmount)</td>
-        					<td>Creates a blood stream. Use <a href='/BLOOD_COLOR'>BLOOD_COLOR</a> enum for the color.</td>
+        					<td><span class="type">void</span> BloodStream(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iColor, <span class="type">int</span> iAmount)</td>
+        					<td>Creates a blood stream. Use <a href='/asexthook/BLOOD_COLOR'>BLOOD_COLOR</a> enum for the color.</td>
         				</tr>
         				<tr id='BloodDrips'>
-        					<td><span class="type">void</span> BloodDrips(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iColor, <span class="type">int</span> iAmount)</td>
-        					<td>Creates blood drips. Use <a href='/BLOOD_COLOR'>BLOOD_COLOR</a> enum for the color.</td>
+        					<td><span class="type">void</span> BloodDrips(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iColor, <span class="type">int</span> iAmount)</td>
+        					<td>Creates blood drips. Use <a href='/asexthook/BLOOD_COLOR'>BLOOD_COLOR</a> enum for the color.</td>
         				</tr>
         				<tr id='RandomBloodVector'>
-        					<td><a class="type" href='/Vector'>Vector</a> RandomBloodVector()</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> RandomBloodVector()</td>
         					<td>Returns a random blood direction vector</td>
         				</tr>
         				<tr id='ShouldShowBlood'>
@@ -52,132 +52,132 @@
         					<td>Returns whether blood of the given type should be shown.</td>
         				</tr>
         				<tr id='BloodDecalTrace'>
-        					<td><span class="type">void</span> BloodDecalTrace(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iBloodColor)</td>
+        					<td><span class="type">void</span> BloodDecalTrace(<a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iBloodColor)</td>
         					<td>Applies blood decal to the trace hit location</td>
         				</tr>
         				<tr id='DecalTrace'>
-        					<td><span class="type">void</span> DecalTrace(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iDecalNumber)</td>
+        					<td><span class="type">void</span> DecalTrace(<a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iDecalNumber)</td>
         					<td>Applies decal to the trace hit location</td>
         				</tr>
         				<tr id='PlayerDecalTrace'>
-        					<td><span class="type">void</span> PlayerDecalTrace(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iPlayerNum, <span class="type">int</span> iDecalNumber, <span class="type">const</span> <span class="type">bool</span> bIsCustom)</td>
+        					<td><span class="type">void</span> PlayerDecalTrace(<a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iPlayerNum, <span class="type">int</span> iDecalNumber, <span class="type">const</span> <span class="type">bool</span> bIsCustom)</td>
         					<td>Applies player decal to the trace hit location</td>
         				</tr>
         				<tr id='GunshotDecalTrace'>
-        					<td><span class="type">void</span> GunshotDecalTrace(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iDecalNumber)</td>
+        					<td><span class="type">void</span> GunshotDecalTrace(<a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iDecalNumber)</td>
         					<td>Applies gunshot decal to the trace hit location</td>
         				</tr>
         				<tr id='Sparks'>
-        					<td><span class="type">void</span> Sparks(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition)</td>
+        					<td><span class="type">void</span> Sparks(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition)</td>
         					<td>Creates sparks at the given location</td>
         				</tr>
         				<tr id='Ricochet'>
-        					<td><span class="type">void</span> Ricochet(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition, <span class="type">float</span> flScale)</td>
+        					<td><span class="type">void</span> Ricochet(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition, <span class="type">float</span> flScale)</td>
         					<td>Creates a ricochet at the given location</td>
         				</tr>
         				<tr id='WaterLevel'>
-        					<td><span class="type">float</span> WaterLevel(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition, <span class="type">float</span> minz, <span class="type">float</span> maxz)</td>
+        					<td><span class="type">float</span> WaterLevel(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition, <span class="type">float</span> minz, <span class="type">float</span> maxz)</td>
         					<td>Determines the Z level at which a water surface level is, given a position to start searching from and a range to search.</td>
         				</tr>
         				<tr id='Bubbles'>
-        					<td><span class="type">void</span> Bubbles(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMins, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMaxs, <span class="type">int</span> iCount)</td>
+        					<td><span class="type">void</span> Bubbles(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMaxs, <span class="type">int</span> iCount)</td>
         					<td>Creates a box filled with bubbles</td>
         				</tr>
         				<tr id='BubbleTrail'>
-        					<td><span class="type">void</span> BubbleTrail(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecFrom, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTo, <span class="type">int</span> iCount)</td>
+        					<td><span class="type">void</span> BubbleTrail(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecFrom, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTo, <span class="type">int</span> iCount)</td>
         					<td>Creates a trail of bubbles</td>
         				</tr>
         				<tr id='StringToVector'>
-        					<td><span class="type">void</span> StringToVector(<a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecVector, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="type" href='/char'>char</a> delimiter = <a class="type" href='/char'>char</a>(' '))</td>
-        					<td>Converts the given <a href='/string'>string</a> to a vector</td>
+        					<td><span class="type">void</span> StringToVector(<a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecVector, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="type" href='/asexthook/char'>char</a> delimiter = <a class="type" href='/asexthook/char'>char</a>(' '))</td>
+        					<td>Converts the given <a href='/asexthook/string'>string</a> to a vector</td>
         				</tr>
         				<tr id='IsStringInt'>
-        					<td><span class="type">bool</span> IsStringInt(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Returns whether the given <a href='/string'>string</a> is an integer</td>
+        					<td><span class="type">bool</span> IsStringInt(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Returns whether the given <a href='/asexthook/string'>string</a> is an integer</td>
         				</tr>
         				<tr id='IsStringFloat'>
-        					<td><span class="type">bool</span> IsStringFloat(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Returns whether the given <a href='/string'>string</a> is a float</td>
+        					<td><span class="type">bool</span> IsStringFloat(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Returns whether the given <a href='/asexthook/string'>string</a> is a float</td>
         				</tr>
         				<tr id='IsWholeNumber'>
         					<td><span class="type">bool</span> IsWholeNumber(<span class="type">const</span> <span class="type">float</span> flNum, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iRounded)</td>
         					<td>Returns whether the given float is a whole number, and returns the rounded number</td>
         				</tr>
         				<tr id='IsString3DVec'>
-        					<td><span class="type">bool</span> IsString3DVec(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
-        					<td>Returns whether the given <a href='/string'>string</a> is a 3D vector</td>
+        					<td><span class="type">bool</span> IsString3DVec(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Returns whether the given <a href='/asexthook/string'>string</a> is a 3D vector</td>
         				</tr>
         				<tr id='TraceLine'>
-        					<td><span class="type">void</span> TraceLine(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
+        					<td><span class="type">void</span> TraceLine(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/asexthook/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
         					<td>Calculates a trace along the given line, storing the results in ptr.</td>
         				</tr>
         				<tr id='TraceLine@2'>
-        					<td><span class="type">void</span> TraceLine(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/IGNORE_GLASS'>IGNORE_GLASS</a> ignoreGlass, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
+        					<td><span class="type">void</span> TraceLine(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/asexthook/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/asexthook/IGNORE_GLASS'>IGNORE_GLASS</a> ignoreGlass, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
         					<td>Calculates a trace along the given line, storing the results in ptr.</td>
         				</tr>
         				<tr id='TraceHull'>
-        					<td><span class="type">void</span> TraceHull(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/HULL_NUMBER'>HULL_NUMBER</a> hullNumber, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
+        					<td><span class="type">void</span> TraceHull(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/asexthook/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon,<a class="type" href='/asexthook/HULL_NUMBER'>HULL_NUMBER</a> hullNumber, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
         					<td>Calculates a trace along the given line, storing the results in ptr, using the specified hull type.</td>
         				</tr>
         				<tr id='TraceToss'>
-        					<td><span class="type">void</span> TraceToss(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> traceResult)</td>
+        					<td><span class="type">void</span> TraceToss(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntity, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> traceResult)</td>
         					<td>Trace toss</td>
         				</tr>
         				<tr id='TraceMonsterHull'>
-        					<td><span class="type">bool</span> TraceMonsterHull(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
+        					<td><span class="type">bool</span> TraceMonsterHull(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <a class="type" href='/asexthook/IGNORE_MONSTERS'>IGNORE_MONSTERS</a> igmon, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
         					<td>Trace monster hull. Returns true if the trace was entirely in a solid object, or hit something.</td>
         				</tr>
         				<tr id='TraceModel'>
-        					<td><span class="type">void</span> TraceModel(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <span class="type">int</span> iHullNumber, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
+        					<td><span class="type">void</span> TraceModel(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd, <span class="type">int</span> iHullNumber, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntityToIgnore, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> ptr)</td>
         					<td>TraceModel</td>
         				</tr>
         				<tr id='TraceTexture'>
-        					<td><a class="type" href='/string'>string</a> TraceTexture(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd)</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> TraceTexture(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd)</td>
         					<td>Trace texture</td>
         				</tr>
         				<tr id='FindEntityForward'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityForward(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLooker, <span class="type">float</span> flMaxDistance)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityForward(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLooker, <span class="type">float</span> flMaxDistance)</td>
         					<td>Convience function that finds the entity that the given entity is currently looking at.</td>
         				</tr>
         				<tr id='FindEntityForward@2'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityForward(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLooker)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityForward(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLooker)</td>
         					<td>Convience function that finds the entity that the given entity is currently looking at. Uses a maximum distance of 12048 units.</td>
         				</tr>
         				<tr id='GetGlobalTrace'>
-        					<td><a class="type" href='/TraceResult'>TraceResult</a> GetGlobalTrace()</td>
-        					<td>Gets the global trace data stored in <a href='/Properties#g_Engine'>g_Engine</a> as a <a href='/TraceResult'>TraceResult</a> object.</td>
+        					<td><a class="type" href='/asexthook/TraceResult'>TraceResult</a> GetGlobalTrace()</td>
+        					<td>Gets the global trace data stored in <a href='/asexthook/Properties#g_Engine'>g_Engine</a> as a <a href='/asexthook/TraceResult'>TraceResult</a> object.</td>
         				</tr>
         				<tr id='IsPlayerInVolume'>
-        					<td><span class="type">bool</span> IsPlayerInVolume(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntityVolume)</td>
+        					<td><span class="type">bool</span> IsPlayerInVolume(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntityVolume)</td>
         					<td>Returns whether the given player is in the given volume.</td>
         				</tr>
         				<tr id='VoteActive'>
         					<td><span class="type">bool</span> VoteActive() <span class="type">const</span></td>
-        					<td>Returns whether a vote is active. This only covers the votes started using the in-game vote menu, trigger_vote and the <a href='/Vote'>Vote</a> class.</td>
+        					<td>Returns whether a vote is active. This only covers the votes started using the in-game vote menu, trigger_vote and the <a href='/asexthook/Vote'>Vote</a> class.</td>
         				</tr>
         				<tr id='GetCircularGaussianSpread'>
         					<td><span class="type">void</span> GetCircularGaussianSpread(<span class="type">float</span><span class="type">&</span> <span class="inout">out</span> x, <span class="type">float</span><span class="type">&</span> <span class="inout">out</span> y) <span class="type">const</span></td>
         					<td>Gets circular gaussian spread.</td>
         				</tr>
         				<tr id='CountPlayersInBrushVolume'>
-        					<td><span class="type">int</span> CountPlayersInBrushVolume(<span class="type">const</span> <span class="type">bool</span> fIgnoreDeadPlayers, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pBrushVolume,<span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iOutPlayersInsideVolume, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iOutPlayersOutsideVolume, <a class="type" href='/PlayerInVolumeListener'>PlayerInVolumeListener</a><span class="type">@</span> pListener)</td>
+        					<td><span class="type">int</span> CountPlayersInBrushVolume(<span class="type">const</span> <span class="type">bool</span> fIgnoreDeadPlayers, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pBrushVolume,<span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iOutPlayersInsideVolume, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iOutPlayersOutsideVolume, <a class="type" href='/asexthook/PlayerInVolumeListener'>PlayerInVolumeListener</a><span class="type">@</span> pListener)</td>
         					<td>Counts the number of players inside and outside a brush volume.</td>
         				</tr>
         				<tr id='FindHullIntersection'>
-        					<td><span class="type">void</span> FindHullIntersection(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> inTr, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> outTr,<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMins, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMaxs, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">float</span> flDistance = 1e6f)</td>
+        					<td><span class="type">void</span> FindHullIntersection(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> inTr, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">out</span> outTr,<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMaxs, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">float</span> flDistance = 1e6f)</td>
         					<td>Finds the hull intersection from a traceline in a given set of bounds. The bounds are relative to the input traceline's endpoint.<br>The given entity is the entity performing the traceline.</td>
         				</tr>
         				<tr id='BuildEntityLogString'>
-        					<td><a class="type" href='/string'>string</a> BuildEntityLogString(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szUserID = NULL, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAuthID = NULL, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTeam = NULL) <span class="type">const</span></td>
-        					<td>Builds a generic entity log <a href='/string'>string</a>.</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> BuildEntityLogString(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szUserID = NULL, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAuthID = NULL, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTeam = NULL) <span class="type">const</span></td>
+        					<td>Builds a generic entity log <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='BuildPlayerLogString'>
-        					<td><a class="type" href='/string'>string</a> BuildPlayerLogString(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szUserID = NULL, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAuthID = NULL) <span class="type">const</span></td>
-        					<td>Builds a generic player log <a href='/string'>string</a>.</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> BuildPlayerLogString(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szUserID = NULL, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szAuthID = NULL) <span class="type">const</span></td>
+        					<td>Builds a generic player log <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         				<tr id='GetPlayerLog'>
-        					<td><a class="type" href='/string'>string</a> GetPlayerLog(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pPlayerEdict) <span class="type">const</span></td>
-        					<td>Get a player log <a href='/string'>string</a>.</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> GetPlayerLog(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pPlayerEdict) <span class="type">const</span></td>
+        					<td>Get a player log <a href='/asexthook/string'>string</a>.</td>
         				</tr>
         	</tbody>
         </table>    </main>

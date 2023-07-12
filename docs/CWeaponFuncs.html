@@ -40,11 +40,11 @@
         					<td>Clears the multi damage data.</td>
         				</tr>
         				<tr id='ApplyMultiDamage'>
-        					<td><span class="type">void</span> ApplyMultiDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker)</td>
+        					<td><span class="type">void</span> ApplyMultiDamage(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker)</td>
         					<td>Applies multi damage.</td>
         				</tr>
         				<tr id='AddMultiDamage'>
-        					<td><span class="type">void</span> AddMultiDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> AddMultiDamage(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
         					<td>Add multi damage.</td>
         				</tr>
         				<tr id='WeaponTimeBase'>
@@ -52,19 +52,19 @@
         					<td>Gets the weapon time base.</td>
         				</tr>
         				<tr id='DecalGunshot'>
-        					<td><span class="type">void</span> DecalGunshot(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iBulletType)</td>
+        					<td><span class="type">void</span> DecalGunshot(<a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iBulletType)</td>
         					<td>Creates a gunshot decal at the trace hit point.</td>
         				</tr>
         				<tr id='SpawnBlood'>
-        					<td><span class="type">void</span> SpawnBlood(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSpot, <span class="type">int</span> bloodColor, <span class="type">float</span> flDamage)</td>
+        					<td><span class="type">void</span> SpawnBlood(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSpot, <span class="type">int</span> bloodColor, <span class="type">float</span> flDamage)</td>
         					<td>Spawns blood at the given location.</td>
         				</tr>
         				<tr id='DamageDecal'>
-        					<td><span class="type">int</span> DamageDecal(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">int</span> DamageDecal(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">int</span> bitsDamageType)</td>
         					<td>Creates a damage decal on the given entity.</td>
         				</tr>
         				<tr id='RadiusDamage'>
-        					<td><span class="type">void</span> RadiusDamage(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">float</span> flRadius, <span class="type">int</span> iClassIgnore, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> RadiusDamage(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">float</span> flRadius, <span class="type">int</span> iClassIgnore, <span class="type">int</span> bitsDamageType)</td>
         					<td>Deals radius damage.</td>
         				</tr>
         	</tbody>

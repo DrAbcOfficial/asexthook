@@ -40,83 +40,83 @@
         	</thead>
         	<tbody>
         				<tr id='opImplCast'>
-        					<td><a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/CBaseMonster'>CBaseMonster</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='opImplCast@2'>
-        					<td><a class="type" href='/CBaseToggle'>CBaseToggle</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/CBaseToggle'>CBaseToggle</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='opImplCast@3'>
-        					<td><a class="type" href='/CBaseAnimating'>CBaseAnimating</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/CBaseAnimating'>CBaseAnimating</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='opImplCast@4'>
-        					<td><a class="type" href='/CBaseDelay'>CBaseDelay</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/CBaseDelay'>CBaseDelay</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='opImplCast@5'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opImplCast()</td>
         					<td>Implicitly casts to base type.</td>
         				</tr>
         				<tr id='GetOrigin'>
-        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> GetOrigin() <span class="type">const</span></td>
+        					<td><span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> GetOrigin() <span class="type">const</span></td>
         					<td>Gets the entity's (absolute) origin.</td>
         				</tr>
         				<tr id='SetOrigin'>
-        					<td><span class="type">void</span> SetOrigin(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td><span class="type">void</span> SetOrigin(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
         					<td>Sets this entity's (absolute) origin</td>
         				</tr>
         				<tr id='KeyValue'>
-        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
         					<td>Sets keyvalue data on this entity</td>
         				</tr>
         				<tr id='TraceAttack'>
-        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
         					<td>Traces an attack by the given entity to this entity.</td>
         				</tr>
         				<tr id='TraceBleed'>
-        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/asexthook/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
         					<td>Traces entity bleed event.</td>
         				</tr>
         				<tr id='GiveAmmo'>
-        					<td><span class="type">int</span> GiveAmmo(<span class="type">int</span> iAmount, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">int</span> iMax, <span class="type">const</span> <span class="type">bool</span> fFromWeapon = true)</td>
+        					<td><span class="type">int</span> GiveAmmo(<span class="type">int</span> iAmount, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">int</span> iMax, <span class="type">const</span> <span class="type">bool</span> fFromWeapon = true)</td>
         					<td>Gives ammo to this entity.</td>
         				</tr>
         				<tr id='HasTarget'>
-        					<td><span class="type">bool</span> HasTarget(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTarget)</td>
+        					<td><span class="type">bool</span> HasTarget(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTarget)</td>
         					<td>Returns whether this entity has the given target.</td>
         				</tr>
         				<tr id='TeamID'>
-        					<td><a class="type" href='/string'>string</a> TeamID()</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> TeamID()</td>
         					<td>Returns this entity's team ID.</td>
         				</tr>
         				<tr id='GetClassname'>
-        					<td><a class="type" href='/string'>string</a> GetClassname() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/string'>string</a> GetClassname() <span class="type">const</span></td>
         					<td>Returns this entity's class name.</td>
         				</tr>
         				<tr id='GetClassificationTag'>
-        					<td><a class="type" href='/string'>string</a> GetClassificationTag() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/string'>string</a> GetClassificationTag() <span class="type">const</span></td>
         					<td>Returns this entity's classification tag.</td>
         				</tr>
         				<tr id='GetClassificationName'>
-        					<td><a class="type" href='/string'>string</a> GetClassificationName() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/string'>string</a> GetClassificationName() <span class="type">const</span></td>
         					<td>Returns this entity's classification name.</td>
         				</tr>
         				<tr id='GetTargetname'>
-        					<td><a class="type" href='/string'>string</a> GetTargetname() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/string'>string</a> GetTargetname() <span class="type">const</span></td>
         					<td>Returns this entity's target name.</td>
         				</tr>
         				<tr id='FVisibleFromPos'>
-        					<td><span class="type">bool</span> FVisibleFromPos(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTarget, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart)</td>
+        					<td><span class="type">bool</span> FVisibleFromPos(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTarget, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart)</td>
         					<td>Returns whether this entity is visible from the given position.</td>
         				</tr>
         				<tr id='SOUNDREPLACEMENT_Find'>
-        					<td><a class="type" href='/string'>string</a> SOUNDREPLACEMENT_Find(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> SOUNDREPLACEMENT_Find(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
         					<td>Find sound replacement for the given file.</td>
         				</tr>
         				<tr id='FindMonstersInWorld'>
-        					<td><span class="type">int</span> FindMonstersInWorld(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">int</span> flagMask)</td>
+        					<td><span class="type">int</span> FindMonstersInWorld(<span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">int</span> flagMask)</td>
         					<td>Finds monsters in the world</td>
         				</tr>
         				<tr id='IsPlayerAlly'>
@@ -132,7 +132,7 @@
         					<td>Sets this entity's player ally status.<br>Use this only if you need the setting to be exactly what you give it (e.g. when copying from another monster)</td>
         				</tr>
         				<tr id='opEquals'>
-        					<td><span class="type">bool</span> opEquals(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">bool</span> opEquals(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Compares 2 entities for equality.</td>
         				</tr>
         				<tr id='Precache'>
@@ -141,7 +141,7 @@
         				</tr>
         				<tr id='ObjectCaps'>
         					<td><span class="type">int</span> ObjectCaps()</td>
-        					<td>Gets this entity's objects caps. See the <a href='/FCAP'>FCAP</a> enum.</td>
+        					<td>Gets this entity's objects caps. See the <a href='/asexthook/FCAP'>FCAP</a> enum.</td>
         				</tr>
         				<tr id='SetObjectCollisionBox'>
         					<td><span class="type">void</span> SetObjectCollisionBox()</td>
@@ -156,7 +156,7 @@
         					<td>Sets this entity's classification override. Can override the entity's player ally setting.</td>
         				</tr>
         				<tr id='SetClassificationFromEntity'>
-        					<td><span class="type">void</span> SetClassificationFromEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td><span class="type">void</span> SetClassificationFromEntity(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
         					<td>Sets this entity's classification override to the classification override set on the given entity. Can override the entity's player ally setting.</td>
         				</tr>
         				<tr id='ClearClassification'>
@@ -164,19 +164,19 @@
         					<td>Clears this entity's classification override.</td>
         				</tr>
         				<tr id='IRelationship'>
-        					<td><span class="type">int</span> IRelationship(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> other, <span class="type">bool</span> ignoreNoTarget = false)</td>
-        					<td>Gets the relationship between this entity and the given entity. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        					<td><span class="type">int</span> IRelationship(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> other, <span class="type">bool</span> ignoreNoTarget = false)</td>
+        					<td>Gets the relationship between this entity and the given entity. See the <a href='/asexthook/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
         				</tr>
         				<tr id='IRelationshipByClass'>
-        					<td><span class="type">int</span> IRelationshipByClass(<a class="type" href='/CLASS'>CLASS</a> iClass)</td>
-        					<td>Gets the relationship between this entity and the given entity classification. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        					<td><span class="type">int</span> IRelationshipByClass(<a class="type" href='/asexthook/CLASS'>CLASS</a> iClass)</td>
+        					<td>Gets the relationship between this entity and the given entity classification. See the <a href='/asexthook/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
         				</tr>
         				<tr id='Classify'>
         					<td><span class="type">int</span> Classify()</td>
         					<td>Gets this entity's classification.</td>
         				</tr>
         				<tr id='TakeDamage'>
-        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
         					<td>Causes this entity to take damage. Returns 1 if it took damage, 0 otherwise.</td>
         				</tr>
         				<tr id='TakeHealth'>
@@ -188,27 +188,27 @@
         					<td>Takes armor from this entity. Note: flArmor is added to entity armor. Use negative values to subtract.If armor_cap is non-zero, won't add more than armor_cap. Returns 1 if it took damage, 0 otherwise.</td>
         				</tr>
         				<tr id='Killed'>
-        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span>pevAtttacker, <span class="type">int</span> iGibbed)</td>
-        					<td>Tells this entity it's been killed. See the <a href='/GIB'>GIB</a> enum for possible values.</td>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span>pevAtttacker, <span class="type">int</span> iGibbed)</td>
+        					<td>Tells this entity it's been killed. See the <a href='/asexthook/GIB'>GIB</a> enum for possible values.</td>
         				</tr>
         				<tr id='BloodColor'>
         					<td><span class="type">int</span> BloodColor()</td>
-        					<td>Returns the blood color. See the <a href='/BLOOD_COLOR'>BLOOD_COLOR</a> enum.</td>
+        					<td>Returns the blood color. See the <a href='/asexthook/BLOOD_COLOR'>BLOOD_COLOR</a> enum.</td>
         				</tr>
         				<tr id='IsTriggered'>
-        					<td><span class="type">bool</span> IsTriggered(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
+        					<td><span class="type">bool</span> IsTriggered(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
         					<td>Returns whether this entity is triggered by the given entity.</td>
         				</tr>
         				<tr id='MyMonsterPointer'>
-        					<td><a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> MyMonsterPointer()</td>
+        					<td><a class="type" href='/asexthook/CBaseMonster'>CBaseMonster</a><span class="type">@</span> MyMonsterPointer()</td>
         					<td>Returns this entity as its monster entity, if it is a monster.</td>
         				</tr>
         				<tr id='GetCustomKeyvalues'>
-        					<td><a class="type" href='/CustomKeyvalues'>CustomKeyvalues</a><span class="type">@</span> GetCustomKeyvalues()</td>
+        					<td><a class="type" href='/asexthook/CustomKeyvalues'>CustomKeyvalues</a><span class="type">@</span> GetCustomKeyvalues()</td>
         					<td>Gets this entity's custom keyvalues.</td>
         				</tr>
         				<tr id='BlockedByEntity'>
-        					<td><span class="type">bool</span> BlockedByEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">float</span> flDamage)</td>
+        					<td><span class="type">bool</span> BlockedByEntity(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">float</span> flDamage)</td>
         					<td>Returns true if you should be blocked by the entity, false otherwise. Also deals blocking damage to the entity, if applicable.</td>
         				</tr>
         				<tr id='SUB_Remove'>
@@ -232,15 +232,15 @@
         					<td>Think function. Calls use toggle on this entity.</td>
         				</tr>
         				<tr id='ShouldToggle'>
-        					<td><span class="type">bool</span> ShouldToggle(<a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">const</span> <span class="type">bool</span> currentState)</td>
+        					<td><span class="type">bool</span> ShouldToggle(<a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">const</span> <span class="type">bool</span> currentState)</td>
         					<td>Returns whether this entity should toggle.</td>
         				</tr>
         				<tr id='FireBullets'>
-        					<td><span class="type">void</span> FireBullets(<span class="type">uint</span> cShots, <a class="type" href='/Vector'>Vector</a> vecSrc, <a class="type" href='/Vector'>Vector</a> vecDirShooting, <a class="type" href='/Vector'>Vector</a> vecSpread,<span class="type">float</span> flDistance, <a class="type" href='/Bullet'>Bullet</a> iBulletType, <span class="type">int</span> iTracerFreq = 4, <span class="type">int</span> iDamage = 0, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker = null, <a class="type" href='/FireBulletsDrawMode'>FireBulletsDrawMode</a> fDraw = <a class="value" href='/FireBulletsDrawMode#FBDM_DRAW'>FBDM_DRAW</a>)</td>
-        					<td>Fires bullets. Must call <a href='/CMath#MakeAimVectors'>CMath::MakeAimVectors</a> with an angle vector first.</td>
+        					<td><span class="type">void</span> FireBullets(<span class="type">uint</span> cShots, <a class="type" href='/asexthook/Vector'>Vector</a> vecSrc, <a class="type" href='/asexthook/Vector'>Vector</a> vecDirShooting, <a class="type" href='/asexthook/Vector'>Vector</a> vecSpread,<span class="type">float</span> flDistance, <a class="type" href='/asexthook/Bullet'>Bullet</a> iBulletType, <span class="type">int</span> iTracerFreq = 4, <span class="type">int</span> iDamage = 0, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker = null, <a class="type" href='/asexthook/FireBulletsDrawMode'>FireBulletsDrawMode</a> fDraw = <a class="value" href='/asexthook/FireBulletsDrawMode#FBDM_DRAW'>FBDM_DRAW</a>)</td>
+        					<td>Fires bullets. Must call <a href='/asexthook/CMath#MakeAimVectors'>CMath::MakeAimVectors</a> with an angle vector first.</td>
         				</tr>
         				<tr id='Intersects'>
-        					<td><span class="type">bool</span> Intersects(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">bool</span> Intersects(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Returns whether this entity intersects with the given entity.</td>
         				</tr>
         				<tr id='MakeDormant'>
@@ -256,7 +256,7 @@
         					<td>Returns whether this entity is locked by its master.</td>
         				</tr>
         				<tr id='edict'>
-        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> edict()</td>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> edict()</td>
         					<td>Returns this entity's edict.</td>
         				</tr>
         				<tr id='entindex'>
@@ -269,7 +269,7 @@
         				</tr>
         				<tr id='GetToggleState'>
         					<td><span class="type">int</span> GetToggleState()</td>
-        					<td>Gets the toggle state.<br>See the <a href='/TOGGLE_STATE'>TOGGLE_STATE</a> enum.</td>
+        					<td>Gets the toggle state.<br>See the <a href='/asexthook/TOGGLE_STATE'>TOGGLE_STATE</a> enum.</td>
         				</tr>
         				<tr id='AddPoints'>
         					<td><span class="type">void</span> AddPoints(<span class="type">int</span> score, <span class="type">const</span> <span class="type">bool</span> bAllowNegativeScore)</td>
@@ -280,11 +280,11 @@
         					<td>Adds points to this entity's team.</td>
         				</tr>
         				<tr id='AddPlayerItem'>
-        					<td><a class="type" href='/AddPlayerItemResult'>AddPlayerItemResult</a> AddPlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td><a class="type" href='/asexthook/AddPlayerItemResult'>AddPlayerItemResult</a> AddPlayerItem(<a class="type" href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
         					<td>Adds the given player item to this entity.</td>
         				</tr>
         				<tr id='RemovePlayerItem'>
-        					<td><span class="type">bool</span> RemovePlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td><span class="type">bool</span> RemovePlayerItem(<a class="type" href='/asexthook/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
         					<td>Removes the given player item to this entity.</td>
         				</tr>
         				<tr id='GetDelay'>
@@ -301,7 +301,7 @@
         				</tr>
         				<tr id='DamageDecal'>
         					<td><span class="type">int</span> DamageDecal(<span class="type">int</span> bitsDamageType)</td>
-        					<td>Returns the damage decal<br>See <a href='/decal_e'>decal_e</a>.</td>
+        					<td>Returns the damage decal<br>See <a href='/asexthook/decal_e'>decal_e</a>.</td>
         				</tr>
         				<tr id='SetToggleState'>
         					<td><span class="type">void</span> SetToggleState(<span class="type">int</span> state)</td>
@@ -316,7 +316,7 @@
         					<td>Stops sneaking.</td>
         				</tr>
         				<tr id='OnControls'>
-        					<td><span class="type">bool</span> OnControls(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev)</td>
+        					<td><span class="type">bool</span> OnControls(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pev)</td>
         					<td>Reacts to controls set on the pev.</td>
         				</tr>
         				<tr id='IsSneaking'>
@@ -368,7 +368,7 @@
         					<td>Removes this entity in critical situations.</td>
         				</tr>
         				<tr id='GetNextTarget'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetNextTarget()</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetNextTarget()</td>
         					<td>Gets the next target to trigger.</td>
         				</tr>
         				<tr id='Think'>
@@ -376,15 +376,15 @@
         					<td>Makes this entity think. Do not call directly.</td>
         				</tr>
         				<tr id='Touch'>
-        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Triggers this entity's touch function.</td>
         				</tr>
         				<tr id='Use'>
-        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td><span class="type">void</span> Use(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
         					<td>Trigger's this entity's use function.</td>
         				</tr>
         				<tr id='Blocked'>
-        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Triggers this entity's blocked function.</td>
         				</tr>
         				<tr id='UpdateOnRemove'>
@@ -392,27 +392,27 @@
         					<td>Updates this entity when removed.</td>
         				</tr>
         				<tr id='Respawn'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Respawn()</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Respawn()</td>
         					<td>Respawns this entity.</td>
         				</tr>
         				<tr id='FBecomeProne'>
-        					<td><span class="type">bool</span> FBecomeProne(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><span class="type">bool</span> FBecomeProne(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
         					<td>Makes this entity become prone.</td>
         				</tr>
         				<tr id='Center'>
-        					<td><a class="type" href='/Vector'>Vector</a> Center()</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> Center()</td>
         					<td>Returns this entity's center.</td>
         				</tr>
         				<tr id='EyePosition'>
-        					<td><a class="type" href='/Vector'>Vector</a> EyePosition()</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> EyePosition()</td>
         					<td>Returns this entity's eye position.</td>
         				</tr>
         				<tr id='EarPosition'>
-        					<td><a class="type" href='/Vector'>Vector</a> EarPosition()</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> EarPosition()</td>
         					<td>Returns this entity's ear position.</td>
         				</tr>
         				<tr id='BodyTarget'>
-        					<td><a class="type" href='/Vector'>Vector</a> BodyTarget(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> posSrc)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> BodyTarget(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> posSrc)</td>
         					<td>Returns this entity's body target for shooting.</td>
         				</tr>
         				<tr id='Illumination'>
@@ -420,15 +420,15 @@
         					<td>Returns this entity's illumination.</td>
         				</tr>
         				<tr id='FVisible'>
-        					<td><span class="type">bool</span> FVisible(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">bool</span> fIgnoreGlass)</td>
+        					<td><span class="type">bool</span> FVisible(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">bool</span> fIgnoreGlass)</td>
         					<td>Returns whether this entity is visible to the given entity.</td>
         				</tr>
         				<tr id='FVisible@2'>
-        					<td><span class="type">bool</span> FVisible(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td><span class="type">bool</span> FVisible(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
         					<td>Returns whether this entity is visible from the given origin.</td>
         				</tr>
         				<tr id='IsFacing'>
-        					<td><span class="type">bool</span> IsFacing(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevTest, <span class="type">float</span> flDotProduct = <a class="value" href='/Properties#VIEW_FIELD_ULTRA_NARROW'>VIEW_FIELD_ULTRA_NARROW</a>)</td>
+        					<td><span class="type">bool</span> IsFacing(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevTest, <span class="type">float</span> flDotProduct = <a class="value" href='/asexthook/Properties#VIEW_FIELD_ULTRA_NARROW'>VIEW_FIELD_ULTRA_NARROW</a>)</td>
         					<td>Returns whether this entity is facing the given entity, within the given view field.</td>
         				</tr>
         				<tr id='GetPointsForDamage'>
@@ -436,7 +436,7 @@
         					<td>Returns the points received for damage done.</td>
         				</tr>
         				<tr id='GetDamagePoints'>
-        					<td><span class="type">void</span> GetDamagePoints(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <span class="type">float</span> flDamage)</td>
+        					<td><span class="type">void</span> GetDamagePoints(<a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <span class="type">float</span> flDamage)</td>
         					<td>Adds damage points to the inflicting entity.</td>
         				</tr>
         				<tr id='OnCreate'>
@@ -464,7 +464,7 @@
         					<td>Gets the user data on this entity. Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
         				</tr>
         				<tr id='GetUserData@2'>
-        					<td><span class="type">dictionaryValue</span><span class="type">&</span> GetUserData(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td><span class="type">dictionaryValue</span><span class="type">&</span> GetUserData(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
         					<td>Gets the user data stored under the specified key on this entity.<br>Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
         				</tr>
         				<tr id='ClearUserData'>
@@ -472,7 +472,7 @@
         					<td>Clears the user data on this entity. WARNING: clears all data.<br>Only map scripts can use this.</td>
         				</tr>
         				<tr id='SUB_UseTargets'>
-        					<td><span class="type">void</span> SUB_UseTargets(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td><span class="type">void</span> SUB_UseTargets(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
         					<td>Causes this entity to trigger its targets with an optional delay.</td>
         				</tr>
         				<tr id='DelayThink'>
@@ -496,7 +496,7 @@
         					<td>Returns the index of the given activity that has the heaviest weight, or -1 if no such activity exists.</td>
         				</tr>
         				<tr id='LookupSequence'>
-        					<td><span class="type">int</span> LookupSequence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLabel)</td>
+        					<td><span class="type">int</span> LookupSequence(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLabel)</td>
         					<td>Returns the index of the given sequence, or -1 if no such sequence exists.</td>
         				</tr>
         				<tr id='ResetSequenceInfo'>
@@ -524,11 +524,11 @@
         					<td>Sets the given blending controller to the given value.</td>
         				</tr>
         				<tr id='GetBonePosition'>
-        					<td><span class="type">void</span> GetBonePosition(<span class="type">int</span> iBone, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
+        					<td><span class="type">void</span> GetBonePosition(<span class="type">int</span> iBone, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
         					<td>Gets the position of the given bone.</td>
         				</tr>
         				<tr id='GetAutomovement'>
-        					<td><span class="type">void</span> GetAutomovement(<a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles, <span class="type">float</span> flInterval = 0.1f)</td>
+        					<td><span class="type">void</span> GetAutomovement(<a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles, <span class="type">float</span> flInterval = 0.1f)</td>
         					<td>Gets automatic movement.</td>
         				</tr>
         				<tr id='FindTransition'>
@@ -540,7 +540,7 @@
         					<td>Find the transition between 2 sequences.</td>
         				</tr>
         				<tr id='GetAttachment'>
-        					<td><span class="type">void</span> GetAttachment(<span class="type">int</span> iAttachment, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
+        					<td><span class="type">void</span> GetAttachment(<span class="type">int</span> iAttachment, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
         					<td>Gets the attachment position.</td>
         				</tr>
         				<tr id='SetBodygroup'>
@@ -552,7 +552,7 @@
         					<td>Gets the value of the given body group.</td>
         				</tr>
         				<tr id='ExtractBbox'>
-        					<td><span class="type">bool</span> ExtractBbox(<span class="type">int</span> iSequence, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> mins, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> maxs)</td>
+        					<td><span class="type">bool</span> ExtractBbox(<span class="type">int</span> iSequence, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> mins, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> maxs)</td>
         					<td>Extracts the bounding box of the current model.</td>
         				</tr>
         				<tr id='GetAttachmentCount'>
@@ -568,11 +568,11 @@
         					<td>Gets activity for the given sequence.</td>
         				</tr>
         				<tr id='LinearMove'>
-        					<td><span class="type">void</span> LinearMove(<a class="type" href='/Vector'>Vector</a> vecDest, <span class="type">float</span> flSpeed)</td>
+        					<td><span class="type">void</span> LinearMove(<a class="type" href='/asexthook/Vector'>Vector</a> vecDest, <span class="type">float</span> flSpeed)</td>
         					<td>Performs linear movement.</td>
         				</tr>
         				<tr id='AngularMove'>
-        					<td><span class="type">void</span> AngularMove(<a class="type" href='/Vector'>Vector</a> vecDestAngle, <span class="type">float</span> flSpeed)</td>
+        					<td><span class="type">void</span> AngularMove(<a class="type" href='/asexthook/Vector'>Vector</a> vecDestAngle, <span class="type">float</span> flSpeed)</td>
         					<td>Performs angular movement.</td>
         				</tr>
         				<tr id='IsToggleLockedByMaster'>
@@ -580,27 +580,27 @@
         					<td>Returns whether this entity is locked by its master.<br>Separate from IsLockedByMaster due to limitations.</td>
         				</tr>
         				<tr id='get_m_pInventoryRules'>
-        					<td><a class="type" href='/InventoryRules'>InventoryRules</a><span class="type">@</span> get_m_pInventoryRules() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/InventoryRules'>InventoryRules</a><span class="type">@</span> get_m_pInventoryRules() <span class="type">const</span></td>
         					<td>The inventory rules.</td>
         				</tr>
         				<tr id='m_hOldEnemy'>
-        					<td><a class="type" href='/EHandle'>EHandle</a><span class="type">&</span> m_hOldEnemy(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
-        					<td>Target tank to control. Index must be between 0 and <a href='/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a><span class="type">&</span> m_hOldEnemy(<a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Target tank to control. Index must be between 0 and <a href='/asexthook/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
         				</tr>
         				<tr id='m_vecOldEnemy'>
-        					<td><a class="type" href='/Vector'>Vector</a><span class="type">&</span> m_vecOldEnemy(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
-        					<td>Target tank to control. Index must be between 0 and <a href='/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> m_vecOldEnemy(<a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Target tank to control. Index must be between 0 and <a href='/asexthook/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
         				</tr>
         				<tr id='m_Route'>
-        					<td><a class="type" href='/Waypoint'>Waypoint</a><span class="type">&</span> m_Route(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
-        					<td>Positions of movement. Index must be between 0 and <a href='/Properties#ROUTE_SIZE'>ROUTE_SIZE</a></td>
+        					<td><a class="type" href='/asexthook/Waypoint'>Waypoint</a><span class="type">&</span> m_Route(<a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Positions of movement. Index must be between 0 and <a href='/asexthook/Properties#ROUTE_SIZE'>ROUTE_SIZE</a></td>
         				</tr>
         				<tr id='m_rgbTimeBasedDamage'>
-        					<td><span class="type">int8</span><span class="type">&</span> m_rgbTimeBasedDamage(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td><span class="type">int8</span><span class="type">&</span> m_rgbTimeBasedDamage(<a class="type" href='/asexthook/Typedefs#size_t'>size_t</a> uiIndex)</td>
         					<td>time based damage counters, decr. 1 per 2 seconds. Index must be between 0 and CMG_TIMEBASED.</td>
         				</tr>
         				<tr id='MonsterUse'>
-        					<td><span class="type">void</span> MonsterUse(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td><span class="type">void</span> MonsterUse(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
         					<td>Will make a monster angry at whomever activated it.</td>
         				</tr>
         				<tr id='Look'>
@@ -624,7 +624,7 @@
         					<td>turns a monster towards its ideal_yaw</td>
         				</tr>
         				<tr id='VecToYaw'>
-        					<td><span class="type">float</span> VecToYaw(<a class="type" href='/Vector'>Vector</a> vecDir)</td>
+        					<td><span class="type">float</span> VecToYaw(<a class="type" href='/asexthook/Vector'>Vector</a> vecDir)</td>
         					<td>turns a directional vector into a yaw value that points down that vector.</td>
         				</tr>
         				<tr id='FlYawDiff'>
@@ -664,15 +664,15 @@
         					<td>finds best visible enemy for attack</td>
         				</tr>
         				<tr id='FInViewCone'>
-        					<td><span class="type">bool</span> FInViewCone(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td><span class="type">bool</span> FInViewCone(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
         					<td>see if pEntity is in monster's view cone</td>
         				</tr>
         				<tr id='FInViewCone@2'>
-        					<td><span class="type">bool</span> FInViewCone(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td><span class="type">bool</span> FInViewCone(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
         					<td>see if given location is in monster's view cone</td>
         				</tr>
         				<tr id='CheckLocalMove'>
-        					<td><span class="type">int</span> CheckLocalMove(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd,<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span><span class="type">&</span> <span class="inout">out</span> flDist, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecEndPosition, <span class="type">bool</span> fOriginalCheck = false)</td>
+        					<td><span class="type">int</span> CheckLocalMove(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd,<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span><span class="type">&</span> <span class="inout">out</span> flDist, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecEndPosition, <span class="type">bool</span> fOriginalCheck = false)</td>
         					<td>finds best visible enemy for attack</td>
         				</tr>
         				<tr id='Move'>
@@ -680,7 +680,7 @@
         					<td>Starts the monster</td>
         				</tr>
         				<tr id='MoveExecute'>
-        					<td><span class="type">void</span> MoveExecute(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTargetEnt, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <span class="type">float</span> flInterval)</td>
+        					<td><span class="type">void</span> MoveExecute(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTargetEnt, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <span class="type">float</span> flInterval)</td>
         					<td>Starts the monster</td>
         				</tr>
         				<tr id='ShouldAdvanceRoute'>
@@ -688,7 +688,7 @@
         					<td>Returns whether this monster should advance its route</td>
         				</tr>
         				<tr id='GetStoppedActivity'>
-        					<td><a class="type" href='/Activity'>Activity</a> GetStoppedActivity()</td>
+        					<td><a class="type" href='/asexthook/Activity'>Activity</a> GetStoppedActivity()</td>
         					<td>Gets the stopped activity</td>
         				</tr>
         				<tr id='Stop'>
@@ -752,7 +752,7 @@
         					<td>Returns whether this monster's schedule is done.</td>
         				</tr>
         				<tr id='ChangeSchedule'>
-        					<td><span class="type">void</span> ChangeSchedule(<a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> pNewSchedule)</td>
+        					<td><span class="type">void</span> ChangeSchedule(<a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> pNewSchedule)</td>
         					<td>Changes this monster's schedule.</td>
         				</tr>
         				<tr id='NextScheduledTask'>
@@ -760,11 +760,11 @@
         					<td>Moves to the next scheduled task.</td>
         				</tr>
         				<tr id='ScheduleInList'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> ScheduleInList(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">array</span><span class="type"><</span><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray)</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> ScheduleInList(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray)</td>
         					<td>Returns the schedule with name szName if it's in the list, NULL otherwise.</td>
         				</tr>
         				<tr id='ScheduleFromName'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> ScheduleFromName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> ScheduleFromName(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
         					<td>Returns the schedule with name szName if it exists, NULL otherwise.</td>
         				</tr>
         				<tr id='MaintainSchedule'>
@@ -772,19 +772,19 @@
         					<td>Maintains the monster's schedule.</td>
         				</tr>
         				<tr id='StartTask'>
-        					<td><span class="type">void</span> StartTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td><span class="type">void</span> StartTask(<a class="type" href='/asexthook/Task'>Task</a><span class="type">@</span> pTask)</td>
         					<td>Starts the given task.</td>
         				</tr>
         				<tr id='RunTask'>
-        					<td><span class="type">void</span> RunTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td><span class="type">void</span> RunTask(<a class="type" href='/asexthook/Task'>Task</a><span class="type">@</span> pTask)</td>
         					<td>Runs the given task.</td>
         				</tr>
         				<tr id='GetScheduleOfType'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetScheduleOfType(<span class="type">int</span> iType)</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> GetScheduleOfType(<span class="type">int</span> iType)</td>
         					<td>Gets one of the available schedules of the given type.</td>
         				</tr>
         				<tr id='GetSchedule'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetSchedule()</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> GetSchedule()</td>
         					<td>Gets the current schedule.</td>
         				</tr>
         				<tr id='ScheduleChange'>
@@ -800,11 +800,11 @@
         					<td>Returns whether this monster can play its sentence.</td>
         				</tr>
         				<tr id='PlaySentence'>
-        					<td><span class="type">void</span> PlaySentence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation)</td>
+        					<td><span class="type">void</span> PlaySentence(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation)</td>
         					<td>Plays the given sentence.</td>
         				</tr>
         				<tr id='PlayScriptedSentence'>
-        					<td><span class="type">void</span> PlayScriptedSentence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">const</span> <span class="type">bool</span> bConcurrent, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pListener)</td>
+        					<td><span class="type">void</span> PlayScriptedSentence(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">const</span> <span class="type">bool</span> bConcurrent, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pListener)</td>
         					<td>Plays the given scripted sentence.</td>
         				</tr>
         				<tr id='SentenceStop'>
@@ -812,27 +812,27 @@
         					<td>Stops playing its current sentence.</td>
         				</tr>
         				<tr id='GetTask'>
-        					<td><a class="type" href='/Task'>Task</a><span class="type">@</span> GetTask()</td>
+        					<td><a class="type" href='/asexthook/Task'>Task</a><span class="type">@</span> GetTask()</td>
         					<td>Gets the current task.</td>
         				</tr>
         				<tr id='GetIdealState'>
-        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> GetIdealState()</td>
+        					<td><a class="type" href='/asexthook/MONSTERSTATE'>MONSTERSTATE</a> GetIdealState()</td>
         					<td>Gets the ideal monster state.</td>
         				</tr>
         				<tr id='SetActivity'>
-        					<td><span class="type">void</span> SetActivity(<a class="type" href='/Activity'>Activity</a> newActivity)</td>
+        					<td><span class="type">void</span> SetActivity(<a class="type" href='/asexthook/Activity'>Activity</a> newActivity)</td>
         					<td>Sets the current activity.</td>
         				</tr>
         				<tr id='SetGaitActivity'>
-        					<td><span class="type">void</span> SetGaitActivity(<a class="type" href='/Activity'>Activity</a> newActivity)</td>
+        					<td><span class="type">void</span> SetGaitActivity(<a class="type" href='/asexthook/Activity'>Activity</a> newActivity)</td>
         					<td>Sets the current gait activity.</td>
         				</tr>
         				<tr id='SetSequenceByName'>
-        					<td><span class="type">void</span> SetSequenceByName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSequence)</td>
+        					<td><span class="type">void</span> SetSequenceByName(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSequence)</td>
         					<td>Sets the current sequence by name.</td>
         				</tr>
         				<tr id='SetState'>
-        					<td><span class="type">void</span> SetState(<a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> state)</td>
+        					<td><span class="type">void</span> SetState(<a class="type" href='/asexthook/MONSTERSTATE'>MONSTERSTATE</a> state)</td>
         					<td>Sets the current monster state.</td>
         				</tr>
         				<tr id='ReportAIState'>
@@ -840,23 +840,23 @@
         					<td>Reports the AI state.</td>
         				</tr>
         				<tr id='CheckAttacks'>
-        					<td><span class="type">void</span> CheckAttacks(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
+        					<td><span class="type">void</span> CheckAttacks(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
         					<td>Check attacks to the given enemy at the given distance.</td>
         				</tr>
         				<tr id='CheckAttacks_Move'>
-        					<td><span class="type">void</span> CheckAttacks_Move(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
+        					<td><span class="type">void</span> CheckAttacks_Move(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
         					<td>Check attacks to the given enemy at the given distance while moving.</td>
         				</tr>
         				<tr id='CheckAttacksFromPosition'>
-        					<td><span class="type">bool</span> CheckAttacksFromPosition(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist, <a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td><span class="type">bool</span> CheckAttacksFromPosition(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist, <a class="type" href='/asexthook/Vector'>Vector</a> vecPos)</td>
         					<td>Check whether attacks are possible from the given position.</td>
         				</tr>
         				<tr id='CheckEnemy'>
-        					<td><span class="type">bool</span> CheckEnemy(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEnemy)</td>
+        					<td><span class="type">bool</span> CheckEnemy(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEnemy)</td>
         					<td>part of the Condition collection process, gets and stores data and conditions pertaining to a monster's enemy.<br>Returns true if Enemy LKP was updated.</td>
         				</tr>
         				<tr id='PushEnemy'>
-        					<td><span class="type">void</span> PushEnemy(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecLastKnownPos)</td>
+        					<td><span class="type">void</span> PushEnemy(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecLastKnownPos)</td>
         					<td>Remember the last few enemies, always remember the player.</td>
         				</tr>
         				<tr id='PopEnemy'>
@@ -864,11 +864,11 @@
         					<td>Try remembering the last few enemies.</td>
         				</tr>
         				<tr id='FGetNodeRoute'>
-        					<td><span class="type">bool</span> FGetNodeRoute(<a class="type" href='/Vector'>Vector</a> vecDest)</td>
-        					<td>tries to build an entire node path from<br>the callers origin to the passed vector.<br>If this is  possible, <a href='/Properties#ROUTE_SIZE'>ROUTE_SIZE</a> waypoints will be copied into the callers m_Route.<br>true is returned if the operation  succeeds (path is valid) or false if failed (no path  exists ).</td>
+        					<td><span class="type">bool</span> FGetNodeRoute(<a class="type" href='/asexthook/Vector'>Vector</a> vecDest)</td>
+        					<td>tries to build an entire node path from<br>the callers origin to the passed vector.<br>If this is  possible, <a href='/asexthook/Properties#ROUTE_SIZE'>ROUTE_SIZE</a> waypoints will be copied into the callers m_Route.<br>true is returned if the operation  succeeds (path is valid) or false if failed (no path  exists ).</td>
         				</tr>
         				<tr id='TestFGetNodeRoute'>
-        					<td><span class="type">bool</span> TestFGetNodeRoute(<a class="type" href='/Vector'>Vector</a> vecDest)</td>
+        					<td><span class="type">bool</span> TestFGetNodeRoute(<a class="type" href='/asexthook/Vector'>Vector</a> vecDest)</td>
         					<td>TEST FGetNodeRoute.</td>
         				</tr>
         				<tr id='TaskComplete'>
@@ -904,7 +904,7 @@
         					<td>Returns an integer with all Conditions<br>bits that are currently set and also set in the current<br>schedule's Interrupt mask.</td>
         				</tr>
         				<tr id='MakeIdealYaw'>
-        					<td><span class="type">void</span> MakeIdealYaw(<a class="type" href='/Vector'>Vector</a> vecTarget)</td>
+        					<td><span class="type">void</span> MakeIdealYaw(<a class="type" href='/asexthook/Vector'>Vector</a> vecTarget)</td>
         					<td>gets a yaw value for the caller that would<br>face the supplied vector. Value is stuffed into the monster's<br>ideal_yaw.</td>
         				</tr>
         				<tr id='SetYawSpeed'>
@@ -916,7 +916,7 @@
         					<td>Returns the MOVEGOAL for the given move flag.</td>
         				</tr>
         				<tr id='CheckAttacker'>
-        					<td><span class="type">bool</span> CheckAttacker(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pAttacker)</td>
+        					<td><span class="type">bool</span> CheckAttacker(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pAttacker)</td>
         					<td>Determine if we should ignore damage.</td>
         				</tr>
         				<tr id='SetConditions'>
@@ -936,7 +936,7 @@
         					<td>Returns whether this monster has all of the given AI conditions.</td>
         				</tr>
         				<tr id='PBestSound'>
-        					<td><a class="type" href='/CSound'>CSound</a><span class="type">@</span> PBestSound()</td>
+        					<td><a class="type" href='/asexthook/CSound'>CSound</a><span class="type">@</span> PBestSound()</td>
         					<td>Returns a pointer to the sound the monster should react to.</td>
         				</tr>
         				<tr id='FShouldEat'>
@@ -956,15 +956,15 @@
         					<td>Returns whether attacking at this time would result in friendly fire</td>
         				</tr>
         				<tr id='NoFriendlyFire@2'>
-        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/asexthook/Vector'>Vector</a> vecPos)</td>
         					<td>Returns whether attacking at this time from the given location would result in friendly fire</td>
         				</tr>
         				<tr id='NoFriendlyFire@3'>
-        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/Vector'>Vector</a> vecPos, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget)</td>
+        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/asexthook/Vector'>Vector</a> vecPos, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget)</td>
         					<td>Returns whether attacking the given target at this time from the given location would result in friendly fire</td>
         				</tr>
         				<tr id='NoFriendlyFireToPos'>
-        					<td><span class="type">bool</span> NoFriendlyFireToPos(<a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td><span class="type">bool</span> NoFriendlyFireToPos(<a class="type" href='/asexthook/Vector'>Vector</a> vecPos)</td>
         					<td>Returns whether attacking the target location at this time would result in friendly fire</td>
         				</tr>
         				<tr id='GetEnemy'>
@@ -977,7 +977,7 @@
         				</tr>
         				<tr id='ShouldGibMonster'>
         					<td><span class="type">bool</span> ShouldGibMonster(<span class="type">int</span> iGib)</td>
-        					<td>Returns whether the monster should be gibbed given the gib type.<br>See <a href='/GIB'>GIB</a> enum.</td>
+        					<td>Returns whether the monster should be gibbed given the gib type.<br>See <a href='/asexthook/GIB'>GIB</a> enum.</td>
         				</tr>
         				<tr id='CallGibMonster'>
         					<td><span class="type">void</span> CallGibMonster()</td>
@@ -996,11 +996,11 @@
         					<td>Fades this monster.<br>Note: does not kill the monster.</td>
         				</tr>
         				<tr id='ShootAtEnemy'>
-        					<td><a class="type" href='/Vector'>Vector</a> ShootAtEnemy(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecShootOrigin)</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> ShootAtEnemy(<span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecShootOrigin)</td>
         					<td>Shoots at the specified location.</td>
         				</tr>
         				<tr id='GetGunPosition'>
-        					<td><a class="type" href='/Vector'>Vector</a> GetGunPosition()</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> GetGunPosition()</td>
         					<td></td>
         				</tr>
         				<tr id='DeathSound'>
@@ -1020,7 +1020,7 @@
         					<td>Plays this monster's pain sound.</td>
         				</tr>
         				<tr id='StartPlayerFollowing'>
-        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader, <span class="type">bool</span> bSilent = false)</td>
+        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader, <span class="type">bool</span> bSilent = false)</td>
         					<td>Starts following its target.</td>
         				</tr>
         				<tr id='StopPlayerFollowing'>
@@ -1052,7 +1052,7 @@
         					<td>Cleans up after a cinematic event.</td>
         				</tr>
         				<tr id='DropItem'>
-        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> DropItem(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItemName, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPos, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAng)</td>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> DropItem(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItemName, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPos, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAng)</td>
         					<td>Drops the given item from the given position at the given angle.</td>
         				</tr>
         				<tr id='ShockGlowEffect'>
@@ -1060,7 +1060,7 @@
         					<td>Turns the shock glow effect on or off.</td>
         				</tr>
         				<tr id='FollowerPlayerUse'>
-        					<td><span class="type">void</span> FollowerPlayerUse(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td><span class="type">void</span> FollowerPlayerUse(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/asexthook/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
         					<td>Use method for following players (set only if friendly)</td>
         				</tr>
         				<tr id='IsPlayerFollowing'>
@@ -1072,7 +1072,7 @@
         					<td>Returns whether this monster can follow a player.</td>
         				</tr>
         				<tr id='StartPlayerFollowing@2'>
-        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader)</td>
+        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader)</td>
         					<td>Starts following a given player.</td>
         				</tr>
         				<tr id='StopPlayerFollowing@2'>
@@ -1080,7 +1080,7 @@
         					<td>Stops following a player.</td>
         				</tr>
         				<tr id='m_szTextureName'>
-        					<td><a class="type" href='/string'>string</a> m_szTextureName()</td>
+        					<td><a class="type" href='/asexthook/string'>string</a> m_szTextureName()</td>
         					<td>Current texture name we're standing on.</td>
         				</tr>
         				<tr id='MedicCallSound'>
@@ -1088,7 +1088,7 @@
         					<td>Medic call sound.</td>
         				</tr>
         				<tr id='get_m_pInventory'>
-        					<td><a class="type" href='/InventoryList'>InventoryList</a><span class="type">@</span> get_m_pInventory() <span class="type">const</span></td>
+        					<td><a class="type" href='/asexthook/InventoryList'>InventoryList</a><span class="type">@</span> get_m_pInventory() <span class="type">const</span></td>
         					<td>The inventory items this monster has</td>
         				</tr>
         				<tr id='ClearEnemyList'>
@@ -1116,7 +1116,7 @@
         					<td>Find all the cinematic entities with my targetname and stop them from playing.</td>
         				</tr>
         				<tr id='StartSequence'>
-        					<td><span class="type">bool</span> StartSequence(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pTarget, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSequence, <span class="type">const</span> <span class="type">bool</span> fCompleteOnEmpty)</td>
+        					<td><span class="type">bool</span> StartSequence(<a class="type" href='/asexthook/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pTarget, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSequence, <span class="type">const</span> <span class="type">bool</span> fCompleteOnEmpty)</td>
         					<td>Make the entity enter a scripted sequence.</td>
         				</tr>
         				<tr id='FCanOverrideState'>
@@ -1142,7 +1142,7 @@
         	</thead>
         	<tbody>
         				<tr id='pev'>
-        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
+        					<td><a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
         					<td>Entity variables</td>
         				</tr>
         				<tr id='m_fOverrideClass'>
@@ -1170,23 +1170,23 @@
         					<td>Whether a custom model is used.</td>
         				</tr>
         				<tr id='m_vecLastOrigin'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecLastOrigin</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecLastOrigin</td>
         					<td>Last origin vector</td>
         				</tr>
         				<tr id='targetnameOutFilterType'>
-        					<td><a class="type" href='/string_t'>string_t</a> targetnameOutFilterType</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> targetnameOutFilterType</td>
         					<td>Target name out filter type.</td>
         				</tr>
         				<tr id='classnameOutFilterType'>
-        					<td><a class="type" href='/string_t'>string_t</a> classnameOutFilterType</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> classnameOutFilterType</td>
         					<td>Class name out filter type.</td>
         				</tr>
         				<tr id='targetnameInFilterType'>
-        					<td><a class="type" href='/string_t'>string_t</a> targetnameInFilterType</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> targetnameInFilterType</td>
         					<td>Target name in filter type.</td>
         				</tr>
         				<tr id='classnameInFilterType'>
-        					<td><a class="type" href='/string_t'>string_t</a> classnameInFilterType</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> classnameInFilterType</td>
         					<td>Class name in filter type.</td>
         				</tr>
         				<tr id='m_iOriginalRenderMode'>
@@ -1202,7 +1202,7 @@
         					<td>Original render amount.</td>
         				</tr>
         				<tr id='m_vecOriginalRenderColor'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecOriginalRenderColor</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecOriginalRenderColor</td>
         					<td>Original render color.</td>
         				</tr>
         				<tr id='m_flDelay'>
@@ -1210,7 +1210,7 @@
         					<td>Delay before fire.</td>
         				</tr>
         				<tr id='m_iszKillTarget'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszKillTarget</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszKillTarget</td>
         					<td>The name of the kill target, if any.</td>
         				</tr>
         				<tr id='m_flFrameRate'>
@@ -1238,7 +1238,7 @@
         					<td>True if the sequence loops.</td>
         				</tr>
         				<tr id='m_toggle_state'>
-        					<td><a class="type" href='/TOGGLE_STATE'>TOGGLE_STATE</a> m_toggle_state</td>
+        					<td><a class="type" href='/asexthook/TOGGLE_STATE'>TOGGLE_STATE</a> m_toggle_state</td>
         					<td>Current toggle state.</td>
         				</tr>
         				<tr id='m_flMoveDistance'>
@@ -1270,31 +1270,31 @@
         					<td>Height.</td>
         				</tr>
         				<tr id='m_hActivator'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hActivator</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hActivator</td>
         					<td>Handle to the activator.</td>
         				</tr>
         				<tr id='m_vecPosition1'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecPosition1</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecPosition1</td>
         					<td>Closed position.</td>
         				</tr>
         				<tr id='m_vecPosition2'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecPosition2</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecPosition2</td>
         					<td>Open position.</td>
         				</tr>
         				<tr id='m_vecAngle1'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecAngle1</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecAngle1</td>
         					<td>Closed angle.</td>
         				</tr>
         				<tr id='m_vecAngle2'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecAngle2</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecAngle2</td>
         					<td>Open angle.</td>
         				</tr>
         				<tr id='m_vecFinalDest'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecFinalDest</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecFinalDest</td>
         					<td>Final destination.</td>
         				</tr>
         				<tr id='m_vecFinalAngle'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecFinalAngle</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecFinalAngle</td>
         					<td>Final angle.</td>
         				</tr>
         				<tr id='m_bitsDamageInflict'>
@@ -1302,19 +1302,19 @@
         					<td>DMG_ damage type that the door or trigger does.</td>
         				</tr>
         				<tr id='m_sMaster'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_sMaster</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_sMaster</td>
         					<td>This entity's master, if any.</td>
         				</tr>
         				<tr id='m_hEnemy'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hEnemy</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hEnemy</td>
         					<td>the entity that the monster is fighting.</td>
         				</tr>
         				<tr id='m_hTargetEnt'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hTargetEnt</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hTargetEnt</td>
         					<td>the entity that the monster is trying to reach.</td>
         				</tr>
         				<tr id='m_hTargetTank'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hTargetTank</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hTargetTank</td>
         					<td>Target tank to control.</td>
         				</tr>
         				<tr id='m_flFieldOfView'>
@@ -1330,15 +1330,15 @@
         					<td>if we're told to wait before moving, this is the time that the wait will be over.</td>
         				</tr>
         				<tr id='m_Activity'>
-        					<td><a class="type" href='/Activity'>Activity</a> m_Activity</td>
+        					<td><a class="type" href='/asexthook/Activity'>Activity</a> m_Activity</td>
         					<td>what the monster is doing (animation).</td>
         				</tr>
         				<tr id='m_IdealActivity'>
-        					<td><a class="type" href='/Activity'>Activity</a> m_IdealActivity</td>
+        					<td><a class="type" href='/asexthook/Activity'>Activity</a> m_IdealActivity</td>
         					<td>monster should switch to this activity.</td>
         				</tr>
         				<tr id='m_GaitActivity'>
-        					<td><a class="type" href='/Activity'>Activity</a> m_GaitActivity</td>
+        					<td><a class="type" href='/asexthook/Activity'>Activity</a> m_GaitActivity</td>
         					<td>gaitsequence.</td>
         				</tr>
         				<tr id='m_LastHitGroup'>
@@ -1346,11 +1346,11 @@
         					<td>the last body region that took damage.</td>
         				</tr>
         				<tr id='m_MonsterState'>
-        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> m_MonsterState</td>
+        					<td><a class="type" href='/asexthook/MONSTERSTATE'>MONSTERSTATE</a> m_MonsterState</td>
         					<td>monster's current state.</td>
         				</tr>
         				<tr id='m_IdealMonsterState'>
-        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> m_IdealMonsterState</td>
+        					<td><a class="type" href='/asexthook/MONSTERSTATE'>MONSTERSTATE</a> m_IdealMonsterState</td>
         					<td>monster should change to this state.</td>
         				</tr>
         				<tr id='m_iTaskStatus'>
@@ -1358,11 +1358,11 @@
         					<td>Task status.</td>
         				</tr>
         				<tr id='m_pSchedule'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> m_pSchedule</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> m_pSchedule</td>
         					<td>Current schedule.</td>
         				</tr>
         				<tr id='m_pScheduleSaved'>
-        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> m_pScheduleSaved</td>
+        					<td><a class="type" href='/asexthook/Schedule'>Schedule</a><span class="type">@</span> m_pScheduleSaved</td>
         					<td>For land_on_ground schedules (remember last schedule and continue).</td>
         				</tr>
         				<tr id='m_iScheduleIndex'>
@@ -1386,11 +1386,11 @@
         					<td>Minimum radius.</td>
         				</tr>
         				<tr id='m_vecMoveGoal'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecMoveGoal</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecMoveGoal</td>
         					<td>Kept around for node graph moves, so we know our ultimate goal.</td>
         				</tr>
         				<tr id='m_movementActivity'>
-        					<td><a class="type" href='/Activity'>Activity</a> m_movementActivity</td>
+        					<td><a class="type" href='/asexthook/Activity'>Activity</a> m_movementActivity</td>
         					<td>When moving, set this activity.</td>
         				</tr>
         				<tr id='m_iAudibleList'>
@@ -1402,7 +1402,7 @@
         					<td>Sound types that can be heard.</td>
         				</tr>
         				<tr id='m_vecLastPosition'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecLastPosition</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecLastPosition</td>
         					<td>monster sometimes wants to return to where it started after an operation..</td>
         				</tr>
         				<tr id='m_iHintNode'>
@@ -1422,7 +1422,7 @@
         					<td>keeps track of monster's maximum health value (for re-healing, etc).</td>
         				</tr>
         				<tr id='m_vecEnemyLKP'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecEnemyLKP</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecEnemyLKP</td>
         					<td>last known position of enemy. (enemy's origin).</td>
         				</tr>
         				<tr id='m_cAmmoLoaded'>
@@ -1454,7 +1454,7 @@
         					<td>Time-based damage timer.</td>
         				</tr>
         				<tr id='pevTimeBasedInflictor'>
-        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevTimeBasedInflictor</td>
+        					<td><a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pevTimeBasedInflictor</td>
         					<td>Time based damage inflictor.</td>
         				</tr>
         				<tr id='m_failSchedule'>
@@ -1467,7 +1467,7 @@
         				</tr>
         				<tr id='m_flDistTooFar'>
         					<td><span class="type">float</span> m_flDistTooFar</td>
-        					<td>if enemy farther away than this, <a href='/MonsterCondition#bits_COND_ENEMY_TOOFAR'>bits_COND_ENEMY_TOOFAR</a> set in CheckEnemy.</td>
+        					<td>if enemy farther away than this, <a href='/asexthook/MonsterCondition#bits_COND_ENEMY_TOOFAR'>bits_COND_ENEMY_TOOFAR</a> set in CheckEnemy.</td>
         				</tr>
         				<tr id='m_flDistLook'>
         					<td><span class="type">float</span> m_flDistLook</td>
@@ -1478,23 +1478,23 @@
         					<td>for scripted AI, this is the condition that will cause the activation of the monster's TriggerTarget.</td>
         				</tr>
         				<tr id='m_iszTriggerTarget'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszTriggerTarget</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszTriggerTarget</td>
         					<td>Name of target that should be fired.</td>
         				</tr>
         				<tr id='m_HackedGunPos'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_HackedGunPos</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_HackedGunPos</td>
         					<td>HACK until we can query end of gun.</td>
         				</tr>
         				<tr id='m_scriptState'>
-        					<td><a class="type" href='/SCRIPTSTATE'>SCRIPTSTATE</a> m_scriptState</td>
+        					<td><a class="type" href='/asexthook/SCRIPTSTATE'>SCRIPTSTATE</a> m_scriptState</td>
         					<td>internal cinematic state.</td>
         				</tr>
         				<tr id='m_hCine'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hCine</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hCine</td>
         					<td>Cinematic entity.</td>
         				</tr>
         				<tr id='m_hCineBlocker'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hCineBlocker</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hCineBlocker</td>
         					<td>Entity that is blocking cinematic execution.</td>
         				</tr>
         				<tr id='m_useTime'>
@@ -1502,12 +1502,12 @@
         					<td>Don't allow +USE until this time.</td>
         				</tr>
         				<tr id='m_FormattedName'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_FormattedName</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_FormattedName</td>
         					<td>The formatted name.<br>For better name outputs. E.g. "Alien Slave" rather than "alien_slave".</td>
         				</tr>
         				<tr id='m_chTextureType'>
         					<td><span class="type">int8</span> m_chTextureType</td>
-        					<td>Current texture type.<br>See <a href='/TextureType'>TextureType</a> enum.</td>
+        					<td>Current texture type.<br>See <a href='/asexthook/TextureType'>TextureType</a> enum.</td>
         				</tr>
         				<tr id='m_fCanFearCreatures'>
         					<td><span class="type">bool</span> m_fCanFearCreatures</td>
@@ -1522,15 +1522,15 @@
         					<td>Current fall speed.</td>
         				</tr>
         				<tr id='m_hGuardEnt'>
-        					<td><a class="type" href='/EHandle'>EHandle</a> m_hGuardEnt</td>
+        					<td><a class="type" href='/asexthook/EHandle'>EHandle</a> m_hGuardEnt</td>
         					<td>Monster will guard this entity and turn down follow requests.</td>
         				</tr>
         				<tr id='m_iszGuardEntName'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszGuardEntName</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszGuardEntName</td>
         					<td>Guard entity name.</td>
         				</tr>
         				<tr id='m_vecEffectGlowColor'>
-        					<td><a class="type" href='/Vector'>Vector</a> m_vecEffectGlowColor</td>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> m_vecEffectGlowColor</td>
         					<td>Glow shell.</td>
         				</tr>
         				<tr id='m_iEffectBlockWeapons'>
@@ -1570,15 +1570,15 @@
         					<td>Damage modifier (%)</td>
         				</tr>
         				<tr id='m_iszIdle'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszIdle</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszIdle</td>
         					<td>Te idle animation name.</td>
         				</tr>
         				<tr id='m_iszPlay'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszPlay</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszPlay</td>
         					<td>The play animation name.</td>
         				</tr>
         				<tr id='m_iszEntity'>
-        					<td><a class="type" href='/string_t'>string_t</a> m_iszEntity</td>
+        					<td><a class="type" href='/asexthook/string_t'>string_t</a> m_iszEntity</td>
         					<td>The target entity name.</td>
         				</tr>
         				<tr id='m_flRadius'>
