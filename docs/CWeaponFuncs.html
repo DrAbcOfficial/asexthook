@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CWeaponFuncs">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CWeaponFuncs</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CWeaponFuncs">CWeaponFuncs</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CWeaponFuncs</h1>
+      <p>Weapon functions class.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ClearMultiDamage'>
+        					<td><span class="type">void</span> ClearMultiDamage()</td>
+        					<td>Clears the multi damage data.</td>
+        				</tr>
+        				<tr id='ApplyMultiDamage'>
+        					<td><span class="type">void</span> ApplyMultiDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker)</td>
+        					<td>Applies multi damage.</td>
+        				</tr>
+        				<tr id='AddMultiDamage'>
+        					<td><span class="type">void</span> AddMultiDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Add multi damage.</td>
+        				</tr>
+        				<tr id='WeaponTimeBase'>
+        					<td><span class="type">float</span> WeaponTimeBase()</td>
+        					<td>Gets the weapon time base.</td>
+        				</tr>
+        				<tr id='DecalGunshot'>
+        					<td><span class="type">void</span> DecalGunshot(<a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> trace, <span class="type">int</span> iBulletType)</td>
+        					<td>Creates a gunshot decal at the trace hit point.</td>
+        				</tr>
+        				<tr id='SpawnBlood'>
+        					<td><span class="type">void</span> SpawnBlood(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSpot, <span class="type">int</span> bloodColor, <span class="type">float</span> flDamage)</td>
+        					<td>Spawns blood at the given location.</td>
+        				</tr>
+        				<tr id='DamageDecal'>
+        					<td><span class="type">int</span> DamageDecal(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Creates a damage decal on the given entity.</td>
+        				</tr>
+        				<tr id='RadiusDamage'>
+        					<td><span class="type">void</span> RadiusDamage(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecSrc, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">float</span> flRadius, <span class="type">int</span> iClassIgnore, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Deals radius damage.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

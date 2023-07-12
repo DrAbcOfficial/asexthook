@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="FuncDefs">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>FuncDefs</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/FuncDefs">FuncDefs</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Function Definitions</h1>
+      <p><a href='/Function'>Function</a> definitions are callbacks that can be passed around.</p>
+        <h2 id="FuncDefs">FuncDefs</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ThinkFunction'>
+        					<td><span class="type">void</span> ThinkFunction()</td>
+        					<td><a href='/Function'>Function</a> definition for custom entity Think functions</td>
+        				</tr>
+        				<tr id='UseFunction'>
+        					<td><span class="type">void</span> UseFunction(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td><a href='/Function'>Function</a> definition for custom entity Use functions</td>
+        				</tr>
+        				<tr id='TouchFunction'>
+        					<td><span class="type">void</span> TouchFunction(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><a href='/Function'>Function</a> definition for custom entity Touch functions</td>
+        				</tr>
+        				<tr id='BlockedFunction'>
+        					<td><span class="type">void</span> BlockedFunction(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td><a href='/Function'>Function</a> definition for custom entity Blocked functions</td>
+        				</tr>
+        				<tr id='TextMenuPlayerSlotCallback'>
+        					<td><span class="type">void</span> TextMenuPlayerSlotCallback(<a class="type" href='/CTextMenu'>CTextMenu</a><span class="type">@</span> menu, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">int</span> iSlot, <span class="type">const</span> <a class="type" href='/CTextMenuItem'>CTextMenuItem</a><span class="type">@</span> pItem)</td>
+        					<td>Player slot callback for text menus.</td>
+        				</tr>
+        				<tr id='VoteBlocked'>
+        					<td><span class="type">void</span> VoteBlocked(<a class="type" href='/Vote'>Vote</a><span class="type">@</span> pVote, <span class="type">float</span> flTime)</td>
+        					<td>Funcdef for vote blocked callbacks. The given time is when the active vote has ended.</td>
+        				</tr>
+        				<tr id='VoteEnd'>
+        					<td><span class="type">void</span> VoteEnd(<a class="type" href='/Vote'>Vote</a><span class="type">@</span> pVote, <span class="type">bool</span> fResult, <span class="type">int</span> iVoters)</td>
+        					<td>Funcdef for vote ended callbacks. If fResult is true, users voted for yes. Otherwise, voted for no.</td>
+        				</tr>
+        				<tr id='ConCommandCallback'>
+        					<td><span class="type">void</span> ConCommandCallback(<span class="type">const</span> <a class="type" href='/CCommand'>CCommand</a><span class="type">@</span> args)</td>
+        					<td>Callback for server console commands.</td>
+        				</tr>
+        				<tr id='ClientCommandCallback'>
+        					<td><span class="type">void</span> ClientCommandCallback(<span class="type">const</span> <a class="type" href='/CCommand'>CCommand</a><span class="type">@</span> args)</td>
+        					<td>Callback for client console commands.</td>
+        				</tr>
+        				<tr id='CVarCallback'>
+        					<td><span class="type">void</span> CVarCallback(<a class="type" href='/CCVar'>CCVar</a><span class="type">@</span> cvar, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szOldValue, <span class="type">float</span> flOldValue)</td>
+        					<td>Callback for cvars.</td>
+        				</tr>
+        				<tr id='fnSQLiteCallback'>
+        					<td><span class="type">void</span> fnSQLiteCallback(<span class="type">any</span><span class="type">@</span> pParam, <span class="type">int</span> iColumnSize, <span class="type">array</span><span class="type"><</span><a class="type" href='/string'>string</a><span class="type">></span><span class="type">@</span> aryColumnValue, <span class="type">array</span><span class="type"><</span><a class="type" href='/string'>string</a><span class="type">></span><span class="type">@</span> aryColumnName)</td>
+        					<td>SQLite Callback</td>
+        				</tr>
+        				<tr id='SendScoreInfoHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> SendScoreInfoHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pTarget, <span class="type">int</span> iTeamID, <a class="type" href='/string'>string</a> szTeamName, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> flag)</td>
+        					<td>Pre call before sending hud info to edict</td>
+        				</tr>
+        				<tr id='GrappleGetMonsterTypeHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> GrappleGetMonsterTypeHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pThis, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> flag)</td>
+        					<td>Pre call before Weapon Grapple checking monster type</td>
+        				</tr>
+        				<tr id='BreakableTakeDamageHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> BreakableTakeDamageHook(<a class="type" href='/DamageInfo'>DamageInfo</a><span class="type">@</span> info)</td>
+        					<td>Pre call before a breakable took damage</td>
+        				</tr>
+        				<tr id='BreakableDieHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> BreakableDieHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pBreakable, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
+        					<td>Pre call before a breakable died</td>
+        				</tr>
+        				<tr id='BreakableTraceAttackHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> BreakableTraceAttackHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pBreakable, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <a class="type" href='/Vector'>Vector</a> vecDir, <span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitDamageType)</td>
+        					<td>Pre call before a breakable trace attack</td>
+        				</tr>
+        				<tr id='MonsterKilledHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MonsterKilledHook(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pMonster, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
+        					<td>Pre call before a monster died</td>
+        				</tr>
+        				<tr id='MonsterPostTakeDamageHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MonsterPostTakeDamageHook(<a class="type" href='/DamageInfo'>DamageInfo</a><span class="type">@</span> info)</td>
+        					<td>Post call before a monster took damage</td>
+        				</tr>
+        				<tr id='MonsterTakeDamageHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MonsterTakeDamageHook(<a class="type" href='/DamageInfo'>DamageInfo</a><span class="type">@</span> info)</td>
+        					<td>Pre call before a monster took damage</td>
+        				</tr>
+        				<tr id='MonsterTraceAttackHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MonsterTraceAttackHook(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pMonster, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <a class="type" href='/Vector'>Vector</a> vecDir, <span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitDamageType)</td>
+        					<td>Pre call before a monster trace attack</td>
+        				</tr>
+        				<tr id='MonsterSpawnHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MonsterSpawnHook(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pEntity)</td>
+        					<td>Post call after a monster spawn</td>
+        				</tr>
+        				<tr id='IRelationshipHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> IRelationshipHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">bool</span> param, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> newValue)</td>
+        					<td>Pre call before checking relation</td>
+        				</tr>
+        				<tr id='EntitySpawnHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> EntitySpawnHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Post call after a Entity spawn</td>
+        				</tr>
+        				<tr id='PlayerCallGrenadeHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerCallGrenadeHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Pre call before a player call grenade</td>
+        				</tr>
+        				<tr id='PlayerCallMedicHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerCallMedicHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Pre call before a player call medic</td>
+        				</tr>
+        				<tr id='PlayerTakeHealthHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerTakeHealthHook(<a class="type" href='/HealthInfo'>HealthInfo</a><span class="type">@</span> info)</td>
+        					<td>Pre call before a player took health</td>
+        				</tr>
+        				<tr id='PlayerPostTakeDamageHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerPostTakeDamageHook(<a class="type" href='/DamageInfo'>DamageInfo</a><span class="type">@</span> info)</td>
+        					<td>Pre call before a player took damage</td>
+        				</tr>
+        				<tr id='PlayerUserInfoChangedHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerUserInfoChangedHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pClient, <a class="type" href='/string'>string</a> szInfoBuffer, <span class="type">uint</span><span class="type">&</span><span class="inout">out</span> uiFlag)</td>
+        					<td>Pre call before a player info changed</td>
+        				</tr>
+        				<tr id='WeaponTertiaryAttackHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> WeaponTertiaryAttackHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <a class="type" href='/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span>)</td>
+        					<td>Called when a player fires a weapon's tertiary attack.</td>
+        				</tr>
+        				<tr id='WeaponSecondaryAttackHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> WeaponSecondaryAttackHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <a class="type" href='/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span>)</td>
+        					<td>Called when a player fires a weapon's secondary attack.</td>
+        				</tr>
+        				<tr id='WeaponPrimaryAttackHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> WeaponPrimaryAttackHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <a class="type" href='/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span>)</td>
+        					<td>Called when a player fires a weapon's primary attack.</td>
+        				</tr>
+        				<tr id='PlayerPreDecalHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerPreDecalHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> in, <span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> bResult)</td>
+        					<td>Called when a player attempts to spraypaint a decal onto a surface. The given trace result contains the surface information. Set bResult to false if the player shouldn't be able to spray. </td>
+        				</tr>
+        				<tr id='PlayerDecalHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerDecalHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> in)</td>
+        					<td>Called when a player is spraypainting a decal onto a surface. The given trace result contains the surface information. </td>
+        				</tr>
+        				<tr id='GetPlayerSpawnSpotHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> GetPlayerSpawnSpotHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">&</span> <span class="inout">out</span> ppEntSpawnSpot)</td>
+        					<td>Called when a player is about to get a spawn point before (re)spawning.</td>
+        				</tr>
+        				<tr id='PlayerPostThinkHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerPostThinkHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when the player is processing post think events.</td>
+        				</tr>
+        				<tr id='PlayerPreThinkHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerPreThinkHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <span class="type">uint</span><span class="type">&</span> out)</td>
+        					<td>Called when the player is processing pre think events.</td>
+        				</tr>
+        				<tr id='PlayerUseHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerUseHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <span class="type">uint</span><span class="type">&</span> out)</td>
+        					<td>Called when the game is processing player use input. Note that this occurs even if the player has not pressed their use key.</td>
+        				</tr>
+        				<tr id='PlayerLeftObserverHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerLeftObserverHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when a player leaves observer mode.</td>
+        				</tr>
+        				<tr id='PlayerEnteredObserverHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerEnteredObserverHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when a player enters observer mode.</td>
+        				</tr>
+        				<tr id='PlayerKilledHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerKilledHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>, <span class="type">int</span>)</td>
+        					<td>Called when a player is killed.</td>
+        				</tr>
+        				<tr id='PlayerTakeDamageHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerTakeDamageHook(<a class="type" href='/DamageInfo'>DamageInfo</a><span class="type">@</span>)</td>
+        					<td>Called when a player takes damage. Note that the victim entity can't be changed at this point.</td>
+        				</tr>
+        				<tr id='PlayerCanRespawnHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerCanRespawnHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>, <span class="type">bool</span><span class="type">&</span> out)</td>
+        					<td>Called when the game wants to know if the player should be able to respawn or not.Set bCanRespawn to false to disallow, default true.</td>
+        				</tr>
+        				<tr id='PlayerSpawnHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> PlayerSpawnHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when a player (re)spawns.</td>
+        				</tr>
+        				<tr id='ClientConnectedHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> ClientConnectedHook(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span>, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> in, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> in, <span class="type">bool</span><span class="type">&</span> out, <a class="type" href='/string'>string</a><span class="type">&</span> out)</td>
+        					<td>Called when a player connects to the server. if bDisallowJoin is set to false, the player is disconnected. szRejectReason is shown to the player if disconnected. The maximum length of the reject reason <a href='/string'>string</a> is 127 characters.</td>
+        				</tr>
+        				<tr id='CollectedHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> CollectedHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>)</td>
+        					<td>Called when a pickup object is collected by a player. </td>
+        				</tr>
+        				<tr id='MaterializeHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MaterializeHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>)</td>
+        					<td>Called when a pickup object materializes.</td>
+        				</tr>
+        				<tr id='CanCollectHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> CanCollectHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>, <span class="type">bool</span><span class="type">&</span> out)</td>
+        					<td>Called when a pickup object is about to be collected by a player. Note that basic checks are done before this hook is called.</td>
+        				</tr>
+        				<tr id='CanPlayerUseReservedSlotHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> CanPlayerUseReservedSlotHook(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span>, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> in, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> in, <span class="type">bool</span><span class="type">&</span> out)</td>
+        					<td>Called when a player connects to the server, and the number of slots left on the server is <= the number of reserved slots. Set bAllowJoin to true to allow the player to join (default false).</td>
+        				</tr>
+        				<tr id='ClientSayHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> ClientSayHook(<a class="type" href='/SayParameters'>SayParameters</a><span class="type">@</span>)</td>
+        					<td>Called when a player says something in game chat. The <a href='/SayParameters'>SayParameters</a> class can be used to manipulate input and veto the message.</td>
+        				</tr>
+        				<tr id='ClientPutInServerHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> ClientPutInServerHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when a player has finished connecting and is put into the world. It is safe to send network messages to the player at this point.</td>
+        				</tr>
+        				<tr id='ClientDisconnectHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> ClientDisconnectHook(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span>)</td>
+        					<td>Called when a player disconnects. Note that this is only called if the player was fully connected, meaning the player went through <a href='/Properties#ClientPutInServer'>ClientPutInServer</a>. This is never called for the local host.</td>
+        				</tr>
+        				<tr id='EntityCreatedHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> EntityCreatedHook(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span>)</td>
+        					<td>Called when a new entity is created. At this point the entity is not spawned yet and may not be fully initialized.</td>
+        				</tr>
+        				<tr id='MapChangeHook'>
+        					<td><a class="type" href='/HookReturnCode'>HookReturnCode</a> MapChangeHook()</td>
+        					<td>Called when the map changes. This happens when the world is destroyed. There may still be entities that exist at this point.</td>
+        				</tr>
+        			</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

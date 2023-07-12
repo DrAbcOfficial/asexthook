@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="EdictFlags">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>EdictFlags</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/EdictFlags">EdictFlags</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>EdictFlags</h1>
+      <p><a href='/entvars_t#flags'>entvars_t::flags</a> constants</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='FL_FLY'>
+        					<td>FL_FLY</td>
+        					<td>1</td>
+        					<td>Changes the SV_Movestep() behavior to not need to be on ground</td>
+        				</tr>
+        				<tr id='FL_SWIM'>
+        					<td>FL_SWIM</td>
+        					<td>2</td>
+        					<td>Changes the SV_Movestep() behavior to not need to be on ground (but stay in water)</td>
+        				</tr>
+        				<tr id='FL_CONVEYOR'>
+        					<td>FL_CONVEYOR</td>
+        					<td>4</td>
+        					<td>If set, entities standing on this entity are moved as if this were a conveyor</td>
+        				</tr>
+        				<tr id='FL_CLIENT'>
+        					<td>FL_CLIENT</td>
+        					<td>8</td>
+        					<td>If set, this is a player</td>
+        				</tr>
+        				<tr id='FL_INWATER'>
+        					<td>FL_INWATER</td>
+        					<td>16</td>
+        					<td>If set, this entity is in water. Only applies to players</td>
+        				</tr>
+        				<tr id='FL_MONSTER'>
+        					<td>FL_MONSTER</td>
+        					<td>32</td>
+        					<td>If set, this is a monster</td>
+        				</tr>
+        				<tr id='FL_GODMODE'>
+        					<td>FL_GODMODE</td>
+        					<td>64</td>
+        					<td>If set, this entity is invincible. Only applies to players</td>
+        				</tr>
+        				<tr id='FL_NOTARGET'>
+        					<td>FL_NOTARGET</td>
+        					<td>128</td>
+        					<td>If set, this entity will not be targeted by monster AI</td>
+        				</tr>
+        				<tr id='FL_SKIPLOCALHOST'>
+        					<td>FL_SKIPLOCALHOST</td>
+        					<td>256</td>
+        					<td>Don't send entity to local host, it's predicting this entity itself</td>
+        				</tr>
+        				<tr id='FL_ONGROUND'>
+        					<td>FL_ONGROUND</td>
+        					<td>512</td>
+        					<td>At rest / on the ground</td>
+        				</tr>
+        				<tr id='FL_PARTIALGROUND'>
+        					<td>FL_PARTIALGROUND</td>
+        					<td>1024</td>
+        					<td>not all corners are valid</td>
+        				</tr>
+        				<tr id='FL_WATERJUMP'>
+        					<td>FL_WATERJUMP</td>
+        					<td>2048</td>
+        					<td>player jumping out of water</td>
+        				</tr>
+        				<tr id='FL_FROZEN'>
+        					<td>FL_FROZEN</td>
+        					<td>4096</td>
+        					<td>Player is frozen for 3rd person camera</td>
+        				</tr>
+        				<tr id='FL_FAKECLIENT'>
+        					<td>FL_FAKECLIENT</td>
+        					<td>8192</td>
+        					<td>JAC: fake client, simulated server side; don't send network messages to them</td>
+        				</tr>
+        				<tr id='FL_DUCKING'>
+        					<td>FL_DUCKING</td>
+        					<td>16384</td>
+        					<td>Player flag -- Player is fully crouched</td>
+        				</tr>
+        				<tr id='FL_FLOAT'>
+        					<td>FL_FLOAT</td>
+        					<td>32768</td>
+        					<td>Apply floating force to this entity when in water</td>
+        				</tr>
+        				<tr id='FL_GRAPHED'>
+        					<td>FL_GRAPHED</td>
+        					<td>65536</td>
+        					<td>worldgraph has this ent listed as something that blocks a connection</td>
+        				</tr>
+        				<tr id='FL_IMMUNE_WATER'>
+        					<td>FL_IMMUNE_WATER</td>
+        					<td>131072</td>
+        					<td>If set, players don't take drown damage</td>
+        				</tr>
+        				<tr id='FL_IMMUNE_SLIME'>
+        					<td>FL_IMMUNE_SLIME</td>
+        					<td>262144</td>
+        					<td>If set, players don't take damage from slime</td>
+        				</tr>
+        				<tr id='FL_IMMUNE_LAVA'>
+        					<td>FL_IMMUNE_LAVA</td>
+        					<td>524288</td>
+        					<td>If set, players don't take damage from lava</td>
+        				</tr>
+        				<tr id='FL_PROXY'>
+        					<td>FL_PROXY</td>
+        					<td>1048576</td>
+        					<td>This is a spectator proxy</td>
+        				</tr>
+        				<tr id='FL_ALWAYSTHINK'>
+        					<td>FL_ALWAYSTHINK</td>
+        					<td>2097152</td>
+        					<td>Brush model flag -- call think every frame regardless of nextthink - ltime (for constantly changing velocity/path)</td>
+        				</tr>
+        				<tr id='FL_BASEVELOCITY'>
+        					<td>FL_BASEVELOCITY</td>
+        					<td>4194304</td>
+        					<td>Base velocity has been applied this frame (used to convert base velocity into momentum)</td>
+        				</tr>
+        				<tr id='FL_MONSTERCLIP'>
+        					<td>FL_MONSTERCLIP</td>
+        					<td>8388608</td>
+        					<td>Only collide in with monsters who have <a href='/EdictFlags#FL_MONSTERCLIP'>FL_MONSTERCLIP</a> set</td>
+        				</tr>
+        				<tr id='FL_ONTRAIN'>
+        					<td>FL_ONTRAIN</td>
+        					<td>16777216</td>
+        					<td>Player is _controlling_ a train, so movement commands should be ignored on client during prediction.</td>
+        				</tr>
+        				<tr id='FL_WORLDBRUSH'>
+        					<td>FL_WORLDBRUSH</td>
+        					<td>33554432</td>
+        					<td>Not moveable/removeable brush entity (really part of the world, but represented as an entity for transparency or something)</td>
+        				</tr>
+        				<tr id='FL_SPECTATOR'>
+        					<td>FL_SPECTATOR</td>
+        					<td>67108864</td>
+        					<td>This client is a spectator, don't run touch functions, etc.</td>
+        				</tr>
+        				<tr id='FL_NOWEAPONS'>
+        					<td>FL_NOWEAPONS</td>
+        					<td>134217728</td>
+        					<td>This client is being denied weapon usage</td>
+        				</tr>
+        				<tr id='FL_CUSTOMENTITY'>
+        					<td>FL_CUSTOMENTITY</td>
+        					<td>536870912</td>
+        					<td>This is a custom entity</td>
+        				</tr>
+        				<tr id='FL_KILLME'>
+        					<td>FL_KILLME</td>
+        					<td>1073741824</td>
+        					<td>This entity is marked for death -- This allows the engine to kill ents at the appropriate time</td>
+        				</tr>
+        				<tr id='FL_DORMANT'>
+        					<td>FL_DORMANT</td>
+        					<td>2147483648</td>
+        					<td>Entity is dormant, no updates to client</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

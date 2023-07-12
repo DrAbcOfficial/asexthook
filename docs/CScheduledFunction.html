@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CScheduledFunction">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CScheduledFunction</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CScheduledFunction">CScheduledFunction</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CScheduledFunction</h1>
+      <p>Handle to a scheduled function</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetNextCallTime'>
+        					<td><span class="type">float</span> GetNextCallTime() <span class="type">const</span></td>
+        					<td>Gets the next call time, in seconds</td>
+        				</tr>
+        				<tr id='SetNextCallTime'>
+        					<td><span class="type">void</span> SetNextCallTime(<span class="type">const</span> <span class="type">float</span> flNextCallTime)</td>
+        					<td>Sets the next call time, in seconds. Is an absolute value (<a href='/Properties#g_Engine'>g_Engine</a>.time + RepeatTime by default).Times in the past will result in a call on the next frame.</td>
+        				</tr>
+        				<tr id='GetRepeatTime'>
+        					<td><span class="type">float</span> GetRepeatTime() <span class="type">const</span></td>
+        					<td>Gets the repeat time, in seconds</td>
+        				</tr>
+        				<tr id='SetRepeatTime'>
+        					<td><span class="type">void</span> SetRepeatTime(<span class="type">const</span> <span class="type">float</span> flRepeatTime)</td>
+        					<td>Sets the repeat time, in seconds. Must be a positive value (may be zero)</td>
+        				</tr>
+        				<tr id='GetRepeatCount'>
+        					<td><span class="type">int</span> GetRepeatCount() <span class="type">const</span></td>
+        					<td>Gets the repeat count</td>
+        				</tr>
+        				<tr id='IsInfiniteRepeat'>
+        					<td><span class="type">bool</span> IsInfiniteRepeat() <span class="type">const</span></td>
+        					<td>Returns whether this function repeats infinitely</td>
+        				</tr>
+        				<tr id='SetRepeatCount'>
+        					<td><span class="type">void</span> SetRepeatCount(<span class="type">const</span> <span class="type">int</span> iRepeatCount)</td>
+        					<td>Sets the repeat count. Must be a positive value (may be zero) or REPEAT_INFINITE_TIMES</td>
+        				</tr>
+        				<tr id='MakeInfiniteRepeat'>
+        					<td><span class="type">void</span> MakeInfiniteRepeat()</td>
+        					<td>Makes this an infinite repeat function</td>
+        				</tr>
+        				<tr id='HasBeenRemoved'>
+        					<td><span class="type">bool</span> HasBeenRemoved() <span class="type">const</span></td>
+        					<td>Returns whether this function has been removed from the scheduler or not</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

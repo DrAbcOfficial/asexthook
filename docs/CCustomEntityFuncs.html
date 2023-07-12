@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CCustomEntityFuncs">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CCustomEntityFuncs</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CCustomEntityFuncs">CCustomEntityFuncs</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CCustomEntityFuncs</h1>
+      <p>Custom entity functions.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='IsCustomEntity'>
+        					<td><span class="type">bool</span> IsCustomEntity(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntityname) <span class="type">const</span></td>
+        					<td>Returns whether the given entity name is a registered custom entity</td>
+        				</tr>
+        				<tr id='RegisterCustomEntity'>
+        					<td><span class="type">void</span> RegisterCustomEntity(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szClassname, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntityname)</td>
+        					<td>Registers a class called szClassname as a custom entity named szEntityname. The class must inherit from a script entity base class.</td>
+        				</tr>
+        				<tr id='UnRegisterCustomEntity'>
+        					<td><span class="type">void</span> UnRegisterCustomEntity(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szEntityname)</td>
+        					<td>Unregisters a custom entity by the given name</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

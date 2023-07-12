@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CGrenade">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CGrenade</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CGrenade">CGrenade</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CGrenade</h1>
+      <p>Grenade class</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='opImplCast'>
+        					<td><a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='opImplCast@2'>
+        					<td><a class="type" href='/CBaseToggle'>CBaseToggle</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='opImplCast@3'>
+        					<td><a class="type" href='/CBaseAnimating'>CBaseAnimating</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='opImplCast@4'>
+        					<td><a class="type" href='/CBaseDelay'>CBaseDelay</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='opImplCast@5'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='GetOrigin'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> GetOrigin() <span class="type">const</span></td>
+        					<td>Gets the entity's (absolute) origin.</td>
+        				</tr>
+        				<tr id='SetOrigin'>
+        					<td><span class="type">void</span> SetOrigin(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td>Sets this entity's (absolute) origin</td>
+        				</tr>
+        				<tr id='KeyValue'>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Sets keyvalue data on this entity</td>
+        				</tr>
+        				<tr id='TraceAttack'>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Traces an attack by the given entity to this entity.</td>
+        				</tr>
+        				<tr id='TraceBleed'>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Traces entity bleed event.</td>
+        				</tr>
+        				<tr id='GiveAmmo'>
+        					<td><span class="type">int</span> GiveAmmo(<span class="type">int</span> iAmount, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">int</span> iMax, <span class="type">const</span> <span class="type">bool</span> fFromWeapon = true)</td>
+        					<td>Gives ammo to this entity.</td>
+        				</tr>
+        				<tr id='HasTarget'>
+        					<td><span class="type">bool</span> HasTarget(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTarget)</td>
+        					<td>Returns whether this entity has the given target.</td>
+        				</tr>
+        				<tr id='TeamID'>
+        					<td><a class="type" href='/string'>string</a> TeamID()</td>
+        					<td>Returns this entity's team ID.</td>
+        				</tr>
+        				<tr id='GetClassname'>
+        					<td><a class="type" href='/string'>string</a> GetClassname() <span class="type">const</span></td>
+        					<td>Returns this entity's class name.</td>
+        				</tr>
+        				<tr id='GetClassificationTag'>
+        					<td><a class="type" href='/string'>string</a> GetClassificationTag() <span class="type">const</span></td>
+        					<td>Returns this entity's classification tag.</td>
+        				</tr>
+        				<tr id='GetClassificationName'>
+        					<td><a class="type" href='/string'>string</a> GetClassificationName() <span class="type">const</span></td>
+        					<td>Returns this entity's classification name.</td>
+        				</tr>
+        				<tr id='GetTargetname'>
+        					<td><a class="type" href='/string'>string</a> GetTargetname() <span class="type">const</span></td>
+        					<td>Returns this entity's target name.</td>
+        				</tr>
+        				<tr id='FVisibleFromPos'>
+        					<td><span class="type">bool</span> FVisibleFromPos(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTarget, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart)</td>
+        					<td>Returns whether this entity is visible from the given position.</td>
+        				</tr>
+        				<tr id='SOUNDREPLACEMENT_Find'>
+        					<td><a class="type" href='/string'>string</a> SOUNDREPLACEMENT_Find(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
+        					<td>Find sound replacement for the given file.</td>
+        				</tr>
+        				<tr id='FindMonstersInWorld'>
+        					<td><span class="type">int</span> FindMonstersInWorld(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">int</span> flagMask)</td>
+        					<td>Finds monsters in the world</td>
+        				</tr>
+        				<tr id='IsPlayerAlly'>
+        					<td><span class="type">bool</span> IsPlayerAlly() <span class="type">const</span></td>
+        					<td>Returns whether this entity is allied to players.</td>
+        				</tr>
+        				<tr id='SetPlayerAlly'>
+        					<td><span class="type">void</span> SetPlayerAlly(<span class="type">bool</span> fState)</td>
+        					<td>Sets this entity's player ally status.</td>
+        				</tr>
+        				<tr id='SetPlayerAllyDirect'>
+        					<td><span class="type">void</span> SetPlayerAllyDirect(<span class="type">bool</span> fState)</td>
+        					<td>Sets this entity's player ally status.<br>Use this only if you need the setting to be exactly what you give it (e.g. when copying from another monster)</td>
+        				</tr>
+        				<tr id='opEquals'>
+        					<td><span class="type">bool</span> opEquals(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Compares 2 entities for equality.</td>
+        				</tr>
+        				<tr id='Precache'>
+        					<td><span class="type">void</span> Precache()</td>
+        					<td>Precaches the entity. Do not call directly.</td>
+        				</tr>
+        				<tr id='ObjectCaps'>
+        					<td><span class="type">int</span> ObjectCaps()</td>
+        					<td>Gets this entity's objects caps. See the <a href='/FCAP'>FCAP</a> enum.</td>
+        				</tr>
+        				<tr id='SetObjectCollisionBox'>
+        					<td><span class="type">void</span> SetObjectCollisionBox()</td>
+        					<td>Sets up the object collision box.</td>
+        				</tr>
+        				<tr id='GetClassification'>
+        					<td><span class="type">int</span> GetClassification(<span class="type">int</span> cl)</td>
+        					<td>Gets this entity's classification. Returns the given value if none is set. See the CLASSIFICATION enum.</td>
+        				</tr>
+        				<tr id='SetClassification'>
+        					<td><span class="type">void</span> SetClassification(<span class="type">int</span> cl)</td>
+        					<td>Sets this entity's classification override. Can override the entity's player ally setting.</td>
+        				</tr>
+        				<tr id='SetClassificationFromEntity'>
+        					<td><span class="type">void</span> SetClassificationFromEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Sets this entity's classification override to the classification override set on the given entity. Can override the entity's player ally setting.</td>
+        				</tr>
+        				<tr id='ClearClassification'>
+        					<td><span class="type">void</span> ClearClassification()</td>
+        					<td>Clears this entity's classification override.</td>
+        				</tr>
+        				<tr id='IRelationship'>
+        					<td><span class="type">int</span> IRelationship(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> other, <span class="type">bool</span> ignoreNoTarget = false)</td>
+        					<td>Gets the relationship between this entity and the given entity. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        				</tr>
+        				<tr id='IRelationshipByClass'>
+        					<td><span class="type">int</span> IRelationshipByClass(<a class="type" href='/CLASS'>CLASS</a> iClass)</td>
+        					<td>Gets the relationship between this entity and the given entity classification. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        				</tr>
+        				<tr id='Classify'>
+        					<td><span class="type">int</span> Classify()</td>
+        					<td>Gets this entity's classification.</td>
+        				</tr>
+        				<tr id='TakeDamage'>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Causes this entity to take damage. Returns 1 if it took damage, 0 otherwise.</td>
+        				</tr>
+        				<tr id='TakeHealth'>
+        					<td><span class="type">bool</span> TakeHealth(<span class="type">float</span> flHealth, <span class="type">int</span> bitsDamageType, <span class="type">int</span> health_cap = 0)</td>
+        					<td>Takes health from this entity. Note: flHealth is added to entity health. Use negative values to subtract.If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.</td>
+        				</tr>
+        				<tr id='TakeArmor'>
+        					<td><span class="type">bool</span> TakeArmor(<span class="type">float</span> flArmor, <span class="type">int</span> bitsDamageType, <span class="type">int</span> armor_cap = 0)</td>
+        					<td>Takes armor from this entity. Note: flArmor is added to entity armor. Use negative values to subtract.If armor_cap is non-zero, won't add more than armor_cap. Returns 1 if it took damage, 0 otherwise.</td>
+        				</tr>
+        				<tr id='Killed'>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span>pevAtttacker, <span class="type">int</span> iGibbed)</td>
+        					<td>Tells this entity it's been killed. See the <a href='/GIB'>GIB</a> enum for possible values.</td>
+        				</tr>
+        				<tr id='BloodColor'>
+        					<td><span class="type">int</span> BloodColor()</td>
+        					<td>Returns the blood color. See the <a href='/BLOOD_COLOR'>BLOOD_COLOR</a> enum.</td>
+        				</tr>
+        				<tr id='IsTriggered'>
+        					<td><span class="type">bool</span> IsTriggered(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
+        					<td>Returns whether this entity is triggered by the given entity.</td>
+        				</tr>
+        				<tr id='MyMonsterPointer'>
+        					<td><a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> MyMonsterPointer()</td>
+        					<td>Returns this entity as its monster entity, if it is a monster.</td>
+        				</tr>
+        				<tr id='GetCustomKeyvalues'>
+        					<td><a class="type" href='/CustomKeyvalues'>CustomKeyvalues</a><span class="type">@</span> GetCustomKeyvalues()</td>
+        					<td>Gets this entity's custom keyvalues.</td>
+        				</tr>
+        				<tr id='BlockedByEntity'>
+        					<td><span class="type">bool</span> BlockedByEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">float</span> flDamage)</td>
+        					<td>Returns true if you should be blocked by the entity, false otherwise. Also deals blocking damage to the entity, if applicable.</td>
+        				</tr>
+        				<tr id='SUB_Remove'>
+        					<td><span class="type">void</span> SUB_Remove()</td>
+        					<td>Think function. Delay-removes this entity.</td>
+        				</tr>
+        				<tr id='SUB_DoNothing'>
+        					<td><span class="type">void</span> SUB_DoNothing()</td>
+        					<td>Think function. Explicitly does nothing.</td>
+        				</tr>
+        				<tr id='SUB_StartFadeOut'>
+        					<td><span class="type">void</span> SUB_StartFadeOut()</td>
+        					<td>Think function. Starts fading this entity.</td>
+        				</tr>
+        				<tr id='SUB_FadeOut'>
+        					<td><span class="type">void</span> SUB_FadeOut()</td>
+        					<td>Think function. Fades this entity.</td>
+        				</tr>
+        				<tr id='SUB_CallUseToggle'>
+        					<td><span class="type">void</span> SUB_CallUseToggle()</td>
+        					<td>Think function. Calls use toggle on this entity.</td>
+        				</tr>
+        				<tr id='ShouldToggle'>
+        					<td><span class="type">bool</span> ShouldToggle(<a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">const</span> <span class="type">bool</span> currentState)</td>
+        					<td>Returns whether this entity should toggle.</td>
+        				</tr>
+        				<tr id='FireBullets'>
+        					<td><span class="type">void</span> FireBullets(<span class="type">uint</span> cShots, <a class="type" href='/Vector'>Vector</a> vecSrc, <a class="type" href='/Vector'>Vector</a> vecDirShooting, <a class="type" href='/Vector'>Vector</a> vecSpread,<span class="type">float</span> flDistance, <a class="type" href='/Bullet'>Bullet</a> iBulletType, <span class="type">int</span> iTracerFreq = 4, <span class="type">int</span> iDamage = 0, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker = null, <a class="type" href='/FireBulletsDrawMode'>FireBulletsDrawMode</a> fDraw = <a class="value" href='/FireBulletsDrawMode#FBDM_DRAW'>FBDM_DRAW</a>)</td>
+        					<td>Fires bullets. Must call <a href='/CMath#MakeAimVectors'>CMath::MakeAimVectors</a> with an angle vector first.</td>
+        				</tr>
+        				<tr id='Intersects'>
+        					<td><span class="type">bool</span> Intersects(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Returns whether this entity intersects with the given entity.</td>
+        				</tr>
+        				<tr id='MakeDormant'>
+        					<td><span class="type">void</span> MakeDormant()</td>
+        					<td>Makes this entity dormant.</td>
+        				</tr>
+        				<tr id='IsDormant'>
+        					<td><span class="type">bool</span> IsDormant()</td>
+        					<td>Returns whether this entity is dormant.</td>
+        				</tr>
+        				<tr id='IsLockedByMaster'>
+        					<td><span class="type">bool</span> IsLockedByMaster()</td>
+        					<td>Returns whether this entity is locked by its master.</td>
+        				</tr>
+        				<tr id='edict'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> edict()</td>
+        					<td>Returns this entity's edict.</td>
+        				</tr>
+        				<tr id='entindex'>
+        					<td><span class="type">int</span> entindex()</td>
+        					<td>Returns this entity's index.</td>
+        				</tr>
+        				<tr id='SetupModel'>
+        					<td><span class="type">bool</span> SetupModel()</td>
+        					<td>Sets up the model.</td>
+        				</tr>
+        				<tr id='GetToggleState'>
+        					<td><span class="type">int</span> GetToggleState()</td>
+        					<td>Gets the toggle state.<br>See the <a href='/TOGGLE_STATE'>TOGGLE_STATE</a> enum.</td>
+        				</tr>
+        				<tr id='AddPoints'>
+        					<td><span class="type">void</span> AddPoints(<span class="type">int</span> score, <span class="type">const</span> <span class="type">bool</span> bAllowNegativeScore)</td>
+        					<td>Adds points to this entity.</td>
+        				</tr>
+        				<tr id='AddPointsToTeam'>
+        					<td><span class="type">void</span> AddPointsToTeam(<span class="type">int</span> score, <span class="type">const</span> <span class="type">bool</span> bAllowNegativeScore)</td>
+        					<td>Adds points to this entity's team.</td>
+        				</tr>
+        				<tr id='AddPlayerItem'>
+        					<td><a class="type" href='/AddPlayerItemResult'>AddPlayerItemResult</a> AddPlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td>Adds the given player item to this entity.</td>
+        				</tr>
+        				<tr id='RemovePlayerItem'>
+        					<td><span class="type">bool</span> RemovePlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td>Removes the given player item to this entity.</td>
+        				</tr>
+        				<tr id='GetDelay'>
+        					<td><span class="type">float</span> GetDelay()</td>
+        					<td>Gets this entity's trigger delay.</td>
+        				</tr>
+        				<tr id='IsMoving'>
+        					<td><span class="type">bool</span> IsMoving()</td>
+        					<td>Returns whether this entity is moving.</td>
+        				</tr>
+        				<tr id='OverrideReset'>
+        					<td><span class="type">void</span> OverrideReset()</td>
+        					<td>Resets this entity.</td>
+        				</tr>
+        				<tr id='DamageDecal'>
+        					<td><span class="type">int</span> DamageDecal(<span class="type">int</span> bitsDamageType)</td>
+        					<td>Returns the damage decal<br>See <a href='/decal_e'>decal_e</a>.</td>
+        				</tr>
+        				<tr id='SetToggleState'>
+        					<td><span class="type">void</span> SetToggleState(<span class="type">int</span> state)</td>
+        					<td>Sets this entity's toggle state.</td>
+        				</tr>
+        				<tr id='StartSneaking'>
+        					<td><span class="type">void</span> StartSneaking()</td>
+        					<td>Starts sneaking.</td>
+        				</tr>
+        				<tr id='StopSneaking'>
+        					<td><span class="type">void</span> StopSneaking()</td>
+        					<td>Stops sneaking.</td>
+        				</tr>
+        				<tr id='OnControls'>
+        					<td><span class="type">bool</span> OnControls(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev)</td>
+        					<td>Reacts to controls set on the pev.</td>
+        				</tr>
+        				<tr id='IsSneaking'>
+        					<td><span class="type">bool</span> IsSneaking()</td>
+        					<td>Returns whether this entity is sneaking.</td>
+        				</tr>
+        				<tr id='IsAlive'>
+        					<td><span class="type">bool</span> IsAlive()</td>
+        					<td>Returns whether this entity is alive.</td>
+        				</tr>
+        				<tr id='IsBSPModel'>
+        					<td><span class="type">bool</span> IsBSPModel()</td>
+        					<td>Returns whether this entity is a BSP model.</td>
+        				</tr>
+        				<tr id='ReflectGauss'>
+        					<td><span class="type">bool</span> ReflectGauss()</td>
+        					<td>Returns whether this entity reflects gauss shots.</td>
+        				</tr>
+        				<tr id='IsInWorld'>
+        					<td><span class="type">bool</span> IsInWorld()</td>
+        					<td>Returns whether this entity is in the world.</td>
+        				</tr>
+        				<tr id='IsMonster'>
+        					<td><span class="type">bool</span> IsMonster()</td>
+        					<td>Returns whether this entity is a monster.</td>
+        				</tr>
+        				<tr id='IsPlayer'>
+        					<td><span class="type">bool</span> IsPlayer()</td>
+        					<td>Returns whether this entity is a player.</td>
+        				</tr>
+        				<tr id='IsNetClient'>
+        					<td><span class="type">bool</span> IsNetClient()</td>
+        					<td>Returns whether this is a net client.</td>
+        				</tr>
+        				<tr id='IsPointEnt'>
+        					<td><span class="type">bool</span> IsPointEnt()</td>
+        					<td>Returns whether this is a point entity.</td>
+        				</tr>
+        				<tr id='IsBreakable'>
+        					<td><span class="type">bool</span> IsBreakable()</td>
+        					<td>Returns whether this is a breakable brush entity.</td>
+        				</tr>
+        				<tr id='IsMachine'>
+        					<td><span class="type">bool</span> IsMachine()</td>
+        					<td>Returns whether this is a machine.</td>
+        				</tr>
+        				<tr id='CriticalRemove'>
+        					<td><span class="type">bool</span> CriticalRemove()</td>
+        					<td>Removes this entity in critical situations.</td>
+        				</tr>
+        				<tr id='GetNextTarget'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetNextTarget()</td>
+        					<td>Gets the next target to trigger.</td>
+        				</tr>
+        				<tr id='Think'>
+        					<td><span class="type">void</span> Think()</td>
+        					<td>Makes this entity think. Do not call directly.</td>
+        				</tr>
+        				<tr id='Touch'>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Triggers this entity's touch function.</td>
+        				</tr>
+        				<tr id='Use'>
+        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td>Trigger's this entity's use function.</td>
+        				</tr>
+        				<tr id='Blocked'>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Triggers this entity's blocked function.</td>
+        				</tr>
+        				<tr id='UpdateOnRemove'>
+        					<td><span class="type">void</span> UpdateOnRemove()</td>
+        					<td>Updates this entity when removed.</td>
+        				</tr>
+        				<tr id='Respawn'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Respawn()</td>
+        					<td>Respawns this entity.</td>
+        				</tr>
+        				<tr id='FBecomeProne'>
+        					<td><span class="type">bool</span> FBecomeProne(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Makes this entity become prone.</td>
+        				</tr>
+        				<tr id='Center'>
+        					<td><a class="type" href='/Vector'>Vector</a> Center()</td>
+        					<td>Returns this entity's center.</td>
+        				</tr>
+        				<tr id='EyePosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> EyePosition()</td>
+        					<td>Returns this entity's eye position.</td>
+        				</tr>
+        				<tr id='EarPosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> EarPosition()</td>
+        					<td>Returns this entity's ear position.</td>
+        				</tr>
+        				<tr id='BodyTarget'>
+        					<td><a class="type" href='/Vector'>Vector</a> BodyTarget(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> posSrc)</td>
+        					<td>Returns this entity's body target for shooting.</td>
+        				</tr>
+        				<tr id='Illumination'>
+        					<td><span class="type">int</span> Illumination()</td>
+        					<td>Returns this entity's illumination.</td>
+        				</tr>
+        				<tr id='FVisible'>
+        					<td><span class="type">bool</span> FVisible(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">bool</span> fIgnoreGlass)</td>
+        					<td>Returns whether this entity is visible to the given entity.</td>
+        				</tr>
+        				<tr id='FVisible@2'>
+        					<td><span class="type">bool</span> FVisible(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td>Returns whether this entity is visible from the given origin.</td>
+        				</tr>
+        				<tr id='IsFacing'>
+        					<td><span class="type">bool</span> IsFacing(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevTest, <span class="type">float</span> flDotProduct = <a class="value" href='/Properties#VIEW_FIELD_ULTRA_NARROW'>VIEW_FIELD_ULTRA_NARROW</a>)</td>
+        					<td>Returns whether this entity is facing the given entity, within the given view field.</td>
+        				</tr>
+        				<tr id='GetPointsForDamage'>
+        					<td><span class="type">float</span> GetPointsForDamage(<span class="type">float</span> flDamage)</td>
+        					<td>Returns the points received for damage done.</td>
+        				</tr>
+        				<tr id='GetDamagePoints'>
+        					<td><span class="type">void</span> GetDamagePoints(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <span class="type">float</span> flDamage)</td>
+        					<td>Adds damage points to the inflicting entity.</td>
+        				</tr>
+        				<tr id='OnCreate'>
+        					<td><span class="type">void</span> OnCreate()</td>
+        					<td>Entity constructor.</td>
+        				</tr>
+        				<tr id='OnDestroy'>
+        					<td><span class="type">void</span> OnDestroy()</td>
+        					<td>Entity destructor.</td>
+        				</tr>
+        				<tr id='IsRevivable'>
+        					<td><span class="type">bool</span> IsRevivable()</td>
+        					<td>Returns whether this entity is revivable at this time.</td>
+        				</tr>
+        				<tr id='BeginRevive'>
+        					<td><span class="type">void</span> BeginRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Prepares this entity for revival. flTimeUntilRevive is the time until the revive action completes.</td>
+        				</tr>
+        				<tr id='EndRevive'>
+        					<td><span class="type">void</span> EndRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Called when this entity should be revived. flTimeUntilRevive is the time until the revival should start.</td>
+        				</tr>
+        				<tr id='GetUserData'>
+        					<td><span class="type">dictionary</span><span class="type">@</span> GetUserData()</td>
+        					<td>Gets the user data on this entity. Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='GetUserData@2'>
+        					<td><span class="type">dictionaryValue</span><span class="type">&</span> GetUserData(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td>Gets the user data stored under the specified key on this entity.<br>Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='ClearUserData'>
+        					<td><span class="type">void</span> ClearUserData()</td>
+        					<td>Clears the user data on this entity. WARNING: clears all data.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='SUB_UseTargets'>
+        					<td><span class="type">void</span> SUB_UseTargets(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td>Causes this entity to trigger its targets with an optional delay.</td>
+        				</tr>
+        				<tr id='DelayThink'>
+        					<td><span class="type">void</span> DelayThink()</td>
+        					<td>Think function. Used internally.</td>
+        				</tr>
+        				<tr id='StudioFrameAdvance'>
+        					<td><span class="type">float</span> StudioFrameAdvance(<span class="type">float</span> flInterval = 0.0f)</td>
+        					<td>Accumulate animation frame time from last time called until now.</td>
+        				</tr>
+        				<tr id='GetSequenceFlags'>
+        					<td><span class="type">int</span> GetSequenceFlags()</td>
+        					<td>Get sequence flags.</td>
+        				</tr>
+        				<tr id='LookupActivity'>
+        					<td><span class="type">int</span> LookupActivity(<span class="type">int</span> iActivity)</td>
+        					<td>Returns the index of the given activity, or -1 if no such activity exists.</td>
+        				</tr>
+        				<tr id='LookupActivityHeaviest'>
+        					<td><span class="type">int</span> LookupActivityHeaviest(<span class="type">int</span> iActivity)</td>
+        					<td>Returns the index of the given activity that has the heaviest weight, or -1 if no such activity exists.</td>
+        				</tr>
+        				<tr id='LookupSequence'>
+        					<td><span class="type">int</span> LookupSequence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLabel)</td>
+        					<td>Returns the index of the given sequence, or -1 if no such sequence exists.</td>
+        				</tr>
+        				<tr id='ResetSequenceInfo'>
+        					<td><span class="type">void</span> ResetSequenceInfo()</td>
+        					<td>Resets sequence info.</td>
+        				</tr>
+        				<tr id='ResetGaitSequenceInfo'>
+        					<td><span class="type">void</span> ResetGaitSequenceInfo()</td>
+        					<td>Resets gait sequence info.</td>
+        				</tr>
+        				<tr id='DispatchAnimEvents'>
+        					<td><span class="type">void</span> DispatchAnimEvents(<span class="type">float</span> flFutureInterval = 0.1f)</td>
+        					<td>Handle events that have happend since last time called up until X seconds into the future.</td>
+        				</tr>
+        				<tr id='SetBoneController'>
+        					<td><span class="type">float</span> SetBoneController(<span class="type">int</span> iController, <span class="type">float</span> flValue)</td>
+        					<td>Sets the specified bone controller to the given value.</td>
+        				</tr>
+        				<tr id='InitBoneControllers'>
+        					<td><span class="type">void</span> InitBoneControllers()</td>
+        					<td>Initializes bone controllers.</td>
+        				</tr>
+        				<tr id='SetBlending'>
+        					<td><span class="type">float</span> SetBlending(<span class="type">int</span> iBlender, <span class="type">float</span> flValue)</td>
+        					<td>Sets the given blending controller to the given value.</td>
+        				</tr>
+        				<tr id='GetBonePosition'>
+        					<td><span class="type">void</span> GetBonePosition(<span class="type">int</span> iBone, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
+        					<td>Gets the position of the given bone.</td>
+        				</tr>
+        				<tr id='GetAutomovement'>
+        					<td><span class="type">void</span> GetAutomovement(<a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles, <span class="type">float</span> flInterval = 0.1f)</td>
+        					<td>Gets automatic movement.</td>
+        				</tr>
+        				<tr id='FindTransition'>
+        					<td><span class="type">int</span> FindTransition(<span class="type">int</span> iEndingSequence, <span class="type">int</span> iGoalSequence, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iDir)</td>
+        					<td>Find the transition between 2 sequences.</td>
+        				</tr>
+        				<tr id='FindTransition@2'>
+        					<td><span class="type">int</span> FindTransition(<span class="type">int</span> iEndingSequence, <span class="type">int</span> iGoalSequence)</td>
+        					<td>Find the transition between 2 sequences.</td>
+        				</tr>
+        				<tr id='GetAttachment'>
+        					<td><span class="type">void</span> GetAttachment(<span class="type">int</span> iAttachment, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> origin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
+        					<td>Gets the attachment position.</td>
+        				</tr>
+        				<tr id='SetBodygroup'>
+        					<td><span class="type">void</span> SetBodygroup(<span class="type">int</span> iGroup, <span class="type">int</span> iValue)</td>
+        					<td>Sets the given body group to the given value.</td>
+        				</tr>
+        				<tr id='GetBodygroup'>
+        					<td><span class="type">int</span> GetBodygroup(<span class="type">int</span> iGroup)</td>
+        					<td>Gets the value of the given body group.</td>
+        				</tr>
+        				<tr id='ExtractBbox'>
+        					<td><span class="type">bool</span> ExtractBbox(<span class="type">int</span> iSequence, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> mins, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> maxs)</td>
+        					<td>Extracts the bounding box of the current model.</td>
+        				</tr>
+        				<tr id='GetAttachmentCount'>
+        					<td><span class="type">int</span> GetAttachmentCount()</td>
+        					<td>Gets the number of attachments that the current model has.</td>
+        				</tr>
+        				<tr id='SetSequenceBox'>
+        					<td><span class="type">void</span> SetSequenceBox()</td>
+        					<td>Sets the sequence box.</td>
+        				</tr>
+        				<tr id='GetSequenceActivityName'>
+        					<td><span class="type">int</span> GetSequenceActivityName(<span class="type">int</span> iSequence)</td>
+        					<td>Gets activity for the given sequence.</td>
+        				</tr>
+        				<tr id='LinearMove'>
+        					<td><span class="type">void</span> LinearMove(<a class="type" href='/Vector'>Vector</a> vecDest, <span class="type">float</span> flSpeed)</td>
+        					<td>Performs linear movement.</td>
+        				</tr>
+        				<tr id='AngularMove'>
+        					<td><span class="type">void</span> AngularMove(<a class="type" href='/Vector'>Vector</a> vecDestAngle, <span class="type">float</span> flSpeed)</td>
+        					<td>Performs angular movement.</td>
+        				</tr>
+        				<tr id='IsToggleLockedByMaster'>
+        					<td><span class="type">bool</span> IsToggleLockedByMaster()</td>
+        					<td>Returns whether this entity is locked by its master.<br>Separate from IsLockedByMaster due to limitations.</td>
+        				</tr>
+        				<tr id='get_m_pInventoryRules'>
+        					<td><a class="type" href='/InventoryRules'>InventoryRules</a><span class="type">@</span> get_m_pInventoryRules() <span class="type">const</span></td>
+        					<td>The inventory rules.</td>
+        				</tr>
+        				<tr id='m_hOldEnemy'>
+        					<td><a class="type" href='/EHandle'>EHandle</a><span class="type">&</span> m_hOldEnemy(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Target tank to control. Index must be between 0 and <a href='/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
+        				</tr>
+        				<tr id='m_vecOldEnemy'>
+        					<td><a class="type" href='/Vector'>Vector</a><span class="type">&</span> m_vecOldEnemy(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Target tank to control. Index must be between 0 and <a href='/Properties#MAX_OLD_ENEMIES'>MAX_OLD_ENEMIES</a>.</td>
+        				</tr>
+        				<tr id='m_Route'>
+        					<td><a class="type" href='/Waypoint'>Waypoint</a><span class="type">&</span> m_Route(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>Positions of movement. Index must be between 0 and <a href='/Properties#ROUTE_SIZE'>ROUTE_SIZE</a></td>
+        				</tr>
+        				<tr id='m_rgbTimeBasedDamage'>
+        					<td><span class="type">int8</span><span class="type">&</span> m_rgbTimeBasedDamage(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex)</td>
+        					<td>time based damage counters, decr. 1 per 2 seconds. Index must be between 0 and CMG_TIMEBASED.</td>
+        				</tr>
+        				<tr id='MonsterUse'>
+        					<td><span class="type">void</span> MonsterUse(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td>Will make a monster angry at whomever activated it.</td>
+        				</tr>
+        				<tr id='Look'>
+        					<td><span class="type">void</span> Look(<span class="type">int</span> iDistance)</td>
+        					<td>Look - Base class monster function to find enemies or<br>food by sight. iDistance is distance ( in units ) that the<br>monster can see.<br>Sets the sight bits of the m_afConditions mask to indicate<br>which types of entities were sighted.<br>Function also sets the Looker's m_pLink<br>to the head of a link list that contains all visible ents.<br>(linked via each ent's m_pLink field)</td>
+        				</tr>
+        				<tr id='RunAI'>
+        					<td><span class="type">void</span> RunAI()</td>
+        					<td>Runs this monster's AI.</td>
+        				</tr>
+        				<tr id='Listen'>
+        					<td><span class="type">void</span> Listen()</td>
+        					<td>Listens for anything that is within audible distance.</td>
+        				</tr>
+        				<tr id='ShouldFadeOnDeath'>
+        					<td><span class="type">bool</span> ShouldFadeOnDeath()</td>
+        					<td>Returns whether this monster should fade on death.</td>
+        				</tr>
+        				<tr id='ChangeYaw'>
+        					<td><span class="type">float</span> ChangeYaw(<span class="type">int</span> iSpeed)</td>
+        					<td>turns a monster towards its ideal_yaw</td>
+        				</tr>
+        				<tr id='VecToYaw'>
+        					<td><span class="type">float</span> VecToYaw(<a class="type" href='/Vector'>Vector</a> vecDir)</td>
+        					<td>turns a directional vector into a yaw value that points down that vector.</td>
+        				</tr>
+        				<tr id='FlYawDiff'>
+        					<td><span class="type">float</span> FlYawDiff()</td>
+        					<td>returns the difference ( in degrees ) between monster's current yaw and ideal_yaw.<br>Positive result is left turn, negative is right turn.</td>
+        				</tr>
+        				<tr id='DamageForce'>
+        					<td><span class="type">float</span> DamageForce(<span class="type">float</span> flDamage)</td>
+        					<td>Returns the amount of force applied to this monster when the given amount of damage is done.</td>
+        				</tr>
+        				<tr id='SetupFriendly'>
+        					<td><span class="type">void</span> SetupFriendly()</td>
+        					<td>use this overridden to make some other friendly monsters</td>
+        				</tr>
+        				<tr id='MonsterInit'>
+        					<td><span class="type">void</span> MonsterInit()</td>
+        					<td>Initializes the monster</td>
+        				</tr>
+        				<tr id='MonsterInitDead'>
+        					<td><span class="type">void</span> MonsterInitDead()</td>
+        					<td>Call after animation/pose is set up</td>
+        				</tr>
+        				<tr id='BecomeDead'>
+        					<td><span class="type">void</span> BecomeDead(<span class="type">float</span> flSavedHealth)</td>
+        					<td>Makes the monster become dead</td>
+        				</tr>
+        				<tr id='Revive'>
+        					<td><span class="type">void</span> Revive()</td>
+        					<td>Revives the monster</td>
+        				</tr>
+        				<tr id='StartMonster'>
+        					<td><span class="type">void</span> StartMonster()</td>
+        					<td>Starts the monster</td>
+        				</tr>
+        				<tr id='BestVisibleEnemy'>
+        					<td><span class="type">void</span> BestVisibleEnemy()</td>
+        					<td>finds best visible enemy for attack</td>
+        				</tr>
+        				<tr id='FInViewCone'>
+        					<td><span class="type">bool</span> FInViewCone(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>see if pEntity is in monster's view cone</td>
+        				</tr>
+        				<tr id='FInViewCone@2'>
+        					<td><span class="type">bool</span> FInViewCone(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td>see if given location is in monster's view cone</td>
+        				</tr>
+        				<tr id='CheckLocalMove'>
+        					<td><span class="type">int</span> CheckLocalMove(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecEnd,<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span><span class="type">&</span> <span class="inout">out</span> flDist, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecEndPosition, <span class="type">bool</span> fOriginalCheck = false)</td>
+        					<td>finds best visible enemy for attack</td>
+        				</tr>
+        				<tr id='Move'>
+        					<td><span class="type">void</span> Move(<span class="type">float</span> flInterval = 0.1f)</td>
+        					<td>Starts the monster</td>
+        				</tr>
+        				<tr id='MoveExecute'>
+        					<td><span class="type">void</span> MoveExecute(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTargetEnt, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <span class="type">float</span> flInterval)</td>
+        					<td>Starts the monster</td>
+        				</tr>
+        				<tr id='ShouldAdvanceRoute'>
+        					<td><span class="type">bool</span> ShouldAdvanceRoute(<span class="type">float</span> flWaypointDist)</td>
+        					<td>Returns whether this monster should advance its route</td>
+        				</tr>
+        				<tr id='GetStoppedActivity'>
+        					<td><a class="type" href='/Activity'>Activity</a> GetStoppedActivity()</td>
+        					<td>Gets the stopped activity</td>
+        				</tr>
+        				<tr id='Stop'>
+        					<td><span class="type">void</span> Stop()</td>
+        					<td>Stops this monster moving</td>
+        				</tr>
+        				<tr id='StopAnimation'>
+        					<td><span class="type">void</span> StopAnimation()</td>
+        					<td>This will stop animation until you call ResetSequenceInfo() at some point in the future</td>
+        				</tr>
+        				<tr id='CheckRangeAttack1'>
+        					<td><span class="type">bool</span> CheckRangeAttack1(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckRangeAttack1_Move'>
+        					<td><span class="type">bool</span> CheckRangeAttack1_Move(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckRangeAttack2'>
+        					<td><span class="type">bool</span> CheckRangeAttack2(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckRangeAttack2_Move'>
+        					<td><span class="type">bool</span> CheckRangeAttack2_Move(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckMeleeAttack1'>
+        					<td><span class="type">bool</span> CheckMeleeAttack1(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckMeleeAttack1_Move'>
+        					<td><span class="type">bool</span> CheckMeleeAttack1_Move(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckMeleeAttack2'>
+        					<td><span class="type">bool</span> CheckMeleeAttack2(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckMeleeAttack2_Move'>
+        					<td><span class="type">bool</span> CheckMeleeAttack2_Move(<span class="type">float</span> flDot, <span class="type">float</span> flDist)</td>
+        					<td>this function will survey conditions and set appropriate conditions bits for attack types.</td>
+        				</tr>
+        				<tr id='CheckTankUsage'>
+        					<td><span class="type">bool</span> CheckTankUsage()</td>
+        					<td>Checks whether the monster can use a func_tank. Return true if possible.</td>
+        				</tr>
+        				<tr id='FHaveSchedule'>
+        					<td><span class="type">bool</span> FHaveSchedule()</td>
+        					<td>Returns whether this monster has a schedule.</td>
+        				</tr>
+        				<tr id='FScheduleValid'>
+        					<td><span class="type">bool</span> FScheduleValid()</td>
+        					<td>Returns whether this monster's schedule is valid.</td>
+        				</tr>
+        				<tr id='ClearSchedule'>
+        					<td><span class="type">void</span> ClearSchedule()</td>
+        					<td>Clears this monster's schedule.</td>
+        				</tr>
+        				<tr id='FScheduleDone'>
+        					<td><span class="type">bool</span> FScheduleDone()</td>
+        					<td>Returns whether this monster's schedule is done.</td>
+        				</tr>
+        				<tr id='ChangeSchedule'>
+        					<td><span class="type">void</span> ChangeSchedule(<a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> pNewSchedule)</td>
+        					<td>Changes this monster's schedule.</td>
+        				</tr>
+        				<tr id='NextScheduledTask'>
+        					<td><span class="type">bool</span> NextScheduledTask()</td>
+        					<td>Moves to the next scheduled task.</td>
+        				</tr>
+        				<tr id='ScheduleInList'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> ScheduleInList(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">array</span><span class="type"><</span><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray)</td>
+        					<td>Returns the schedule with name szName if it's in the list, NULL otherwise.</td>
+        				</tr>
+        				<tr id='ScheduleFromName'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> ScheduleFromName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td>Returns the schedule with name szName if it exists, NULL otherwise.</td>
+        				</tr>
+        				<tr id='MaintainSchedule'>
+        					<td><span class="type">void</span> MaintainSchedule()</td>
+        					<td>Maintains the monster's schedule.</td>
+        				</tr>
+        				<tr id='StartTask'>
+        					<td><span class="type">void</span> StartTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td>Starts the given task.</td>
+        				</tr>
+        				<tr id='RunTask'>
+        					<td><span class="type">void</span> RunTask(<a class="type" href='/Task'>Task</a><span class="type">@</span> pTask)</td>
+        					<td>Runs the given task.</td>
+        				</tr>
+        				<tr id='GetScheduleOfType'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetScheduleOfType(<span class="type">int</span> iType)</td>
+        					<td>Gets one of the available schedules of the given type.</td>
+        				</tr>
+        				<tr id='GetSchedule'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> GetSchedule()</td>
+        					<td>Gets the current schedule.</td>
+        				</tr>
+        				<tr id='ScheduleChange'>
+        					<td><span class="type">void</span> ScheduleChange()</td>
+        					<td>Called after the monster's schedule changes.</td>
+        				</tr>
+        				<tr id='CanPlaySequence'>
+        					<td><span class="type">bool</span> CanPlaySequence(<span class="type">const</span> <span class="type">bool</span> bDisregardState, <span class="type">int</span> iInterruptLevel)</td>
+        					<td>Returns whether this monster can play its sequence.</td>
+        				</tr>
+        				<tr id='CanPlaySentence'>
+        					<td><span class="type">bool</span> CanPlaySentence(<span class="type">const</span> <span class="type">bool</span> bDisregardState)</td>
+        					<td>Returns whether this monster can play its sentence.</td>
+        				</tr>
+        				<tr id='PlaySentence'>
+        					<td><span class="type">void</span> PlaySentence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation)</td>
+        					<td>Plays the given sentence.</td>
+        				</tr>
+        				<tr id='PlayScriptedSentence'>
+        					<td><span class="type">void</span> PlayScriptedSentence(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSentence, <span class="type">float</span> duration, <span class="type">float</span> volume, <span class="type">float</span> attenuation, <span class="type">const</span> <span class="type">bool</span> bConcurrent, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pListener)</td>
+        					<td>Plays the given scripted sentence.</td>
+        				</tr>
+        				<tr id='SentenceStop'>
+        					<td><span class="type">void</span> SentenceStop()</td>
+        					<td>Stops playing its current sentence.</td>
+        				</tr>
+        				<tr id='GetTask'>
+        					<td><a class="type" href='/Task'>Task</a><span class="type">@</span> GetTask()</td>
+        					<td>Gets the current task.</td>
+        				</tr>
+        				<tr id='GetIdealState'>
+        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> GetIdealState()</td>
+        					<td>Gets the ideal monster state.</td>
+        				</tr>
+        				<tr id='SetActivity'>
+        					<td><span class="type">void</span> SetActivity(<a class="type" href='/Activity'>Activity</a> newActivity)</td>
+        					<td>Sets the current activity.</td>
+        				</tr>
+        				<tr id='SetGaitActivity'>
+        					<td><span class="type">void</span> SetGaitActivity(<a class="type" href='/Activity'>Activity</a> newActivity)</td>
+        					<td>Sets the current gait activity.</td>
+        				</tr>
+        				<tr id='SetSequenceByName'>
+        					<td><span class="type">void</span> SetSequenceByName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSequence)</td>
+        					<td>Sets the current sequence by name.</td>
+        				</tr>
+        				<tr id='SetState'>
+        					<td><span class="type">void</span> SetState(<a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> state)</td>
+        					<td>Sets the current monster state.</td>
+        				</tr>
+        				<tr id='ReportAIState'>
+        					<td><span class="type">void</span> ReportAIState()</td>
+        					<td>Reports the AI state.</td>
+        				</tr>
+        				<tr id='CheckAttacks'>
+        					<td><span class="type">void</span> CheckAttacks(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
+        					<td>Check attacks to the given enemy at the given distance.</td>
+        				</tr>
+        				<tr id='CheckAttacks_Move'>
+        					<td><span class="type">void</span> CheckAttacks_Move(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist)</td>
+        					<td>Check attacks to the given enemy at the given distance while moving.</td>
+        				</tr>
+        				<tr id='CheckAttacksFromPosition'>
+        					<td><span class="type">bool</span> CheckAttacksFromPosition(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <span class="type">float</span> flDist, <a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td>Check whether attacks are possible from the given position.</td>
+        				</tr>
+        				<tr id='CheckEnemy'>
+        					<td><span class="type">bool</span> CheckEnemy(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEnemy)</td>
+        					<td>part of the Condition collection process, gets and stores data and conditions pertaining to a monster's enemy.<br>Returns true if Enemy LKP was updated.</td>
+        				</tr>
+        				<tr id='PushEnemy'>
+        					<td><span class="type">void</span> PushEnemy(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecLastKnownPos)</td>
+        					<td>Remember the last few enemies, always remember the player.</td>
+        				</tr>
+        				<tr id='PopEnemy'>
+        					<td><span class="type">bool</span> PopEnemy()</td>
+        					<td>Try remembering the last few enemies.</td>
+        				</tr>
+        				<tr id='FGetNodeRoute'>
+        					<td><span class="type">bool</span> FGetNodeRoute(<a class="type" href='/Vector'>Vector</a> vecDest)</td>
+        					<td>tries to build an entire node path from<br>the callers origin to the passed vector.<br>If this is  possible, <a href='/Properties#ROUTE_SIZE'>ROUTE_SIZE</a> waypoints will be copied into the callers m_Route.<br>true is returned if the operation  succeeds (path is valid) or false if failed (no path  exists ).</td>
+        				</tr>
+        				<tr id='TestFGetNodeRoute'>
+        					<td><span class="type">bool</span> TestFGetNodeRoute(<a class="type" href='/Vector'>Vector</a> vecDest)</td>
+        					<td>TEST FGetNodeRoute.</td>
+        				</tr>
+        				<tr id='TaskComplete'>
+        					<td><span class="type">void</span> TaskComplete()</td>
+        					<td>Sets the task status to complete.</td>
+        				</tr>
+        				<tr id='MovementComplete'>
+        					<td><span class="type">void</span> MovementComplete()</td>
+        					<td>Called when movement has completed.</td>
+        				</tr>
+        				<tr id='TaskFail'>
+        					<td><span class="type">void</span> TaskFail()</td>
+        					<td>Sets the condition bit for a failed task.</td>
+        				</tr>
+        				<tr id='TaskBegin'>
+        					<td><span class="type">void</span> TaskBegin()</td>
+        					<td>Sets the task status to running.</td>
+        				</tr>
+        				<tr id='TaskIsRunning'>
+        					<td><span class="type">bool</span> TaskIsRunning()</td>
+        					<td>Returns whether a task is running.</td>
+        				</tr>
+        				<tr id='TaskIsComplete'>
+        					<td><span class="type">bool</span> TaskIsComplete()</td>
+        					<td>Returns whether the task is complete.</td>
+        				</tr>
+        				<tr id='MovementIsComplete'>
+        					<td><span class="type">bool</span> MovementIsComplete()</td>
+        					<td>Returns whether movement is complete.</td>
+        				</tr>
+        				<tr id='IScheduleFlags'>
+        					<td><span class="type">int</span> IScheduleFlags()</td>
+        					<td>Returns an integer with all Conditions<br>bits that are currently set and also set in the current<br>schedule's Interrupt mask.</td>
+        				</tr>
+        				<tr id='MakeIdealYaw'>
+        					<td><span class="type">void</span> MakeIdealYaw(<a class="type" href='/Vector'>Vector</a> vecTarget)</td>
+        					<td>gets a yaw value for the caller that would<br>face the supplied vector. Value is stuffed into the monster's<br>ideal_yaw.</td>
+        				</tr>
+        				<tr id='SetYawSpeed'>
+        					<td><span class="type">void</span> SetYawSpeed()</td>
+        					<td>Allows different yaw_speeds for each activity.</td>
+        				</tr>
+        				<tr id='RouteClassify'>
+        					<td><span class="type">int</span> RouteClassify(<span class="type">int</span> iMoveFlag)</td>
+        					<td>Returns the MOVEGOAL for the given move flag.</td>
+        				</tr>
+        				<tr id='CheckAttacker'>
+        					<td><span class="type">bool</span> CheckAttacker(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pAttacker)</td>
+        					<td>Determine if we should ignore damage.</td>
+        				</tr>
+        				<tr id='SetConditions'>
+        					<td><span class="type">void</span> SetConditions(<span class="type">int</span> iConditions)</td>
+        					<td>Sets AI conditions.</td>
+        				</tr>
+        				<tr id='ClearConditions'>
+        					<td><span class="type">void</span> ClearConditions(<span class="type">int</span> iConditions)</td>
+        					<td>Clears AI conditions.</td>
+        				</tr>
+        				<tr id='HasConditions'>
+        					<td><span class="type">bool</span> HasConditions(<span class="type">int</span> iConditions) <span class="type">const</span></td>
+        					<td>Returns whether this monster has any of the given AI conditions.</td>
+        				</tr>
+        				<tr id='HasAllConditions'>
+        					<td><span class="type">bool</span> HasAllConditions(<span class="type">int</span> iConditions) <span class="type">const</span></td>
+        					<td>Returns whether this monster has all of the given AI conditions.</td>
+        				</tr>
+        				<tr id='PBestSound'>
+        					<td><a class="type" href='/CSound'>CSound</a><span class="type">@</span> PBestSound()</td>
+        					<td>Returns a pointer to the sound the monster should react to.</td>
+        				</tr>
+        				<tr id='FShouldEat'>
+        					<td><span class="type">bool</span> FShouldEat()</td>
+        					<td>Returns whether this monster should eat.</td>
+        				</tr>
+        				<tr id='Eat'>
+        					<td><span class="type">void</span> Eat(<span class="type">float</span> flFullDuration)</td>
+        					<td>Make the monster 'full' for a while.</td>
+        				</tr>
+        				<tr id='FCheckAITrigger'>
+        					<td><span class="type">bool</span> FCheckAITrigger()</td>
+        					<td>Checks and, if necessary, fires the monster's trigger target.</td>
+        				</tr>
+        				<tr id='NoFriendlyFire'>
+        					<td><span class="type">bool</span> NoFriendlyFire()</td>
+        					<td>Returns whether attacking at this time would result in friendly fire</td>
+        				</tr>
+        				<tr id='NoFriendlyFire@2'>
+        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td>Returns whether attacking at this time from the given location would result in friendly fire</td>
+        				</tr>
+        				<tr id='NoFriendlyFire@3'>
+        					<td><span class="type">bool</span> NoFriendlyFire(<a class="type" href='/Vector'>Vector</a> vecPos, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pTarget)</td>
+        					<td>Returns whether attacking the given target at this time from the given location would result in friendly fire</td>
+        				</tr>
+        				<tr id='NoFriendlyFireToPos'>
+        					<td><span class="type">bool</span> NoFriendlyFireToPos(<a class="type" href='/Vector'>Vector</a> vecPos)</td>
+        					<td>Returns whether attacking the target location at this time would result in friendly fire</td>
+        				</tr>
+        				<tr id='GetEnemy'>
+        					<td><span class="type">bool</span> GetEnemy()</td>
+        					<td>Tries to find the best suitable enemy for this monster.</td>
+        				</tr>
+        				<tr id='GibMonster'>
+        					<td><span class="type">void</span> GibMonster()</td>
+        					<td>Gibs the monster.</td>
+        				</tr>
+        				<tr id='ShouldGibMonster'>
+        					<td><span class="type">bool</span> ShouldGibMonster(<span class="type">int</span> iGib)</td>
+        					<td>Returns whether the monster should be gibbed given the gib type.<br>See <a href='/GIB'>GIB</a> enum.</td>
+        				</tr>
+        				<tr id='CallGibMonster'>
+        					<td><span class="type">void</span> CallGibMonster()</td>
+        					<td>Determines whether to gib or fade this monster, and acts accordingly.</td>
+        				</tr>
+        				<tr id='HasHumanGibs'>
+        					<td><span class="type">bool</span> HasHumanGibs()</td>
+        					<td>Returns whether this monster has human gibs.</td>
+        				</tr>
+        				<tr id='HasAlienGibs'>
+        					<td><span class="type">bool</span> HasAlienGibs()</td>
+        					<td>Returns whether this monster has alien gibs.</td>
+        				</tr>
+        				<tr id='FadeMonster'>
+        					<td><span class="type">void</span> FadeMonster()</td>
+        					<td>Fades this monster.<br>Note: does not kill the monster.</td>
+        				</tr>
+        				<tr id='ShootAtEnemy'>
+        					<td><a class="type" href='/Vector'>Vector</a> ShootAtEnemy(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecShootOrigin)</td>
+        					<td>Shoots at the specified location.</td>
+        				</tr>
+        				<tr id='GetGunPosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> GetGunPosition()</td>
+        					<td></td>
+        				</tr>
+        				<tr id='DeathSound'>
+        					<td><span class="type">void</span> DeathSound()</td>
+        					<td>Plays this monster's death sound.</td>
+        				</tr>
+        				<tr id='AlertSound'>
+        					<td><span class="type">void</span> AlertSound()</td>
+        					<td>Plays this monster's alert sound.</td>
+        				</tr>
+        				<tr id='IdleSound'>
+        					<td><span class="type">void</span> IdleSound()</td>
+        					<td>Plays this monster's idle sound.</td>
+        				</tr>
+        				<tr id='PainSound'>
+        					<td><span class="type">void</span> PainSound()</td>
+        					<td>Plays this monster's pain sound.</td>
+        				</tr>
+        				<tr id='StartPlayerFollowing'>
+        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader, <span class="type">bool</span> bSilent = false)</td>
+        					<td>Starts following its target.</td>
+        				</tr>
+        				<tr id='StopPlayerFollowing'>
+        					<td><span class="type">void</span> StopPlayerFollowing(<span class="type">const</span> <span class="type">bool</span> clearSchedule, <span class="type">bool</span> bSilent = false)</td>
+        					<td>Stops following its target.</td>
+        				</tr>
+        				<tr id='Remember'>
+        					<td><span class="type">void</span> Remember(<span class="type">int</span> iMemory)</td>
+        					<td>Makes this monster remember the given memories.</td>
+        				</tr>
+        				<tr id='Forget'>
+        					<td><span class="type">void</span> Forget(<span class="type">int</span> iMemory)</td>
+        					<td>Makes this monster forget the given memories.</td>
+        				</tr>
+        				<tr id='HasMemory'>
+        					<td><span class="type">bool</span> HasMemory(<span class="type">int</span> iMemory) <span class="type">const</span></td>
+        					<td>Returns whether this monster remembers any of the given memories.</td>
+        				</tr>
+        				<tr id='HasAllMemories'>
+        					<td><span class="type">bool</span> HasAllMemories(<span class="type">int</span> iMemory) <span class="type">const</span></td>
+        					<td>Returns whether this monster remembers all of the given memories.</td>
+        				</tr>
+        				<tr id='ExitScriptedSequence'>
+        					<td><span class="type">bool</span> ExitScriptedSequence()</td>
+        					<td>Exits the scripted sequence this monster is currently in, if any.</td>
+        				</tr>
+        				<tr id='CineCleanup'>
+        					<td><span class="type">bool</span> CineCleanup()</td>
+        					<td>Cleans up after a cinematic event.</td>
+        				</tr>
+        				<tr id='DropItem'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> DropItem(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItemName, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPos, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAng)</td>
+        					<td>Drops the given item from the given position at the given angle.</td>
+        				</tr>
+        				<tr id='ShockGlowEffect'>
+        					<td><span class="type">void</span> ShockGlowEffect(<span class="type">bool</span> fMode)</td>
+        					<td>Turns the shock glow effect on or off.</td>
+        				</tr>
+        				<tr id='FollowerPlayerUse'>
+        					<td><span class="type">void</span> FollowerPlayerUse(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td>Use method for following players (set only if friendly)</td>
+        				</tr>
+        				<tr id='IsPlayerFollowing'>
+        					<td><span class="type">bool</span> IsPlayerFollowing()</td>
+        					<td>Returns whether this monster is following a player.</td>
+        				</tr>
+        				<tr id='CanPlayerFollow'>
+        					<td><span class="type">bool</span> CanPlayerFollow()</td>
+        					<td>Returns whether this monster can follow a player.</td>
+        				</tr>
+        				<tr id='StartPlayerFollowing@2'>
+        					<td><span class="type">void</span> StartPlayerFollowing(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pLeader)</td>
+        					<td>Starts following a given player.</td>
+        				</tr>
+        				<tr id='StopPlayerFollowing@2'>
+        					<td><span class="type">void</span> StopPlayerFollowing(<span class="type">const</span> <span class="type">bool</span> bClearSchedule)</td>
+        					<td>Stops following a player.</td>
+        				</tr>
+        				<tr id='m_szTextureName'>
+        					<td><a class="type" href='/string'>string</a> m_szTextureName()</td>
+        					<td>Current texture name we're standing on.</td>
+        				</tr>
+        				<tr id='MedicCallSound'>
+        					<td><span class="type">void</span> MedicCallSound(<span class="type">float</span> flDistance = 0.0f)</td>
+        					<td>Medic call sound.</td>
+        				</tr>
+        				<tr id='get_m_pInventory'>
+        					<td><a class="type" href='/InventoryList'>InventoryList</a><span class="type">@</span> get_m_pInventory() <span class="type">const</span></td>
+        					<td>The inventory items this monster has</td>
+        				</tr>
+        				<tr id='ClearEnemyList'>
+        					<td><span class="type">void</span> ClearEnemyList()</td>
+        					<td>Clears this monster's list of enemies</td>
+        				</tr>
+        				<tr id='ApplyEffects'>
+        					<td><span class="type">void</span> ApplyEffects()</td>
+        					<td>Re-calculate compounded effect modifiers and apply to the monster</td>
+        				</tr>
+        				<tr id='ResetEffects'>
+        					<td><span class="type">void</span> ResetEffects()</td>
+        					<td>Reset all effect modifiers</td>
+        				</tr>
+        				<tr id='Explode'>
+        					<td><span class="type">void</span> Explode(<a class="type" href='/Vector'>Vector</a> vecSrc, <a class="type" href='/Vector'>Vector</a> vecAim)</td>
+        					<td>Makes this grenade explode</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='pev'>
+        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
+        					<td>Entity variables</td>
+        				</tr>
+        				<tr id='m_fOverrideClass'>
+        					<td><span class="type">bool</span> m_fOverrideClass</td>
+        					<td>Whether this entity overrides the classification.</td>
+        				</tr>
+        				<tr id='m_iClassSelection'>
+        					<td><span class="type">int</span> m_iClassSelection</td>
+        					<td>The overridden classification.</td>
+        				</tr>
+        				<tr id='m_flMaximumFadeWait'>
+        					<td><span class="type">float</span> m_flMaximumFadeWait</td>
+        					<td>Maximum fade wait time.</td>
+        				</tr>
+        				<tr id='m_flMaximumFadeWaitB'>
+        					<td><span class="type">float</span> m_flMaximumFadeWaitB</td>
+        					<td>Maximum fade wait time B.</td>
+        				</tr>
+        				<tr id='m_fCanFadeStart'>
+        					<td><span class="type">bool</span> m_fCanFadeStart</td>
+        					<td>Whether fading can start.</td>
+        				</tr>
+        				<tr id='m_fCustomModel'>
+        					<td><span class="type">bool</span> m_fCustomModel</td>
+        					<td>Whether a custom model is used.</td>
+        				</tr>
+        				<tr id='m_vecLastOrigin'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecLastOrigin</td>
+        					<td>Last origin vector</td>
+        				</tr>
+        				<tr id='targetnameOutFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> targetnameOutFilterType</td>
+        					<td>Target name out filter type.</td>
+        				</tr>
+        				<tr id='classnameOutFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> classnameOutFilterType</td>
+        					<td>Class name out filter type.</td>
+        				</tr>
+        				<tr id='targetnameInFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> targetnameInFilterType</td>
+        					<td>Target name in filter type.</td>
+        				</tr>
+        				<tr id='classnameInFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> classnameInFilterType</td>
+        					<td>Class name in filter type.</td>
+        				</tr>
+        				<tr id='m_iOriginalRenderMode'>
+        					<td><span class="type">int</span> m_iOriginalRenderMode</td>
+        					<td>Original render model.</td>
+        				</tr>
+        				<tr id='m_iOriginalRenderFX'>
+        					<td><span class="type">int</span> m_iOriginalRenderFX</td>
+        					<td>Original render FX.</td>
+        				</tr>
+        				<tr id='m_flOriginalRenderAmount'>
+        					<td><span class="type">float</span> m_flOriginalRenderAmount</td>
+        					<td>Original render amount.</td>
+        				</tr>
+        				<tr id='m_vecOriginalRenderColor'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecOriginalRenderColor</td>
+        					<td>Original render color.</td>
+        				</tr>
+        				<tr id='m_flDelay'>
+        					<td><span class="type">float</span> m_flDelay</td>
+        					<td>Delay before fire.</td>
+        				</tr>
+        				<tr id='m_iszKillTarget'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_iszKillTarget</td>
+        					<td>The name of the kill target, if any.</td>
+        				</tr>
+        				<tr id='m_flFrameRate'>
+        					<td><span class="type">float</span> m_flFrameRate</td>
+        					<td>Computed FPS for current sequence.</td>
+        				</tr>
+        				<tr id='m_flGroundSpeed'>
+        					<td><span class="type">float</span> m_flGroundSpeed</td>
+        					<td>Computed linear movement rate for current sequence.</td>
+        				</tr>
+        				<tr id='m_flLastEventCheck'>
+        					<td><span class="type">float</span> m_flLastEventCheck</td>
+        					<td>Last time the event list was checked.</td>
+        				</tr>
+        				<tr id='m_flLastGaitEventCheck'>
+        					<td><span class="type">float</span> m_flLastGaitEventCheck</td>
+        					<td>Last time the event list was checked.</td>
+        				</tr>
+        				<tr id='m_fSequenceFinished'>
+        					<td><span class="type">bool</span> m_fSequenceFinished</td>
+        					<td>Flag set when StudioAdvanceFrame moves across a frame boundry.</td>
+        				</tr>
+        				<tr id='m_fSequenceLoops'>
+        					<td><span class="type">bool</span> m_fSequenceLoops</td>
+        					<td>True if the sequence loops.</td>
+        				</tr>
+        				<tr id='m_toggle_state'>
+        					<td><a class="type" href='/TOGGLE_STATE'>TOGGLE_STATE</a> m_toggle_state</td>
+        					<td>Current toggle state.</td>
+        				</tr>
+        				<tr id='m_flMoveDistance'>
+        					<td><span class="type">float</span> m_flMoveDistance</td>
+        					<td>How far a door should slide or rotate.</td>
+        				</tr>
+        				<tr id='m_flWait'>
+        					<td><span class="type">float</span> m_flWait</td>
+        					<td>How long to wait before resetting.</td>
+        				</tr>
+        				<tr id='m_flLip'>
+        					<td><span class="type">float</span> m_flLip</td>
+        					<td>How much to stick out of a wall. Will recede further into walls if negative.</td>
+        				</tr>
+        				<tr id='m_flTWidth'>
+        					<td><span class="type">float</span> m_flTWidth</td>
+        					<td>For plats.</td>
+        				</tr>
+        				<tr id='m_flTLength'>
+        					<td><span class="type">float</span> m_flTLength</td>
+        					<td>For plats.</td>
+        				</tr>
+        				<tr id='m_cTriggersLeft'>
+        					<td><span class="type">int</span> m_cTriggersLeft</td>
+        					<td>Trigger_counter only: # of activations remaining.</td>
+        				</tr>
+        				<tr id='m_flHeight'>
+        					<td><span class="type">float</span> m_flHeight</td>
+        					<td>Height.</td>
+        				</tr>
+        				<tr id='m_hActivator'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hActivator</td>
+        					<td>Handle to the activator.</td>
+        				</tr>
+        				<tr id='m_vecPosition1'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecPosition1</td>
+        					<td>Closed position.</td>
+        				</tr>
+        				<tr id='m_vecPosition2'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecPosition2</td>
+        					<td>Open position.</td>
+        				</tr>
+        				<tr id='m_vecAngle1'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecAngle1</td>
+        					<td>Closed angle.</td>
+        				</tr>
+        				<tr id='m_vecAngle2'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecAngle2</td>
+        					<td>Open angle.</td>
+        				</tr>
+        				<tr id='m_vecFinalDest'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecFinalDest</td>
+        					<td>Final destination.</td>
+        				</tr>
+        				<tr id='m_vecFinalAngle'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecFinalAngle</td>
+        					<td>Final angle.</td>
+        				</tr>
+        				<tr id='m_bitsDamageInflict'>
+        					<td><span class="type">int</span> m_bitsDamageInflict</td>
+        					<td>DMG_ damage type that the door or trigger does.</td>
+        				</tr>
+        				<tr id='m_sMaster'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_sMaster</td>
+        					<td>This entity's master, if any.</td>
+        				</tr>
+        				<tr id='m_hEnemy'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hEnemy</td>
+        					<td>the entity that the monster is fighting.</td>
+        				</tr>
+        				<tr id='m_hTargetEnt'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hTargetEnt</td>
+        					<td>the entity that the monster is trying to reach.</td>
+        				</tr>
+        				<tr id='m_hTargetTank'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hTargetTank</td>
+        					<td>Target tank to control.</td>
+        				</tr>
+        				<tr id='m_flFieldOfView'>
+        					<td><span class="type">float</span> m_flFieldOfView</td>
+        					<td>width of monster's field of view ( dot product ).</td>
+        				</tr>
+        				<tr id='m_flWaitFinished'>
+        					<td><span class="type">float</span> m_flWaitFinished</td>
+        					<td>if we're told to wait, this is the time that the wait will be over.</td>
+        				</tr>
+        				<tr id='m_flMoveWaitFinished'>
+        					<td><span class="type">float</span> m_flMoveWaitFinished</td>
+        					<td>if we're told to wait before moving, this is the time that the wait will be over.</td>
+        				</tr>
+        				<tr id='m_Activity'>
+        					<td><a class="type" href='/Activity'>Activity</a> m_Activity</td>
+        					<td>what the monster is doing (animation).</td>
+        				</tr>
+        				<tr id='m_IdealActivity'>
+        					<td><a class="type" href='/Activity'>Activity</a> m_IdealActivity</td>
+        					<td>monster should switch to this activity.</td>
+        				</tr>
+        				<tr id='m_GaitActivity'>
+        					<td><a class="type" href='/Activity'>Activity</a> m_GaitActivity</td>
+        					<td>gaitsequence.</td>
+        				</tr>
+        				<tr id='m_LastHitGroup'>
+        					<td><span class="type">int</span> m_LastHitGroup</td>
+        					<td>the last body region that took damage.</td>
+        				</tr>
+        				<tr id='m_MonsterState'>
+        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> m_MonsterState</td>
+        					<td>monster's current state.</td>
+        				</tr>
+        				<tr id='m_IdealMonsterState'>
+        					<td><a class="type" href='/MONSTERSTATE'>MONSTERSTATE</a> m_IdealMonsterState</td>
+        					<td>monster should change to this state.</td>
+        				</tr>
+        				<tr id='m_iTaskStatus'>
+        					<td><span class="type">int</span> m_iTaskStatus</td>
+        					<td>Task status.</td>
+        				</tr>
+        				<tr id='m_pSchedule'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> m_pSchedule</td>
+        					<td>Current schedule.</td>
+        				</tr>
+        				<tr id='m_pScheduleSaved'>
+        					<td><a class="type" href='/Schedule'>Schedule</a><span class="type">@</span> m_pScheduleSaved</td>
+        					<td>For land_on_ground schedules (remember last schedule and continue).</td>
+        				</tr>
+        				<tr id='m_iScheduleIndex'>
+        					<td><span class="type">int</span> m_iScheduleIndex</td>
+        					<td>Schedule index.</td>
+        				</tr>
+        				<tr id='m_movementGoal'>
+        					<td><span class="type">int</span> m_movementGoal</td>
+        					<td>Goal that defines route.</td>
+        				</tr>
+        				<tr id='m_iRouteIndex'>
+        					<td><span class="type">int</span> m_iRouteIndex</td>
+        					<td>Index into m_Route[].</td>
+        				</tr>
+        				<tr id='m_moveWaitTime'>
+        					<td><span class="type">float</span> m_moveWaitTime</td>
+        					<td>How long I should wait for something to move.</td>
+        				</tr>
+        				<tr id='m_moveradius'>
+        					<td><span class="type">float</span> m_moveradius</td>
+        					<td>Minimum radius.</td>
+        				</tr>
+        				<tr id='m_vecMoveGoal'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecMoveGoal</td>
+        					<td>Kept around for node graph moves, so we know our ultimate goal.</td>
+        				</tr>
+        				<tr id='m_movementActivity'>
+        					<td><a class="type" href='/Activity'>Activity</a> m_movementActivity</td>
+        					<td>When moving, set this activity.</td>
+        				</tr>
+        				<tr id='m_iAudibleList'>
+        					<td><span class="type">int</span> m_iAudibleList</td>
+        					<td>first index of a linked list of sounds that the monster can hear.</td>
+        				</tr>
+        				<tr id='m_afSoundTypes'>
+        					<td><span class="type">int</span> m_afSoundTypes</td>
+        					<td>Sound types that can be heard.</td>
+        				</tr>
+        				<tr id='m_vecLastPosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecLastPosition</td>
+        					<td>monster sometimes wants to return to where it started after an operation..</td>
+        				</tr>
+        				<tr id='m_iHintNode'>
+        					<td><span class="type">int</span> m_iHintNode</td>
+        					<td>this is the hint node that the monster is moving towards or performing active idle on..</td>
+        				</tr>
+        				<tr id='m_afMemory'>
+        					<td><span class="type">int</span> m_afMemory</td>
+        					<td>Monster memory.</td>
+        				</tr>
+        				<tr id='m_bloodColor'>
+        					<td><span class="type">int</span> m_bloodColor</td>
+        					<td>color of blood particles.</td>
+        				</tr>
+        				<tr id='m_iMaxHealth'>
+        					<td><span class="type">int</span> m_iMaxHealth</td>
+        					<td>keeps track of monster's maximum health value (for re-healing, etc).</td>
+        				</tr>
+        				<tr id='m_vecEnemyLKP'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecEnemyLKP</td>
+        					<td>last known position of enemy. (enemy's origin).</td>
+        				</tr>
+        				<tr id='m_cAmmoLoaded'>
+        					<td><span class="type">int</span> m_cAmmoLoaded</td>
+        					<td>how much ammo is in the weapon (used to trigger reload anim sequences).</td>
+        				</tr>
+        				<tr id='m_afCapability'>
+        					<td><span class="type">int</span> m_afCapability</td>
+        					<td>tells us what a monster can/can't do.</td>
+        				</tr>
+        				<tr id='m_afMoveShootCap'>
+        					<td><span class="type">int</span> m_afMoveShootCap</td>
+        					<td>tells us what a monster can/can't do, while moving.</td>
+        				</tr>
+        				<tr id='m_flNextAttack'>
+        					<td><span class="type">float</span> m_flNextAttack</td>
+        					<td>cannot attack again until this time.</td>
+        				</tr>
+        				<tr id='m_bitsDamageType'>
+        					<td><span class="type">int</span> m_bitsDamageType</td>
+        					<td>what types of damage has monster (player) taken.</td>
+        				</tr>
+        				<tr id='m_lastDamageAmount'>
+        					<td><span class="type">float</span> m_lastDamageAmount</td>
+        					<td>how much damage did monster (player) last take.</td>
+        				</tr>
+        				<tr id='m_tbdPrev'>
+        					<td><span class="type">float</span> m_tbdPrev</td>
+        					<td>Time-based damage timer.</td>
+        				</tr>
+        				<tr id='pevTimeBasedInflictor'>
+        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevTimeBasedInflictor</td>
+        					<td>Time based damage inflictor.</td>
+        				</tr>
+        				<tr id='m_failSchedule'>
+        					<td><span class="type">int</span> m_failSchedule</td>
+        					<td>Schedule type to choose if current schedule fails.</td>
+        				</tr>
+        				<tr id='m_flHungryTime'>
+        					<td><span class="type">float</span> m_flHungryTime</td>
+        					<td>Time based damage inflictor.</td>
+        				</tr>
+        				<tr id='m_flDistTooFar'>
+        					<td><span class="type">float</span> m_flDistTooFar</td>
+        					<td>if enemy farther away than this, <a href='/MonsterCondition#bits_COND_ENEMY_TOOFAR'>bits_COND_ENEMY_TOOFAR</a> set in CheckEnemy.</td>
+        				</tr>
+        				<tr id='m_flDistLook'>
+        					<td><span class="type">float</span> m_flDistLook</td>
+        					<td>distance monster sees (Default 2048).</td>
+        				</tr>
+        				<tr id='m_iTriggerCondition'>
+        					<td><span class="type">int</span> m_iTriggerCondition</td>
+        					<td>for scripted AI, this is the condition that will cause the activation of the monster's TriggerTarget.</td>
+        				</tr>
+        				<tr id='m_iszTriggerTarget'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_iszTriggerTarget</td>
+        					<td>Name of target that should be fired.</td>
+        				</tr>
+        				<tr id='m_HackedGunPos'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_HackedGunPos</td>
+        					<td>HACK until we can query end of gun.</td>
+        				</tr>
+        				<tr id='m_scriptState'>
+        					<td><a class="type" href='/SCRIPTSTATE'>SCRIPTSTATE</a> m_scriptState</td>
+        					<td>internal cinematic state.</td>
+        				</tr>
+        				<tr id='m_hCine'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hCine</td>
+        					<td>Cinematic entity.</td>
+        				</tr>
+        				<tr id='m_hCineBlocker'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hCineBlocker</td>
+        					<td>Entity that is blocking cinematic execution.</td>
+        				</tr>
+        				<tr id='m_useTime'>
+        					<td><span class="type">float</span> m_useTime</td>
+        					<td>Don't allow +USE until this time.</td>
+        				</tr>
+        				<tr id='m_FormattedName'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_FormattedName</td>
+        					<td>The formatted name.<br>For better name outputs. E.g. "Alien Slave" rather than "alien_slave".</td>
+        				</tr>
+        				<tr id='m_chTextureType'>
+        					<td><span class="type">int8</span> m_chTextureType</td>
+        					<td>Current texture type.<br>See <a href='/TextureType'>TextureType</a> enum.</td>
+        				</tr>
+        				<tr id='m_fCanFearCreatures'>
+        					<td><span class="type">bool</span> m_fCanFearCreatures</td>
+        					<td>Whether this monster can fear creatures.</td>
+        				</tr>
+        				<tr id='m_flAutomaticAttackTime'>
+        					<td><span class="type">float</span> m_flAutomaticAttackTime</td>
+        					<td>How long an npc will attempt to fire full auto.</td>
+        				</tr>
+        				<tr id='m_flFallVelocity'>
+        					<td><span class="type">float</span> m_flFallVelocity</td>
+        					<td>Current fall speed.</td>
+        				</tr>
+        				<tr id='m_hGuardEnt'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hGuardEnt</td>
+        					<td>Monster will guard this entity and turn down follow requests.</td>
+        				</tr>
+        				<tr id='m_iszGuardEntName'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_iszGuardEntName</td>
+        					<td>Guard entity name.</td>
+        				</tr>
+        				<tr id='m_vecEffectGlowColor'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecEffectGlowColor</td>
+        					<td>Glow shell.</td>
+        				</tr>
+        				<tr id='m_iEffectBlockWeapons'>
+        					<td><span class="type">int</span> m_iEffectBlockWeapons</td>
+        					<td>Monster can't use weapons.</td>
+        				</tr>
+        				<tr id='m_iEffectInvulnerable'>
+        					<td><span class="type">int</span> m_iEffectInvulnerable</td>
+        					<td>is invulnerable (god mode)</td>
+        				</tr>
+        				<tr id='m_iEffectInvisible'>
+        					<td><span class="type">int</span> m_iEffectInvisible</td>
+        					<td>is invisible (render + non-targetable)</td>
+        				</tr>
+        				<tr id='m_iEffectNonSolid'>
+        					<td><span class="type">int</span> m_iEffectNonSolid</td>
+        					<td>is non-solid</td>
+        				</tr>
+        				<tr id='m_flEffectRespiration'>
+        					<td><span class="type">float</span> m_flEffectRespiration</td>
+        					<td>Extra/less breathing time underwater in seconds</td>
+        				</tr>
+        				<tr id='m_flEffectGravity'>
+        					<td><span class="type">float</span> m_flEffectGravity</td>
+        					<td>Gravity modifier (%)</td>
+        				</tr>
+        				<tr id='m_flEffectFriction'>
+        					<td><span class="type">float</span> m_flEffectFriction</td>
+        					<td>Movement friction modifier (%)</td>
+        				</tr>
+        				<tr id='m_flEffectSpeed'>
+        					<td><span class="type">float</span> m_flEffectSpeed</td>
+        					<td>Movement speed modifier (%)</td>
+        				</tr>
+        				<tr id='m_flEffectDamage'>
+        					<td><span class="type">float</span> m_flEffectDamage</td>
+        					<td>Damage modifier (%)</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

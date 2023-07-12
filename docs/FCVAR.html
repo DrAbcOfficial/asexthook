@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="FCVAR">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>FCVAR</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/FCVAR">FCVAR</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>FCVAR</h1>
+      <p>Console variable flags.</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='FCVAR_ARCHIVE'>
+        					<td>FCVAR_ARCHIVE</td>
+        					<td>1</td>
+        					<td>Save this cvar.</td>
+        				</tr>
+        				<tr id='FCVAR_USERINFO'>
+        					<td>FCVAR_USERINFO</td>
+        					<td>2</td>
+        					<td>Changes the client's info <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='FCVAR_SERVER'>
+        					<td>FCVAR_SERVER</td>
+        					<td>4</td>
+        					<td>Notifies players when changed.</td>
+        				</tr>
+        				<tr id='FCVAR_EXTDLL'>
+        					<td>FCVAR_EXTDLL</td>
+        					<td>8</td>
+        					<td>Defined by external dll.</td>
+        				</tr>
+        				<tr id='FCVAR_CLIENTDLL'>
+        					<td>FCVAR_CLIENTDLL</td>
+        					<td>16</td>
+        					<td>Defined by the client dll.</td>
+        				</tr>
+        				<tr id='FCVAR_PROTECTED'>
+        					<td>FCVAR_PROTECTED</td>
+        					<td>32</td>
+        					<td>It's a server cvar, but we don't send the data since it's a password, etc.</td>
+        				</tr>
+        				<tr id='FCVAR_SPONLY'>
+        					<td>FCVAR_SPONLY</td>
+        					<td>64</td>
+        					<td>This cvar cannot be changed by clients connected to a multiplayer server.</td>
+        				</tr>
+        				<tr id='FCVAR_PRINTABLEONLY'>
+        					<td>FCVAR_PRINTABLEONLY</td>
+        					<td>128</td>
+        					<td>This cvar's <a href='/string'>string</a> cannot contain unprintable characters (e.g. used for player name etc)</td>
+        				</tr>
+        				<tr id='FCVAR_UNLOGGED'>
+        					<td>FCVAR_UNLOGGED</td>
+        					<td>256</td>
+        					<td>If this is a <a href='/FCVAR#FCVAR_SERVER'>FCVAR_SERVER</a>, don't log changes to the log file / console if we are creating a log</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

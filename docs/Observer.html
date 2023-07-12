@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Observer">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Observer</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Observer">Observer</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Observer</h1>
+      <p><a href='/Observer'>Observer</a> mode management class.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetObserverTarget'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetObserverTarget()</td>
+        					<td>Gets the current observer target, if any.</td>
+        				</tr>
+        				<tr id='ResetObserverTarget'>
+        					<td><span class="type">void</span> ResetObserverTarget()</td>
+        					<td>Resets the observer target and finds the next suitable candidate.</td>
+        				</tr>
+        				<tr id='SetObserverTarget'>
+        					<td><span class="type">void</span> SetObserverTarget(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Sets the observer target.</td>
+        				</tr>
+        				<tr id='CanUseObserver'>
+        					<td><span class="type">bool</span> CanUseObserver()</td>
+        					<td>Returns whether this player can use observer mode.</td>
+        				</tr>
+        				<tr id='IsObserver'>
+        					<td><span class="type">bool</span> IsObserver() <span class="type">const</span></td>
+        					<td>Returns whether this player is an observer.</td>
+        				</tr>
+        				<tr id='StartObserver'>
+        					<td><span class="type">void</span> StartObserver(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPosition, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecViewAngle, <span class="type">bool</span> fCreateBody = true)</td>
+        					<td>Starts observer mode.</td>
+        				</tr>
+        				<tr id='StopObserver'>
+        					<td><span class="type">void</span> StopObserver(<span class="type">bool</span> fRespawn)</td>
+        					<td>Stops observer mode.</td>
+        				</tr>
+        				<tr id='FindNextPlayer'>
+        					<td><span class="type">void</span> FindNextPlayer(<span class="type">bool</span> fReverse)</td>
+        					<td>Find the next player to observe.</td>
+        				</tr>
+        				<tr id='HandleButtons'>
+        					<td><span class="type">void</span> HandleButtons()</td>
+        					<td>Handles button input.</td>
+        				</tr>
+        				<tr id='SetMode'>
+        					<td><span class="type">void</span> SetMode(<a class="type" href='/ObserverMode'>ObserverMode</a> iMode)</td>
+        					<td>Sets the observer mode.</td>
+        				</tr>
+        				<tr id='FindObserverStartPoint'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindObserverStartPoint()</td>
+        					<td>Find a point to start a player at for observer.</td>
+        				</tr>
+        				<tr id='HasCorpse'>
+        					<td><span class="type">bool</span> HasCorpse()</td>
+        					<td>Returns whether this player has a corpse.</td>
+        				</tr>
+        				<tr id='CanControlObserverMode'>
+        					<td><span class="type">bool</span> CanControlObserverMode() <span class="type">const</span></td>
+        					<td>Returns whether this player can control the observer mode.</td>
+        				</tr>
+        				<tr id='SetObserverModeControlEnabled'>
+        					<td><span class="type">void</span> SetObserverModeControlEnabled(<span class="type">bool</span> fEnabled)</td>
+        					<td>Sets whether this player can control the observer mode.</td>
+        				</tr>
+        				<tr id='RemoveDeadBody'>
+        					<td><span class="type">void</span> RemoveDeadBody()</td>
+        					<td>Removes the player's dead body, if it exists.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

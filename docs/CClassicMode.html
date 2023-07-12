@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CClassicMode">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CClassicMode</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CClassicMode">CClassicMode</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CClassicMode</h1>
+      <p>Classic Mode handler</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='IsStateDefined'>
+        					<td><span class="type">bool</span> IsStateDefined() <span class="type">const</span></td>
+        					<td>Returns whether the Classic Mode state setting is defined. If not defined, no voting has taken place to choose whether or not to enable Classic Mode.</td>
+        				</tr>
+        				<tr id='ResetState'>
+        					<td><span class="type">void</span> ResetState()</td>
+        					<td>Resets the Classic Mode state setting to undefined.</td>
+        				</tr>
+        				<tr id='IsEnabled'>
+        					<td><span class="type">bool</span> IsEnabled() <span class="type">const</span></td>
+        					<td>Returns whether Classic Mode is enabled or not.</td>
+        				</tr>
+        				<tr id='SetEnabled'>
+        					<td><span class="type">void</span> SetEnabled(<span class="type">const</span> <span class="type">bool</span> fEnabled)</td>
+        					<td>Enable or disable Classic Mode.</td>
+        				</tr>
+        				<tr id='ForceItemRemap'>
+        					<td><span class="type">void</span> ForceItemRemap(<span class="type">const</span> <span class="type">bool</span> fEnabled)</td>
+        					<td>Forces item remapping even if classic mode is disabled.</td>
+        				</tr>
+        				<tr id='Toggle'>
+        					<td><span class="type">void</span> Toggle()</td>
+        					<td>Toggles Classic Mode.</td>
+        				</tr>
+        				<tr id='EnableMapSupport'>
+        					<td><span class="type">void</span> EnableMapSupport()</td>
+        					<td>Tells the game that the current map wants to use Classic Mode. Must be called in MapInit. Cannot be disabled once set.This will ask players whether they want to enable Classic Mode. Reset on map change.</td>
+        				</tr>
+        				<tr id='ShouldRestartOnChange'>
+        					<td><span class="type">bool</span> ShouldRestartOnChange() <span class="type">const</span></td>
+        					<td>Returns whether the map should restart if Classic Mode is changed or not. Defaults to true if not changed by a script. Reset on map change.</td>
+        				</tr>
+        				<tr id='SetShouldRestartOnChange'>
+        					<td><span class="type">void</span> SetShouldRestartOnChange(<span class="type">const</span> <span class="type">bool</span> bShouldRestart)</td>
+        					<td>Sets whether the map should restart if Classic Mode is changed.</td>
+        				</tr>
+        				<tr id='SetItemMappings'>
+        					<td><span class="type">void</span> SetItemMappings(<span class="type">array</span><span class="type"><</span><a class="type" href='/ItemMapping'>ItemMapping</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pItemMappings)</td>
+        					<td>Sets the item mappings to use from now on.<br>Does not affect previous mappings.<br>Pass null to disable all mappings.</td>
+        				</tr>
+        				<tr id='FindItemMapping'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> FindItemMapping(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szItemName) <span class="type">const</span></td>
+        					<td>Gets the item mapped to the given item name, or an empty <a href='/string'>string</a> if no mapping exists.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

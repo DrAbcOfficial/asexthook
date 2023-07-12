@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CItemRegistry">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CItemRegistry</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CItemRegistry">CItemRegistry</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CItemRegistry</h1>
+      <p>Item registry.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetIdForName'>
+        					<td><span class="type">int</span> GetIdForName(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName) <span class="type">const</span></td>
+        					<td>Gets the id associated with the given weapon name. Returns <a href='/WeaponIds#WEAPON_NONE'>WEAPON_NONE</a> if no id is associated with the given name.</td>
+        				</tr>
+        				<tr id='RegisterItem'>
+        					<td><span class="type">int</span> RegisterItem(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteDir, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPrimaryAmmoName = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSecondaryAmmoName = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPrimaryAmmoClass = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSecondaryAmmoClass = "")</td>
+        					<td>Registers the given entity name as an item and returns the id associated with it.<br>Returns <a href='/WeaponIds#WEAPON_NONE'>WEAPON_NONE</a> if no id could be assigned to it.</td>
+        				</tr>
+        				<tr id='RegisterWeapon'>
+        					<td><span class="type">int</span> RegisterWeapon(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSpriteDir, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPrimaryAmmoName = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSecondaryAmmoName = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPrimaryAmmoClass = "", <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSecondaryAmmoClass = "")</td>
+        					<td>Registers the given entity name as a weapon and returns the id associated with it.<br>Returns <a href='/WeaponIds#WEAPON_NONE'>WEAPON_NONE</a> if no id could be assigned to it.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

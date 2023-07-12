@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CommonEntityFlags">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CommonEntityFlags</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/CommonEntityFlags">CommonEntityFlags</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CommonEntityFlags</h1>
+      <p>Common entity flags used by various entities.</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SF_NORESPAWN'>
+        					<td>SF_NORESPAWN</td>
+        					<td>1024</td>
+        					<td>set this bit on guns and stuff that should never respawn.</td>
+        				</tr>
+        				<tr id='SF_DELAYREMOVE'>
+        					<td>SF_DELAYREMOVE</td>
+        					<td>2048</td>
+        					<td>A weapon will be removed from the map after 60sec</td>
+        				</tr>
+        				<tr id='SF_CREATEDWEAPON'>
+        					<td>SF_CREATEDWEAPON</td>
+        					<td>4096</td>
+        					<td>this flag indicates that this entity is a weapon created for players,<br>as opposed to being created by being placed by a mapper</td>
+        				</tr>
+        				<tr id='SF_DODAMAGE'>
+        					<td>SF_DODAMAGE</td>
+        					<td>8192</td>
+        					<td>this flag indicates that a player thrown weapon should deal damage to things it hits</td>
+        				</tr>
+        				<tr id='SF_GIVENITEM'>
+        					<td>SF_GIVENITEM</td>
+        					<td>16384</td>
+        					<td>This item is being given to the player -- can't fall out of map</td>
+        				</tr>
+        				<tr id='SF_NODEFAULTAMMO'>
+        					<td>SF_NODEFAULTAMMO</td>
+        					<td>32768</td>
+        					<td>Don't allow default ammo to be set. Prevents players from getting too much ammo from cross map inventory</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

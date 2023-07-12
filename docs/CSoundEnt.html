@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CSoundEnt">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CSoundEnt</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CSoundEnt">CSoundEnt</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CSoundEnt</h1>
+      <p>Sound manager entity. Manages sound events made in the world, like gunfire.<br>Does not handle the playing of sounds, see <a href='/CSoundEngine'>CSoundEngine</a> for actual sound playing.</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='InsertSound'>
+        					<td><span class="type">void</span> InsertSound(<span class="type">int</span> iType, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> iVolume, <span class="type">float</span> flDuration, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOwner)</td>
+        					<td>Inserts a sound. iType is one of the <a href='/bits_SOUND'>bits_SOUND</a> enum.</td>
+        				</tr>
+        				<tr id='ActiveList'>
+        					<td><span class="type">int</span> ActiveList()</td>
+        					<td>Returns the head of the active list.</td>
+        				</tr>
+        				<tr id='FreeList'>
+        					<td><span class="type">int</span> FreeList()</td>
+        					<td>Returns the head of the free list.</td>
+        				</tr>
+        				<tr id='SoundPointerForIndex'>
+        					<td><a class="type" href='/CSound'>CSound</a><span class="type">@</span> SoundPointerForIndex(<span class="type">int</span> iIndex)</td>
+        					<td>Return a pointer for this index in the sound list.<br>Index must be between 0 and <a href='/Properties#MAX_WORLD_SOUNDS'>MAX_WORLD_SOUNDS</a>.</td>
+        				</tr>
+        				<tr id='ClientSoundIndex'>
+        					<td><span class="type">int</span> ClientSoundIndex(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pClient)</td>
+        					<td>Gets the index for the given client.</td>
+        				</tr>
+        				<tr id='IsEmpty'>
+        					<td><span class="type">bool</span> IsEmpty()</td>
+        					<td>Returns whether the sound list is empty.</td>
+        				</tr>
+        				<tr id='ISoundsInList'>
+        					<td><span class="type">int</span> ISoundsInList(<span class="type">int</span> iListType)</td>
+        					<td>Returns the number of sounds in the given list. Must be either <a href='/Properties#SOUNDLISTTYPE_FREE'>SOUNDLISTTYPE_FREE</a> or <a href='/Properties#SOUNDLISTTYPE_ACTIVE'>SOUNDLISTTYPE_ACTIVE</a>.</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='m_cLastActiveSounds'>
+        					<td><span class="type">const</span> <span class="type">int</span> m_cLastActiveSounds</td>
+        					<td>keeps track of the number of active sounds at the last update. (for diagnostic work)</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

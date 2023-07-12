@@ -1,0 +1,193 @@
+:root {
+	--secondary: #cbcbcb;
+	--tertiary: #f2f2f2;
+	--header: #d9d9d9;
+
+	--dark-background: #181a1b;
+	--dark-secondary: #3f4447;
+	--dark-tertiary: #1f2223;
+	--dark-foreground: #d8d4cf;
+	--dark-link: #69a5d8;
+	--dark-header: #2d3133;
+	--highlight: #f7f780;
+	--dark-highlight: #98a347ff;
+}
+
+@keyframes fadeout_odd {
+	0% {
+		background-color: var(--highlight);
+	}
+	100% {
+		background-color: white;
+	}
+}
+
+@keyframes fadeout_even {
+	0% {
+		background-color: var(--highlight);
+	}
+	100% {
+		background-color: var(--tertiary);
+	}
+}
+
+html {
+	font-family: Consolas, monospace;
+	font-size: 1.25rem;
+}
+
+body {
+	margin: 0 16px 32px 16px;
+}
+
+header {
+	border-bottom: 1px solid var(--secondary);
+	padding: 0.4rem 0.8rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#search-box {
+	position: relative;
+}
+
+#search-suggestions {
+	position: absolute;
+	right: 0;
+	width: max-content;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	border: 1px solid var(--secondary);
+	list-style-type: none;
+}
+
+#search-suggestions a {
+	color: unset;
+	text-decoration: none;
+	display: block;
+	padding: 0.4rem 0.8rem;
+}
+
+#search-suggestions a:hover,
+.highlight {
+	background-color: var(--tertiary);
+}
+
+.secondary {
+	color: grey;
+}
+
+input {
+	font-size: inherit;
+	font-family: inherit;
+	padding: 0.1rem 0.4rem;
+	border: 1px solid var(--secondary);
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	border: 1px solid var(--secondary);
+}
+
+td,
+th {
+	border-left: 1px solid var(--secondary);
+	border-bottom: 1px solid var(--secondary);
+	padding: 0.4rem 0.4rem;
+	font-size: inherit;
+	overflow: visible;
+}
+
+th {
+	background-color: var(--header);
+}
+
+tr:nth-child(even) {
+	background-color: var(--tertiary);
+}
+
+h2:target {
+	animation-name: fadeout_odd;
+}
+
+tr:nth-child(even):target {
+	animation-name: fadeout_even;
+	animation-duration: 2s;
+}
+
+tr:nth-child(odd):target {
+	animation-name: fadeout_odd;
+	animation-duration: 2s;
+}
+
+.type {
+	color: black;
+}
+.value {
+	color: inherit;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+	@keyframes fadeout_odd {
+		0% {
+			background-color: var(--dark-highlight);
+		}
+		100% {
+			background-color: var(--dark-background);
+		}
+	}
+	@keyframes fadeout_even {
+		0% {
+			background-color: var(--dark-highlight);
+		}
+		100% {
+			background-color: var(--dark-tertiary);
+		}
+	}
+	.type {
+		color: hsl(0, 0%, 60%);
+	}
+	.inout {
+		color: grey;
+	}
+	body,
+	input,
+	#search-suggestions {
+		background-color: var(--dark-background);
+		color: var(--dark-foreground);
+	}
+	a {
+		color: var(--dark-link);
+	}
+	th {
+		background-color: var(--dark-header);
+	}
+	#search-suggestions a:hover,
+	.highlight,
+	tr:nth-child(even) {
+		background-color: var(--dark-tertiary);
+	}
+	#search-suggestions,
+	input,
+	header,
+	table,
+	td,
+	th {
+		border-color: var(--dark-secondary);
+	}
+}

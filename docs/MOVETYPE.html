@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="MOVETYPE">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>MOVETYPE</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/MOVETYPE">MOVETYPE</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>MOVETYPE</h1>
+      <p><a href='/entvars_t#movetype'>entvars_t::movetype</a> constants</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='MOVETYPE_NONE_EXPLICIT'>
+        					<td>MOVETYPE_NONE_EXPLICIT</td>
+        					<td>-1</td>
+        					<td>never moves (forced by map)</td>
+        				</tr>
+        				<tr id='MOVETYPE_NONE'>
+        					<td>MOVETYPE_NONE</td>
+        					<td>0</td>
+        					<td>never moves</td>
+        				</tr>
+        				<tr id='MOVETYPE_WALK'>
+        					<td>MOVETYPE_WALK</td>
+        					<td>3</td>
+        					<td>Player only - moving on the ground</td>
+        				</tr>
+        				<tr id='MOVETYPE_STEP'>
+        					<td>MOVETYPE_STEP</td>
+        					<td>4</td>
+        					<td>gravity, special edge handling -- monsters use this</td>
+        				</tr>
+        				<tr id='MOVETYPE_FLY'>
+        					<td>MOVETYPE_FLY</td>
+        					<td>5</td>
+        					<td>No gravity, but still collides with stuff</td>
+        				</tr>
+        				<tr id='MOVETYPE_TOSS'>
+        					<td>MOVETYPE_TOSS</td>
+        					<td>6</td>
+        					<td>gravity/collisions</td>
+        				</tr>
+        				<tr id='MOVETYPE_PUSH'>
+        					<td>MOVETYPE_PUSH</td>
+        					<td>7</td>
+        					<td>no clip to world, push and crush</td>
+        				</tr>
+        				<tr id='MOVETYPE_NOCLIP'>
+        					<td>MOVETYPE_NOCLIP</td>
+        					<td>8</td>
+        					<td>No gravity, no collisions, still do velocity/avelocity</td>
+        				</tr>
+        				<tr id='MOVETYPE_FLYMISSILE'>
+        					<td>MOVETYPE_FLYMISSILE</td>
+        					<td>9</td>
+        					<td>extra size to monsters</td>
+        				</tr>
+        				<tr id='MOVETYPE_BOUNCE'>
+        					<td>MOVETYPE_BOUNCE</td>
+        					<td>10</td>
+        					<td>Just like Toss, but reflect velocity when contacting surfaces</td>
+        				</tr>
+        				<tr id='MOVETYPE_BOUNCEMISSILE'>
+        					<td>MOVETYPE_BOUNCEMISSILE</td>
+        					<td>11</td>
+        					<td>bounce w/o gravity</td>
+        				</tr>
+        				<tr id='MOVETYPE_FOLLOW'>
+        					<td>MOVETYPE_FOLLOW</td>
+        					<td>12</td>
+        					<td>track movement of aiment</td>
+        				</tr>
+        				<tr id='MOVETYPE_PUSHSTEP'>
+        					<td>MOVETYPE_PUSHSTEP</td>
+        					<td>13</td>
+        					<td>BSP model that needs physics/world collisions (uses nearest hull for world collision)</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

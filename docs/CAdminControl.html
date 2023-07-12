@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CAdminControl">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CAdminControl</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CAdminControl">CAdminControl</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CAdminControl</h1>
+      <p>Admin control panel.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SetReservedSlots'>
+        					<td><span class="type">void</span> SetReservedSlots(<span class="type">uint</span> uiReservedSlots)</td>
+        					<td>Sets the number of reserved slots.</td>
+        				</tr>
+        				<tr id='GetReservedSlots'>
+        					<td><span class="type">uint</span> GetReservedSlots() <span class="type">const</span></td>
+        					<td>Gets the number of reserved slots.</td>
+        				</tr>
+        				<tr id='KillPlayer'>
+        					<td><span class="type">bool</span> KillPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKiller, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKillee, <span class="type">float</span> flRespawntime = -1.0f)</td>
+        					<td>Kills the given player. Killing player must have admin rights. Target player cannot be an admin.</td>
+        				</tr>
+        				<tr id='KillPlayer@2'>
+        					<td><span class="type">bool</span> KillPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKillee, <span class="type">float</span> flRespawntime = -1.0f)</td>
+        					<td>Kills the given player.</td>
+        				</tr>
+        				<tr id='KickPlayer'>
+        					<td><span class="type">bool</span> KickPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKicker, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKickee, <span class="type">const</span> <span class="type">float</span> flCustomBanTime = -1)</td>
+        					<td>Kicks the given player. Kicking player must have admin rights. Target player cannot be an admin.</td>
+        				</tr>
+        				<tr id='KickPlayer@2'>
+        					<td><span class="type">bool</span> KickPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pKickee, <span class="type">const</span> <span class="type">float</span> flCustomBanTime = -1)</td>
+        					<td>Kicks the given player.</td>
+        				</tr>
+        				<tr id='BanPlayer'>
+        					<td><span class="type">bool</span> BanPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pBanner, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pBannee, <span class="type">const</span> <span class="type">float</span> flCustomBanTime = -1)</td>
+        					<td>Bans the given player. Banning player must have admin rights Target player cannot be an admin.</td>
+        				</tr>
+        				<tr id='BanPlayer@2'>
+        					<td><span class="type">bool</span> BanPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pBannee, <span class="type">const</span> <span class="type">float</span> flCustomBanTime = -1)</td>
+        					<td>Bans the given player.</td>
+        				</tr>
+        				<tr id='SlapPlayer'>
+        					<td><span class="type">bool</span> SlapPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlapper, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlappee, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iDamageType = 0)</td>
+        					<td>Slaps the given player. Slapping player must have admin rights. Target player cannot be an admin.</td>
+        				</tr>
+        				<tr id='SlapPlayer@2'>
+        					<td><span class="type">bool</span> SlapPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlappee, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDirection, <span class="type">int</span> iDamageType = 0)</td>
+        					<td>Slaps the given player.</td>
+        				</tr>
+        				<tr id='SlapPlayer@3'>
+        					<td><span class="type">bool</span> SlapPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlapper, <a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlappee, <span class="type">float</span> flDamage, <span class="type">int</span> iDamageType = 0)</td>
+        					<td>Slaps the given player. Slapping player must have admin rights. Target player cannot be an admin. Slap direction is randomized.</td>
+        				</tr>
+        				<tr id='SlapPlayer@4'>
+        					<td><span class="type">bool</span> SlapPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pSlappee, <span class="type">float</span> flDamage, <span class="type">int</span> iDamageType = 0)</td>
+        					<td>Slaps the given player. Slap direction is randomized.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="In_Buttons">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>In_Buttons</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/In_Buttons">In_Buttons</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>In_Buttons</h1>
+      <p>Bit field values for <a href='/entvars_t'>entvars_t</a>.buttons.<br>Used by players to determine which buttons have been pressed</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='IN_ATTACK'>
+        					<td>IN_ATTACK</td>
+        					<td>1</td>
+        					<td>Primary attack</td>
+        				</tr>
+        				<tr id='IN_JUMP'>
+        					<td>IN_JUMP</td>
+        					<td>2</td>
+        					<td>Jump</td>
+        				</tr>
+        				<tr id='IN_DUCK'>
+        					<td>IN_DUCK</td>
+        					<td>4</td>
+        					<td>Duck</td>
+        				</tr>
+        				<tr id='IN_FORWARD'>
+        					<td>IN_FORWARD</td>
+        					<td>8</td>
+        					<td>Move forward</td>
+        				</tr>
+        				<tr id='IN_BACK'>
+        					<td>IN_BACK</td>
+        					<td>16</td>
+        					<td>Move backward</td>
+        				</tr>
+        				<tr id='IN_USE'>
+        					<td>IN_USE</td>
+        					<td>32</td>
+        					<td>Use</td>
+        				</tr>
+        				<tr id='IN_CANCEL'>
+        					<td>IN_CANCEL</td>
+        					<td>64</td>
+        					<td></td>
+        				</tr>
+        				<tr id='IN_LEFT'>
+        					<td>IN_LEFT</td>
+        					<td>128</td>
+        					<td></td>
+        				</tr>
+        				<tr id='IN_RIGHT'>
+        					<td>IN_RIGHT</td>
+        					<td>256</td>
+        					<td></td>
+        				</tr>
+        				<tr id='IN_MOVELEFT'>
+        					<td>IN_MOVELEFT</td>
+        					<td>512</td>
+        					<td>Move left</td>
+        				</tr>
+        				<tr id='IN_MOVERIGHT'>
+        					<td>IN_MOVERIGHT</td>
+        					<td>1024</td>
+        					<td>Move right</td>
+        				</tr>
+        				<tr id='IN_ATTACK2'>
+        					<td>IN_ATTACK2</td>
+        					<td>2048</td>
+        					<td>Secondary attack</td>
+        				</tr>
+        				<tr id='IN_RUN'>
+        					<td>IN_RUN</td>
+        					<td>4096</td>
+        					<td>Run/Walk</td>
+        				</tr>
+        				<tr id='IN_RELOAD'>
+        					<td>IN_RELOAD</td>
+        					<td>8192</td>
+        					<td>Reload</td>
+        				</tr>
+        				<tr id='IN_ALT1'>
+        					<td>IN_ALT1</td>
+        					<td>16384</td>
+        					<td>Tertiary attack</td>
+        				</tr>
+        				<tr id='IN_SCORE'>
+        					<td>IN_SCORE</td>
+        					<td>32768</td>
+        					<td>Used by client.dll for when scoreboard is held down</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

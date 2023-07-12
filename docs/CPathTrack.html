@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CPathTrack">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CPathTrack</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CPathTrack">CPathTrack</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CPathTrack</h1>
+      <p>Path track class</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='opImplCast'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='GetOrigin'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> GetOrigin() <span class="type">const</span></td>
+        					<td>Gets the entity's (absolute) origin.</td>
+        				</tr>
+        				<tr id='SetOrigin'>
+        					<td><span class="type">void</span> SetOrigin(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td>Sets this entity's (absolute) origin</td>
+        				</tr>
+        				<tr id='KeyValue'>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Sets keyvalue data on this entity</td>
+        				</tr>
+        				<tr id='TraceAttack'>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Traces an attack by the given entity to this entity.</td>
+        				</tr>
+        				<tr id='TraceBleed'>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Traces entity bleed event.</td>
+        				</tr>
+        				<tr id='GiveAmmo'>
+        					<td><span class="type">int</span> GiveAmmo(<span class="type">int</span> iAmount, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">int</span> iMax, <span class="type">const</span> <span class="type">bool</span> fFromWeapon = true)</td>
+        					<td>Gives ammo to this entity.</td>
+        				</tr>
+        				<tr id='HasTarget'>
+        					<td><span class="type">bool</span> HasTarget(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szTarget)</td>
+        					<td>Returns whether this entity has the given target.</td>
+        				</tr>
+        				<tr id='TeamID'>
+        					<td><a class="type" href='/string'>string</a> TeamID()</td>
+        					<td>Returns this entity's team ID.</td>
+        				</tr>
+        				<tr id='GetClassname'>
+        					<td><a class="type" href='/string'>string</a> GetClassname() <span class="type">const</span></td>
+        					<td>Returns this entity's class name.</td>
+        				</tr>
+        				<tr id='GetClassificationTag'>
+        					<td><a class="type" href='/string'>string</a> GetClassificationTag() <span class="type">const</span></td>
+        					<td>Returns this entity's classification tag.</td>
+        				</tr>
+        				<tr id='GetClassificationName'>
+        					<td><a class="type" href='/string'>string</a> GetClassificationName() <span class="type">const</span></td>
+        					<td>Returns this entity's classification name.</td>
+        				</tr>
+        				<tr id='GetTargetname'>
+        					<td><a class="type" href='/string'>string</a> GetTargetname() <span class="type">const</span></td>
+        					<td>Returns this entity's target name.</td>
+        				</tr>
+        				<tr id='FVisibleFromPos'>
+        					<td><span class="type">bool</span> FVisibleFromPos(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecTarget, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStart)</td>
+        					<td>Returns whether this entity is visible from the given position.</td>
+        				</tr>
+        				<tr id='SOUNDREPLACEMENT_Find'>
+        					<td><a class="type" href='/string'>string</a> SOUNDREPLACEMENT_Find(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFilename)</td>
+        					<td>Find sound replacement for the given file.</td>
+        				</tr>
+        				<tr id='FindMonstersInWorld'>
+        					<td><span class="type">int</span> FindMonstersInWorld(<span class="type">array</span><span class="type"><</span><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span><span class="type">></span><span class="type">@</span> pArray, <span class="type">int</span> flagMask)</td>
+        					<td>Finds monsters in the world</td>
+        				</tr>
+        				<tr id='IsPlayerAlly'>
+        					<td><span class="type">bool</span> IsPlayerAlly() <span class="type">const</span></td>
+        					<td>Returns whether this entity is allied to players.</td>
+        				</tr>
+        				<tr id='SetPlayerAlly'>
+        					<td><span class="type">void</span> SetPlayerAlly(<span class="type">bool</span> fState)</td>
+        					<td>Sets this entity's player ally status.</td>
+        				</tr>
+        				<tr id='SetPlayerAllyDirect'>
+        					<td><span class="type">void</span> SetPlayerAllyDirect(<span class="type">bool</span> fState)</td>
+        					<td>Sets this entity's player ally status.<br>Use this only if you need the setting to be exactly what you give it (e.g. when copying from another monster)</td>
+        				</tr>
+        				<tr id='opEquals'>
+        					<td><span class="type">bool</span> opEquals(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Compares 2 entities for equality.</td>
+        				</tr>
+        				<tr id='Precache'>
+        					<td><span class="type">void</span> Precache()</td>
+        					<td>Precaches the entity. Do not call directly.</td>
+        				</tr>
+        				<tr id='ObjectCaps'>
+        					<td><span class="type">int</span> ObjectCaps()</td>
+        					<td>Gets this entity's objects caps. See the <a href='/FCAP'>FCAP</a> enum.</td>
+        				</tr>
+        				<tr id='SetObjectCollisionBox'>
+        					<td><span class="type">void</span> SetObjectCollisionBox()</td>
+        					<td>Sets up the object collision box.</td>
+        				</tr>
+        				<tr id='GetClassification'>
+        					<td><span class="type">int</span> GetClassification(<span class="type">int</span> cl)</td>
+        					<td>Gets this entity's classification. Returns the given value if none is set. See the CLASSIFICATION enum.</td>
+        				</tr>
+        				<tr id='SetClassification'>
+        					<td><span class="type">void</span> SetClassification(<span class="type">int</span> cl)</td>
+        					<td>Sets this entity's classification override. Can override the entity's player ally setting.</td>
+        				</tr>
+        				<tr id='SetClassificationFromEntity'>
+        					<td><span class="type">void</span> SetClassificationFromEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Sets this entity's classification override to the classification override set on the given entity. Can override the entity's player ally setting.</td>
+        				</tr>
+        				<tr id='ClearClassification'>
+        					<td><span class="type">void</span> ClearClassification()</td>
+        					<td>Clears this entity's classification override.</td>
+        				</tr>
+        				<tr id='IRelationship'>
+        					<td><span class="type">int</span> IRelationship(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> other, <span class="type">bool</span> ignoreNoTarget = false)</td>
+        					<td>Gets the relationship between this entity and the given entity. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        				</tr>
+        				<tr id='IRelationshipByClass'>
+        					<td><span class="type">int</span> IRelationshipByClass(<a class="type" href='/CLASS'>CLASS</a> iClass)</td>
+        					<td>Gets the relationship between this entity and the given entity classification. See the <a href='/RELATIONSHIP'>RELATIONSHIP</a> enum.</td>
+        				</tr>
+        				<tr id='Classify'>
+        					<td><span class="type">int</span> Classify()</td>
+        					<td>Gets this entity's classification.</td>
+        				</tr>
+        				<tr id='TakeDamage'>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Causes this entity to take damage. Returns 1 if it took damage, 0 otherwise.</td>
+        				</tr>
+        				<tr id='TakeHealth'>
+        					<td><span class="type">bool</span> TakeHealth(<span class="type">float</span> flHealth, <span class="type">int</span> bitsDamageType, <span class="type">int</span> health_cap = 0)</td>
+        					<td>Takes health from this entity. Note: flHealth is added to entity health. Use negative values to subtract.If health_cap is non-zero, won't add more than health_cap. Returns true if it took damage, false otherwise.</td>
+        				</tr>
+        				<tr id='TakeArmor'>
+        					<td><span class="type">bool</span> TakeArmor(<span class="type">float</span> flArmor, <span class="type">int</span> bitsDamageType, <span class="type">int</span> armor_cap = 0)</td>
+        					<td>Takes armor from this entity. Note: flArmor is added to entity armor. Use negative values to subtract.If armor_cap is non-zero, won't add more than armor_cap. Returns 1 if it took damage, 0 otherwise.</td>
+        				</tr>
+        				<tr id='Killed'>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span>pevAtttacker, <span class="type">int</span> iGibbed)</td>
+        					<td>Tells this entity it's been killed. See the <a href='/GIB'>GIB</a> enum for possible values.</td>
+        				</tr>
+        				<tr id='BloodColor'>
+        					<td><span class="type">int</span> BloodColor()</td>
+        					<td>Returns the blood color. See the <a href='/BLOOD_COLOR'>BLOOD_COLOR</a> enum.</td>
+        				</tr>
+        				<tr id='IsTriggered'>
+        					<td><span class="type">bool</span> IsTriggered(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
+        					<td>Returns whether this entity is triggered by the given entity.</td>
+        				</tr>
+        				<tr id='MyMonsterPointer'>
+        					<td><a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> MyMonsterPointer()</td>
+        					<td>Returns this entity as its monster entity, if it is a monster.</td>
+        				</tr>
+        				<tr id='GetCustomKeyvalues'>
+        					<td><a class="type" href='/CustomKeyvalues'>CustomKeyvalues</a><span class="type">@</span> GetCustomKeyvalues()</td>
+        					<td>Gets this entity's custom keyvalues.</td>
+        				</tr>
+        				<tr id='BlockedByEntity'>
+        					<td><span class="type">bool</span> BlockedByEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">float</span> flDamage)</td>
+        					<td>Returns true if you should be blocked by the entity, false otherwise. Also deals blocking damage to the entity, if applicable.</td>
+        				</tr>
+        				<tr id='SUB_Remove'>
+        					<td><span class="type">void</span> SUB_Remove()</td>
+        					<td>Think function. Delay-removes this entity.</td>
+        				</tr>
+        				<tr id='SUB_DoNothing'>
+        					<td><span class="type">void</span> SUB_DoNothing()</td>
+        					<td>Think function. Explicitly does nothing.</td>
+        				</tr>
+        				<tr id='SUB_StartFadeOut'>
+        					<td><span class="type">void</span> SUB_StartFadeOut()</td>
+        					<td>Think function. Starts fading this entity.</td>
+        				</tr>
+        				<tr id='SUB_FadeOut'>
+        					<td><span class="type">void</span> SUB_FadeOut()</td>
+        					<td>Think function. Fades this entity.</td>
+        				</tr>
+        				<tr id='SUB_CallUseToggle'>
+        					<td><span class="type">void</span> SUB_CallUseToggle()</td>
+        					<td>Think function. Calls use toggle on this entity.</td>
+        				</tr>
+        				<tr id='ShouldToggle'>
+        					<td><span class="type">bool</span> ShouldToggle(<a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">const</span> <span class="type">bool</span> currentState)</td>
+        					<td>Returns whether this entity should toggle.</td>
+        				</tr>
+        				<tr id='FireBullets'>
+        					<td><span class="type">void</span> FireBullets(<span class="type">uint</span> cShots, <a class="type" href='/Vector'>Vector</a> vecSrc, <a class="type" href='/Vector'>Vector</a> vecDirShooting, <a class="type" href='/Vector'>Vector</a> vecSpread,<span class="type">float</span> flDistance, <a class="type" href='/Bullet'>Bullet</a> iBulletType, <span class="type">int</span> iTracerFreq = 4, <span class="type">int</span> iDamage = 0, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker = null, <a class="type" href='/FireBulletsDrawMode'>FireBulletsDrawMode</a> fDraw = <a class="value" href='/FireBulletsDrawMode#FBDM_DRAW'>FBDM_DRAW</a>)</td>
+        					<td>Fires bullets. Must call <a href='/CMath#MakeAimVectors'>CMath::MakeAimVectors</a> with an angle vector first.</td>
+        				</tr>
+        				<tr id='SUB_UseTargets'>
+        					<td><span class="type">void</span> SUB_UseTargets(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue)</td>
+        					<td>Calls use on targets.</td>
+        				</tr>
+        				<tr id='Intersects'>
+        					<td><span class="type">bool</span> Intersects(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Returns whether this entity intersects with the given entity.</td>
+        				</tr>
+        				<tr id='MakeDormant'>
+        					<td><span class="type">void</span> MakeDormant()</td>
+        					<td>Makes this entity dormant.</td>
+        				</tr>
+        				<tr id='IsDormant'>
+        					<td><span class="type">bool</span> IsDormant()</td>
+        					<td>Returns whether this entity is dormant.</td>
+        				</tr>
+        				<tr id='IsLockedByMaster'>
+        					<td><span class="type">bool</span> IsLockedByMaster()</td>
+        					<td>Returns whether this entity is locked by its master.</td>
+        				</tr>
+        				<tr id='edict'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> edict()</td>
+        					<td>Returns this entity's edict.</td>
+        				</tr>
+        				<tr id='entindex'>
+        					<td><span class="type">int</span> entindex()</td>
+        					<td>Returns this entity's index.</td>
+        				</tr>
+        				<tr id='SetupModel'>
+        					<td><span class="type">bool</span> SetupModel()</td>
+        					<td>Sets up the model.</td>
+        				</tr>
+        				<tr id='GetToggleState'>
+        					<td><span class="type">int</span> GetToggleState()</td>
+        					<td>Gets the toggle state.<br>See the <a href='/TOGGLE_STATE'>TOGGLE_STATE</a> enum.</td>
+        				</tr>
+        				<tr id='AddPoints'>
+        					<td><span class="type">void</span> AddPoints(<span class="type">int</span> score, <span class="type">const</span> <span class="type">bool</span> bAllowNegativeScore)</td>
+        					<td>Adds points to this entity.</td>
+        				</tr>
+        				<tr id='AddPointsToTeam'>
+        					<td><span class="type">void</span> AddPointsToTeam(<span class="type">int</span> score, <span class="type">const</span> <span class="type">bool</span> bAllowNegativeScore)</td>
+        					<td>Adds points to this entity's team.</td>
+        				</tr>
+        				<tr id='AddPlayerItem'>
+        					<td><a class="type" href='/AddPlayerItemResult'>AddPlayerItemResult</a> AddPlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td>Adds the given player item to this entity.</td>
+        				</tr>
+        				<tr id='RemovePlayerItem'>
+        					<td><span class="type">bool</span> RemovePlayerItem(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td>Removes the given player item to this entity.</td>
+        				</tr>
+        				<tr id='GetDelay'>
+        					<td><span class="type">float</span> GetDelay()</td>
+        					<td>Gets this entity's trigger delay.</td>
+        				</tr>
+        				<tr id='IsMoving'>
+        					<td><span class="type">bool</span> IsMoving()</td>
+        					<td>Returns whether this entity is moving.</td>
+        				</tr>
+        				<tr id='OverrideReset'>
+        					<td><span class="type">void</span> OverrideReset()</td>
+        					<td>Resets this entity.</td>
+        				</tr>
+        				<tr id='DamageDecal'>
+        					<td><span class="type">int</span> DamageDecal(<span class="type">int</span> bitsDamageType)</td>
+        					<td>Returns the damage decal<br>See <a href='/decal_e'>decal_e</a>.</td>
+        				</tr>
+        				<tr id='SetToggleState'>
+        					<td><span class="type">void</span> SetToggleState(<span class="type">int</span> state)</td>
+        					<td>Sets this entity's toggle state.</td>
+        				</tr>
+        				<tr id='StartSneaking'>
+        					<td><span class="type">void</span> StartSneaking()</td>
+        					<td>Starts sneaking.</td>
+        				</tr>
+        				<tr id='StopSneaking'>
+        					<td><span class="type">void</span> StopSneaking()</td>
+        					<td>Stops sneaking.</td>
+        				</tr>
+        				<tr id='OnControls'>
+        					<td><span class="type">bool</span> OnControls(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev)</td>
+        					<td>Reacts to controls set on the pev.</td>
+        				</tr>
+        				<tr id='IsSneaking'>
+        					<td><span class="type">bool</span> IsSneaking()</td>
+        					<td>Returns whether this entity is sneaking.</td>
+        				</tr>
+        				<tr id='IsAlive'>
+        					<td><span class="type">bool</span> IsAlive()</td>
+        					<td>Returns whether this entity is alive.</td>
+        				</tr>
+        				<tr id='IsBSPModel'>
+        					<td><span class="type">bool</span> IsBSPModel()</td>
+        					<td>Returns whether this entity is a BSP model.</td>
+        				</tr>
+        				<tr id='ReflectGauss'>
+        					<td><span class="type">bool</span> ReflectGauss()</td>
+        					<td>Returns whether this entity reflects gauss shots.</td>
+        				</tr>
+        				<tr id='IsInWorld'>
+        					<td><span class="type">bool</span> IsInWorld()</td>
+        					<td>Returns whether this entity is in the world.</td>
+        				</tr>
+        				<tr id='IsMonster'>
+        					<td><span class="type">bool</span> IsMonster()</td>
+        					<td>Returns whether this entity is a monster.</td>
+        				</tr>
+        				<tr id='IsPlayer'>
+        					<td><span class="type">bool</span> IsPlayer()</td>
+        					<td>Returns whether this entity is a player.</td>
+        				</tr>
+        				<tr id='IsNetClient'>
+        					<td><span class="type">bool</span> IsNetClient()</td>
+        					<td>Returns whether this is a net client.</td>
+        				</tr>
+        				<tr id='IsPointEnt'>
+        					<td><span class="type">bool</span> IsPointEnt()</td>
+        					<td>Returns whether this is a point entity.</td>
+        				</tr>
+        				<tr id='IsBreakable'>
+        					<td><span class="type">bool</span> IsBreakable()</td>
+        					<td>Returns whether this is a breakable brush entity.</td>
+        				</tr>
+        				<tr id='IsMachine'>
+        					<td><span class="type">bool</span> IsMachine()</td>
+        					<td>Returns whether this is a machine.</td>
+        				</tr>
+        				<tr id='CriticalRemove'>
+        					<td><span class="type">bool</span> CriticalRemove()</td>
+        					<td>Removes this entity in critical situations.</td>
+        				</tr>
+        				<tr id='GetNextTarget'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetNextTarget()</td>
+        					<td>Gets the next target to trigger.</td>
+        				</tr>
+        				<tr id='Think'>
+        					<td><span class="type">void</span> Think()</td>
+        					<td>Makes this entity think. Do not call directly.</td>
+        				</tr>
+        				<tr id='Touch'>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Triggers this entity's touch function.</td>
+        				</tr>
+        				<tr id='Use'>
+        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td>Trigger's this entity's use function.</td>
+        				</tr>
+        				<tr id='Blocked'>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Triggers this entity's blocked function.</td>
+        				</tr>
+        				<tr id='UpdateOnRemove'>
+        					<td><span class="type">void</span> UpdateOnRemove()</td>
+        					<td>Updates this entity when removed.</td>
+        				</tr>
+        				<tr id='Respawn'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> Respawn()</td>
+        					<td>Respawns this entity.</td>
+        				</tr>
+        				<tr id='FBecomeProne'>
+        					<td><span class="type">bool</span> FBecomeProne(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Makes this entity become prone.</td>
+        				</tr>
+        				<tr id='Center'>
+        					<td><a class="type" href='/Vector'>Vector</a> Center()</td>
+        					<td>Returns this entity's center.</td>
+        				</tr>
+        				<tr id='EyePosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> EyePosition()</td>
+        					<td>Returns this entity's eye position.</td>
+        				</tr>
+        				<tr id='EarPosition'>
+        					<td><a class="type" href='/Vector'>Vector</a> EarPosition()</td>
+        					<td>Returns this entity's ear position.</td>
+        				</tr>
+        				<tr id='BodyTarget'>
+        					<td><a class="type" href='/Vector'>Vector</a> BodyTarget(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> posSrc)</td>
+        					<td>Returns this entity's body target for shooting.</td>
+        				</tr>
+        				<tr id='Illumination'>
+        					<td><span class="type">int</span> Illumination()</td>
+        					<td>Returns this entity's illumination.</td>
+        				</tr>
+        				<tr id='FVisible'>
+        					<td><span class="type">bool</span> FVisible(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <span class="type">bool</span> fIgnoreGlass)</td>
+        					<td>Returns whether this entity is visible to the given entity.</td>
+        				</tr>
+        				<tr id='FVisible@2'>
+        					<td><span class="type">bool</span> FVisible(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin)</td>
+        					<td>Returns whether this entity is visible from the given origin.</td>
+        				</tr>
+        				<tr id='IsFacing'>
+        					<td><span class="type">bool</span> IsFacing(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevTest, <span class="type">float</span> flDotProduct = <a class="value" href='/Properties#VIEW_FIELD_ULTRA_NARROW'>VIEW_FIELD_ULTRA_NARROW</a>)</td>
+        					<td>Returns whether this entity is facing the given entity, within the given view field.</td>
+        				</tr>
+        				<tr id='GetPointsForDamage'>
+        					<td><span class="type">float</span> GetPointsForDamage(<span class="type">float</span> flDamage)</td>
+        					<td>Returns the points received for damage done.</td>
+        				</tr>
+        				<tr id='GetDamagePoints'>
+        					<td><span class="type">void</span> GetDamagePoints(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <span class="type">float</span> flDamage)</td>
+        					<td>Adds damage points to the inflicting entity.</td>
+        				</tr>
+        				<tr id='OnCreate'>
+        					<td><span class="type">void</span> OnCreate()</td>
+        					<td>Entity constructor.</td>
+        				</tr>
+        				<tr id='OnDestroy'>
+        					<td><span class="type">void</span> OnDestroy()</td>
+        					<td>Entity destructor.</td>
+        				</tr>
+        				<tr id='IsRevivable'>
+        					<td><span class="type">bool</span> IsRevivable()</td>
+        					<td>Returns whether this entity is revivable at this time.</td>
+        				</tr>
+        				<tr id='BeginRevive'>
+        					<td><span class="type">void</span> BeginRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Prepares this entity for revival. flTimeUntilRevive is the time until the revive action completes.</td>
+        				</tr>
+        				<tr id='EndRevive'>
+        					<td><span class="type">void</span> EndRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Called when this entity should be revived. flTimeUntilRevive is the time until the revival should start.</td>
+        				</tr>
+        				<tr id='GetUserData'>
+        					<td><span class="type">dictionary</span><span class="type">@</span> GetUserData()</td>
+        					<td>Gets the user data on this entity. Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='GetUserData@2'>
+        					<td><span class="type">dictionaryValue</span><span class="type">&</span> GetUserData(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKey)</td>
+        					<td>Gets the user data stored under the specified key on this entity.<br>Do not keep references to this data, the object might be removed from this entity.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='ClearUserData'>
+        					<td><span class="type">void</span> ClearUserData()</td>
+        					<td>Clears the user data on this entity. WARNING: clears all data.<br>Only map scripts can use this.</td>
+        				</tr>
+        				<tr id='SetPrevious'>
+        					<td><span class="type">void</span> SetPrevious(<a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> pPrevious)</td>
+        					<td>Sets the previous track in this path</td>
+        				</tr>
+        				<tr id='Link'>
+        					<td><span class="type">void</span> Link()</td>
+        					<td>Links the tracks together</td>
+        				</tr>
+        				<tr id='ValidPath'>
+        					<td><a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> ValidPath(<a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> pPath, <span class="type">const</span> <span class="type">bool</span> testFlag)</td>
+        					<td>Returns pPath if enabled, null otherwise.</td>
+        				</tr>
+        				<tr id='Project'>
+        					<td><span class="type">void</span> Project(<a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> pStart, <a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> pEnd, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecOrigin, <span class="type">float</span> flDist)</td>
+        					<td></td>
+        				</tr>
+        				<tr id='LookAhead'>
+        					<td><a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> LookAhead(<a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecResultOrigin, <span class="type">float</span> flDist, <span class="type">const</span> <span class="type">bool</span> bMove)</td>
+        					<td></td>
+        				</tr>
+        				<tr id='Nearest'>
+        					<td><a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> Nearest(<a class="type" href='/Vector'>Vector</a> vecOrigin)</td>
+        					<td></td>
+        				</tr>
+        				<tr id='GetNext'>
+        					<td><a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> GetNext()</td>
+        					<td></td>
+        				</tr>
+        				<tr id='GetPrevious'>
+        					<td><a class="type" href='/CPathTrack'>CPathTrack</a><span class="type">@</span> GetPrevious()</td>
+        					<td></td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='pev'>
+        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
+        					<td>Entity variables</td>
+        				</tr>
+        				<tr id='m_fOverrideClass'>
+        					<td><span class="type">bool</span> m_fOverrideClass</td>
+        					<td>Whether this entity overrides the classification.</td>
+        				</tr>
+        				<tr id='m_iClassSelection'>
+        					<td><span class="type">int</span> m_iClassSelection</td>
+        					<td>The overridden classification.</td>
+        				</tr>
+        				<tr id='m_flMaximumFadeWait'>
+        					<td><span class="type">float</span> m_flMaximumFadeWait</td>
+        					<td>Maximum fade wait time.</td>
+        				</tr>
+        				<tr id='m_flMaximumFadeWaitB'>
+        					<td><span class="type">float</span> m_flMaximumFadeWaitB</td>
+        					<td>Maximum fade wait time B.</td>
+        				</tr>
+        				<tr id='m_fCanFadeStart'>
+        					<td><span class="type">bool</span> m_fCanFadeStart</td>
+        					<td>Whether fading can start.</td>
+        				</tr>
+        				<tr id='m_fCustomModel'>
+        					<td><span class="type">bool</span> m_fCustomModel</td>
+        					<td>Whether a custom model is used.</td>
+        				</tr>
+        				<tr id='m_vecLastOrigin'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecLastOrigin</td>
+        					<td>Last origin vector</td>
+        				</tr>
+        				<tr id='targetnameOutFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> targetnameOutFilterType</td>
+        					<td>Target name out filter type.</td>
+        				</tr>
+        				<tr id='classnameOutFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> classnameOutFilterType</td>
+        					<td>Class name out filter type.</td>
+        				</tr>
+        				<tr id='targetnameInFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> targetnameInFilterType</td>
+        					<td>Target name in filter type.</td>
+        				</tr>
+        				<tr id='classnameInFilterType'>
+        					<td><a class="type" href='/string_t'>string_t</a> classnameInFilterType</td>
+        					<td>Class name in filter type.</td>
+        				</tr>
+        				<tr id='m_iOriginalRenderMode'>
+        					<td><span class="type">int</span> m_iOriginalRenderMode</td>
+        					<td>Original render model.</td>
+        				</tr>
+        				<tr id='m_iOriginalRenderFX'>
+        					<td><span class="type">int</span> m_iOriginalRenderFX</td>
+        					<td>Original render FX.</td>
+        				</tr>
+        				<tr id='m_flOriginalRenderAmount'>
+        					<td><span class="type">float</span> m_flOriginalRenderAmount</td>
+        					<td>Original render amount.</td>
+        				</tr>
+        				<tr id='m_vecOriginalRenderColor'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecOriginalRenderColor</td>
+        					<td>Original render color.</td>
+        				</tr>
+        				<tr id='m_length'>
+        					<td><span class="type">float</span> m_length</td>
+        					<td></td>
+        				</tr>
+        				<tr id='m_altName'>
+        					<td><a class="type" href='/string_t'>string_t</a> m_altName</td>
+        					<td></td>
+        				</tr>
+        				<tr id='m_hNext'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hNext</td>
+        					<td></td>
+        				</tr>
+        				<tr id='m_hPrevious'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hPrevious</td>
+        					<td></td>
+        				</tr>
+        				<tr id='m_hAltpath'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> m_hAltpath</td>
+        					<td></td>
+        				</tr>
+        				<tr id='m_flMaxSpeed'>
+        					<td><span class="type">float</span> m_flMaxSpeed</td>
+        					<td>New maximum speed</td>
+        				</tr>
+        				<tr id='m_flNewSpeed'>
+        					<td><span class="type">float</span> m_flNewSpeed</td>
+        					<td>New train speed</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

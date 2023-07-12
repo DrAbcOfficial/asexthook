@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="SubMatch">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>SubMatch</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/SubMatch">SubMatch</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>SubMatch</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Regex">Regex</a></p>
+      <p>Regular expression submatch</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SubMatch'>
+        					<td><span class="type">void</span> SubMatch()</td>
+        					<td>Constructor. Do not use.</td>
+        				</tr>
+        				<tr id='SubMatch@2'>
+        					<td><span class="type">void</span> SubMatch(<span class="type">const</span> <a class="type" href='/SubMatch'>SubMatch</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='GetLength'>
+        					<td><span class="type">int</span> GetLength() <span class="type">const</span></td>
+        					<td>Gets the length of the submatch</td>
+        				</tr>
+        				<tr id='GetString'>
+        					<td><a class="type" href='/string'>string</a> GetString() <span class="type">const</span></td>
+        					<td>Gets this submatch as a <a href='/string'>string</a></td>
+        				</tr>
+        				<tr id='Compare'>
+        					<td><span class="type">int</span> Compare(<span class="type">const</span> <a class="type" href='/SubMatch'>SubMatch</a><span class="type">&</span> <span class="inout">in</span> other) <span class="type">const</span></td>
+        					<td>Compares this submatch to another</td>
+        				</tr>
+        				<tr id='Compare@2'>
+        					<td><span class="type">int</span> Compare(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Compares this submatch to a <a href='/string'>string</a></td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

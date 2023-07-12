@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CSQLite">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CSQLite</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CSQLite">CSQLite</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CSQLite</h1>
+      <p>SQLite</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='CSQLite'>
+        					<td><a class="type" href='/CSQLite'>CSQLite</a><span class="type">@</span> CSQLite(<a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">in</span> path, <a class="type" href='/SQLiteMode'>SQLiteMode</a> iMode)</td>
+        					<td>Factory</td>
+        				</tr>
+        				<tr id='Exec'>
+        					<td><a class="type" href='/SQLiteResult'>SQLiteResult</a> Exec(<a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">in</span> sql, <a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">out</span> errMsg)</td>
+        					<td>Excute SQL</td>
+        				</tr>
+        				<tr id='Exec@2'>
+        					<td><a class="type" href='/SQLiteResult'>SQLiteResult</a> Exec(<a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">in</span> sql, <span class="type">array</span><span class="type"><</span><span class="type">array</span><span class="type"><</span><a class="type" href='/string'>string</a><span class="type">></span><span class="type">></span><span class="type">@</span> aryResult, <a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">out</span> errMsg)</td>
+        					<td>Excute SQL In Sync</td>
+        				</tr>
+        				<tr id='Exec@3'>
+        					<td><a class="type" href='/SQLiteResult'>SQLiteResult</a> Exec(<a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">in</span> sql, <a class="type" href='/Typedefs#fnSQLiteCallback'>fnSQLiteCallback</a><span class="type">@</span> pCallback, <span class="type">any</span><span class="type">@</span> pCallBackparam, <a class="type" href='/string'>string</a><span class="type">&</span><span class="inout">out</span> errMsg)</td>
+        					<td>Excute SQL</td>
+        				</tr>
+        				<tr id='Close'>
+        					<td><span class="type">void</span> Close()</td>
+        					<td>Close SQL</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

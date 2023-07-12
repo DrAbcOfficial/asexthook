@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Schedule">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Schedule</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Schedule">Schedule</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Schedule</h1>
+      <p>Schedule for monsters to follow.</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetTask'>
+        					<td><a class="type" href='/Task'>Task</a><span class="type">@</span> GetTask(<span class="type">int</span> iIndex) <span class="type">const</span></td>
+        					<td>Gets a task in this schedule.<br>Must be between 0 and cTasks.</td>
+        				</tr>
+        				<tr id='szName'>
+        					<td><a class="type" href='/string'>string</a> szName() <span class="type">const</span></td>
+        					<td>Gets the name of this schedule.</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='cTasks'>
+        					<td><span class="type">int</span> cTasks</td>
+        					<td>Number of tasks in this schedule.</td>
+        				</tr>
+        				<tr id='iInterruptMask'>
+        					<td><span class="type">int</span> iInterruptMask</td>
+        					<td>A bit mask of conditions that can interrupt this schedule.</td>
+        				</tr>
+        				<tr id='iSoundMask'>
+        					<td><span class="type">int</span> iSoundMask</td>
+        					<td>A more specific mask that indicates which TYPES of sounds will interrupt the schedule in the event that the schedule is broken by COND_HEAR_SOUND.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

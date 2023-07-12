@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="FileQuota">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>FileQuota</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/FileQuota">FileQuota</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>FileQuota</h1>
+      <p>Represents a quota that filesystems adhere to when handling write operations.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetTotalSize'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetTotalSize() <span class="type">const</span></td>
+        					<td>Gets the total size, in bytes, that is allowed to be used by filesystems using this quota object.</td>
+        				</tr>
+        				<tr id='GetSizeInUse'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetSizeInUse() <span class="type">const</span></td>
+        					<td>Gets the size, in bytes, that is in use.</td>
+        				</tr>
+        				<tr id='GetSizeLeft'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetSizeLeft() <span class="type">const</span></td>
+        					<td>Gets the amount of size, in bytes, left that can be written to.</td>
+        				</tr>
+        				<tr id='CanWriteAmount'>
+        					<td><span class="type">bool</span> CanWriteAmount(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes) <span class="type">const</span></td>
+        					<td>Returns whether the given amount of bytes can be written.</td>
+        				</tr>
+        				<tr id='SizeLeftAfterWrite'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> SizeLeftAfterWrite(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes) <span class="type">const</span></td>
+        					<td>Returns the size that is left after the given amount of bytes have been written.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

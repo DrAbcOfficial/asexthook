@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CEngineFuncs">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CEngineFuncs</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CEngineFuncs">CEngineFuncs</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CEngineFuncs</h1>
+      <p>Engine functions</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ModelIndex'>
+        					<td><span class="type">int</span> ModelIndex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szModelName)</td>
+        					<td>Gets the model index of a model.</td>
+        				</tr>
+        				<tr id='ModelFrames'>
+        					<td><span class="type">int</span> ModelFrames(<span class="type">int</span> iModelIndex)</td>
+        					<td>Gets the number of frames in a model.</td>
+        				</tr>
+        				<tr id='ChangeLevel'>
+        					<td><span class="type">void</span> ChangeLevel(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szLevelName)</td>
+        					<td>Changes the current level to the one specified.</td>
+        				</tr>
+        				<tr id='VecToYaw'>
+        					<td><span class="type">float</span> VecToYaw(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vec)</td>
+        					<td><a href='/Vector'>Vector</a> to yaw</td>
+        				</tr>
+        				<tr id='VecToAngles'>
+        					<td><span class="type">void</span> VecToAngles(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vec, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> angles)</td>
+        					<td><a href='/Vector'>Vector</a> to angles</td>
+        				</tr>
+        				<tr id='MoveToOrigin'>
+        					<td><span class="type">void</span> MoveToOrigin(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecGoal, <span class="type">float</span> flDist, <span class="type">int</span> iMoveType)</td>
+        					<td>Move entity to origin.</td>
+        				</tr>
+        				<tr id='ChangeYaw'>
+        					<td><span class="type">void</span> ChangeYaw(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Change yaw. This updates <a href='/entvars_t#angles'>entvars_t::angles</a>[ 1 ] to approach <a href='/entvars_t#ideal_yaw'>entvars_t::ideal_yaw</a>, at <a href='/entvars_t#yaw_speed'>entvars_t::yaw_speed</a> degrees speed.</td>
+        				</tr>
+        				<tr id='ChangePitch'>
+        					<td><span class="type">void</span> ChangePitch(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Change pitch. This updates <a href='/entvars_t#angles'>entvars_t::angles</a>[ 0 ] to approach <a href='/entvars_t#idealpitch'>entvars_t::idealpitch</a>, at <a href='/entvars_t#pitch_speed'>entvars_t::pitch_speed</a> degrees speed.</td>
+        				</tr>
+        				<tr id='GetEntityIllum'>
+        					<td><span class="type">int</span> GetEntityIllum(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Get entity illumination. This is a weighted value between 0 and 255, inclusive.</td>
+        				</tr>
+        				<tr id='FindClientInPVS'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> FindClientInPVS(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pStartEntity)</td>
+        					<td>Find client in Potentially Visible Set.</td>
+        				</tr>
+        				<tr id='EntitiesInPVS'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> EntitiesInPVS(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pStartEntity)</td>
+        					<td>Find entities in Potentially Visible Set. Edict::vars::chain is used for this list, and is temporary.</td>
+        				</tr>
+        				<tr id='MakeVectors'>
+        					<td><span class="type">void</span> MakeVectors(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vec)</td>
+        					<td>Make vectors. The results are stored in g_Engine::v_forward, v_right, and v_up.</td>
+        				</tr>
+        				<tr id='AngleVectors'>
+        					<td><span class="type">void</span> AngleVectors(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecIn, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecForward, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecRight, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecUp)</td>
+        					<td>Angle vectors</td>
+        				</tr>
+        				<tr id='MakeStatic'>
+        					<td><span class="type">void</span> MakeStatic(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Make entity static. This moves the entity to the client.Its current visual state is copied over, and the entity is removed on the server side.Only valid while the level is loading.</td>
+        				</tr>
+        				<tr id='EntIsOnFloor'>
+        					<td><span class="type">int</span> EntIsOnFloor(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Returns whether entity is on the floor.</td>
+        				</tr>
+        				<tr id='DropToFloor'>
+        					<td><span class="type">int</span> DropToFloor(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity)</td>
+        					<td>Drop entity to floor.</td>
+        				</tr>
+        				<tr id='WalkMove'>
+        					<td><span class="type">int</span> WalkMove(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">float</span> flYaw, <span class="type">float</span> flDist, <span class="type">int</span> iMove)</td>
+        					<td>Make entity walk.<br>See <a href='/WALKMOVE'>WALKMOVE</a> enum</td>
+        				</tr>
+        				<tr id='GetAimVector'>
+        					<td><span class="type">void</span> GetAimVector(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEntity, <span class="type">float</span> flSpeed, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecReturn)</td>
+        					<td>Get aim vector for entity.</td>
+        				</tr>
+        				<tr id='ServerCommand'>
+        					<td><span class="type">void</span> ServerCommand(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCommand)</td>
+        					<td>Issues a command to the server. Plugins only.</td>
+        				</tr>
+        				<tr id='ServerExecute'>
+        					<td><span class="type">void</span> ServerExecute()</td>
+        					<td>Executes all pending server commands. Plugins only.</td>
+        				</tr>
+        				<tr id='ParticleEffect'>
+        					<td><span class="type">void</span> ParticleEffect(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <span class="type">float</span> flColor, <span class="type">float</span> flCount)</td>
+        					<td>Emit a particle effect.</td>
+        				</tr>
+        				<tr id='LightStyle'>
+        					<td><span class="type">void</span> LightStyle(<span class="type">int</span> iStyle, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szVal)</td>
+        					<td>Set a light style.</td>
+        				</tr>
+        				<tr id='DecalIndex'>
+        					<td><span class="type">int</span> DecalIndex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName)</td>
+        					<td>Get decal index.</td>
+        				</tr>
+        				<tr id='PointContents'>
+        					<td><a class="type" href='/CONTENTS'>CONTENTS</a> PointContents(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecPoint)</td>
+        					<td>Check if point is in contents.</td>
+        				</tr>
+        				<tr id='CVarGetFloat'>
+        					<td><span class="type">float</span> CVarGetFloat(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCvar)</td>
+        					<td>Get cvar float value.</td>
+        				</tr>
+        				<tr id='CVarGetString'>
+        					<td><a class="type" href='/string'>string</a> CVarGetString(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCvar)</td>
+        					<td>Get cvar <a href='/string'>string</a> value.</td>
+        				</tr>
+        				<tr id='CVarSetFloat'>
+        					<td><span class="type">void</span> CVarSetFloat(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCvar, <span class="type">float</span> flValue)</td>
+        					<td>Set cvar float value.</td>
+        				</tr>
+        				<tr id='CVarSetString'>
+        					<td><span class="type">void</span> CVarSetString(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCvar, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Set cvar <a href='/string'>string</a> value.</td>
+        				</tr>
+        				<tr id='GetVarsOfEnt'>
+        					<td><a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> GetVarsOfEnt(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Gets entity variables of entity.</td>
+        				</tr>
+        				<tr id='IndexOfEdict'>
+        					<td><span class="type">int</span> IndexOfEdict(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Get index of edict.</td>
+        				</tr>
+        				<tr id='PEntityOfEntIndex'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> PEntityOfEntIndex(<span class="type">int</span> iIndex)</td>
+        					<td>Get entity by entity index.</td>
+        				</tr>
+        				<tr id='FindEntityByVars'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> FindEntityByVars(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pVars)</td>
+        					<td>Find entity by variables.</td>
+        				</tr>
+        				<tr id='GetBonePosition'>
+        					<td><span class="type">void</span> GetBonePosition(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">int</span> iBone, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecOrigin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecAngles)</td>
+        					<td>Get bone position.</td>
+        				</tr>
+        				<tr id='ClientPrintf'>
+        					<td><span class="type">void</span> ClientPrintf(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/PRINT_TYPE'>PRINT_TYPE</a> printType, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
+        					<td>Client print</td>
+        				</tr>
+        				<tr id='ServerPrint'>
+        					<td><span class="type">void</span> ServerPrint(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMessage)</td>
+        					<td>Server print</td>
+        				</tr>
+        				<tr id='Cmd_Args'>
+        					<td><a class="type" href='/string'>string</a> Cmd_Args()</td>
+        					<td>Get command arguments.</td>
+        				</tr>
+        				<tr id='Cmd_Argv'>
+        					<td><a class="type" href='/string'>string</a> Cmd_Argv(<span class="type">int</span> iIndex)</td>
+        					<td>Get command argument by index.</td>
+        				</tr>
+        				<tr id='Cmd_Argc'>
+        					<td><span class="type">int</span> Cmd_Argc()</td>
+        					<td>Get number of command arguments.</td>
+        				</tr>
+        				<tr id='GetAttachment'>
+        					<td><span class="type">void</span> GetAttachment(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">int</span> iAttachment, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecOrigin, <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecAngles)</td>
+        					<td>Get attachment position.</td>
+        				</tr>
+        				<tr id='SetView'>
+        					<td><span class="type">void</span> SetView(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pViewEntity)</td>
+        					<td>Set view.</td>
+        				</tr>
+        				<tr id='Time'>
+        					<td><span class="type">float</span> Time()</td>
+        					<td>Get current time.</td>
+        				</tr>
+        				<tr id='CrosshairAngle'>
+        					<td><span class="type">void</span> CrosshairAngle(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">float</span> flPitch, <span class="type">float</span> flYaw)</td>
+        					<td>Sets the angles of the given player's crosshairs to the given settings. Set both to 0 to disable. May not have any effect in SC.</td>
+        				</tr>
+        				<tr id='GetGameDir'>
+        					<td><a class="type" href='/string'>string</a> GetGameDir()</td>
+        					<td>Get game directory.</td>
+        				</tr>
+        				<tr id='RunPlayerMove'>
+        					<td><span class="type">void</span> RunPlayerMove(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecViewAngles, <span class="type">float</span> flFowardMove, <span class="type">float</span> flSideMove, <span class="type">float</span> flUpMove, <span class="type">uint16</span> iButtons, <span class="type">uint8</span> iImpulse, <span class="type">uint8</span> iMsec)</td>
+        					<td>Run player move.</td>
+        				</tr>
+        				<tr id='NumberOfEntities'>
+        					<td><span class="type">int</span> NumberOfEntities()</td>
+        					<td>Get number of entities.</td>
+        				</tr>
+        				<tr id='GetInfoKeyBuffer'>
+        					<td><a class="type" href='/KeyValueBuffer'>KeyValueBuffer</a><span class="type">@</span> GetInfoKeyBuffer(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Get info key buffer.</td>
+        				</tr>
+        				<tr id='GetPhysicsKeyBuffer'>
+        					<td><a class="type" href='/KeyValueBuffer'>KeyValueBuffer</a><span class="type">@</span> GetPhysicsKeyBuffer(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Get physics key buffer.</td>
+        				</tr>
+        				<tr id='IsMapValid'>
+        					<td><span class="type">bool</span> IsMapValid(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMapName) <span class="type">const</span></td>
+        					<td>Returns whether the given map is valid.</td>
+        				</tr>
+        				<tr id='StaticDecal'>
+        					<td><span class="type">void</span> StaticDecal(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <span class="type">int</span> iDecalIndex, <span class="type">int</span> iEntityIndex, <span class="type">int</span> iModelIndex)</td>
+        					<td>Project a static decal.</td>
+        				</tr>
+        				<tr id='GetPlayerUserId'>
+        					<td><span class="type">int</span> GetPlayerUserId(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Get player user ID. This is a unique id generated when a player connects. It remains valid as long as the player stays connected to the server.</td>
+        				</tr>
+        				<tr id='IsDedicatedServer'>
+        					<td><span class="type">bool</span> IsDedicatedServer() <span class="type">const</span></td>
+        					<td>Returns whether this is a dedicated server.</td>
+        				</tr>
+        				<tr id='CVarGetPointer'>
+        					<td><span class="type">const</span> <a class="type" href='/Cvar'>Cvar</a><span class="type">@</span> CVarGetPointer(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCvar) <span class="type">const</span></td>
+        					<td>Gets a pointer to a cvar.</td>
+        				</tr>
+        				<tr id='GetPlayerStats'>
+        					<td><span class="type">void</span> GetPlayerStats(<span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iPing, <span class="type">int</span><span class="type">&</span> <span class="inout">out</span> iPacketLoss)</td>
+        					<td>Get player stats.</td>
+        				</tr>
+        				<tr id='Voice_GetClientListening'>
+        					<td><span class="type">bool</span> Voice_GetClientListening(<span class="type">int</span> iReceiver, <span class="type">int</span> iSender)</td>
+        					<td>Voice system - Get client listening.</td>
+        				</tr>
+        				<tr id='Voice_SetClientListening'>
+        					<td><span class="type">bool</span> Voice_SetClientListening(<span class="type">int</span> iReceiver, <span class="type">int</span> iSender, <span class="type">bool</span> fListen)</td>
+        					<td>Voice system - Set client listening.</td>
+        				</tr>
+        				<tr id='GetPlayerAuthId'>
+        					<td><a class="type" href='/string'>string</a> GetPlayerAuthId(<a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict)</td>
+        					<td>Get the player's Auth ID. (WON/Steam ID)</td>
+        				</tr>
+        				<tr id='CRC32'>
+        					<td><span class="type">uint32</span> CRC32(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szBuffer)</td>
+        					<td>Caculate CRC32 for a <a href='/string'>string</a></td>
+        				</tr>
+        				<tr id='ClassMemcpy'>
+        					<td><span class="type">bool</span> ClassMemcpy(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> src, <span class="type">?</span><span class="type">&</span> <span class="inout">in</span> dst)</td>
+        					<td>copy class, If src and dst are different type, return false.<br>If not class ref, crash game.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

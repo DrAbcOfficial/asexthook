@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="SQLiteResult">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>SQLiteResult</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/SQLiteResult">SQLiteResult</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>SQLiteResult</h1>
+      <p>SQLite Return Value</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SQLITE_OK'>
+        					<td>SQLITE_OK</td>
+        					<td>0</td>
+        					<td>Successful result </td>
+        				</tr>
+        				<tr id='SQLITE_ERROR'>
+        					<td>SQLITE_ERROR</td>
+        					<td>1</td>
+        					<td>Generic error </td>
+        				</tr>
+        				<tr id='SQLITE_INTERNAL'>
+        					<td>SQLITE_INTERNAL</td>
+        					<td>2</td>
+        					<td>Internal logic error in SQLite </td>
+        				</tr>
+        				<tr id='SQLITE_PERM'>
+        					<td>SQLITE_PERM</td>
+        					<td>3</td>
+        					<td>Access permission denied </td>
+        				</tr>
+        				<tr id='SQLITE_ABORT'>
+        					<td>SQLITE_ABORT</td>
+        					<td>4</td>
+        					<td>Callback routine requested an abort </td>
+        				</tr>
+        				<tr id='SQLITE_BUSY'>
+        					<td>SQLITE_BUSY</td>
+        					<td>5</td>
+        					<td>The database file is locked </td>
+        				</tr>
+        				<tr id='SQLITE_LOCKED'>
+        					<td>SQLITE_LOCKED</td>
+        					<td>6</td>
+        					<td>A table in the database is locked </td>
+        				</tr>
+        				<tr id='SQLITE_NOMEM'>
+        					<td>SQLITE_NOMEM</td>
+        					<td>7</td>
+        					<td>A malloc() failed </td>
+        				</tr>
+        				<tr id='SQLITE_READONLY'>
+        					<td>SQLITE_READONLY</td>
+        					<td>8</td>
+        					<td>Attempt to write a readonly database </td>
+        				</tr>
+        				<tr id='SQLITE_INTERRUPT'>
+        					<td>SQLITE_INTERRUPT</td>
+        					<td>9</td>
+        					<td>Operation terminated by sqlite3_interrupt()</td>
+        				</tr>
+        				<tr id='SQLITE_IOERR'>
+        					<td>SQLITE_IOERR</td>
+        					<td>10</td>
+        					<td>Some kind of disk I/O error occurred </td>
+        				</tr>
+        				<tr id='SQLITE_CORRUPT'>
+        					<td>SQLITE_CORRUPT</td>
+        					<td>11</td>
+        					<td>The database disk image is malformed </td>
+        				</tr>
+        				<tr id='SQLITE_NOTFOUND'>
+        					<td>SQLITE_NOTFOUND</td>
+        					<td>12</td>
+        					<td>Unknown opcode in sqlite3_file_control() </td>
+        				</tr>
+        				<tr id='SQLITE_FULL'>
+        					<td>SQLITE_FULL</td>
+        					<td>13</td>
+        					<td>Insertion failed because database is full </td>
+        				</tr>
+        				<tr id='SQLITE_CANTOPEN'>
+        					<td>SQLITE_CANTOPEN</td>
+        					<td>14</td>
+        					<td>Unable to open the database file </td>
+        				</tr>
+        				<tr id='SQLITE_PROTOCOL'>
+        					<td>SQLITE_PROTOCOL</td>
+        					<td>15</td>
+        					<td>Database lock protocol error </td>
+        				</tr>
+        				<tr id='SQLITE_EMPTY'>
+        					<td>SQLITE_EMPTY</td>
+        					<td>16</td>
+        					<td>Internal use only </td>
+        				</tr>
+        				<tr id='SQLITE_SCHEMA'>
+        					<td>SQLITE_SCHEMA</td>
+        					<td>17</td>
+        					<td>The database schema changed </td>
+        				</tr>
+        				<tr id='SQLITE_TOOBIG'>
+        					<td>SQLITE_TOOBIG</td>
+        					<td>18</td>
+        					<td>String or <a href='/BLOB'>BLOB</a> exceeds size limit </td>
+        				</tr>
+        				<tr id='SQLITE_CONSTRAINT'>
+        					<td>SQLITE_CONSTRAINT</td>
+        					<td>19</td>
+        					<td>Abort due to constraint violation </td>
+        				</tr>
+        				<tr id='SQLITE_MISMATCH'>
+        					<td>SQLITE_MISMATCH</td>
+        					<td>20</td>
+        					<td>Data type mismatch </td>
+        				</tr>
+        				<tr id='SQLITE_MISUSE'>
+        					<td>SQLITE_MISUSE</td>
+        					<td>21</td>
+        					<td>Library used incorrectly </td>
+        				</tr>
+        				<tr id='SQLITE_NOLFS'>
+        					<td>SQLITE_NOLFS</td>
+        					<td>22</td>
+        					<td>Uses OS features not supported on host </td>
+        				</tr>
+        				<tr id='SQLITE_AUTH'>
+        					<td>SQLITE_AUTH</td>
+        					<td>23</td>
+        					<td>Authorization denied </td>
+        				</tr>
+        				<tr id='SQLITE_FORMAT'>
+        					<td>SQLITE_FORMAT</td>
+        					<td>24</td>
+        					<td>Not used </td>
+        				</tr>
+        				<tr id='SQLITE_RANGE'>
+        					<td>SQLITE_RANGE</td>
+        					<td>25</td>
+        					<td>2nd parameter to sqlite3_bind out of range </td>
+        				</tr>
+        				<tr id='SQLITE_NOTADB'>
+        					<td>SQLITE_NOTADB</td>
+        					<td>26</td>
+        					<td><a href='/File'>File</a> opened that is not a database file </td>
+        				</tr>
+        				<tr id='SQLITE_NOTICE'>
+        					<td>SQLITE_NOTICE</td>
+        					<td>27</td>
+        					<td>Notifications from sqlite3_log() </td>
+        				</tr>
+        				<tr id='SQLITE_WARNING'>
+        					<td>SQLITE_WARNING</td>
+        					<td>28</td>
+        					<td>Warnings from sqlite3_log() </td>
+        				</tr>
+        				<tr id='SQLITE_ROW'>
+        					<td>SQLITE_ROW</td>
+        					<td>100</td>
+        					<td>sqlite3_step() has another row ready </td>
+        				</tr>
+        				<tr id='SQLITE_DONE'>
+        					<td>SQLITE_DONE</td>
+        					<td>101</td>
+        					<td>sqlite3_step() has finished executing </td>
+        				</tr>
+        				<tr id='SQLITE_CLOSED'>
+        					<td>SQLITE_CLOSED</td>
+        					<td>999</td>
+        					<td>sql has been closed </td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

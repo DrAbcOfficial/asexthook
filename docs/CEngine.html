@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CEngine">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CEngine</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CEngine">CEngine</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CEngine</h1>
+      <p>Engine global variables</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='time'>
+        					<td><span class="type">const</span> <span class="type">float</span> time</td>
+        					<td>Current time</td>
+        				</tr>
+        				<tr id='frametime'>
+        					<td><span class="type">const</span> <span class="type">float</span> frametime</td>
+        					<td>Time between frames</td>
+        				</tr>
+        				<tr id='force_retouch'>
+        					<td><span class="type">float</span> force_retouch</td>
+        					<td>How many times to force all entities to retouch entities they are currently touching/intersecting. Should always be >= 0.</td>
+        				</tr>
+        				<tr id='mapname'>
+        					<td><span class="type">const</span> <a class="type" href='/string_t'>string_t</a> mapname</td>
+        					<td>Name of the current map</td>
+        				</tr>
+        				<tr id='startspot'>
+        					<td><span class="type">const</span> <a class="type" href='/string_t'>string_t</a> startspot</td>
+        					<td>Start location in the map</td>
+        				</tr>
+        				<tr id='deathmatch'>
+        					<td><span class="type">float</span> deathmatch</td>
+        					<td>Flag telling whether this is deathmatch</td>
+        				</tr>
+        				<tr id='coop'>
+        					<td><span class="type">float</span> coop</td>
+        					<td>Flag telling whether this is coop</td>
+        				</tr>
+        				<tr id='teamplay'>
+        					<td><span class="type">float</span> teamplay</td>
+        					<td>Flag telling whether this is teamplay</td>
+        				</tr>
+        				<tr id='serverflags'>
+        					<td><span class="type">const</span> <span class="type">float</span> serverflags</td>
+        					<td>Server flags</td>
+        				</tr>
+        				<tr id='found_secrets'>
+        					<td><span class="type">float</span> found_secrets</td>
+        					<td>Found secrets</td>
+        				</tr>
+        				<tr id='v_forward'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> v_forward</td>
+        					<td>Forward vector</td>
+        				</tr>
+        				<tr id='v_up'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> v_up</td>
+        					<td>Up vector</td>
+        				</tr>
+        				<tr id='v_right'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> v_right</td>
+        					<td>Right vector</td>
+        				</tr>
+        				<tr id='trace_allsolid'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_allsolid</td>
+        					<td>Trace all is solid flag</td>
+        				</tr>
+        				<tr id='trace_startsolid'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_startsolid</td>
+        					<td>Trace start is solid flag</td>
+        				</tr>
+        				<tr id='trace_fraction'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_fraction</td>
+        					<td>Trace fraction</td>
+        				</tr>
+        				<tr id='trace_endpos'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> trace_endpos</td>
+        					<td>Trace end position</td>
+        				</tr>
+        				<tr id='trace_plane_normal'>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> trace_plane_normal</td>
+        					<td>Trace plane normal</td>
+        				</tr>
+        				<tr id='trace_plane_dist'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_plane_dist</td>
+        					<td>Trace plane distance</td>
+        				</tr>
+        				<tr id='trace_ent'>
+        					<td><span class="type">const</span> <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> trace_ent</td>
+        					<td>Trace entity</td>
+        				</tr>
+        				<tr id='trace_inopen'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_inopen</td>
+        					<td>Trace is in open flag</td>
+        				</tr>
+        				<tr id='trace_inwater'>
+        					<td><span class="type">const</span> <span class="type">float</span> trace_inwater</td>
+        					<td>Trace is in water flag</td>
+        				</tr>
+        				<tr id='trace_hitgroup'>
+        					<td><span class="type">const</span> <span class="type">int</span> trace_hitgroup</td>
+        					<td>Trace hit group</td>
+        				</tr>
+        				<tr id='trace_flags'>
+        					<td><span class="type">const</span> <span class="type">int</span> trace_flags</td>
+        					<td>Trace flags</td>
+        				</tr>
+        				<tr id='msg_entity'>
+        					<td><span class="type">const</span> <span class="type">int</span> msg_entity</td>
+        					<td>Message entity</td>
+        				</tr>
+        				<tr id='cdAudioTrack'>
+        					<td><span class="type">int</span> cdAudioTrack</td>
+        					<td>CD audio track</td>
+        				</tr>
+        				<tr id='maxClients'>
+        					<td><span class="type">const</span> <span class="type">int</span> maxClients</td>
+        					<td>Maximum connected clients</td>
+        				</tr>
+        				<tr id='maxEntities'>
+        					<td><span class="type">const</span> <span class="type">int</span> maxEntities</td>
+        					<td>Maximum entities</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

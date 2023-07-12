@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CInventoryMisc">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CInventoryMisc</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CInventoryMisc">CInventoryMisc</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CInventoryMisc</h1>
+      <p>Misc functions for handling inventories across classes</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='IsValidInventoryHolder'>
+        					<td><span class="type">bool</span> IsValidInventoryHolder(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Returns whether the given entity is a valid inventory holder</td>
+        				</tr>
+        				<tr id='CheckTokenStringRule'>
+        					<td><span class="type">bool</span> CheckTokenStringRule(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szRule, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Returns whether the given value is in the given rule</td>
+        				</tr>
+        				<tr id='Count'>
+        					<td><span class="type">int</span> Count(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pHolder)</td>
+        					<td>Counts the number of inventory items held by the given holder</td>
+        				</tr>
+        				<tr id='GetWeight'>
+        					<td><span class="type">float</span> GetWeight(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pHolder)</td>
+        					<td>Gets the total weight of all inventory items held by the given holder</td>
+        				</tr>
+        				<tr id='ExistsInGroup'>
+        					<td><span class="type">int</span> ExistsInGroup(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroup)</td>
+        					<td>Counts all the existing items in a group</td>
+        				</tr>
+        				<tr id='HaveNumFromGroup'>
+        					<td><span class="type">int</span> HaveNumFromGroup(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pHolder, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroup)</td>
+        					<td>Returns count of how many items someone holds of a group</td>
+        				</tr>
+        				<tr id='HasAllInGroup'>
+        					<td><span class="type">bool</span> HasAllInGroup(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pHolder, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szGroup)</td>
+        					<td>Returns true if is holding all items of a group</td>
+        				</tr>
+        				<tr id='RemoveAllFromHolder'>
+        					<td><span class="type">void</span> RemoveAllFromHolder(<a class="type" href='/CBaseMonster'>CBaseMonster</a><span class="type">@</span> pHolder, <span class="type">const</span> <span class="type">bool</span> fDrop = false, <span class="type">const</span> <span class="type">bool</span> fBlockingWeaponsOnly = false, <span class="type">const</span> <span class="type">bool</span> fKeepOnRespawn = false)</td>
+        					<td>Clears all held inventory</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="DEAD">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>DEAD</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/DEAD">DEAD</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>DEAD</h1>
+      <p>Entity <a href='/entvars_t#deadflag'>entvars_t::deadflag</a> values</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='DEAD_NO'>
+        					<td>DEAD_NO</td>
+        					<td>0</td>
+        					<td>alive</td>
+        				</tr>
+        				<tr id='DEAD_DYING'>
+        					<td>DEAD_DYING</td>
+        					<td>1</td>
+        					<td>playing death animation or still falling off of a ledge waiting to hit ground</td>
+        				</tr>
+        				<tr id='DEAD_DEAD'>
+        					<td>DEAD_DEAD</td>
+        					<td>2</td>
+        					<td>dead. lying still.</td>
+        				</tr>
+        				<tr id='DEAD_RESPAWNABLE'>
+        					<td>DEAD_RESPAWNABLE</td>
+        					<td>3</td>
+        					<td>The player is in a state where they can be respawned.</td>
+        				</tr>
+        				<tr id='DEAD_DISCARDBODY'>
+        					<td>DEAD_DISCARDBODY</td>
+        					<td>4</td>
+        					<td>No direct use of this</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

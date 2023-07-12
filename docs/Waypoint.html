@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Waypoint">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Waypoint</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Waypoint">Waypoint</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Waypoint</h1>
+      <p><a href='/Waypoint'>Waypoint</a> for monsters to follow.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='vecLocation'>
+        					<td><a class="type" href='/Vector'>Vector</a> vecLocation</td>
+        					<td>Location of this waypoint.</td>
+        				</tr>
+        				<tr id='vecJumpVelocity'>
+        					<td><a class="type" href='/Vector'>Vector</a> vecJumpVelocity</td>
+        					<td>Saved jump velocity.</td>
+        				</tr>
+        				<tr id='vecLadderVelocity'>
+        					<td><a class="type" href='/Vector'>Vector</a> vecLadderVelocity</td>
+        					<td>Saved ladder velocity.</td>
+        				</tr>
+        				<tr id='hDoor'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> hDoor</td>
+        					<td>Handle to a door to use.</td>
+        				</tr>
+        				<tr id='flSavedMoveWait'>
+        					<td><span class="type">float</span> flSavedMoveWait</td>
+        					<td>How long to wait on this waypoint.</td>
+        				</tr>
+        				<tr id='iType'>
+        					<td><span class="type">int</span> iType</td>
+        					<td>Type(s) of this waypoint.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

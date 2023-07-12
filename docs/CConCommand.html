@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CConCommand">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CConCommand</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CConCommand">CConCommand</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CConCommand</h1>
+      <p>Console command class</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetName'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetName() <span class="type">const</span></td>
+        					<td>Gets the name of this command.</td>
+        				</tr>
+        				<tr id='GetFullyQualifiedName'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetFullyQualifiedName() <span class="type">const</span></td>
+        					<td>Gets the fully qualified name of this command. This is the name that the command is referred by when called.</td>
+        				</tr>
+        				<tr id='GetHelpInfo'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetHelpInfo() <span class="type">const</span></td>
+        					<td>Gets the help info describing this command.</td>
+        				</tr>
+        				<tr id='GetKind'>
+        					<td><a class="value" href='/Type'>ConCommandKind::Type</a> GetKind() <span class="type">const</span></td>
+        					<td>Gets the type of this console command.</td>
+        				</tr>
+        				<tr id='GetOwningModuleName'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetOwningModuleName() <span class="type">const</span></td>
+        					<td>Gets the name of the module that owns (created) this command.</td>
+        				</tr>
+        				<tr id='HasBeenAdded'>
+        					<td><span class="type">bool</span> HasBeenAdded() <span class="type">const</span></td>
+        					<td>Whether this command was added to the list of commands.<br>Must be added to be usable from the console.</td>
+        				</tr>
+        				<tr id='CConCommand'>
+        					<td><a class="type" href='/CConCommand'>CConCommand</a><span class="type">@</span> CConCommand(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szHelpInfo, <a class="type" href='/Typedefs#ConCommandCallback'>ConCommandCallback</a><span class="type">@</span> pCallback, <span class="type">const</span> <a class="type" href='/Typedefs#ConCommandFlags_t'>ConCommandFlags_t</a> flags = <a class="value" href='/ConCommandFlag#None'>ConCommandFlag::None</a>)</td>
+        					<td>Constructor</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

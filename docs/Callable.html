@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Callable">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Callable</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Callable">Callable</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Callable</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Reflection">Reflection</a></p>
+      <p>Reflection base class for callable objects.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetNamespace'>
+        					<td><a class="type" href='/string'>string</a> GetNamespace() <span class="type">const</span></td>
+        					<td>Gets this instance's namespace.</td>
+        				</tr>
+        				<tr id='GetName'>
+        					<td><a class="type" href='/string'>string</a> GetName() <span class="type">const</span></td>
+        					<td>Gets this instance's name.</td>
+        				</tr>
+        				<tr id='Equals'>
+        					<td><span class="type">bool</span> Equals(<span class="type">const</span> <a class="type" href='/Callable'>Callable</a><span class="type">@</span> pCallable) <span class="type">const</span></td>
+        					<td>Returns whether the given callable type is identical to this one.</td>
+        				</tr>
+        				<tr id='IsCompatible'>
+        					<td><span class="type">bool</span> IsCompatible(<span class="type">const</span> <a class="type" href='/Callable'>Callable</a><span class="type">@</span> pCallable) <span class="type">const</span></td>
+        					<td>Returns whether the given object type is compatible with this one.</td>
+        				</tr>
+        				<tr id='opCast'>
+        					<td><a class="type" href='/Function'>Function</a><span class="type">@</span> opCast()</td>
+        					<td>Explicitly casts to sub type.</td>
+        				</tr>
+        				<tr id='opCast@2'>
+        					<td><a class="type" href='/Method'>Method</a><span class="type">@</span> opCast()</td>
+        					<td>Explicitly casts to sub type.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

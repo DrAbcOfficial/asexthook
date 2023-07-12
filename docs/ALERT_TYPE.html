@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="ALERT_TYPE">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>ALERT_TYPE</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/ALERT_TYPE">ALERT_TYPE</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>ALERT_TYPE</h1>
+      <p>Alert type for console messages</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='at_notice'>
+        					<td>at_notice</td>
+        					<td>0</td>
+        					<td>Prints 'NOTICE: <message>'</td>
+        				</tr>
+        				<tr id='at_console'>
+        					<td>at_console</td>
+        					<td>1</td>
+        					<td>Outputs text to the console only if developer is larger than 0</td>
+        				</tr>
+        				<tr id='at_aiconsole'>
+        					<td>at_aiconsole</td>
+        					<td>2</td>
+        					<td>Only shown if developer is 2 or larger</td>
+        				</tr>
+        				<tr id='at_warning'>
+        					<td>at_warning</td>
+        					<td>3</td>
+        					<td>Prints 'Warning: <message>'</td>
+        				</tr>
+        				<tr id='at_error'>
+        					<td>at_error</td>
+        					<td>4</td>
+        					<td>Prints 'Error: <message>'</td>
+        				</tr>
+        				<tr id='at_logged'>
+        					<td>at_logged</td>
+        					<td>5</td>
+        					<td>Server print to console (only in multiplayer games)</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

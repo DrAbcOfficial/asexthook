@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="FFADE">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>FFADE</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/FFADE">FFADE</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>FFADE</h1>
+      <p>Fade flags for <a href='/CPlayerFuncs#ScreenFade'>CPlayerFuncs::ScreenFade</a> and ScreenFadeAll</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='FFADE_IN'>
+        					<td>FFADE_IN</td>
+        					<td>0</td>
+        					<td>Just here so we don't pass 0 into the function</td>
+        				</tr>
+        				<tr id='FFADE_OUT'>
+        					<td>FFADE_OUT</td>
+        					<td>1</td>
+        					<td>Fade out (not in)</td>
+        				</tr>
+        				<tr id='FFADE_MODULATE'>
+        					<td>FFADE_MODULATE</td>
+        					<td>2</td>
+        					<td>Modulate (don't blend)</td>
+        				</tr>
+        				<tr id='FFADE_STAYOUT'>
+        					<td>FFADE_STAYOUT</td>
+        					<td>4</td>
+        					<td>ignores the duration, stays faded out until new <a href='/NetworkMessageType#ScreenFade'>ScreenFade</a> message received</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

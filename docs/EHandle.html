@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="EHandle">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>EHandle</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/EHandle">EHandle</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>EHandle</h1>
+      <p>Safe way to point to CBaseEntities who may die between frames.</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='EHandle'>
+        					<td><span class="type">void</span> EHandle()</td>
+        					<td>Default constructs this handle.</td>
+        				</tr>
+        				<tr id='EHandle@2'>
+        					<td><span class="type">void</span> EHandle(<span class="type">const</span> <a class="type" href='/EHandle'>EHandle</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Copy constructs this handle.</td>
+        				</tr>
+        				<tr id='EHandle@3'>
+        					<td><span class="type">void</span> EHandle(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Constructs this handle with a reference to the given entity.</td>
+        				</tr>
+        				<tr id='IsValid'>
+        					<td><span class="type">bool</span> IsValid() <span class="type">const</span></td>
+        					<td>Returns whether this handle is valid.</td>
+        				</tr>
+        				<tr id='opImplConv'>
+        					<td><span class="type">bool</span> opImplConv() <span class="type">const</span></td>
+        					<td>Returns whether this handle is valid.</td>
+        				</tr>
+        				<tr id='GetEntity'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> GetEntity() <span class="type">const</span></td>
+        					<td>Gets the Entity this handle refers to.<br>Returns null if invalid.</td>
+        				</tr>
+        				<tr id='opImplCast'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opImplCast() <span class="type">const</span></td>
+        					<td>Gets the Entity this handle refers to.<br>Returns null if invalid.</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> opAssign(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Assigns the given entity to this handle.</td>
+        				</tr>
+        				<tr id='opAssign@2'>
+        					<td><a class="type" href='/EHandle'>EHandle</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/EHandle'>EHandle</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Makes this handle refer to the same entity as the given handle.</td>
+        				</tr>
+        				<tr id='GetSerialNumber'>
+        					<td><span class="type">int</span> GetSerialNumber() <span class="type">const</span></td>
+        					<td><a href='/CBaseEntity'>CBaseEntity</a> serial number. Used to determine if the entity is still valid.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="RELATIONSHIP">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>RELATIONSHIP</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/RELATIONSHIP">RELATIONSHIP</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>RELATIONSHIP</h1>
+      <p>Relationship between (monster) entities</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='R_AL'>
+        					<td>R_AL</td>
+        					<td>-2</td>
+        					<td>Ally. Good alternative to <a href='/RELATIONSHIP#R_NO'>R_NO</a> when applicable.</td>
+        				</tr>
+        				<tr id='R_NO'>
+        					<td>R_NO</td>
+        					<td>0</td>
+        					<td>No relationship. Disregard.</td>
+        				</tr>
+        				<tr id='R_DL'>
+        					<td>R_DL</td>
+        					<td>1</td>
+        					<td>Dislike. Will attack.</td>
+        				</tr>
+        				<tr id='R_HT'>
+        					<td>R_HT</td>
+        					<td>2</td>
+        					<td>Hate. Will attack this character instead of any DISLIKE'd characters.</td>
+        				</tr>
+        				<tr id='R_NM'>
+        					<td>R_NM</td>
+        					<td>3</td>
+        					<td>Nemesis. A monster will ALWAYS attack its nemesis, no matter what.</td>
+        				</tr>
+        				<tr id='R_FR'>
+        					<td>R_FR</td>
+        					<td>4</td>
+        					<td>Fear. Will attack.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CGlobalState">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CGlobalState</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CGlobalState">CGlobalState</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CGlobalState</h1>
+      <p>Global state manager</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ClearStates'>
+        					<td><span class="type">void</span> ClearStates()</td>
+        					<td>Clears all global states</td>
+        				</tr>
+        				<tr id='EntityAdd'>
+        					<td><span class="type">void</span> EntityAdd(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> mapName , <a class="type" href='/GLOBALESTATE'>GLOBALESTATE</a> state)</td>
+        					<td>Adds a new global state object</td>
+        				</tr>
+        				<tr id='EntitySetState'>
+        					<td><span class="type">void</span> EntitySetState(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName, <a class="type" href='/GLOBALESTATE'>GLOBALESTATE</a> state)</td>
+        					<td>Sets the state of an existing global state object</td>
+        				</tr>
+        				<tr id='EntityUpdate'>
+        					<td><span class="type">void</span> EntityUpdate(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> mapName)</td>
+        					<td>Updates the level name of the specified global state object</td>
+        				</tr>
+        				<tr id='EntityFromTable'>
+        					<td><span class="type">const</span> <a class="type" href='/GlobalEntity'>GlobalEntity</a><span class="type">@</span> EntityFromTable(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName) <span class="type">const</span></td>
+        					<td>Finds a global state object by name</td>
+        				</tr>
+        				<tr id='EntityGetState'>
+        					<td><span class="type">const</span> <a class="type" href='/GLOBALESTATE'>GLOBALESTATE</a> EntityGetState(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName) <span class="type">const</span></td>
+        					<td>Gets the state of the specified global state object</td>
+        				</tr>
+        				<tr id='EntityInTable'>
+        					<td><span class="type">bool</span> EntityInTable(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> globalName) <span class="type">const</span></td>
+        					<td>Returns whether the global state object is in the table of objects</td>
+        				</tr>
+        				<tr id='DumpGlobals'>
+        					<td><span class="type">void</span> DumpGlobals() <span class="type">const</span></td>
+        					<td>Dumps all global state objects to the console</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

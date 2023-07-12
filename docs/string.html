@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="string">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>string</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/string">string</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>string</h1>
+      <p>String type</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='string'>
+        					<td><span class="type">void</span> string()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='string@2'>
+        					<td><span class="type">void</span> string(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='string@3'>
+        					<td><span class="type">void</span> string(<span class="type">double</span> flValue)</td>
+        					<td>Construct a <a href='/string'>string</a> from a double.</td>
+        				</tr>
+        				<tr id='string@4'>
+        					<td><span class="type">void</span> string(<span class="type">int64</span> iValue)</td>
+        					<td>Construct a <a href='/string'>string</a> from a 64 bit integer.</td>
+        				</tr>
+        				<tr id='string@5'>
+        					<td><span class="type">void</span> string(<span class="type">uint64</span> uiValue)</td>
+        					<td>Construct a <a href='/string'>string</a> from a 64 bit unsigned integer.</td>
+        				</tr>
+        				<tr id='string@6'>
+        					<td><span class="type">void</span> string(<span class="type">bool</span> bValue)</td>
+        					<td>Construct a <a href='/string'>string</a> from a boolean.</td>
+        				</tr>
+        				<tr id='string@7'>
+        					<td><span class="type">void</span> string(<a class="type" href='/char'>char</a> character)</td>
+        					<td>Construct a <a href='/string'>string</a> from a <a href='/char'>char</a>.</td>
+        				</tr>
+        				<tr id='Assign'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> Assign(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">uint</span> uiBegin, <span class="type">uint</span> uiCount)</td>
+        					<td>Assigns a <a href='/string'>string</a> to this, copying up to uiCount characters.</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Assigns a <a href='/string'>string</a> to this one.</td>
+        				</tr>
+        				<tr id='opAssign@2'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<span class="type">double</span> flValue)</td>
+        					<td>Assigns a double to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAssign@3'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<span class="type">int64</span> iValue)</td>
+        					<td>Assigns a 64 bit integer to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAssign@4'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<span class="type">uint64</span> uiValue)</td>
+        					<td>Assigns a 64 bit unsigned int to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAssign@5'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<span class="type">bool</span> bValue)</td>
+        					<td>Assigns a boolean to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAssign@6'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAssign(<a class="type" href='/char'>char</a> character)</td>
+        					<td>Assigns a character to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='Length'>
+        					<td><span class="type">uint</span> Length() <span class="type">const</span></td>
+        					<td>Gets the length of this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='IsEmpty'>
+        					<td><span class="type">bool</span> IsEmpty() <span class="type">const</span></td>
+        					<td>Returns whether this <a href='/string'>string</a> is empty.</td>
+        				</tr>
+        				<tr id='Resize'>
+        					<td><span class="type">void</span> Resize(<span class="type">uint</span> uiSize, <span class="type">bool</span> bKeepData = true)</td>
+        					<td>Shrinks this <a href='/string'>string</a> to uiSize. If bKeepData is true, the original <a href='/string'>string</a> is kept.</td>
+        				</tr>
+        				<tr id='Reserve'>
+        					<td><span class="type">void</span> Reserve(<span class="type">uint</span> iMinimum, <span class="type">bool</span> bKeepData = true)</td>
+        					<td>Reserves at least iMinimum characters worth of capacity. If bKeepData is true, the original <a href='/string'>string</a> is kept.</td>
+        				</tr>
+        				<tr id='Clear'>
+        					<td><span class="type">void</span> Clear()</td>
+        					<td>Clears the contents of this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opIndex'>
+        					<td><a class="type" href='/char'>char</a> opIndex(<span class="type">uint</span> uiIndex) <span class="type">const</span></td>
+        					<td>Gets a character by index.</td>
+        				</tr>
+        				<tr id='SetCharAt'>
+        					<td><span class="type">void</span> SetCharAt(<span class="type">uint</span> uiIndex, <a class="type" href='/char'>char</a> character)</td>
+        					<td>Sets a character by index.</td>
+        				</tr>
+        				<tr id='opAddAssign'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Appends the given <a href='/string'>string</a> to this one.</td>
+        				</tr>
+        				<tr id='opAddAssign@2'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<span class="type">double</span> flValue)</td>
+        					<td>Appends the given double to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAddAssign@3'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<span class="type">int64</span> iValue)</td>
+        					<td>Appends the given 64 bit integer to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAddAssign@4'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<span class="type">uint64</span> uiValue)</td>
+        					<td>Appends the given 64 bit unsigned integer to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAddAssign@5'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<span class="type">bool</span> bValue)</td>
+        					<td>Appends the given boolean to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opAddAssign@6'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> opAddAssign(<a class="type" href='/char'>char</a> character)</td>
+        					<td>Appends the given character to this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='opCmp'>
+        					<td><span class="type">int</span> opCmp(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Compares strings.</td>
+        				</tr>
+        				<tr id='Compare'>
+        					<td><span class="type">int</span> Compare(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Compares strings.</td>
+        				</tr>
+        				<tr id='CompareN'>
+        					<td><span class="type">int</span> CompareN(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <span class="type">uint</span> amount) <span class="type">const</span></td>
+        					<td>Compares strings up to amount characters.</td>
+        				</tr>
+        				<tr id='ICompare'>
+        					<td><span class="type">int</span> ICompare(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Compares strings case-insensitively.</td>
+        				</tr>
+        				<tr id='ICompareN'>
+        					<td><span class="type">int</span> ICompareN(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <span class="type">uint</span> amount) <span class="type">const</span></td>
+        					<td>Compares strings up to amount characters case-insensitively.</td>
+        				</tr>
+        				<tr id='opEquals'>
+        					<td><span class="type">bool</span> opEquals(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Returns whether strings are equal.</td>
+        				</tr>
+        				<tr id='Trim'>
+        					<td><span class="type">void</span> Trim(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szCharacter = ' ')</td>
+        					<td>Trims leading and trailing whitespace, or a given character.</td>
+        				</tr>
+        				<tr id='StartsWith'>
+        					<td><span class="type">bool</span> StartsWith(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Returns true if the <a href='/string'>string</a> starts with the given <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='EndsWith'>
+        					<td><span class="type">bool</span> EndsWith(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Returns true if the <a href='/string'>string</a> ends with the given <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='Find'>
+        					<td><span class="type">uint</span> Find(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <span class="type">uint</span> startIndex = 0, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the first instance of the given <a href='/string'>string</a>.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='RFind'>
+        					<td><span class="type">uint</span> RFind(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">uint</span> startIndex = <a class="value" href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a>, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the first instance of the given <a href='/string'>string</a>, searching in reverse.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='FindFirstOf'>
+        					<td><span class="type">uint</span> FindFirstOf(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <span class="type">uint</span> startIndex = 0, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the first instance of any character in the given <a href='/string'>string</a>.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='FindLastOf'>
+        					<td><span class="type">uint</span> FindLastOf(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <span class="type">uint</span> startIndex = 0, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the last instance of any character in the given <a href='/string'>string</a>.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='FindFirstNotOf'>
+        					<td><span class="type">uint</span> FindFirstNotOf(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">uint</span> startIndex = 0, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the first instance of the given <a href='/string'>string</a>.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='FindLastNotOf'>
+        					<td><span class="type">uint</span> FindLastNotOf(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">uint</span> startIndex = <a class="value" href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a>, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>) <span class="type">const</span></td>
+        					<td>Find the first instance of the given <a href='/string'>string</a>, searching in reverse.<br>Returns <a href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a> if not found.</td>
+        				</tr>
+        				<tr id='Tokenize'>
+        					<td><a class="type" href='/string'>string</a> Tokenize(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> delimiter) <span class="type">const</span></td>
+        					<td>Get the next token of the given <a href='/string'>string</a>.<br>Returns <a href='/Properties#NO_MORE_TOKENS'>String::NO_MORE_TOKENS</a> if none remaining.</td>
+        				</tr>
+        				<tr id='ToLowercase'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> ToLowercase()</td>
+        					<td>Converts this <a href='/string'>string</a> to lower case.</td>
+        				</tr>
+        				<tr id='ToUppercase'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> ToUppercase()</td>
+        					<td>Converts this <a href='/string'>string</a> to upper case.</td>
+        				</tr>
+        				<tr id='SubString'>
+        					<td><a class="type" href='/string'>string</a> SubString(<span class="type">uint</span> startIndex = 0, <span class="type">uint</span> count = <a class="value" href='/Properties#INVALID_INDEX'>String::INVALID_INDEX</a>) <span class="type">const</span></td>
+        					<td>Returns a substring of this <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='Replace'>
+        					<td><a class="type" href='/string'>string</a><span class="type">&</span> Replace(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szSubstring, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szReplacement, <span class="type">const</span> <a class="value" href='/CompareType'>String::CompareType</a> compareType = <a class="value" href='/Properties#DEFAULT_COMPARE'>String::DEFAULT_COMPARE</a>)</td>
+        					<td>Replaces the given substring with the given replacement <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='Truncate'>
+        					<td><span class="type">void</span> Truncate(<span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> uiMaxLength)</td>
+        					<td>Truncates the <a href='/string'>string</a> to uiMaxLength characters.</td>
+        				</tr>
+        				<tr id='opAdd'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given <a href='/string'>string</a> appended.</td>
+        				</tr>
+        				<tr id='opAdd@2'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<span class="type">double</span> flValue) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given double appended.</td>
+        				</tr>
+        				<tr id='opAdd@3'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<span class="type">int64</span> iValue) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given 64 bit integer appended.</td>
+        				</tr>
+        				<tr id='opAdd@4'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<span class="type">uint64</span> uiValue) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given 64 bit unsigned integer appended.</td>
+        				</tr>
+        				<tr id='opAdd@5'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<span class="type">bool</span> bValue) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given boolean appended.</td>
+        				</tr>
+        				<tr id='opAdd@6'>
+        					<td><a class="type" href='/string'>string</a> opAdd(<a class="type" href='/char'>char</a> character) <span class="type">const</span></td>
+        					<td>Returns a copy of this <a href='/string'>string</a> with the given character appended.</td>
+        				</tr>
+        				<tr id='Split'>
+        					<td><span class="type">array</span><span class="type"><</span><a class="type" href='/string'>string</a><span class="type">></span><span class="type">@</span> Split(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szDelimiter) <span class="type">const</span></td>
+        					<td>Splits this <a href='/string'>string</a> by the given delimiter.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

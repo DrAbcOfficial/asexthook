@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CMap">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CMap</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CMap">CMap</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CMap</h1>
+      <p>Map state variables</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='HasForcedPlayerModels'>
+        					<td><span class="type">bool</span> HasForcedPlayerModels() <span class="type">const</span></td>
+        					<td>Get if player models are forced</td>
+        				</tr>
+        				<tr id='LoadMapSkillFile'>
+        					<td><span class="type">bool</span> LoadMapSkillFile()</td>
+        					<td>Reload the standard map skill file (_skl.cfg).</td>
+        				</tr>
+        				<tr id='LoadGlobalSkillFile'>
+        					<td><span class="type">bool</span> LoadGlobalSkillFile()</td>
+        					<td>Reload the global skill file.</td>
+        				</tr>
+        				<tr id='LoadSkillFile'>
+        					<td><span class="type">bool</span> LoadSkillFile(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFileName)</td>
+        					<td>Load a custom skill file.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

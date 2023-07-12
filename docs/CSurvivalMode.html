@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CSurvivalMode">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CSurvivalMode</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CSurvivalMode">CSurvivalMode</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CSurvivalMode</h1>
+      <p>Survival Mode handler</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='IsEnabled'>
+        					<td><span class="type">bool</span> IsEnabled() <span class="type">const</span></td>
+        					<td>Returns whether Survival Mode is enabled or not.</td>
+        				</tr>
+        				<tr id='Enable'>
+        					<td><span class="type">void</span> Enable( <span class="type">bool</span> fActivateNow = false )</td>
+        					<td>Enable Survival Mode</td>
+        				</tr>
+        				<tr id='Disable'>
+        					<td><span class="type">void</span> Disable()</td>
+        					<td>Disable Survival Mode</td>
+        				</tr>
+        				<tr id='Toggle'>
+        					<td><span class="type">void</span> Toggle()</td>
+        					<td>Toggles Survival Mode.</td>
+        				</tr>
+        				<tr id='IsActive'>
+        					<td><span class="type">bool</span> IsActive() <span class="type">const</span></td>
+        					<td>Returns whether Survival Mode is active or not.</td>
+        				</tr>
+        				<tr id='Activate'>
+        					<td><span class="type">void</span> Activate( <span class="type">bool</span> fActivateNow = false )</td>
+        					<td>Activate Survival Mode</td>
+        				</tr>
+        				<tr id='GetVoteState'>
+        					<td><span class="type">int</span> GetVoteState()</td>
+        					<td>Returns Survival Mode vote state.</td>
+        				</tr>
+        				<tr id='VoteToggle'>
+        					<td><span class="type">void</span> VoteToggle()</td>
+        					<td>Toggles Survival Mode vote state.</td>
+        				</tr>
+        				<tr id='ResetVoteState'>
+        					<td><span class="type">void</span> ResetVoteState()</td>
+        					<td>Resets the Survival Mode vote state to undefined.</td>
+        				</tr>
+        				<tr id='EnableMapSupport'>
+        					<td><span class="type">void</span> EnableMapSupport()</td>
+        					<td>Tells the game that the current map wants to use Survival Mode. Should be called in MapInit. Cannot be disabled once set.</td>
+        				</tr>
+        				<tr id='MapSupportEnabled'>
+        					<td><span class="type">bool</span> MapSupportEnabled()</td>
+        					<td>Returns whether the current map supports Survival Mode or not.</td>
+        				</tr>
+        				<tr id='SetStartOn'>
+        					<td><span class="type">void</span> SetStartOn( <span class="type">bool</span> value )</td>
+        					<td>Sets whether Survival Mode should start when the map is loaded.</td>
+        				</tr>
+        				<tr id='GetStartOn'>
+        					<td><span class="type">bool</span> GetStartOn()</td>
+        					<td>Returns whether Survival Mode should start when the map is loaded.</td>
+        				</tr>
+        				<tr id='GetNextMap'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetNextMap(<span class="type">void</span>) <span class="type">const</span></td>
+        					<td>Returns name of the next survival map.</td>
+        				</tr>
+        				<tr id='SetNextMap'>
+        					<td><span class="type">void</span> SetNextMap(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szMapName)</td>
+        					<td>Sets name of the next survival map.</td>
+        				</tr>
+        				<tr id='EndRound'>
+        					<td><span class="type">void</span> EndRound()</td>
+        					<td>Can be used to end a round and force a retry to be used.</td>
+        				</tr>
+        				<tr id='GetDelayBeforeStart'>
+        					<td><span class="type">float</span> GetDelayBeforeStart() <span class="type">const</span></td>
+        					<td>Returns delay before survival mode starts.</td>
+        				</tr>
+        				<tr id='SetDelayBeforeStart'>
+        					<td><span class="type">void</span> SetDelayBeforeStart( <span class="type">float</span> value )</td>
+        					<td>Sets delay before survival mode starts.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

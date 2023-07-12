@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="AITRIGGER">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>AITRIGGER</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/AITRIGGER">AITRIGGER</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>AITRIGGER</h1>
+      <p>trigger conditions for scripted AI</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='AITRIGGER_NONE'>
+        					<td>AITRIGGER_NONE</td>
+        					<td>0</td>
+        					<td>No Trigger</td>
+        				</tr>
+        				<tr id='AITRIGGER_SEEPLAYER_ANGRY_AT_PLAYER'>
+        					<td>AITRIGGER_SEEPLAYER_ANGRY_AT_PLAYER</td>
+        					<td>1</td>
+        					<td>See Player</td>
+        				</tr>
+        				<tr id='AITRIGGER_TAKEDAMAGE'>
+        					<td>AITRIGGER_TAKEDAMAGE</td>
+        					<td>2</td>
+        					<td>Take Damage</td>
+        				</tr>
+        				<tr id='AITRIGGER_HALFHEALTH'>
+        					<td>AITRIGGER_HALFHEALTH</td>
+        					<td>3</td>
+        					<td>50% <a href='/NetworkMessageType#Health'>Health</a> Remaining</td>
+        				</tr>
+        				<tr id='AITRIGGER_DEATH'>
+        					<td>AITRIGGER_DEATH</td>
+        					<td>4</td>
+        					<td>Death</td>
+        				</tr>
+        				<tr id='AITRIGGER_SQUADMEMBERDIE'>
+        					<td>AITRIGGER_SQUADMEMBERDIE</td>
+        					<td>5</td>
+        					<td>Squad Member Dead</td>
+        				</tr>
+        				<tr id='AITRIGGER_SQUADLEADERDIE'>
+        					<td>AITRIGGER_SQUADLEADERDIE</td>
+        					<td>6</td>
+        					<td>Squad Leader Dead</td>
+        				</tr>
+        				<tr id='AITRIGGER_HEARWORLD'>
+        					<td>AITRIGGER_HEARWORLD</td>
+        					<td>7</td>
+        					<td>Hear World</td>
+        				</tr>
+        				<tr id='AITRIGGER_HEARPLAYER'>
+        					<td>AITRIGGER_HEARPLAYER</td>
+        					<td>8</td>
+        					<td>Hear Player</td>
+        				</tr>
+        				<tr id='AITRIGGER_HEARCOMBAT'>
+        					<td>AITRIGGER_HEARCOMBAT</td>
+        					<td>9</td>
+        					<td>Hear Combat</td>
+        				</tr>
+        				<tr id='AITRIGGER_SEEPLAYER_UNCONDITIONAL'>
+        					<td>AITRIGGER_SEEPLAYER_UNCONDITIONAL</td>
+        					<td>10</td>
+        					<td>See Player Unconditional</td>
+        				</tr>
+        				<tr id='AITRIGGER_SEEPLAYER_NOT_IN_COMBAT'>
+        					<td>AITRIGGER_SEEPLAYER_NOT_IN_COMBAT</td>
+        					<td>11</td>
+        					<td>See Player, Not In Combat</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

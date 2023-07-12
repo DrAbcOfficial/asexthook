@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="char">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>char</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/char">char</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>char</h1>
+      <p>Char value type</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='char'>
+        					<td><span class="type">void</span> char()</td>
+        					<td>Default constructor</td>
+        				</tr>
+        				<tr id='char@2'>
+        					<td><span class="type">void</span> char(<span class="type">const</span> <a class="type" href='/char'>char</a><span class="type">&</span> <span class="inout">in</span> character)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='char@3'>
+        					<td><span class="type">void</span> char(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/char'>char</a> opAssign(<span class="type">const</span> <a class="type" href='/char'>char</a><span class="type">&</span> <span class="inout">in</span> character)</td>
+        					<td>Assigns one character to another.</td>
+        				</tr>
+        				<tr id='opImplConv'>
+        					<td><span class="type">uint32</span> opImplConv() <span class="type">const</span></td>
+        					<td>Implicitly converts this character to an unsigned 32 bit integer.</td>
+        				</tr>
+        				<tr id='opAssign@2'>
+        					<td><a class="type" href='/char'>char</a> opAssign(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Assigns the first character of the given <a href='/string'>string</a> to this character.</td>
+        				</tr>
+        				<tr id='opEquals'>
+        					<td><span class="type">bool</span> opEquals(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString) <span class="type">const</span></td>
+        					<td>Compares this <a href='/char'>char</a> with the given character.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

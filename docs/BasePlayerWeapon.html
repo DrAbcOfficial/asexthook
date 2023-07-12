@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="BasePlayerWeapon">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>BasePlayerWeapon</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/BasePlayerWeapon">BasePlayerWeapon</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>BasePlayerWeapon</h1>
+      <p>Baseclass for <a href='/CBasePlayerWeapon'>CBasePlayerWeapon</a>.<br>Allows calling of the base implementation of certain methods.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='opImplCast'>
+        					<td><a class="type" href='/BaseEntity'>BaseEntity</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='KeyValue'>
+        					<td><span class="type">bool</span> KeyValue(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szKeyName, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szValue)</td>
+        					<td>Calls the base class implementation of KeyValue</td>
+        				</tr>
+        				<tr id='Precache'>
+        					<td><span class="type">void</span> Precache()</td>
+        					<td>Calls the base class implementation of Precache</td>
+        				</tr>
+        				<tr id='PreSpawn'>
+        					<td><span class="type">void</span> PreSpawn()</td>
+        					<td>Calls the base class implementation of PreSpawn</td>
+        				</tr>
+        				<tr id='Spawn'>
+        					<td><span class="type">void</span> Spawn()</td>
+        					<td>Calls the base class implementation of Spawn</td>
+        				</tr>
+        				<tr id='PostSpawn'>
+        					<td><span class="type">void</span> PostSpawn()</td>
+        					<td>Calls the base class implementation of PostSpawn</td>
+        				</tr>
+        				<tr id='Think'>
+        					<td><span class="type">void</span> Think()</td>
+        					<td>Calls the base class implementation of Think</td>
+        				</tr>
+        				<tr id='Touch'>
+        					<td><span class="type">void</span> Touch(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Calls the base class implementation of Touch</td>
+        				</tr>
+        				<tr id='Use'>
+        					<td><span class="type">void</span> Use(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pCaller, <a class="type" href='/USE_TYPE'>USE_TYPE</a> useType, <span class="type">float</span> flValue = 0.0f)</td>
+        					<td>Calls the base class implementation of Use</td>
+        				</tr>
+        				<tr id='Blocked'>
+        					<td><span class="type">void</span> Blocked(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Calls the base class implementation of Blocked</td>
+        				</tr>
+        				<tr id='UpdateOnRemove'>
+        					<td><span class="type">void</span> UpdateOnRemove()</td>
+        					<td>Calls the base class implementation of UpdateOnRemove</td>
+        				</tr>
+        				<tr id='ObjectCaps'>
+        					<td><span class="type">int</span> ObjectCaps()</td>
+        					<td>Calls the base class implementation of ObjectCaps</td>
+        				</tr>
+        				<tr id='TraceAttack'>
+        					<td><span class="type">void</span> TraceAttack(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> ptr, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Calls the base class implementation of TraceAttack</td>
+        				</tr>
+        				<tr id='TakeDamage'>
+        					<td><span class="type">int</span> TakeDamage(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevInflictor, <a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">float</span> flDamage, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Calls the base class implementation of TakeDamage</td>
+        				</tr>
+        				<tr id='TakeHealth'>
+        					<td><span class="type">bool</span> TakeHealth(<span class="type">float</span> flHealth, <span class="type">int</span> bitsDamageType, <span class="type">float</span> health_cap = 0)</td>
+        					<td>Calls the base class implementation of TakeHealth</td>
+        				</tr>
+        				<tr id='TakeArmor'>
+        					<td><span class="type">bool</span> TakeArmor(<span class="type">float</span> flArmor, <span class="type">int</span> bitsDamageType, <span class="type">float</span> armor_cap = 0)</td>
+        					<td>Calls the base class implementation of TakeArmor</td>
+        				</tr>
+        				<tr id='Killed'>
+        					<td><span class="type">void</span> Killed(<a class="type" href='/entvars_t'>entvars_t</a><span class="type">@</span> pevAttacker, <span class="type">int</span> iGib)</td>
+        					<td>Calls the base class implementation of Killed</td>
+        				</tr>
+        				<tr id='BloodColor'>
+        					<td><span class="type">int</span> BloodColor()</td>
+        					<td>Calls the base class implementation of BloodColor</td>
+        				</tr>
+        				<tr id='TraceBleed'>
+        					<td><span class="type">void</span> TraceBleed(<span class="type">float</span> flDamage, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecDir, <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> traceResult, <span class="type">int</span> bitsDamageType)</td>
+        					<td>Calls the base class implementation of TraceBleed</td>
+        				</tr>
+        				<tr id='GetPointsForDamage'>
+        					<td><span class="type">float</span> GetPointsForDamage(<span class="type">float</span> flDamage)</td>
+        					<td>Calls the base class implementation of GetPointsForDamage</td>
+        				</tr>
+        				<tr id='IsRevivable'>
+        					<td><span class="type">bool</span> IsRevivable()</td>
+        					<td>Calls the base class implementation of IsRevivable</td>
+        				</tr>
+        				<tr id='BeginRevive'>
+        					<td><span class="type">void</span> BeginRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Calls the base class implementation of BeginRevive</td>
+        				</tr>
+        				<tr id='EndRevive'>
+        					<td><span class="type">void</span> EndRevive(<span class="type">float</span> flTimeUntilRevive)</td>
+        					<td>Calls the base class implementation of EndRevive</td>
+        				</tr>
+        				<tr id='opImplCast@2'>
+        					<td><a class="type" href='/BasePlayerItem'>BasePlayerItem</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='AddToPlayer'>
+        					<td><span class="type">bool</span> AddToPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Calls the base class implementation of AddToPlayer</td>
+        				</tr>
+        				<tr id='AddDuplicate'>
+        					<td><span class="type">bool</span> AddDuplicate(<a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> pItem)</td>
+        					<td>Calls the base class implementation of AddDuplicate</td>
+        				</tr>
+        				<tr id='Materialize'>
+        					<td><span class="type">void</span> Materialize()</td>
+        					<td>Calls the base class implementation of <a href='/Properties#Materialize'>Materialize</a></td>
+        				</tr>
+        				<tr id='GetItemInfo'>
+        					<td><span class="type">void</span> GetItemInfo(<a class="type" href='/ItemInfo'>ItemInfo</a><span class="type">&</span> <span class="inout">out</span> info)</td>
+        					<td>Calls the base class implementation of GetItemInfo</td>
+        				</tr>
+        				<tr id='CanDeploy'>
+        					<td><span class="type">bool</span> CanDeploy()</td>
+        					<td>Calls the base class implementation of CanDeploy</td>
+        				</tr>
+        				<tr id='Deploy'>
+        					<td><span class="type">bool</span> Deploy()</td>
+        					<td>Calls the base class implementation of Deploy</td>
+        				</tr>
+        				<tr id='CanHolster'>
+        					<td><span class="type">bool</span> CanHolster()</td>
+        					<td>Calls the base class implementation of CanHolster</td>
+        				</tr>
+        				<tr id='Holster'>
+        					<td><span class="type">void</span> Holster(<span class="type">int</span> skiplocal = 0)</td>
+        					<td>Calls the base class implementation of Holster</td>
+        				</tr>
+        				<tr id='UpdateItemInfo'>
+        					<td><span class="type">void</span> UpdateItemInfo()</td>
+        					<td>Calls the base class implementation of UpdateItemInfo</td>
+        				</tr>
+        				<tr id='ItemPreFrame'>
+        					<td><span class="type">void</span> ItemPreFrame()</td>
+        					<td>Calls the base class implementation of ItemPreFrame</td>
+        				</tr>
+        				<tr id='ItemPostFrame'>
+        					<td><span class="type">void</span> ItemPostFrame()</td>
+        					<td>Calls the base class implementation of ItemPostFrame</td>
+        				</tr>
+        				<tr id='InactiveItemPreFrame'>
+        					<td><span class="type">void</span> InactiveItemPreFrame()</td>
+        					<td>Calls the base class implementation of InactiveItemPreFrame</td>
+        				</tr>
+        				<tr id='InactiveItemPostFrame'>
+        					<td><span class="type">void</span> InactiveItemPostFrame()</td>
+        					<td>Calls the base class implementation of InactiveItemPostFrame</td>
+        				</tr>
+        				<tr id='Kill'>
+        					<td><span class="type">void</span> Kill()</td>
+        					<td>Calls the base class implementation of Kill</td>
+        				</tr>
+        				<tr id='AttachToPlayer'>
+        					<td><span class="type">void</span> AttachToPlayer(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Calls the base class implementation of AttachToPlayer</td>
+        				</tr>
+        				<tr id='PrimaryAmmoIndex'>
+        					<td><span class="type">int</span> PrimaryAmmoIndex()</td>
+        					<td>Calls the base class implementation of PrimaryAmmoIndex</td>
+        				</tr>
+        				<tr id='SecondaryAmmoIndex'>
+        					<td><span class="type">int</span> SecondaryAmmoIndex()</td>
+        					<td>Calls the base class implementation of SecondaryAmmoIndex</td>
+        				</tr>
+        				<tr id='UpdateClientData'>
+        					<td><span class="type">bool</span> UpdateClientData(<a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Calls the base class implementation of UpdateClientData</td>
+        				</tr>
+        				<tr id='GetRespawnTime'>
+        					<td><span class="type">float</span> GetRespawnTime() <span class="type">const</span></td>
+        					<td>Calls the base class implementation of GetRespawnTime</td>
+        				</tr>
+        				<tr id='DropItem'>
+        					<td><a class="type" href='/CBasePlayerItem'>CBasePlayerItem</a><span class="type">@</span> DropItem()</td>
+        					<td>Calls the base class implementation of DropItem</td>
+        				</tr>
+        				<tr id='CanHaveDuplicates'>
+        					<td><span class="type">bool</span> CanHaveDuplicates()</td>
+        					<td>Calls the base class implementation of CanHaveDuplicates</td>
+        				</tr>
+        				<tr id='ExtractAmmo'>
+        					<td><span class="type">bool</span> ExtractAmmo(<a class="type" href='/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span> pWeapon)</td>
+        					<td>Calls the base class implementation of ExtractAmmo</td>
+        				</tr>
+        				<tr id='AddWeapon'>
+        					<td><span class="type">bool</span> AddWeapon()</td>
+        					<td>Calls the base class implementation of AddWeapon</td>
+        				</tr>
+        				<tr id='PlayEmptySound'>
+        					<td><span class="type">bool</span> PlayEmptySound()</td>
+        					<td>Calls the base class implementation of PlayEmptySound</td>
+        				</tr>
+        				<tr id='ResetEmptySound'>
+        					<td><span class="type">void</span> ResetEmptySound()</td>
+        					<td>Calls the base class implementation of ResetEmptySound</td>
+        				</tr>
+        				<tr id='SendWeaponAnim'>
+        					<td><span class="type">void</span> SendWeaponAnim(<span class="type">int</span> iAnim, <span class="type">int</span> skiplocal = 0, <span class="type">int</span> body = 0)</td>
+        					<td>Calls the base class implementation of SendWeaponAnim</td>
+        				</tr>
+        				<tr id='BulletAccuracy'>
+        					<td><a class="type" href='/Vector'>Vector</a> BulletAccuracy(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecMoving, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecStanding, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecCrouched)</td>
+        					<td>Calls the base class implementation of BulletAccuracy</td>
+        				</tr>
+        				<tr id='IsUseable'>
+        					<td><span class="type">bool</span> IsUseable()</td>
+        					<td>Calls the base class implementation of IsUseable</td>
+        				</tr>
+        				<tr id='PrimaryAttack'>
+        					<td><span class="type">void</span> PrimaryAttack()</td>
+        					<td>Calls the base class implementation of PrimaryAttack</td>
+        				</tr>
+        				<tr id='SecondaryAttack'>
+        					<td><span class="type">void</span> SecondaryAttack()</td>
+        					<td>Calls the base class implementation of SecondaryAttack</td>
+        				</tr>
+        				<tr id='TertiaryAttack'>
+        					<td><span class="type">void</span> TertiaryAttack()</td>
+        					<td>Calls the base class implementation of TertiaryAttack</td>
+        				</tr>
+        				<tr id='Reload'>
+        					<td><span class="type">void</span> Reload()</td>
+        					<td>Calls the base class implementation of Reload</td>
+        				</tr>
+        				<tr id='FinishReload'>
+        					<td><span class="type">void</span> FinishReload()</td>
+        					<td>Calls the base class implementation of FinishReload</td>
+        				</tr>
+        				<tr id='ShouldReload'>
+        					<td><span class="type">bool</span> ShouldReload()</td>
+        					<td>Calls the base class implementation of ShouldReload</td>
+        				</tr>
+        				<tr id='WeaponIdle'>
+        					<td><span class="type">void</span> WeaponIdle()</td>
+        					<td>Calls the base class implementation of WeaponIdle</td>
+        				</tr>
+        				<tr id='RetireWeapon'>
+        					<td><span class="type">void</span> RetireWeapon()</td>
+        					<td>Calls the base class implementation of RetireWeapon</td>
+        				</tr>
+        				<tr id='ShouldWeaponIdle'>
+        					<td><span class="type">bool</span> ShouldWeaponIdle()</td>
+        					<td>Calls the base class implementation of ShouldWeaponIdle</td>
+        				</tr>
+        				<tr id='UseDecrement'>
+        					<td><span class="type">bool</span> UseDecrement()</td>
+        					<td>Calls the base class implementation of UseDecrement</td>
+        				</tr>
+        				<tr id='BurstSupplement'>
+        					<td><span class="type">void</span> BurstSupplement()</td>
+        					<td>Calls the base class implementation of BurstSupplement</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

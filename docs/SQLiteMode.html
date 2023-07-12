@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="SQLiteMode">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>SQLiteMode</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/SQLiteMode">SQLiteMode</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>SQLiteMode</h1>
+      <p>SQLite Open Mode</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SQLITE_OPEN_READONLY'>
+        					<td>SQLITE_OPEN_READONLY</td>
+        					<td>1</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_READWRITE'>
+        					<td>SQLITE_OPEN_READWRITE</td>
+        					<td>2</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_CREATE'>
+        					<td>SQLITE_OPEN_CREATE</td>
+        					<td>4</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_DELETEONCLOSE'>
+        					<td>SQLITE_OPEN_DELETEONCLOSE</td>
+        					<td>8</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_EXCLUSIVE'>
+        					<td>SQLITE_OPEN_EXCLUSIVE</td>
+        					<td>16</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_AUTOPROXY'>
+        					<td>SQLITE_OPEN_AUTOPROXY</td>
+        					<td>32</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_URI'>
+        					<td>SQLITE_OPEN_URI</td>
+        					<td>64</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_MEMORY'>
+        					<td>SQLITE_OPEN_MEMORY</td>
+        					<td>128</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_MAIN_DB'>
+        					<td>SQLITE_OPEN_MAIN_DB</td>
+        					<td>256</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_TEMP_DB'>
+        					<td>SQLITE_OPEN_TEMP_DB</td>
+        					<td>512</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_TRANSIENT_DB'>
+        					<td>SQLITE_OPEN_TRANSIENT_DB</td>
+        					<td>1024</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_MAIN_JOURNAL'>
+        					<td>SQLITE_OPEN_MAIN_JOURNAL</td>
+        					<td>2048</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_TEMP_JOURNAL'>
+        					<td>SQLITE_OPEN_TEMP_JOURNAL</td>
+        					<td>4096</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_SUBJOURNAL'>
+        					<td>SQLITE_OPEN_SUBJOURNAL</td>
+        					<td>8192</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_SUPER_JOURNAL'>
+        					<td>SQLITE_OPEN_SUPER_JOURNAL</td>
+        					<td>16384</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_NOMUTEX'>
+        					<td>SQLITE_OPEN_NOMUTEX</td>
+        					<td>32768</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_FULLMUTEX'>
+        					<td>SQLITE_OPEN_FULLMUTEX</td>
+        					<td>65536</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_SHAREDCACHE'>
+        					<td>SQLITE_OPEN_SHAREDCACHE</td>
+        					<td>131072</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_PRIVATECACHE'>
+        					<td>SQLITE_OPEN_PRIVATECACHE</td>
+        					<td>262144</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_WAL'>
+        					<td>SQLITE_OPEN_WAL</td>
+        					<td>524288</td>
+        					<td>VFS only</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_NOFOLLOW'>
+        					<td>SQLITE_OPEN_NOFOLLOW</td>
+        					<td>16777216</td>
+        					<td>Ok for sqlite3_open_v2()</td>
+        				</tr>
+        				<tr id='SQLITE_OPEN_EXRESCODE'>
+        					<td>SQLITE_OPEN_EXRESCODE</td>
+        					<td>33554432</td>
+        					<td>Extended result codes</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

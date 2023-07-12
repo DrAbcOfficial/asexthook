@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="HUDSpriteParams">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>HUDSpriteParams</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/HUDSpriteParams">HUDSpriteParams</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>HUDSpriteParams</h1>
+      <p>Holds parameters for custom sprite.</p>
+      <p><b>Type:</b> Value</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='HUDSpriteParams'>
+        					<td><span class="type">void</span> HUDSpriteParams()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='HUDSpriteParams@2'>
+        					<td><span class="type">void</span> HUDSpriteParams(<span class="type">const</span> <a class="type" href='/HUDSpriteParams'>HUDSpriteParams</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/HUDSpriteParams'>HUDSpriteParams</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/HUDSpriteParams'>HUDSpriteParams</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='channel'>
+        					<td><span class="type">uint8</span> channel</td>
+        					<td>Channel.<br>Range: 0-15 (each module type has its own channel group).</td>
+        				</tr>
+        				<tr id='flags'>
+        					<td><span class="type">int</span> flags</td>
+        					<td>Flags<br>See <a href='/HUD_ELEM'>HUD_ELEM</a> and <a href='/HUD_SPR'>HUD_SPR</a> enums.</td>
+        				</tr>
+        				<tr id='spritename'>
+        					<td><a class="type" href='/string_t'>string_t</a> spritename</td>
+        					<td>Sprite name</td>
+        				</tr>
+        				<tr id='left'>
+        					<td><span class="type">uint8</span> left</td>
+        					<td>Sprite left offset<br>Range: 0-255</td>
+        				</tr>
+        				<tr id='top'>
+        					<td><span class="type">uint8</span> top</td>
+        					<td>Sprite top offset<br>Range: 0-255</td>
+        				</tr>
+        				<tr id='width'>
+        					<td><span class="type">int16</span> width</td>
+        					<td>Sprite width<br>Range: 0-512 (0: auto; use total width of the sprite)</td>
+        				</tr>
+        				<tr id='height'>
+        					<td><span class="type">int16</span> height</td>
+        					<td>Sprite height<br>Range: 0-512 (0: auto; use total height of the sprite)</td>
+        				</tr>
+        				<tr id='x'>
+        					<td><span class="type">float</span> x</td>
+        					<td>Horizontal position on the screen.<br><0, 1.0> = left to right<br>(-1.0, 0) = right to left<br>-1.0 = centered</td>
+        				</tr>
+        				<tr id='y'>
+        					<td><span class="type">float</span> y</td>
+        					<td>Vertical position on the screen.<br><0, 1.0> = top to bottom<br>(-1.0, 0) = bottom to top<br>-1.0 = centered</td>
+        				</tr>
+        				<tr id='color1'>
+        					<td><a class="type" href='/RGBA'>RGBA</a> color1</td>
+        					<td>Color 1</td>
+        				</tr>
+        				<tr id='color2'>
+        					<td><a class="type" href='/RGBA'>RGBA</a> color2</td>
+        					<td>Color 2</td>
+        				</tr>
+        				<tr id='frame'>
+        					<td><span class="type">uint8</span> frame</td>
+        					<td>Frame</td>
+        				</tr>
+        				<tr id='numframes'>
+        					<td><span class="type">uint8</span> numframes</td>
+        					<td>Number of frames</td>
+        				</tr>
+        				<tr id='framerate'>
+        					<td><span class="type">float</span> framerate</td>
+        					<td>Framerate</td>
+        				</tr>
+        				<tr id='fadeinTime'>
+        					<td><span class="type">float</span> fadeinTime</td>
+        					<td>Fade in time</td>
+        				</tr>
+        				<tr id='fadeoutTime'>
+        					<td><span class="type">float</span> fadeoutTime</td>
+        					<td>Fade out time</td>
+        				</tr>
+        				<tr id='holdTime'>
+        					<td><span class="type">float</span> holdTime</td>
+        					<td>Hold time</td>
+        				</tr>
+        				<tr id='fxTime'>
+        					<td><span class="type">float</span> fxTime</td>
+        					<td>Effect time</td>
+        				</tr>
+        				<tr id='effect'>
+        					<td><span class="type">uint8</span> effect</td>
+        					<td>Effect<br>See <a href='/HUD_EFFECT'>HUD_EFFECT</a> enum.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

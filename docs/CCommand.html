@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CCommand">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CCommand</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CCommand">CCommand</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CCommand</h1>
+      <p>Command arguments.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ArgC'>
+        					<td><span class="type">int</span> ArgC() <span class="type">const</span></td>
+        					<td>Gets the number of arguments.</td>
+        				</tr>
+        				<tr id='GetCommandString'>
+        					<td><a class="type" href='/string'>string</a> GetCommandString() <span class="type">const</span></td>
+        					<td>Gets the entire command as a <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='GetArgumentsString'>
+        					<td><a class="type" href='/string'>string</a> GetArgumentsString() <span class="type">const</span></td>
+        					<td>Gets all arguments as a single <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='Arg'>
+        					<td><a class="type" href='/string'>string</a> Arg(<span class="type">const</span> <span class="type">int</span> iIndex) <span class="type">const</span></td>
+        					<td>Gets the argument by index.</td>
+        				</tr>
+        				<tr id='opIndex'>
+        					<td><a class="type" href='/string'>string</a> opIndex(<span class="type">const</span> <span class="type">int</span> iIndex) <span class="type">const</span></td>
+        					<td>Gets the argument by index.</td>
+        				</tr>
+        				<tr id='FindArg'>
+        					<td><a class="type" href='/string'>string</a> FindArg(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szArgument) <span class="type">const</span></td>
+        					<td>Find a value for a given argument. If the argument does not exist or has no value, an empty <a href='/string'>string</a> is returned. Otherwise, returns the value.</td>
+        				</tr>
+        				<tr id='FindIntArg'>
+        					<td><span class="type">int</span> FindIntArg(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szArgument, <span class="type">const</span> <span class="type">int</span> iDefault = 0) <span class="type">const</span></td>
+        					<td>Find an int value for a given argument. Returns iDefault if no such argument exists, or no value exists for it. Otherwise, returns the value, converted to an int</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

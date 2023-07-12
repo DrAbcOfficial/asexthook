@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CBeamSpawnflags">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CBeamSpawnflags</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/CBeamSpawnflags">CBeamSpawnflags</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CBeamSpawnflags</h1>
+      <p><a href='/CBeam'>CBeam</a> spawn flags</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SF_BEAM_STARTON'>
+        					<td>SF_BEAM_STARTON</td>
+        					<td>1</td>
+        					<td>Whether the beam should start on</td>
+        				</tr>
+        				<tr id='SF_BEAM_TOGGLE'>
+        					<td>SF_BEAM_TOGGLE</td>
+        					<td>2</td>
+        					<td>Whether the beam should be togglable by triggering it</td>
+        				</tr>
+        				<tr id='SF_BEAM_RANDOM'>
+        					<td>SF_BEAM_RANDOM</td>
+        					<td>4</td>
+        					<td>Whether beams are created to a randomly selected entity with the given target name</td>
+        				</tr>
+        				<tr id='SF_BEAM_RING'>
+        					<td>SF_BEAM_RING</td>
+        					<td>8</td>
+        					<td>Whether this beam is a ring between 2 points</td>
+        				</tr>
+        				<tr id='SF_BEAM_SPARKSTART'>
+        					<td>SF_BEAM_SPARKSTART</td>
+        					<td>16</td>
+        					<td>Whether to allow creation of sparks at the beam's start point</td>
+        				</tr>
+        				<tr id='SF_BEAM_SPARKEND'>
+        					<td>SF_BEAM_SPARKEND</td>
+        					<td>32</td>
+        					<td>Whether to allow creation of sparks at the beam's end point</td>
+        				</tr>
+        				<tr id='SF_BEAM_DECALS'>
+        					<td>SF_BEAM_DECALS</td>
+        					<td>64</td>
+        					<td>Whether to create decals when the beam does damage to BSP models</td>
+        				</tr>
+        				<tr id='SF_BEAM_SHADEIN'>
+        					<td>SF_BEAM_SHADEIN</td>
+        					<td>128</td>
+        					<td>Whether to fade the beam in at its start point</td>
+        				</tr>
+        				<tr id='SF_BEAM_SHADEOUT'>
+        					<td>SF_BEAM_SHADEOUT</td>
+        					<td>256</td>
+        					<td>Whether to fade the beam out at its end point</td>
+        				</tr>
+        				<tr id='SF_BEAM_TEMPORARY'>
+        					<td>SF_BEAM_TEMPORARY</td>
+        					<td>32768</td>
+        					<td>Whether the beam is a temporary entity</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

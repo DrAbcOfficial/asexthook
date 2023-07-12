@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CSound">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CSound</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CSound">CSound</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CSound</h1>
+      <p>Sound class used by <a href='/CSoundEnt'>CSoundEnt</a></p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='Clear'>
+        					<td><span class="type">void</span> Clear()</td>
+        					<td>Clears the sound</td>
+        				</tr>
+        				<tr id='Reset'>
+        					<td><span class="type">void</span> Reset()</td>
+        					<td>Resets the sound</td>
+        				</tr>
+        				<tr id='FIsSound'>
+        					<td><span class="type">bool</span> FIsSound()</td>
+        					<td>Returns whether this is a sound</td>
+        				</tr>
+        				<tr id='FIsScent'>
+        					<td><span class="type">bool</span> FIsScent()</td>
+        					<td>Returns whether this is a scent</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='m_vecOrigin'>
+        					<td><a class="type" href='/Vector'>Vector</a> m_vecOrigin</td>
+        					<td>Sound's location in space</td>
+        				</tr>
+        				<tr id='m_iType'>
+        					<td><span class="type">int</span> m_iType</td>
+        					<td>What type of sound this is</td>
+        				</tr>
+        				<tr id='m_iVolume'>
+        					<td><span class="type">int</span> m_iVolume</td>
+        					<td>How loud the sound is</td>
+        				</tr>
+        				<tr id='m_flExpireTime'>
+        					<td><span class="type">float</span> m_flExpireTime</td>
+        					<td>When the sound should be purged from the list</td>
+        				</tr>
+        				<tr id='m_iNext'>
+        					<td><span class="type">int</span> m_iNext</td>
+        					<td>Index of next sound in this list ( Active or Free )</td>
+        				</tr>
+        				<tr id='m_iNextAudible'>
+        					<td><span class="type">int</span> m_iNextAudible</td>
+        					<td>Temporary link that monsters use to build a list of audible sounds</td>
+        				</tr>
+        				<tr id='hOwner'>
+        					<td><a class="type" href='/EHandle'>EHandle</a> hOwner</td>
+        					<td>Sounds now have OWNERS... (For various AI checks)</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

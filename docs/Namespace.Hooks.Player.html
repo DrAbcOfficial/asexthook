@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Hooks::Player">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Namespace.Hooks.Player</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Namespaces">Namespaces</a> > <a href="/Namespace.Hooks.Player">Hooks::Player</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Hooks::Player</h1>
+      <p>Definitions for Hooks::Player Namespace</p>
+        <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Namespace</th>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='SendScoreInfo'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> SendScoreInfo</td>
+        					<td>Pre call before sending hud info to edict</td>
+        				</tr>
+        				<tr id='PlayerCallGrenade'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCallGrenade</td>
+        					<td>Pre call before a player call grenade</td>
+        				</tr>
+        				<tr id='PlayerCallMedic'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCallMedic</td>
+        					<td>Pre call before a player call medic</td>
+        				</tr>
+        				<tr id='PlayerTakeHealth'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTakeHealth</td>
+        					<td>Pre call before a player took health</td>
+        				</tr>
+        				<tr id='PlayerPostTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPostTakeDamage</td>
+        					<td>Pre call before a player took damage</td>
+        				</tr>
+        				<tr id='PlayerUserInfoChanged'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerUserInfoChanged</td>
+        					<td>Pre call before a player info changed</td>
+        				</tr>
+        				<tr id='PlayerPreDecal'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPreDecal</td>
+        					<td>Called when a player attempts to spraypaint a decal onto a surface. The given trace result contains the surface information. Set bResult to false if the player shouldn't be able to spray. <br>Value: 3</td>
+        				</tr>
+        				<tr id='PlayerDecal'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerDecal</td>
+        					<td>Called when a player is spraypainting a decal onto a surface. The given trace result contains the surface information. <br>Value: 4</td>
+        				</tr>
+        				<tr id='GetPlayerSpawnSpot'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> GetPlayerSpawnSpot</td>
+        					<td>Called when a player is about to get a spawn point before (re)spawning.<br>Value: 5</td>
+        				</tr>
+        				<tr id='PlayerPostThink'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPostThink</td>
+        					<td>Called when the player is processing post think events.<br>Value: 6</td>
+        				</tr>
+        				<tr id='PlayerPreThink'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPreThink</td>
+        					<td>Called when the player is processing pre think events.<br>Value: 7</td>
+        				</tr>
+        				<tr id='PlayerUse'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerUse</td>
+        					<td>Called when the game is processing player use input. Note that this occurs even if the player has not pressed their use key.<br>Value: 8</td>
+        				</tr>
+        				<tr id='PlayerLeftObserver'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerLeftObserver</td>
+        					<td>Called when a player leaves observer mode.<br>Value: 9</td>
+        				</tr>
+        				<tr id='PlayerEnteredObserver'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerEnteredObserver</td>
+        					<td>Called when a player enters observer mode.<br>Value: 10</td>
+        				</tr>
+        				<tr id='PlayerKilled'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerKilled</td>
+        					<td>Called when a player is killed.<br>Value: 11</td>
+        				</tr>
+        				<tr id='PlayerTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTakeDamage</td>
+        					<td>Called when a player takes damage. Note that the victim entity can't be changed at this point.<br>Value: 12</td>
+        				</tr>
+        				<tr id='PlayerCanRespawn'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCanRespawn</td>
+        					<td>Called when the game wants to know if the player should be able to respawn or not.Set bCanRespawn to false to disallow, default true.<br>Value: 13</td>
+        				</tr>
+        				<tr id='PlayerSpawn'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerSpawn</td>
+        					<td>Called when a player (re)spawns.<br>Value: 14</td>
+        				</tr>
+        				<tr id='ClientConnected'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientConnected</td>
+        					<td>Called when a player connects to the server. if bDisallowJoin is set to false, the player is disconnected. szRejectReason is shown to the player if disconnected. The maximum length of the reject reason <a href='/string'>string</a> is 127 characters.<br>Value: 15</td>
+        				</tr>
+        				<tr id='CanPlayerUseReservedSlot'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> CanPlayerUseReservedSlot</td>
+        					<td>Called when a player connects to the server, and the number of slots left on the server is <= the number of reserved slots. Set bAllowJoin to true to allow the player to join (default false).<br>Value: 19</td>
+        				</tr>
+        				<tr id='ClientSay'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientSay</td>
+        					<td>Called when a player says something in game chat. The <a href='/SayParameters'>SayParameters</a> class can be used to manipulate input and veto the message.<br>Value: 20</td>
+        				</tr>
+        				<tr id='ClientPutInServer'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientPutInServer</td>
+        					<td>Called when a player has finished connecting and is put into the world. It is safe to send network messages to the player at this point.<br>Value: 21</td>
+        				</tr>
+        				<tr id='ClientDisconnect'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientDisconnect</td>
+        					<td>Called when a player disconnects. Note that this is only called if the player was fully connected, meaning the player went through <a href='/Properties#ClientPutInServer'>ClientPutInServer</a>. This is never called for the local host.<br>Value: 22</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="SayParameters">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>SayParameters</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/SayParameters">SayParameters</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>SayParameters</h1>
+      <p><a href='/Properties#ClientSay'>ClientSay</a> parameters</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetPlayer'>
+        					<td><a class="type" href='/CBasePlayer'>CBasePlayer</a><span class="type">@</span> GetPlayer() <span class="type">const</span></td>
+        					<td>Gets the player that is saying something</td>
+        				</tr>
+        				<tr id='GetSayType'>
+        					<td><a class="type" href='/ClientSayType'>ClientSayType</a> GetSayType() <span class="type">const</span></td>
+        					<td>Gets the say type of this text</td>
+        				</tr>
+        				<tr id='GetCommand'>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> GetCommand() <span class="type">const</span></td>
+        					<td>Gets the entire command <a href='/string'>string</a></td>
+        				</tr>
+        				<tr id='GetArguments'>
+        					<td><span class="type">const</span> <a class="type" href='/CCommand'>CCommand</a><span class="type">@</span> GetArguments() <span class="type">const</span></td>
+        					<td>Gets the arguments in this command.</td>
+        				</tr>
+        				<tr id='get_ShouldHide'>
+        					<td><span class="type">bool</span> get_ShouldHide() <span class="type">const</span></td>
+        					<td>Gets whether this text will be hidden or not</td>
+        				</tr>
+        				<tr id='set_ShouldHide'>
+        					<td><span class="type">void</span> set_ShouldHide(<span class="type">bool</span> fShouldHide)</td>
+        					<td>Sets whether this text will be hidden or not</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

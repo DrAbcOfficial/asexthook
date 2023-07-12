@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CMath">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CMath</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CMath">CMath</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CMath</h1>
+      <p><a href='/Properties#Math'>Math</a> functions</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='RandomLong'>
+        					<td><span class="type">int32</span> RandomLong(<span class="type">int32</span> low, <span class="type">int32</span> high)</td>
+        					<td>Returns a random integer between low and high</td>
+        				</tr>
+        				<tr id='RandomFloat'>
+        					<td><span class="type">float</span> RandomFloat(<span class="type">float</span> low, <span class="type">float</span> high)</td>
+        					<td>Returns a random float between low and high</td>
+        				</tr>
+        				<tr id='MakeVectors'>
+        					<td><span class="type">void</span> MakeVectors(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles)</td>
+        					<td>Makes vectors</td>
+        				</tr>
+        				<tr id='RotateVector'>
+        					<td><a class="type" href='/Vector'>Vector</a> RotateVector(<a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecToRotate,<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOffset)</td>
+        					<td>Rotate vector</td>
+        				</tr>
+        				<tr id='MakeAimVectors'>
+        					<td><span class="type">void</span> MakeAimVectors(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles)</td>
+        					<td>Make aim vectors</td>
+        				</tr>
+        				<tr id='MakeInvVectors'>
+        					<td><span class="type">void</span> MakeInvVectors(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecAngles)</td>
+        					<td>Make inverted vectors</td>
+        				</tr>
+        				<tr id='VecToYaw'>
+        					<td><span class="type">float</span> VecToYaw(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vec)</td>
+        					<td>Transforms a vector to a yaw value</td>
+        				</tr>
+        				<tr id='VecToAngles'>
+        					<td><a class="type" href='/Vector'>Vector</a> VecToAngles(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vec)</td>
+        					<td>Transforms a vector to an angle</td>
+        				</tr>
+        				<tr id='AngleMod'>
+        					<td><span class="type">float</span> AngleMod(<span class="type">float</span> flAngle)</td>
+        					<td>Clamps the given angle between 0 and 360</td>
+        				</tr>
+        				<tr id='AngleDiff'>
+        					<td><span class="type">float</span> AngleDiff(<span class="type">float</span> flDestAngle, <span class="type">float</span> flSrcAngle)</td>
+        					<td>Returns the difference between 2 angles</td>
+        				</tr>
+        				<tr id='ApproachAngle'>
+        					<td><span class="type">float</span> ApproachAngle(<span class="type">float</span> target, <span class="type">float</span> value, <span class="type">float</span> speed)</td>
+        					<td>Given a target and current angle value, and a rotation speed, all in degrees, returns a new angle that is either between value and target, or target, depending on whether the speed is high enough to reach that angle.</td>
+        				</tr>
+        				<tr id='AngleDistance'>
+        					<td><span class="type">float</span> AngleDistance(<span class="type">float</span> flNext, <span class="type">float</span> flCur)</td>
+        					<td>Returns the distance between 2 angles</td>
+        				</tr>
+        				<tr id='min'>
+        					<td><span class="type">uint64</span> min(<span class="type">uint64</span> lhs, <span class="type">uint64</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the smaller of the two values</td>
+        				</tr>
+        				<tr id='min@2'>
+        					<td><span class="type">int64</span> min(<span class="type">int64</span> lhs, <span class="type">int64</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the smaller of the two values</td>
+        				</tr>
+        				<tr id='min@3'>
+        					<td><span class="type">float</span> min(<span class="type">float</span> lhs, <span class="type">float</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the smaller of the two values</td>
+        				</tr>
+        				<tr id='max'>
+        					<td><span class="type">uint64</span> max(<span class="type">uint64</span> lhs, <span class="type">uint64</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the larger of the two values</td>
+        				</tr>
+        				<tr id='max@2'>
+        					<td><span class="type">int64</span> max(<span class="type">int64</span> lhs, <span class="type">int64</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the larger of the two values</td>
+        				</tr>
+        				<tr id='max@3'>
+        					<td><span class="type">float</span> max(<span class="type">float</span> lhs, <span class="type">float</span> rhs) <span class="type">const</span></td>
+        					<td>Returns the larger of the two values</td>
+        				</tr>
+        				<tr id='clamp'>
+        					<td><span class="type">int</span> clamp(<span class="type">int</span> min, <span class="type">int</span> max, <span class="type">int</span> value) <span class="type">const</span></td>
+        					<td>Clamps a value between a range</td>
+        				</tr>
+        				<tr id='clamp@2'>
+        					<td><span class="type">float</span> clamp(<span class="type">float</span> min, <span class="type">float</span> max, <span class="type">float</span> value) <span class="type">const</span></td>
+        					<td>Clamps a value between a range</td>
+        				</tr>
+        				<tr id='Floor'>
+        					<td><span class="type">float</span> Floor(<span class="type">float</span> flValue) <span class="type">const</span></td>
+        					<td>Returns the float value, rounded down to the nearest whole number</td>
+        				</tr>
+        				<tr id='Ceil'>
+        					<td><span class="type">float</span> Ceil(<span class="type">float</span> flValue) <span class="type">const</span></td>
+        					<td>Returns the float value, rounded up to the nearest whole number</td>
+        				</tr>
+        				<tr id='DegreesToRadians'>
+        					<td><span class="type">float</span> DegreesToRadians(<span class="type">float</span> flDegrees) <span class="type">const</span></td>
+        					<td>Returns the given value in degrees as radians</td>
+        				</tr>
+        				<tr id='RadiansToDegrees'>
+        					<td><span class="type">float</span> RadiansToDegrees(<span class="type">float</span> flRadians) <span class="type">const</span></td>
+        					<td>Returns the given value in radians as degrees</td>
+        				</tr>
+        				<tr id='Compare'>
+        					<td><span class="type">bool</span> Compare(<span class="type">float</span> flLhs, <span class="type">float</span> flRhs, <span class="type">float</span> flEpsilon) <span class="type">const</span></td>
+        					<td>Compares the given floating point variables and returns whether they are equal, considering certain variance (epsilon) between them.</td>
+        				</tr>
+        				<tr id='Compare@2'>
+        					<td><span class="type">bool</span> Compare(<span class="type">double</span> flLhs, <span class="type">double</span> flRhs, <span class="type">double</span> flEpsilon) <span class="type">const</span></td>
+        					<td>Compares the given floating point variables and returns whether they are equal, considering certain variance (epsilon) between them.</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='INT8_MIN'>
+        					<td><span class="type">const</span> <span class="type">int8</span> INT8_MIN</td>
+        					<td>Int8 minimum value</td>
+        				</tr>
+        				<tr id='INT16_MIN'>
+        					<td><span class="type">const</span> <span class="type">int16</span> INT16_MIN</td>
+        					<td>Int16 minimum value</td>
+        				</tr>
+        				<tr id='INT32_MIN'>
+        					<td><span class="type">const</span> <span class="type">int32</span> INT32_MIN</td>
+        					<td>Int32 minimum value</td>
+        				</tr>
+        				<tr id='INT64_MIN'>
+        					<td><span class="type">const</span> <span class="type">int64</span> INT64_MIN</td>
+        					<td>Int64 minimum value</td>
+        				</tr>
+        				<tr id='INT8_MAX'>
+        					<td><span class="type">const</span> <span class="type">int8</span> INT8_MAX</td>
+        					<td>Int8 maximum value</td>
+        				</tr>
+        				<tr id='INT16_MAX'>
+        					<td><span class="type">const</span> <span class="type">int16</span> INT16_MAX</td>
+        					<td>Int16 maximum value</td>
+        				</tr>
+        				<tr id='INT32_MAX'>
+        					<td><span class="type">const</span> <span class="type">int32</span> INT32_MAX</td>
+        					<td>Int32 maximum value</td>
+        				</tr>
+        				<tr id='INT64_MAX'>
+        					<td><span class="type">const</span> <span class="type">int64</span> INT64_MAX</td>
+        					<td>Int64 maximum value</td>
+        				</tr>
+        				<tr id='UINT8_MAX'>
+        					<td><span class="type">const</span> <span class="type">uint8</span> UINT8_MAX</td>
+        					<td>Uint8 maximum value</td>
+        				</tr>
+        				<tr id='UINT16_MAX'>
+        					<td><span class="type">const</span> <span class="type">uint16</span> UINT16_MAX</td>
+        					<td>Uint16 maximum value</td>
+        				</tr>
+        				<tr id='UINT32_MAX'>
+        					<td><span class="type">const</span> <span class="type">uint32</span> UINT32_MAX</td>
+        					<td>Uint32 maximum value</td>
+        				</tr>
+        				<tr id='UINT64_MAX'>
+        					<td><span class="type">const</span> <span class="type">uint64</span> UINT64_MAX</td>
+        					<td>Uint64 maximum value</td>
+        				</tr>
+        				<tr id='SIZE_MAX'>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> SIZE_MAX</td>
+        					<td>Size_t maximum value</td>
+        				</tr>
+        				<tr id='FLOAT_MIN'>
+        					<td><span class="type">const</span> <span class="type">float</span> FLOAT_MIN</td>
+        					<td>Float minimum positive value</td>
+        				</tr>
+        				<tr id='DOUBLE_MIN'>
+        					<td><span class="type">const</span> <span class="type">double</span> DOUBLE_MIN</td>
+        					<td>Double minimum positive value</td>
+        				</tr>
+        				<tr id='FLOAT_MAX'>
+        					<td><span class="type">const</span> <span class="type">float</span> FLOAT_MAX</td>
+        					<td>Float maximum positive value</td>
+        				</tr>
+        				<tr id='DOUBLE_MAX'>
+        					<td><span class="type">const</span> <span class="type">double</span> DOUBLE_MAX</td>
+        					<td>Double maximum positive value</td>
+        				</tr>
+        				<tr id='PI'>
+        					<td><span class="type">const</span> <span class="type">double</span> PI</td>
+        					<td>PI</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

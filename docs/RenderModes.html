@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="RenderModes">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>RenderModes</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/RenderModes">RenderModes</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>RenderModes</h1>
+      <p>Render modes used by entities (<a href='/entvars_t#rendermode'>entvars_t::rendermode</a>)</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='kRenderNormal'>
+        					<td>kRenderNormal</td>
+        					<td>0</td>
+        					<td>src</td>
+        				</tr>
+        				<tr id='kRenderTransColor'>
+        					<td>kRenderTransColor</td>
+        					<td>1</td>
+        					<td>c*a+dest*(1-a)</td>
+        				</tr>
+        				<tr id='kRenderTransTexture'>
+        					<td>kRenderTransTexture</td>
+        					<td>2</td>
+        					<td>src*a+dest*(1-a)</td>
+        				</tr>
+        				<tr id='kRenderGlow'>
+        					<td>kRenderGlow</td>
+        					<td>3</td>
+        					<td>src*a+dest -- No Z buffer checks</td>
+        				</tr>
+        				<tr id='kRenderTransAlpha'>
+        					<td>kRenderTransAlpha</td>
+        					<td>4</td>
+        					<td>src*srca+dest*(1-srca)</td>
+        				</tr>
+        				<tr id='kRenderTransAdd'>
+        					<td>kRenderTransAdd</td>
+        					<td>5</td>
+        					<td>src*a+dest</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

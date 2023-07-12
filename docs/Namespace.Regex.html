@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Regex">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Namespace.Regex</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Namespaces">Namespaces</a> > <a href="/Namespace.Regex">Regex</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Regex</h1>
+      <p>Definitions for <a href='/Regex'>Regex</a> Namespace</p>
+        <h2 id="Classes">Classes</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Namespace</th>
+        				<th>Name</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='MatchResults'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a href='/MatchResults'>MatchResults</a></td>
+        					<td>Regular expression match results</td>
+        				</tr>
+        				<tr id='Regex'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a href='/Regex'>Regex</a></td>
+        					<td>Represents a regular expression</td>
+        				</tr>
+        				<tr id='SubMatch'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a href='/SubMatch'>SubMatch</a></td>
+        					<td>Regular expression submatch</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Enums">Enums</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Namespace</th>
+        				<th>Name</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='FlagType'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a href='/FlagType'>FlagType</a></td>
+        					<td>Regular expression flags. These can be bitwise OR'd together to combine options.</td>
+        				</tr>
+        				<tr id='MatchFlagType'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a href='/MatchFlagType'>MatchFlagType</a></td>
+        					<td>Match format flags. These can be bitwise OR'd together to combine options.</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Functions">Functions</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Namespace</th>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='Match'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><span class="type">bool</span> Match(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pRegex, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>match_default</a>)</td>
+        					<td>Performs are regular expression matching operation.<br>Returns true if the match succeeded, false otherwise</td>
+        				</tr>
+        				<tr id='Match@2'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><span class="type">bool</span> Match(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> pResults, <span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pRegex, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>match_default</a>)</td>
+        					<td>Performs are regular expression matching operation.<br>Returns true if the match succeeded, false otherwise.<br>pResults will contain the results of the operation, if any.</td>
+        				</tr>
+        				<tr id='Search'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><span class="type">bool</span> Search(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pRegex, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>match_default</a>)</td>
+        					<td>Returns whether some sub-sequence in the target sequence (the subject) matches the regular expression pRegex.</td>
+        				</tr>
+        				<tr id='Search@2'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><span class="type">bool</span> Search(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> pResults, <span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pRegex, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>match_default</a>)</td>
+        					<td>Returns whether some sub-sequence in the target sequence (the subject) matches the regular expression pRegex.<br>pResults will contain the results of the operation, if any.</td>
+        				</tr>
+        				<tr id='Replace'>
+        					<td><a href='/Namespace.Regex'>Regex</a></td>
+        					<td><a class="type" href='/string'>string</a> Replace(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pRegex, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFormat, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>match_default</a>)</td>
+        					<td>Makes a copy of the target sequence (the subject) with all matches of the regular expression pRegex (the pattern) replaced by szFormat (the replacement).</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

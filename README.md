@@ -12,6 +12,8 @@ Using this plugin makes it easy to perform operations that were previously excep
 
 Auto-generated HTML documentation for the Sven Co-op AsExtHook Angelscript API is available [Here](https://drabcofficial.github.io/asexthook/)
 
+Used HTML Generator [Here](https://github.com/sven-coop/sven-coop.github.io)
+
 ---
 
 <!-- vscode-markdown-toc -->

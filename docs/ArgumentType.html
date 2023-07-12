@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="ArgumentType">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>ArgumentType</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/ArgumentType">ArgumentType</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>ArgumentType</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Reflection">Reflection</a></p>
+      <p>Which type a reflection argument is</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='AT_NONE'>
+        					<td>AT_NONE</td>
+        					<td>1</td>
+        					<td>Argument has no type. If an argument has this type it means something went wrong during parsing.</td>
+        				</tr>
+        				<tr id='AT_VOID'>
+        					<td>AT_VOID</td>
+        					<td>2</td>
+        					<td>Argument is void.</td>
+        				</tr>
+        				<tr id='AT_PRIMITIVE'>
+        					<td>AT_PRIMITIVE</td>
+        					<td>4</td>
+        					<td>Argument is a primitive type.</td>
+        				</tr>
+        				<tr id='AT_OBJECT'>
+        					<td>AT_OBJECT</td>
+        					<td>24</td>
+        					<td>Argument is an object type.</td>
+        				</tr>
+        				<tr id='AT_ENUM'>
+        					<td>AT_ENUM</td>
+        					<td>32</td>
+        					<td>Argument is an enum type.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

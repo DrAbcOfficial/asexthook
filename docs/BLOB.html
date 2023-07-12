@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="BLOB">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>BLOB</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/BLOB">BLOB</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>BLOB</h1>
+      <p>Binary Large OBject class used for storing arbitrary amounts of binary data.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='HasAllocatedBuffer'>
+        					<td><span class="type">bool</span> HasAllocatedBuffer() <span class="type">const</span></td>
+        					<td>Returns whether this instance has allocated a buffer.</td>
+        				</tr>
+        				<tr id='GetSizeInBytes'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetSizeInBytes() <span class="type">const</span></td>
+        					<td>Gets the size of this <a href='/BLOB'>BLOB</a>, in bytes.</td>
+        				</tr>
+        				<tr id='GetReadOffset'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetReadOffset() <span class="type">const</span></td>
+        					<td>Gets the read offset, in bytes.</td>
+        				</tr>
+        				<tr id='ReadReachedEnd'>
+        					<td><span class="type">bool</span> ReadReachedEnd() <span class="type">const</span></td>
+        					<td>Returns whether the last read operation reached the end of data that was written to this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadSizeValid'>
+        					<td><span class="type">bool</span> ReadSizeValid(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes) <span class="type">const</span></td>
+        					<td>Returns whether the given amount of bytes can be read from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='GetWriteOffset'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetWriteOffset() <span class="type">const</span></td>
+        					<td>Gets the write offset, in bytes. This is the number of bytes written to this buffer.</td>
+        				</tr>
+        				<tr id='CanWriteSize'>
+        					<td><span class="type">bool</span> CanWriteSize(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes) <span class="type">const</span></td>
+        					<td>Returns whether the given amount of bytes can be written to this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='GetWriteBytesLeft'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetWriteBytesLeft() <span class="type">const</span></td>
+        					<td>Gets the number of bytes left that can be written to. This may change if a write operation causes the buffer to be resized.</td>
+        				</tr>
+        				<tr id='CanResize'>
+        					<td><span class="type">bool</span> CanResize() <span class="type">const</span></td>
+        					<td>Returns whether this <a href='/BLOB'>BLOB</a> is allowed to resize its buffer.</td>
+        				</tr>
+        				<tr id='SetCanResize'>
+        					<td><span class="type">void</span> SetCanResize(<span class="type">bool</span> fState)</td>
+        					<td>Sets whether this <a href='/BLOB'>BLOB</a> is allowed to resize its buffer.</td>
+        				</tr>
+        				<tr id='ReadInt8'>
+        					<td><span class="type">int8</span> ReadInt8()</td>
+        					<td>Reads an int8 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadInt16'>
+        					<td><span class="type">int16</span> ReadInt16()</td>
+        					<td>Reads an int16 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadInt32'>
+        					<td><span class="type">int32</span> ReadInt32()</td>
+        					<td>Reads an int32 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadInt64'>
+        					<td><span class="type">int64</span> ReadInt64()</td>
+        					<td>Reads an int64 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadUInt8'>
+        					<td><span class="type">uint8</span> ReadUInt8()</td>
+        					<td>Reads a uint8 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadUInt16'>
+        					<td><span class="type">int16</span> ReadUInt16()</td>
+        					<td>Reads a uint16 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadUInt32'>
+        					<td><span class="type">int32</span> ReadUInt32()</td>
+        					<td>Reads a uint32 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadUInt64'>
+        					<td><span class="type">int64</span> ReadUInt64()</td>
+        					<td>Reads a uint64 from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadFloat'>
+        					<td><span class="type">float</span> ReadFloat()</td>
+        					<td>Reads a float from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadDouble'>
+        					<td><span class="type">double</span> ReadDouble()</td>
+        					<td>Reads a double from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadInt8@2'>
+        					<td><span class="type">int8</span> ReadInt8(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads an int8 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadInt16@2'>
+        					<td><span class="type">int16</span> ReadInt16(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads an int16 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadInt32@2'>
+        					<td><span class="type">int32</span> ReadInt32(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads an int32 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadInt64@2'>
+        					<td><span class="type">int64</span> ReadInt64(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads an int64 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadUInt8@2'>
+        					<td><span class="type">uint8</span> ReadUInt8(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a uint8 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadUInt16@2'>
+        					<td><span class="type">int16</span> ReadUInt16(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a uint16 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadUInt32@2'>
+        					<td><span class="type">int32</span> ReadUInt32(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a uint32 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadUInt64@2'>
+        					<td><span class="type">int64</span> ReadUInt64(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a uint64 from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadFloat@2'>
+        					<td><span class="type">float</span> ReadFloat(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a float from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadDouble@2'>
+        					<td><span class="type">double</span> ReadDouble(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a double from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadString'>
+        					<td><a class="type" href='/string'>string</a> ReadString(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes)</td>
+        					<td>Reads a fixed length <a href='/string'>string</a> from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='ReadString@2'>
+        					<td><a class="type" href='/string'>string</a> ReadString(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes, <span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a fixed length <a href='/string'>string</a> from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadString@3'>
+        					<td><a class="type" href='/string'>string</a> ReadString(<span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> fSuccess)</td>
+        					<td>Reads a variable length <a href='/string'>string</a> from this <a href='/BLOB'>BLOB</a>. fSuccess is true if the read succeeded.</td>
+        				</tr>
+        				<tr id='ReadString@4'>
+        					<td><a class="type" href='/string'>string</a> ReadString()</td>
+        					<td>Reads a variable length <a href='/string'>string</a> from this <a href='/BLOB'>BLOB</a>.</td>
+        				</tr>
+        				<tr id='WriteBytes'>
+        					<td><span class="type">bool</span> WriteBytes(<a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes, <span class="type">int</span> iValue = 0)</td>
+        					<td>Writes a given value a number of bytes to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='WriteBytesUntil'>
+        					<td><span class="type">bool</span> WriteBytesUntil(<a class="type" href='/Typedefs#size_t'>size_t</a> uiEndOffset, <span class="type">int</span> iValue = 0)</td>
+        					<td>Writes a given value until the given end offset to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write'>
+        					<td><span class="type">bool</span> Write(<span class="type">int8</span> data)</td>
+        					<td>Writes an int8 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@2'>
+        					<td><span class="type">bool</span> Write(<span class="type">int16</span> data)</td>
+        					<td>Writes an int16 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@3'>
+        					<td><span class="type">bool</span> Write(<span class="type">int32</span> data)</td>
+        					<td>Writes an int32 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@4'>
+        					<td><span class="type">bool</span> Write(<span class="type">int64</span> data)</td>
+        					<td>Writes an int64 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@5'>
+        					<td><span class="type">bool</span> Write(<span class="type">uint8</span> data)</td>
+        					<td>Writes a uint8 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@6'>
+        					<td><span class="type">bool</span> Write(<span class="type">uint16</span> data)</td>
+        					<td>Writes a uint16 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@7'>
+        					<td><span class="type">bool</span> Write(<span class="type">uint32</span> data)</td>
+        					<td>Writes a uint32 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@8'>
+        					<td><span class="type">bool</span> Write(<span class="type">uint64</span> data)</td>
+        					<td>Writes a uint64 to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@9'>
+        					<td><span class="type">bool</span> Write(<span class="type">float</span> data)</td>
+        					<td>Writes a float to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@10'>
+        					<td><span class="type">bool</span> Write(<span class="type">double</span> data)</td>
+        					<td>Writes a double to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@11'>
+        					<td><span class="type">bool</span> Write(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString, <a class="type" href='/Typedefs#size_t'>size_t</a> uiSizeInBytes)</td>
+        					<td>Writes a fixed length <a href='/string'>string</a> to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Write@12'>
+        					<td><span class="type">bool</span> Write(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Writes a variable length <a href='/string'>string</a> to this <a href='/BLOB'>BLOB</a>. Returns true if the write succeeded.</td>
+        				</tr>
+        				<tr id='Resize'>
+        					<td><span class="type">void</span> Resize(<a class="type" href='/Typedefs#size_t'>size_t</a> uiNewSize)</td>
+        					<td>Resizes this <a href='/BLOB'>BLOB</a>. Data may be lost because of this.</td>
+        				</tr>
+        				<tr id='Reserve'>
+        					<td><span class="type">void</span> Reserve(<a class="type" href='/Typedefs#size_t'>size_t</a> uiMinimumSize)</td>
+        					<td>Reserves the given amount of space, if needed.</td>
+        				</tr>
+        				<tr id='ShrinkToFit'>
+        					<td><span class="type">void</span> ShrinkToFit()</td>
+        					<td>Shrinks this <a href='/BLOB'>BLOB</a> to fit the data that was written to it.</td>
+        				</tr>
+        				<tr id='Clear'>
+        					<td><span class="type">void</span> Clear()</td>
+        					<td>Clears this <a href='/BLOB'>BLOB</a> of all data and allocated memory. All flags are reset to their default values.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

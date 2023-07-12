@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="TraceResult">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>TraceResult</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/TraceResult">TraceResult</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>TraceResult</h1>
+      <p>Trace result structure</p>
+      <p><b>Type:</b> Value</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='TraceResult'>
+        					<td><span class="type">void</span> TraceResult()</td>
+        					<td>Constructor.</td>
+        				</tr>
+        				<tr id='TraceResult@2'>
+        					<td><span class="type">void</span> TraceResult(<span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> tr)</td>
+        					<td>Constructor.</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/TraceResult'>TraceResult</a><span class="type">&</span> <span class="inout">in</span> tr)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='fAllSolid'>
+        					<td><span class="type">int</span> fAllSolid</td>
+        					<td>Flag telling whether the trace occured in an all solid area.</td>
+        				</tr>
+        				<tr id='fStartSolid'>
+        					<td><span class="type">int</span> fStartSolid</td>
+        					<td>Flag telling whether the trace started in a solid area.</td>
+        				</tr>
+        				<tr id='fInOpen'>
+        					<td><span class="type">int</span> fInOpen</td>
+        					<td>Flag telling whether the trace ended in an open area.</td>
+        				</tr>
+        				<tr id='fInWater'>
+        					<td><span class="type">int</span> fInWater</td>
+        					<td>Flag telling whether the trace ended in water</td>
+        				</tr>
+        				<tr id='flFraction'>
+        					<td><span class="type">float</span> flFraction</td>
+        					<td>Fraction.</td>
+        				</tr>
+        				<tr id='vecEndPos'>
+        					<td><a class="type" href='/Vector'>Vector</a> vecEndPos</td>
+        					<td>End position.</td>
+        				</tr>
+        				<tr id='flPlaneDist'>
+        					<td><span class="type">float</span> flPlaneDist</td>
+        					<td>Plane distance.</td>
+        				</tr>
+        				<tr id='vecPlaneNormal'>
+        					<td><a class="type" href='/Vector'>Vector</a> vecPlaneNormal</td>
+        					<td>Plane normal</td>
+        				</tr>
+        				<tr id='pHit'>
+        					<td><a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pHit</td>
+        					<td>Hit entity</td>
+        				</tr>
+        				<tr id='iHitgroup'>
+        					<td><span class="type">int</span> iHitgroup</td>
+        					<td>Hit group.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Regex">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Regex</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Regex">Regex</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Regex</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Regex">Regex</a></p>
+      <p>Represents a regular expression</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='Regex'>
+        					<td><a class="type" href='/Regex'>Regex</a><span class="type">@</span> Regex()</td>
+        					<td>Default Constructor</td>
+        				</tr>
+        				<tr id='Regex@2'>
+        					<td><a class="type" href='/Regex'>Regex</a><span class="type">@</span> Regex(<span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pOther)</td>
+        					<td>Copy Constructor</td>
+        				</tr>
+        				<tr id='Regex@3'>
+        					<td><a class="type" href='/Regex'>Regex</a><span class="type">@</span> Regex(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szExpression, <a class="type" href='/FlagType'>FlagType</a> flags = <a class="value" href='/FlagType#ECMAScript'>Regex::ECMAScript</a>)</td>
+        					<td>Initialization Constructor</td>
+        				</tr>
+        				<tr id='Assign'>
+        					<td><a class="type" href='/Regex'>Regex</a><span class="type">&</span> Assign(<span class="type">const</span> <a class="type" href='/Regex'>Regex</a><span class="type">@</span> pOther)</td>
+        					<td>Assigns the given regular expression to this one.</td>
+        				</tr>
+        				<tr id='Assign@2'>
+        					<td><a class="type" href='/Regex'>Regex</a><span class="type">&</span> Assign(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szExpression, <a class="type" href='/FlagType'>FlagType</a> flags = <a class="value" href='/FlagType#ECMAScript'>Regex::ECMAScript</a>)</td>
+        					<td>Assigns the given regular expression to this one.</td>
+        				</tr>
+        				<tr id='GetMarkCount'>
+        					<td><span class="type">uint</span> GetMarkCount() <span class="type">const</span></td>
+        					<td>Gets the mark count</td>
+        				</tr>
+        				<tr id='GetFlags'>
+        					<td><a class="type" href='/FlagType'>FlagType</a> GetFlags() <span class="type">const</span></td>
+        					<td>Gets this regex's flags</td>
+        				</tr>
+        				<tr id='Swap'>
+        					<td><span class="type">void</span> Swap(<a class="type" href='/Regex'>Regex</a><span class="type">@</span> other)</td>
+        					<td>Swaps this regular expression's contents with the given expression</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="MoveFlag">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>MoveFlag</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/MoveFlag">MoveFlag</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>MoveFlag</h1>
+      <p>these <a href='/MoveFlag'>MoveFlag</a> values are assigned to a WayPoint's TYPE in order to demonstrate the<br>type of movement the monster should use to get there.</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='bits_MF_TO_TARGETENT'>
+        					<td>bits_MF_TO_TARGETENT</td>
+        					<td>1</td>
+        					<td>local move to targetent.</td>
+        				</tr>
+        				<tr id='bits_MF_TO_ENEMY'>
+        					<td>bits_MF_TO_ENEMY</td>
+        					<td>2</td>
+        					<td>local move to enemy</td>
+        				</tr>
+        				<tr id='bits_MF_TO_COVER'>
+        					<td>bits_MF_TO_COVER</td>
+        					<td>4</td>
+        					<td>local move to a hiding place</td>
+        				</tr>
+        				<tr id='bits_MF_TO_DETOUR'>
+        					<td>bits_MF_TO_DETOUR</td>
+        					<td>8</td>
+        					<td>local move to detour point.</td>
+        				</tr>
+        				<tr id='bits_MF_TO_PATHCORNER'>
+        					<td>bits_MF_TO_PATHCORNER</td>
+        					<td>16</td>
+        					<td>local move to a path corner</td>
+        				</tr>
+        				<tr id='bits_MF_TO_NODE'>
+        					<td>bits_MF_TO_NODE</td>
+        					<td>32</td>
+        					<td>local move to a node</td>
+        				</tr>
+        				<tr id='bits_MF_TO_LOCATION'>
+        					<td>bits_MF_TO_LOCATION</td>
+        					<td>64</td>
+        					<td>local move to an arbitrary point</td>
+        				</tr>
+        				<tr id='bits_MF_IS_GOAL'>
+        					<td>bits_MF_IS_GOAL</td>
+        					<td>128</td>
+        					<td>this waypoint is the goal of the whole move.</td>
+        				</tr>
+        				<tr id='bits_MF_DONT_SIMPLIFY'>
+        					<td>bits_MF_DONT_SIMPLIFY</td>
+        					<td>256</td>
+        					<td>Don't let the route code simplify this waypoint</td>
+        				</tr>
+        				<tr id='bits_MF_TO_JUMP'>
+        					<td>bits_MF_TO_JUMP</td>
+        					<td>512</td>
+        					<td>Jumping...</td>
+        				</tr>
+        				<tr id='bits_MF_TO_LADDER'>
+        					<td>bits_MF_TO_LADDER</td>
+        					<td>1024</td>
+        					<td>Ladder...</td>
+        				</tr>
+        				<tr id='bits_MF_TO_ELEVATOR'>
+        					<td>bits_MF_TO_ELEVATOR</td>
+        					<td>2048</td>
+        					<td>Elevator</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

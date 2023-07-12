@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Method">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Method</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/Method">Method</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Method</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Reflection">Reflection</a></p>
+      <p>Reflection method class. Can be used to call object methods.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='opImplCast'>
+        					<td><a class="type" href='/Callable'>Callable</a><span class="type">@</span> opImplCast()</td>
+        					<td>Implicitly casts to base type.</td>
+        				</tr>
+        				<tr id='GetNamespace'>
+        					<td><a class="type" href='/string'>string</a> GetNamespace() <span class="type">const</span></td>
+        					<td>Gets this instance's namespace.</td>
+        				</tr>
+        				<tr id='GetName'>
+        					<td><a class="type" href='/string'>string</a> GetName() <span class="type">const</span></td>
+        					<td>Gets this instance's name.</td>
+        				</tr>
+        				<tr id='Equals'>
+        					<td><span class="type">bool</span> Equals(<span class="type">const</span> <a class="type" href='/Callable'>Callable</a><span class="type">@</span> pCallable) <span class="type">const</span></td>
+        					<td>Returns whether the given callable type is identical to this one.</td>
+        				</tr>
+        				<tr id='IsCompatible'>
+        					<td><span class="type">bool</span> IsCompatible(<span class="type">const</span> <a class="type" href='/Callable'>Callable</a><span class="type">@</span> pCallable) <span class="type">const</span></td>
+        					<td>Returns whether the given object type is compatible with this one.</td>
+        				</tr>
+        				<tr id='Call'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <a class="type" href='/Arguments'>Arguments</a><span class="type">@</span> pArguments)</td>
+        					<td>Calls this method. pArguments must be valid.</td>
+        				</tr>
+        				<tr id='Call@2'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@3'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@4'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@5'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@6'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@7'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@8'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@9'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        				<tr id='Call@10'>
+        					<td><a class="type" href='/ReturnValue'>ReturnValue</a><span class="type">@</span> Call(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> thisObject, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in, <span class="type">?</span><span class="type">&</span> in)</td>
+        					<td>Calls this method.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="NetworkMessage">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>NetworkMessage</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/NetworkMessage">NetworkMessage</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>NetworkMessage</h1>
+      <p>Network message class. Used to send messages to clients.</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='NetworkMessage'>
+        					<td><a class="type" href='/NetworkMessage'>NetworkMessage</a><span class="type">@</span> NetworkMessage(<a class="type" href='/NetworkMessageDest'>NetworkMessageDest</a> dest, <a class="value" href='/NetworkMessageType'>NetworkMessages::NetworkMessageType</a> type, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict = null)</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='NetworkMessage@2'>
+        					<td><a class="type" href='/NetworkMessage'>NetworkMessage</a><span class="type">@</span> NetworkMessage(<a class="type" href='/NetworkMessageDest'>NetworkMessageDest</a> dest, <a class="value" href='/NetworkMessageType'>NetworkMessages::NetworkMessageType</a> type, <span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecOrigin, <a class="type" href='/edict_t'>edict_t</a><span class="type">@</span> pEdict = null)</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='End'>
+        					<td><span class="type">void</span> End()</td>
+        					<td>Ends the message. Must be called to send the message.</td>
+        				</tr>
+        				<tr id='WriteByte'>
+        					<td><span class="type">void</span> WriteByte(<span class="type">uint8</span> byte)</td>
+        					<td>Writes a byte to the buffer.</td>
+        				</tr>
+        				<tr id='WriteChar'>
+        					<td><span class="type">void</span> WriteChar(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szChar)</td>
+        					<td>Writes a character to the buffer.</td>
+        				</tr>
+        				<tr id='WriteShort'>
+        					<td><span class="type">void</span> WriteShort(<span class="type">int16</span> short)</td>
+        					<td>Writes a short to the buffer.</td>
+        				</tr>
+        				<tr id='WriteLong'>
+        					<td><span class="type">void</span> WriteLong(<span class="type">int32</span> long)</td>
+        					<td>Writes a long to the buffer.</td>
+        				</tr>
+        				<tr id='WriteAngle'>
+        					<td><span class="type">void</span> WriteAngle(<span class="type">float</span> flValue)</td>
+        					<td>Writes an angle to the buffer.</td>
+        				</tr>
+        				<tr id='WriteCoord'>
+        					<td><span class="type">void</span> WriteCoord(<span class="type">float</span> flValue)</td>
+        					<td>Writes a coordinate to the buffer.</td>
+        				</tr>
+        				<tr id='WriteVector'>
+        					<td><span class="type">void</span> WriteVector(<span class="type">const</span> <a class="type" href='/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> vecVector)</td>
+        					<td>Writes a vector to the buffer.</td>
+        				</tr>
+        				<tr id='WriteString'>
+        					<td><span class="type">void</span> WriteString(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szString)</td>
+        					<td>Writes a <a href='/string'>string</a> to the buffer.</td>
+        				</tr>
+        				<tr id='WriteEntity'>
+        					<td><span class="type">void</span> WriteEntity(<span class="type">int</span> iEntity)</td>
+        					<td>Writes an entity index to the buffer.</td>
+        				</tr>
+        				<tr id='WriteEntity@2'>
+        					<td><span class="type">void</span> WriteEntity(<a class="type" href='/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity)</td>
+        					<td>Writes an entity index to the buffer.</td>
+        				</tr>
+        				<tr id='WriteFloat'>
+        					<td><span class="type">void</span> WriteFloat(<span class="type">float</span> flValue)</td>
+        					<td>Writes a float to the buffer.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

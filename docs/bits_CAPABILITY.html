@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="bits_CAPABILITY">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>bits_CAPABILITY</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/bits_CAPABILITY">bits_CAPABILITY</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>bits_CAPABILITY</h1>
+      <p>Tells us what a monster can do.<br>See MonsterEntity::m_afCapability</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='bits_CAP_DUCK'>
+        					<td>bits_CAP_DUCK</td>
+        					<td>1</td>
+        					<td>crouch</td>
+        				</tr>
+        				<tr id='bits_CAP_JUMP'>
+        					<td>bits_CAP_JUMP</td>
+        					<td>2</td>
+        					<td>jump/leap</td>
+        				</tr>
+        				<tr id='bits_CAP_STRAFE'>
+        					<td>bits_CAP_STRAFE</td>
+        					<td>4</td>
+        					<td>strafe ( walk/run sideways)</td>
+        				</tr>
+        				<tr id='bits_CAP_SQUAD'>
+        					<td>bits_CAP_SQUAD</td>
+        					<td>8</td>
+        					<td>can form squads</td>
+        				</tr>
+        				<tr id='bits_CAP_SWIM'>
+        					<td>bits_CAP_SWIM</td>
+        					<td>16</td>
+        					<td>proficiently navigate in water</td>
+        				</tr>
+        				<tr id='bits_CAP_CLIMB'>
+        					<td>bits_CAP_CLIMB</td>
+        					<td>32</td>
+        					<td>climb ladders/ropes</td>
+        				</tr>
+        				<tr id='bits_CAP_USE'>
+        					<td>bits_CAP_USE</td>
+        					<td>64</td>
+        					<td>open doors/push buttons/pull levers</td>
+        				</tr>
+        				<tr id='bits_CAP_HEAR'>
+        					<td>bits_CAP_HEAR</td>
+        					<td>128</td>
+        					<td>can hear forced sounds</td>
+        				</tr>
+        				<tr id='bits_CAP_AUTO_DOORS'>
+        					<td>bits_CAP_AUTO_DOORS</td>
+        					<td>256</td>
+        					<td>can trigger auto doors</td>
+        				</tr>
+        				<tr id='bits_CAP_OPEN_DOORS'>
+        					<td>bits_CAP_OPEN_DOORS</td>
+        					<td>512</td>
+        					<td>can open manual doors</td>
+        				</tr>
+        				<tr id='bits_CAP_TURN_HEAD'>
+        					<td>bits_CAP_TURN_HEAD</td>
+        					<td>1024</td>
+        					<td>can turn head, always bone controller 0</td>
+        				</tr>
+        				<tr id='bits_CAP_RANGE_ATTACK1'>
+        					<td>bits_CAP_RANGE_ATTACK1</td>
+        					<td>2048</td>
+        					<td>can do a range attack 1</td>
+        				</tr>
+        				<tr id='bits_CAP_RANGE_ATTACK2'>
+        					<td>bits_CAP_RANGE_ATTACK2</td>
+        					<td>4096</td>
+        					<td>can do a range attack 2</td>
+        				</tr>
+        				<tr id='bits_CAP_MELEE_ATTACK1'>
+        					<td>bits_CAP_MELEE_ATTACK1</td>
+        					<td>8192</td>
+        					<td>can do a melee attack 1</td>
+        				</tr>
+        				<tr id='bits_CAP_MELEE_ATTACK2'>
+        					<td>bits_CAP_MELEE_ATTACK2</td>
+        					<td>16384</td>
+        					<td>can do a melee attack 2</td>
+        				</tr>
+        				<tr id='bits_CAP_FLY'>
+        					<td>bits_CAP_FLY</td>
+        					<td>32768</td>
+        					<td>can fly, move all around</td>
+        				</tr>
+        				<tr id='bits_CAP_USE_TANK'>
+        					<td>bits_CAP_USE_TANK</td>
+        					<td>65536</td>
+        					<td>can use func_tanks</td>
+        				</tr>
+        				<tr id='bits_CAP_FALL_DAMAGE'>
+        					<td>bits_CAP_FALL_DAMAGE</td>
+        					<td>131072</td>
+        					<td>can take fall damage</td>
+        				</tr>
+        				<tr id='bits_CAP_DOORS_GROUP'>
+        					<td>bits_CAP_DOORS_GROUP</td>
+        					<td>832</td>
+        					<td>Combination of <a href='/bits_CAPABILITY#bits_CAP_USE'>bits_CAP_USE</a>, <a href='/bits_CAPABILITY#bits_CAP_AUTO_DOORS'>bits_CAP_AUTO_DOORS</a>, and <a href='/bits_CAPABILITY#bits_CAP_OPEN_DOORS'>bits_CAP_OPEN_DOORS</a></td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

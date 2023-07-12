@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="ItemFlag">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>ItemFlag</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/ItemFlag">ItemFlag</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>ItemFlag</h1>
+      <p>Item flags used by <a href='/ItemInfo#iFlags'>ItemInfo::iFlags</a></p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ITEM_FLAG_SELECTONEMPTY'>
+        					<td>ITEM_FLAG_SELECTONEMPTY</td>
+        					<td>1</td>
+        					<td>Allow this weapon to be selected if it has no ammo.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_NOAUTORELOAD'>
+        					<td>ITEM_FLAG_NOAUTORELOAD</td>
+        					<td>2</td>
+        					<td>Don't automatically reload this weapon.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_NOAUTOSWITCHEMPTY'>
+        					<td>ITEM_FLAG_NOAUTOSWITCHEMPTY</td>
+        					<td>4</td>
+        					<td>Don't automatically switch away from this weapon when it runs out of ammo.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_LIMITINWORLD'>
+        					<td>ITEM_FLAG_LIMITINWORLD</td>
+        					<td>8</td>
+        					<td>If there are few entity slots left, this item will not respawn.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_EXHAUSTIBLE'>
+        					<td>ITEM_FLAG_EXHAUSTIBLE</td>
+        					<td>16</td>
+        					<td>A player can totally exhaust their ammo supply and lose this weapon.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_DUALWIELD'>
+        					<td>ITEM_FLAG_DUALWIELD</td>
+        					<td>32</td>
+        					<td>Use a special HUD ammo configuration unique to a dual wielded weapons.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_IGNOREWEAPONSTAY'>
+        					<td>ITEM_FLAG_IGNOREWEAPONSTAY</td>
+        					<td>64</td>
+        					<td>Ignore weaponstay settings when respawning this weapon.</td>
+        				</tr>
+        				<tr id='ITEM_FLAG_ESSENTIAL'>
+        					<td>ITEM_FLAG_ESSENTIAL</td>
+        					<td>128</td>
+        					<td>This weapon should not be dropped straight away when the player dies, only if he is gibbed or if he respawned.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

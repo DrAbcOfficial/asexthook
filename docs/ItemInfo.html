@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="ItemInfo">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>ItemInfo</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/ItemInfo">ItemInfo</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>ItemInfo</h1>
+      <p>Item info object.</p>
+      <p><b>Type:</b> Value</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='ItemInfo'>
+        					<td><span class="type">void</span> ItemInfo()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='ItemInfo@2'>
+        					<td><span class="type">void</span> ItemInfo(<span class="type">const</span> <a class="type" href='/ItemInfo'>ItemInfo</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/ItemInfo'>ItemInfo</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/ItemInfo'>ItemInfo</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        				<tr id='szName'>
+        					<td><a class="type" href='/string'>string</a> szName() <span class="type">const</span></td>
+        					<td>Gets the name of this weapon.</td>
+        				</tr>
+        				<tr id='szAmmo1'>
+        					<td><a class="type" href='/string'>string</a> szAmmo1() <span class="type">const</span></td>
+        					<td>Gets the primary ammo name of this weapon.</td>
+        				</tr>
+        				<tr id='szAmmo2'>
+        					<td><a class="type" href='/string'>string</a> szAmmo2() <span class="type">const</span></td>
+        					<td>Gets the secondary ammo name of this weapon.</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='iId'>
+        					<td><span class="type">int</span> iId</td>
+        					<td>Item id.</td>
+        				</tr>
+        				<tr id='iSlot'>
+        					<td><span class="type">int</span> iSlot</td>
+        					<td>Item HUD slot.</td>
+        				</tr>
+        				<tr id='iPosition'>
+        					<td><span class="type">int</span> iPosition</td>
+        					<td>Item HUD slot position.</td>
+        				</tr>
+        				<tr id='iFlags'>
+        					<td><span class="type">int</span> iFlags</td>
+        					<td>Item flags.</td>
+        				</tr>
+        				<tr id='iWeight'>
+        					<td><span class="type">int</span> iWeight</td>
+        					<td>Item weight.<br>This value used to determine this weapon's importance in autoselection.</td>
+        				</tr>
+        				<tr id='iMaxAmmo1'>
+        					<td><span class="type">int</span> iMaxAmmo1</td>
+        					<td>Item primary max ammo. -1 if this weapon does not use primary ammo.</td>
+        				</tr>
+        				<tr id='iAmmo1Drop'>
+        					<td><span class="type">int</span> iAmmo1Drop</td>
+        					<td>Amount of dropped primary ammo.</td>
+        				</tr>
+        				<tr id='iMaxAmmo2'>
+        					<td><span class="type">int</span> iMaxAmmo2</td>
+        					<td>Item secondary max ammo. -1 if this weapon does not use secondary ammo.</td>
+        				</tr>
+        				<tr id='iAmmo2Drop'>
+        					<td><span class="type">int</span> iAmmo2Drop</td>
+        					<td>Amount of dropped secondary ammo.</td>
+        				</tr>
+        				<tr id='iMaxClip'>
+        					<td><span class="type">int</span> iMaxClip</td>
+        					<td>Item primary ammo max clip contents.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

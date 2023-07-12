@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="TimeDifference">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>TimeDifference</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/TimeDifference">TimeDifference</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>TimeDifference</h1>
+      <p>Represents the difference between 2 times.</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='TimeDifference'>
+        					<td><span class="type">void</span> TimeDifference()</td>
+        					<td>Default constructor</td>
+        				</tr>
+        				<tr id='TimeDifference@2'>
+        					<td><span class="type">void</span> TimeDifference(<span class="type">const</span> <a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='TimeDifference@3'>
+        					<td><span class="type">void</span> TimeDifference(<span class="type">double</span> flValue)</td>
+        					<td>Sets the time difference to the given value, in seconds</td>
+        				</tr>
+        				<tr id='TimeDifference@4'>
+        					<td><span class="type">void</span> TimeDifference(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> end, <span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> begin)</td>
+        					<td>Sets the time difference to the range between beginning and end. If begin is later than end, is negative.</td>
+        				</tr>
+        				<tr id='TimeDifference@5'>
+        					<td><span class="type">void</span> TimeDifference(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> time)</td>
+        					<td>Sets the time difference to the range between 0 and time.</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        				<tr id='opAssign@2'>
+        					<td><a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> opAssign(<span class="type">double</span> timeDiff)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        				<tr id='opAssign@3'>
+        					<td><a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> opAssign( <span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> time)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        				<tr id='GetTimeDifference'>
+        					<td><span class="type">double</span> GetTimeDifference() <span class="type">const</span></td>
+        					<td>Gets the time difference</td>
+        				</tr>
+        				<tr id='IsPositive'>
+        					<td><span class="type">bool</span> IsPositive() <span class="type">const</span></td>
+        					<td>Returns whether the time difference is positive.</td>
+        				</tr>
+        				<tr id='GetSeconds'>
+        					<td><span class="type">int</span> GetSeconds() <span class="type">const</span></td>
+        					<td>Gets the time difference in seconds.</td>
+        				</tr>
+        				<tr id='GetMinutes'>
+        					<td><span class="type">int</span> GetMinutes() <span class="type">const</span></td>
+        					<td>Gets the time difference in minutes.</td>
+        				</tr>
+        				<tr id='GetHours'>
+        					<td><span class="type">int</span> GetHours() <span class="type">const</span></td>
+        					<td>Gets the time difference in hours.</td>
+        				</tr>
+        				<tr id='GetDays'>
+        					<td><span class="type">int</span> GetDays() <span class="type">const</span></td>
+        					<td>Gets the time difference in days.</td>
+        				</tr>
+        				<tr id='GetYears'>
+        					<td><span class="type">int</span> GetYears() <span class="type">const</span></td>
+        					<td>Gets the time difference in years.</td>
+        				</tr>
+        				<tr id='MakeAbsolute'>
+        					<td><span class="type">void</span> MakeAbsolute()</td>
+        					<td>Makes the time difference absolute.</td>
+        				</tr>
+        				<tr id='SetDifferenceBetween'>
+        					<td><span class="type">void</span> SetDifferenceBetween(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> end, <span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> begin)</td>
+        					<td>Sets the time difference to the range between beginning and end. If begin is later than end, is negative.</td>
+        				</tr>
+        				<tr id='SetTime'>
+        					<td><span class="type">void</span> SetTime(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> time)</td>
+        					<td>Sets the time difference to the range between 0 and time.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="PFLAG">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>PFLAG</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/PFLAG">PFLAG</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>PFLAG</h1>
+      <p>Player physics flags used in <a href='/CBasePlayer#m_afPhysicsFlags'>CBasePlayer::m_afPhysicsFlags</a></p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='PFLAG_ONLADDER'>
+        					<td>PFLAG_ONLADDER</td>
+        					<td>1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='PFLAG_ONSWING'>
+        					<td>PFLAG_ONSWING</td>
+        					<td>1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='PFLAG_ONTRAIN'>
+        					<td>PFLAG_ONTRAIN</td>
+        					<td>2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='PFLAG_ONBARNACLE'>
+        					<td>PFLAG_ONBARNACLE</td>
+        					<td>4</td>
+        					<td></td>
+        				</tr>
+        				<tr id='PFLAG_DUCKING'>
+        					<td>PFLAG_DUCKING</td>
+        					<td>8</td>
+        					<td>In the process of ducking, but totally squatted yet</td>
+        				</tr>
+        				<tr id='PFLAG_USING'>
+        					<td>PFLAG_USING</td>
+        					<td>16</td>
+        					<td>Using a continuous entity</td>
+        				</tr>
+        				<tr id='PFLAG_OBSERVER'>
+        					<td>PFLAG_OBSERVER</td>
+        					<td>32</td>
+        					<td>player is locked in stationary cam mode. Spectators can move, observers can't.</td>
+        				</tr>
+        				<tr id='PFLAG_GRAPPLE'>
+        					<td>PFLAG_GRAPPLE</td>
+        					<td>64</td>
+        					<td>Toggle grapple use</td>
+        				</tr>
+        				<tr id='PFLAG_CAMERA'>
+        					<td>PFLAG_CAMERA</td>
+        					<td>128</td>
+        					<td>Looking through a trigger_camera</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

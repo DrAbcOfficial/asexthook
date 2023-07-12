@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Properties">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>Properties</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Properties">Properties</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>Global Properties</h1>
+      <p>Properties that are accessible at a global level.</p>
+        <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Namespace</th>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='WORLD_BOUNDARY'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> WORLD_BOUNDARY</td>
+        					<td>Distance from the world origin to the world boundary in a single axis<br>Value: 65536.0</td>
+        				</tr>
+        				<tr id='DEFAULT_COMPARE'>
+        					<td><a href='/Namespace.String'>String</a></td>
+        					<td><span class="type">const</span> <a class="type" href='/CompareType'>CompareType</a> DEFAULT_COMPARE</td>
+        					<td>Default comparison type.</td>
+        				</tr>
+        				<tr id='EMPTY_STRING'>
+        					<td><a href='/Namespace.String'>String</a></td>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a> EMPTY_STRING</td>
+        					<td>Empty <a href='/string'>string</a>. Useful when a reference to a <a href='/string'>string</a> is needed.</td>
+        				</tr>
+        				<tr id='WHITESPACE_CHARACTERS'>
+        					<td><a href='/Namespace.String'>String</a></td>
+        					<td><span class="type">const</span> <a class="type" href='/string'>string</a> WHITESPACE_CHARACTERS</td>
+        					<td>A <a href='/string'>string</a> that contains one instance of every whitespace character.</td>
+        				</tr>
+        				<tr id='INVALID_INDEX'>
+        					<td><a href='/Namespace.String'>String</a></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> INVALID_INDEX</td>
+        					<td>Sentinel value used by <a href='/string'>string</a> methods.<br>Value: 4294967295</td>
+        				</tr>
+        				<tr id='NO_MORE_TOKENS'>
+        					<td><a href='/Namespace.String'>String</a></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> NO_MORE_TOKENS</td>
+        					<td>Sentinel value used by <a href='/string'>string</a> tokenization when there are no tokens remaining.<br>Value: 4294967294</td>
+        				</tr>
+        				<tr id='g_Reflection'>
+        					<td><a href='/Namespace.Reflection'>Reflection</a></td>
+        					<td><a class="type" href='/CReflection'>CReflection</a> g_Reflection</td>
+        					<td>Reflection global class instance.</td>
+        				</tr>
+        				<tr id='g_FileSystem'>
+        					<td></td>
+        					<td><a class="type" href='/CVirtualFileSystem'>CVirtualFileSystem</a> g_FileSystem</td>
+        					<td>Global file system instance</td>
+        				</tr>
+        				<tr id='g_Debugger'>
+        					<td></td>
+        					<td> <a class="type" href='/CDebugger'>CDebugger</a> g_Debugger</td>
+        					<td>Debugger instance.</td>
+        				</tr>
+        				<tr id='g_vecZero'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> g_vecZero</td>
+        					<td>Zero vector (0, 0, 0)</td>
+        				</tr>
+        				<tr id='Math'>
+        					<td></td>
+        					<td><a class="type" href='/CMath'>CMath</a> Math</td>
+        					<td><a href='/Properties#Math'>Math</a> functions instance</td>
+        				</tr>
+        				<tr id='VIEW_FIELD_FULL'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> VIEW_FIELD_FULL</td>
+        					<td>Full view field<br>Value: -1.0</td>
+        				</tr>
+        				<tr id='VIEW_FIELD_WIDE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> VIEW_FIELD_WIDE</td>
+        					<td>Wide view field<br>Value: -0.7</td>
+        				</tr>
+        				<tr id='VIEW_FIELD_NARROW'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> VIEW_FIELD_NARROW</td>
+        					<td>Narrow view field<br>Value: 0.7</td>
+        				</tr>
+        				<tr id='VIEW_FIELD_ULTRA_NARROW'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> VIEW_FIELD_ULTRA_NARROW</td>
+        					<td>Ultra narrow view field<br>Value: 0.9</td>
+        				</tr>
+        				<tr id='g_Decals'>
+        					<td></td>
+        					<td><a class="type" href='/CDecals'>CDecals</a> g_Decals</td>
+        					<td>Dynamic decal manager instance</td>
+        				</tr>
+        				<tr id='g_ActivityMap'>
+        					<td></td>
+        					<td><a class="type" href='/CActivityMap'>CActivityMap</a> g_ActivityMap</td>
+        					<td>Activity map instance</td>
+        				</tr>
+        				<tr id='slIdleStand'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slIdleStand</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slIdleTrigger'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slIdleTrigger</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slIdleWalk'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slIdleWalk</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slWakeAngry'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slWakeAngry</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slAlertFace'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slAlertFace</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slAlertStand'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slAlertStand</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slCombatStand'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slCombatStand</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slCombatFace'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slCombatFace</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slReload'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slReload</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slRangeAttack1'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slRangeAttack1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slRangeAttack2'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slRangeAttack2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slChaseEnemy'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slChaseEnemy</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slSmallFlinch'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slSmallFlinch</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slDie'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slDie</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slError'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slError</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slWalkToScript'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slWalkToScript</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slRunToScript'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slRunToScript</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slWaitScript'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slWaitScript</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slTakeCoverFromBestSound'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slTakeCoverFromBestSound</td>
+        					<td></td>
+        				</tr>
+        				<tr id='slFail'>
+        					<td><a href='/Namespace.Schedules'>Schedules</a></td>
+        					<td><a class="type" href='/Schedule'>Schedule</a> slFail</td>
+        					<td></td>
+        				</tr>
+        				<tr id='MAX_OLD_ENEMIES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> MAX_OLD_ENEMIES</td>
+        					<td>How many old enemies to remember<br>Value: 4</td>
+        				</tr>
+        				<tr id='ROUTE_SIZE'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> ROUTE_SIZE</td>
+        					<td>How many waypoints a monster can store at one time<br>Value: 8</td>
+        				</tr>
+        				<tr id='VEC_HULL_MIN'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_HULL_MIN</td>
+        					<td>Default hull minimum. Used with CEntityFuncs::SetSize<br>Value: (-16.0, -16.0, -36.0)</td>
+        				</tr>
+        				<tr id='VEC_HULL_MAX'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_HULL_MAX</td>
+        					<td>Default hull maximum. Used with CEntityFuncs::SetSize<br>Value: (16.0, 16.0, 36.0)</td>
+        				</tr>
+        				<tr id='VEC_HUMAN_HULL_MIN'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_HUMAN_HULL_MIN</td>
+        					<td>Default human hull maximum. Used with CEntityFuncs::SetSize<br>Value: (-16.0, -16.0, 0.0)</td>
+        				</tr>
+        				<tr id='VEC_HUMAN_HULL_MAX'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_HUMAN_HULL_MAX</td>
+        					<td>Default human hull maximum while standing. Used with CEntityFuncs::SetSize<br>Value: (16.0, 16.0, 72.0)</td>
+        				</tr>
+        				<tr id='VEC_HUMAN_HULL_DUCK'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_HUMAN_HULL_DUCK</td>
+        					<td>Default human hull maximum while ducking. Used with CEntityFuncs::SetSize<br>Value: (16.0, 16.0, 36.0)</td>
+        				</tr>
+        				<tr id='VEC_VIEW'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_VIEW</td>
+        					<td>View offset.<br>Value: (0.0, 0.0, 28.0)</td>
+        				</tr>
+        				<tr id='VEC_DUCK_HULL_MIN'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_DUCK_HULL_MIN</td>
+        					<td>Hull minimum while ducking. Used with CEntityFuncs::SetSize<br>Value: (-16.0, -16.0, -18.0)</td>
+        				</tr>
+        				<tr id='VEC_DUCK_HULL_MAX'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_DUCK_HULL_MAX</td>
+        					<td>Hull maximum while ducking. Used with CEntityFuncs::SetSize<br>Value: (16.0, 16.0, 18.0)</td>
+        				</tr>
+        				<tr id='VEC_DUCK_VIEW'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VEC_DUCK_VIEW</td>
+        					<td>Hull view offset while ducking.<br>Value: (0.0, 0.0, 12.0)</td>
+        				</tr>
+        				<tr id='MAX_AMMO_TYPES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> MAX_AMMO_TYPES</td>
+        					<td>Maximum number of ammo types<br>Value: 64</td>
+        				</tr>
+        				<tr id='MAX_ITEM_TYPES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> MAX_ITEM_TYPES</td>
+        					<td>HUD item selection slots<br>Value: 10</td>
+        				</tr>
+        				<tr id='AUTOAIM_2DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> AUTOAIM_2DEGREES</td>
+        					<td>Autoaim<br>Value: 0.034899</td>
+        				</tr>
+        				<tr id='AUTOAIM_5DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> AUTOAIM_5DEGREES</td>
+        					<td>Autoaim<br>Value: 0.087156</td>
+        				</tr>
+        				<tr id='AUTOAIM_8DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> AUTOAIM_8DEGREES</td>
+        					<td>Autoaim<br>Value: 0.139173</td>
+        				</tr>
+        				<tr id='AUTOAIM_10DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> AUTOAIM_10DEGREES</td>
+        					<td>Autoaim<br>Value: 0.173648</td>
+        				</tr>
+        				<tr id='PLAYERCOMMAND_WAIT'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> PLAYERCOMMAND_WAIT</td>
+        					<td>Time between player vocal client commands<br>Value: 4.0</td>
+        				</tr>
+        				<tr id='g_EngineFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CEngineFuncs'>CEngineFuncs</a> g_EngineFuncs</td>
+        					<td>Engine functions instance</td>
+        				</tr>
+        				<tr id='g_ModelFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CModelFuncs'>CModelFuncs</a> g_ModelFuncs</td>
+        					<td>Model functions instance</td>
+        				</tr>
+        				<tr id='MAX_WORLD_SOUNDS'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Typedefs#size_t'>size_t</a> MAX_WORLD_SOUNDS</td>
+        					<td>maximum number of sounds handled by the world at one time.<br>See <a href='/CSoundEnt'>CSoundEnt</a>.<br>Value: 1024</td>
+        				</tr>
+        				<tr id='SOUNDLIST_EMPTY'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> SOUNDLIST_EMPTY</td>
+        					<td>Indicates that the sound list is empty.<br>See <a href='/CSoundEnt'>CSoundEnt</a>.<br>Value: -1</td>
+        				</tr>
+        				<tr id='SOUNDLISTTYPE_FREE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> SOUNDLISTTYPE_FREE</td>
+        					<td>Identifiers passed to functions that can operate on either list, to indicate which list to operate on.<br>See <a href='/CSoundEnt'>CSoundEnt</a>.<br>Value: 1</td>
+        				</tr>
+        				<tr id='SOUNDLISTTYPE_ACTIVE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> SOUNDLISTTYPE_ACTIVE</td>
+        					<td>Identifiers passed to functions that can operate on either list, to indicate which list to operate on.<br>See <a href='/CSoundEnt'>CSoundEnt</a>.<br>Value: 2</td>
+        				</tr>
+        				<tr id='SOUND_NEVER_EXPIRE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> SOUND_NEVER_EXPIRE</td>
+        					<td>With this set as a sound's ExpireTime, the sound will never expire.<br>See <a href='/CSoundEnt'>CSoundEnt</a>.<br>Value: -1</td>
+        				</tr>
+        				<tr id='g_InventoryMisc'>
+        					<td></td>
+        					<td><a class="type" href='/CInventoryMisc'>CInventoryMisc</a> g_InventoryMisc</td>
+        					<td>Inventory misc functions instance</td>
+        				</tr>
+        				<tr id='LOUD_GUN_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> LOUD_GUN_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 1536</td>
+        				</tr>
+        				<tr id='NORMAL_GUN_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> NORMAL_GUN_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 1024</td>
+        				</tr>
+        				<tr id='QUIET_GUN_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> QUIET_GUN_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 200</td>
+        				</tr>
+        				<tr id='BRIGHT_GUN_FLASH'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> BRIGHT_GUN_FLASH</td>
+        					<td>Value used in CBasePlayer::m_iWeaponFlash<br>Value: 512</td>
+        				</tr>
+        				<tr id='NORMAL_GUN_FLASH'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> NORMAL_GUN_FLASH</td>
+        					<td>Value used in CBasePlayer::m_iWeaponFlash<br>Value: 256</td>
+        				</tr>
+        				<tr id='DIM_GUN_FLASH'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> DIM_GUN_FLASH</td>
+        					<td>Value used in CBasePlayer::m_iWeaponFlash<br>Value: 128</td>
+        				</tr>
+        				<tr id='BIG_EXPLOSION_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> BIG_EXPLOSION_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 2048</td>
+        				</tr>
+        				<tr id='NORMAL_EXPLOSION_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> NORMAL_EXPLOSION_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 1024</td>
+        				</tr>
+        				<tr id='SMALL_EXPLOSION_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> SMALL_EXPLOSION_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 512</td>
+        				</tr>
+        				<tr id='WEAPON_ACTIVITY_VOLUME'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> WEAPON_ACTIVITY_VOLUME</td>
+        					<td>Parameter for <a href='/CSoundEnt#InsertSound'>CSoundEnt::InsertSound</a> iVolume<br>Value: 64</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_1DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_1DEGREES</td>
+        					<td>(0.008730, 0.008730, 0.008730)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_2DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_2DEGREES</td>
+        					<td>(0.017450, 0.017450, 0.017450)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_3DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_3DEGREES</td>
+        					<td>(0.026180, 0.026180, 0.026180)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_4DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_4DEGREES</td>
+        					<td>(0.034900, 0.034900, 0.034900)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_5DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_5DEGREES</td>
+        					<td>(0.043620, 0.043620, 0.043620)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_6DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_6DEGREES</td>
+        					<td>(0.052340, 0.052340, 0.052340)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_7DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_7DEGREES</td>
+        					<td>(0.061050, 0.061050, 0.061050)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_8DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_8DEGREES</td>
+        					<td>(0.069760, 0.069760, 0.069760)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_9DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_9DEGREES</td>
+        					<td>(0.078460, 0.078460, 0.078460)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_10DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_10DEGREES</td>
+        					<td>(0.087160, 0.087160, 0.087160)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_15DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_15DEGREES</td>
+        					<td>(0.130530, 0.130530, 0.130530)</td>
+        				</tr>
+        				<tr id='VECTOR_CONE_20DEGREES'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/Vector'>Vector</a> VECTOR_CONE_20DEGREES</td>
+        					<td>(0.173650, 0.173650, 0.173650)</td>
+        				</tr>
+        				<tr id='WEAPON_NOCLIP'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">int</span> WEAPON_NOCLIP</td>
+        					<td>Used for clips that don't use ammo.<br>Value: -1</td>
+        				</tr>
+        				<tr id='g_ItemRegistry'>
+        					<td></td>
+        					<td><a class="type" href='/CItemRegistry'>CItemRegistry</a> g_ItemRegistry</td>
+        					<td>Item registry global instance.</td>
+        				</tr>
+        				<tr id='g_EntityLoader'>
+        					<td></td>
+        					<td><a class="type" href='/CEntityLoader'>CEntityLoader</a> g_EntityLoader</td>
+        					<td>Entity loader global instance</td>
+        				</tr>
+        				<tr id='g_CustomEntityFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CCustomEntityFuncs'>CCustomEntityFuncs</a> g_CustomEntityFuncs</td>
+        					<td>Custom entity functions global instance.</td>
+        				</tr>
+        				<tr id='g_Utility'>
+        					<td></td>
+        					<td><a class="type" href='/CUtility'>CUtility</a> g_Utility</td>
+        					<td>Utility methods instance</td>
+        				</tr>
+        				<tr id='g_Game'>
+        					<td></td>
+        					<td><a class="type" href='/CGame'>CGame</a> g_Game</td>
+        					<td>Game functions instance</td>
+        				</tr>
+        				<tr id='ATTN_NONE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> ATTN_NONE</td>
+        					<td>0.0</td>
+        				</tr>
+        				<tr id='ATTN_NORM'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> ATTN_NORM</td>
+        					<td>0.8</td>
+        				</tr>
+        				<tr id='ATTN_IDLE'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> ATTN_IDLE</td>
+        					<td>2.0</td>
+        				</tr>
+        				<tr id='ATTN_STATIC'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> ATTN_STATIC</td>
+        					<td>1.25</td>
+        				</tr>
+        				<tr id='VOL_NORM'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">float</span> VOL_NORM</td>
+        					<td>Volume value normal<br>Value: 1.0</td>
+        				</tr>
+        				<tr id='g_SoundSystem'>
+        					<td></td>
+        					<td><a class="type" href='/CSoundEngine'>CSoundEngine</a> g_SoundSystem</td>
+        					<td>Sound engine instance</td>
+        				</tr>
+        				<tr id='g_Engine'>
+        					<td></td>
+        					<td><a class="type" href='/CEngine'>CEngine</a> g_Engine</td>
+        					<td>Engine global variables instance</td>
+        				</tr>
+        				<tr id='FTRACE_SIMPLEBOX'>
+        					<td></td>
+        					<td><span class="type">const</span> <span class="type">uint</span> FTRACE_SIMPLEBOX</td>
+        					<td>Goes into <a href='/Properties#g_Engine'>g_Engine</a>.trace_flags<br>Traceline with a simple box<br>Value: 1</td>
+        				</tr>
+        				<tr id='g_EntityFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CEntityFuncs'>CEntityFuncs</a> g_EntityFuncs</td>
+        					<td>Global entity functions instance</td>
+        				</tr>
+        				<tr id='RGBA_WHITE'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_WHITE</td>
+        					<td>White<br>(255, 255, 255, 255)</td>
+        				</tr>
+        				<tr id='RGBA_BLACK'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_BLACK</td>
+        					<td>Black<br>(0, 0, 0, 255)</td>
+        				</tr>
+        				<tr id='RGBA_RED'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_RED</td>
+        					<td>Red<br>(255, 0, 0, 255)</td>
+        				</tr>
+        				<tr id='RGBA_GREEN'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_GREEN</td>
+        					<td>Green<br>(0, 255, 0, 255)</td>
+        				</tr>
+        				<tr id='RGBA_BLUE'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_BLUE</td>
+        					<td>Blue<br>(0, 0, 255, 255)</td>
+        				</tr>
+        				<tr id='RGBA_YELLOW'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_YELLOW</td>
+        					<td>Yellow<br>(255, 255, 0, 255)</td>
+        				</tr>
+        				<tr id='RGBA_ORANGE'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_ORANGE</td>
+        					<td>Orange<br>(255, 128, 0, 255)</td>
+        				</tr>
+        				<tr id='RGBA_SVENCOOP'>
+        					<td></td>
+        					<td><span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a> RGBA_SVENCOOP</td>
+        					<td>Sven Co-op HUD color<br>(100, 130, 200, 255)</td>
+        				</tr>
+        				<tr id='g_PlayerFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CPlayerFuncs'>CPlayerFuncs</a> g_PlayerFuncs</td>
+        					<td>Global player functions instance</td>
+        				</tr>
+        				<tr id='g_WeaponFuncs'>
+        					<td></td>
+        					<td><a class="type" href='/CWeaponFuncs'>CWeaponFuncs</a> g_WeaponFuncs</td>
+        					<td>Weapon functions global instance.</td>
+        				</tr>
+        				<tr id='g_GlobalState'>
+        					<td></td>
+        					<td><a class="type" href='/CGlobalState'>CGlobalState</a> g_GlobalState</td>
+        					<td>Global state manager instance</td>
+        				</tr>
+        				<tr id='g_Angelscript'>
+        					<td></td>
+        					<td><a class="type" href='/CAngelscript'>CAngelscript</a> g_Angelscript</td>
+        					<td>Angelscript debugging functions instance</td>
+        				</tr>
+        				<tr id='g_MapCycle'>
+        					<td></td>
+        					<td><a class="type" href='/CMapCycle'>CMapCycle</a> g_MapCycle</td>
+        					<td>Map cycle manager instance</td>
+        				</tr>
+        				<tr id='g_Map'>
+        					<td></td>
+        					<td><a class="type" href='/CMap'>CMap</a> g_Map</td>
+        					<td>Map state variables instance</td>
+        				</tr>
+        				<tr id='g_PluginManager'>
+        					<td></td>
+        					<td><a class="type" href='/CPluginManager'>CPluginManager</a> g_PluginManager</td>
+        					<td>Plugin manager global instance.</td>
+        				</tr>
+        				<tr id='g_StartInventory'>
+        					<td></td>
+        					<td><a class="type" href='/CStartInventory'>CStartInventory</a> g_StartInventory</td>
+        					<td>Player start inventory manager instance</td>
+        				</tr>
+        				<tr id='g_TextMenus'>
+        					<td></td>
+        					<td><a class="type" href='/CTextMenus'>CTextMenus</a> g_TextMenus</td>
+        					<td>Text menu manager global instance</td>
+        				</tr>
+        				<tr id='g_AdminControl'>
+        					<td></td>
+        					<td><a class="type" href='/CAdminControl'>CAdminControl</a> g_AdminControl</td>
+        					<td><a href='/CAdminControl'>CAdminControl</a> instance for plugins</td>
+        				</tr>
+        				<tr id='g_Log'>
+        					<td></td>
+        					<td><a class="type" href='/CLog'>CLog</a> g_Log</td>
+        					<td>Log global instance</td>
+        				</tr>
+        				<tr id='g_ConCommandSystem'>
+        					<td></td>
+        					<td><a class="type" href='/CConCommandSystem'>CConCommandSystem</a> g_ConCommandSystem</td>
+        					<td><a href='/CConCommandSystem'>CConCommandSystem</a> global instance</td>
+        				</tr>
+        				<tr id='g_ClassicMode'>
+        					<td></td>
+        					<td><a class="type" href='/CClassicMode'>CClassicMode</a> g_ClassicMode</td>
+        					<td>Classic Mode global instance.</td>
+        				</tr>
+        				<tr id='g_SurvivalMode'>
+        					<td></td>
+        					<td><a class="type" href='/CSurvivalMode'>CSurvivalMode</a> g_SurvivalMode</td>
+        					<td>Survival Mode global instance.</td>
+        				</tr>
+        				<tr id='SendScoreInfo'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> SendScoreInfo</td>
+        					<td>Pre call before sending hud info to edict</td>
+        				</tr>
+        				<tr id='GrappleGetMonsterType'>
+        					<td><a href='/Namespace.Hooks.Weapon'>Hooks::Weapon</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> GrappleGetMonsterType</td>
+        					<td>Pre call before Weapon Grapple checking monster type</td>
+        				</tr>
+        				<tr id='BreakableTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Entity'>Hooks::Entity</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> BreakableTakeDamage</td>
+        					<td>Pre call before a breakable took damage</td>
+        				</tr>
+        				<tr id='BreakableDie'>
+        					<td><a href='/Namespace.Hooks.Entity'>Hooks::Entity</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> BreakableDie</td>
+        					<td>Pre call before a breakable died</td>
+        				</tr>
+        				<tr id='BreakableTraceAttack'>
+        					<td><a href='/Namespace.Hooks.Entity'>Hooks::Entity</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> BreakableTraceAttack</td>
+        					<td>Pre call before a breakable trace attack</td>
+        				</tr>
+        				<tr id='MonsterKilled'>
+        					<td><a href='/Namespace.Hooks.Monster'>Hooks::Monster</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MonsterKilled</td>
+        					<td>Pre call before a monster died</td>
+        				</tr>
+        				<tr id='MonsterPostTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Monster'>Hooks::Monster</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MonsterPostTakeDamage</td>
+        					<td>Post call before a monster took damage</td>
+        				</tr>
+        				<tr id='MonsterTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Monster'>Hooks::Monster</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MonsterTakeDamage</td>
+        					<td>Pre call before a monster took damage</td>
+        				</tr>
+        				<tr id='MonsterTraceAttack'>
+        					<td><a href='/Namespace.Hooks.Monster'>Hooks::Monster</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MonsterTraceAttack</td>
+        					<td>Pre call before a monster trace attack</td>
+        				</tr>
+        				<tr id='MonsterSpawn'>
+        					<td><a href='/Namespace.Hooks.Monster'>Hooks::Monster</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MonsterSpawn</td>
+        					<td>Post call after a monster spawn</td>
+        				</tr>
+        				<tr id='IRelationship'>
+        					<td><a href='/Namespace.Hooks.Entity'>Hooks::Entity</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> IRelationship</td>
+        					<td>Pre call before checking relation</td>
+        				</tr>
+        				<tr id='EntitySpawn'>
+        					<td><a href='/Namespace.Hooks.Entity'>Hooks::Entity</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> EntitySpawn</td>
+        					<td>Post call after a Entity spawn</td>
+        				</tr>
+        				<tr id='PlayerCallGrenade'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCallGrenade</td>
+        					<td>Pre call before a player call grenade</td>
+        				</tr>
+        				<tr id='PlayerCallMedic'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCallMedic</td>
+        					<td>Pre call before a player call medic</td>
+        				</tr>
+        				<tr id='PlayerTakeHealth'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTakeHealth</td>
+        					<td>Pre call before a player took health</td>
+        				</tr>
+        				<tr id='PlayerPostTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPostTakeDamage</td>
+        					<td>Pre call before a player took damage</td>
+        				</tr>
+        				<tr id='PlayerUserInfoChanged'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerUserInfoChanged</td>
+        					<td>Pre call before a player info changed</td>
+        				</tr>
+        				<tr id='WeaponTertiaryAttack'>
+        					<td><a href='/Namespace.Hooks.Weapon'>Hooks::Weapon</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> WeaponTertiaryAttack</td>
+        					<td>Called when a player fires a weapon's tertiary attack.<br>Value: 0</td>
+        				</tr>
+        				<tr id='WeaponSecondaryAttack'>
+        					<td><a href='/Namespace.Hooks.Weapon'>Hooks::Weapon</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> WeaponSecondaryAttack</td>
+        					<td>Called when a player fires a weapon's secondary attack.<br>Value: 1</td>
+        				</tr>
+        				<tr id='WeaponPrimaryAttack'>
+        					<td><a href='/Namespace.Hooks.Weapon'>Hooks::Weapon</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> WeaponPrimaryAttack</td>
+        					<td>Called when a player fires a weapon's primary attack.<br>Value: 2</td>
+        				</tr>
+        				<tr id='PlayerPreDecal'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPreDecal</td>
+        					<td>Called when a player attempts to spraypaint a decal onto a surface. The given trace result contains the surface information. Set bResult to false if the player shouldn't be able to spray. <br>Value: 3</td>
+        				</tr>
+        				<tr id='PlayerDecal'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerDecal</td>
+        					<td>Called when a player is spraypainting a decal onto a surface. The given trace result contains the surface information. <br>Value: 4</td>
+        				</tr>
+        				<tr id='GetPlayerSpawnSpot'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> GetPlayerSpawnSpot</td>
+        					<td>Called when a player is about to get a spawn point before (re)spawning.<br>Value: 5</td>
+        				</tr>
+        				<tr id='PlayerPostThink'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPostThink</td>
+        					<td>Called when the player is processing post think events.<br>Value: 6</td>
+        				</tr>
+        				<tr id='PlayerPreThink'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPreThink</td>
+        					<td>Called when the player is processing pre think events.<br>Value: 7</td>
+        				</tr>
+        				<tr id='PlayerUse'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerUse</td>
+        					<td>Called when the game is processing player use input. Note that this occurs even if the player has not pressed their use key.<br>Value: 8</td>
+        				</tr>
+        				<tr id='PlayerLeftObserver'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerLeftObserver</td>
+        					<td>Called when a player leaves observer mode.<br>Value: 9</td>
+        				</tr>
+        				<tr id='PlayerEnteredObserver'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerEnteredObserver</td>
+        					<td>Called when a player enters observer mode.<br>Value: 10</td>
+        				</tr>
+        				<tr id='PlayerKilled'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerKilled</td>
+        					<td>Called when a player is killed.<br>Value: 11</td>
+        				</tr>
+        				<tr id='PlayerTakeDamage'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTakeDamage</td>
+        					<td>Called when a player takes damage. Note that the victim entity can't be changed at this point.<br>Value: 12</td>
+        				</tr>
+        				<tr id='PlayerCanRespawn'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerCanRespawn</td>
+        					<td>Called when the game wants to know if the player should be able to respawn or not.Set bCanRespawn to false to disallow, default true.<br>Value: 13</td>
+        				</tr>
+        				<tr id='PlayerSpawn'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerSpawn</td>
+        					<td>Called when a player (re)spawns.<br>Value: 14</td>
+        				</tr>
+        				<tr id='ClientConnected'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientConnected</td>
+        					<td>Called when a player connects to the server. if bDisallowJoin is set to false, the player is disconnected. szRejectReason is shown to the player if disconnected. The maximum length of the reject reason <a href='/string'>string</a> is 127 characters.<br>Value: 15</td>
+        				</tr>
+        				<tr id='Collected'>
+        					<td><a href='/Namespace.Hooks.PickupObject'>Hooks::PickupObject</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> Collected</td>
+        					<td>Called when a pickup object is collected by a player. <br>Value: 16</td>
+        				</tr>
+        				<tr id='Materialize'>
+        					<td><a href='/Namespace.Hooks.PickupObject'>Hooks::PickupObject</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> Materialize</td>
+        					<td>Called when a pickup object materializes.<br>Value: 17</td>
+        				</tr>
+        				<tr id='CanCollect'>
+        					<td><a href='/Namespace.Hooks.PickupObject'>Hooks::PickupObject</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> CanCollect</td>
+        					<td>Called when a pickup object is about to be collected by a player. Note that basic checks are done before this hook is called.<br>Value: 18</td>
+        				</tr>
+        				<tr id='CanPlayerUseReservedSlot'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> CanPlayerUseReservedSlot</td>
+        					<td>Called when a player connects to the server, and the number of slots left on the server is <= the number of reserved slots. Set bAllowJoin to true to allow the player to join (default false).<br>Value: 19</td>
+        				</tr>
+        				<tr id='ClientSay'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientSay</td>
+        					<td>Called when a player says something in game chat. The <a href='/SayParameters'>SayParameters</a> class can be used to manipulate input and veto the message.<br>Value: 20</td>
+        				</tr>
+        				<tr id='ClientPutInServer'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientPutInServer</td>
+        					<td>Called when a player has finished connecting and is put into the world. It is safe to send network messages to the player at this point.<br>Value: 21</td>
+        				</tr>
+        				<tr id='ClientDisconnect'>
+        					<td><a href='/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> ClientDisconnect</td>
+        					<td>Called when a player disconnects. Note that this is only called if the player was fully connected, meaning the player went through <a href='/Properties#ClientPutInServer'>ClientPutInServer</a>. This is never called for the local host.<br>Value: 22</td>
+        				</tr>
+        				<tr id='EntityCreated'>
+        					<td><a href='/Namespace.Hooks.Game'>Hooks::Game</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> EntityCreated</td>
+        					<td>Called when a new entity is created. At this point the entity is not spawned yet and may not be fully initialized.<br>Value: 23</td>
+        				</tr>
+        				<tr id='MapChange'>
+        					<td><a href='/Namespace.Hooks.Game'>Hooks::Game</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> MapChange</td>
+        					<td>Called when the map changes. This happens when the world is destroyed. There may still be entities that exist at this point.<br>Value: 24</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

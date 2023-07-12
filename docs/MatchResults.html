@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="MatchResults">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>MatchResults</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/MatchResults">MatchResults</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>MatchResults</h1>
+      <p><b>Namespace:</b> <a href="/Namespace.Regex">Regex</a></p>
+      <p>Regular expression match results</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='MatchResults'>
+        					<td><a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> MatchResults()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='MatchResults@2'>
+        					<td><a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> MatchResults(<span class="type">const</span> <a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> pOther)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='IsEmpty'>
+        					<td><span class="type">bool</span> IsEmpty() <span class="type">const</span></td>
+        					<td>Returns whether this match results object is empty or not</td>
+        				</tr>
+        				<tr id='GetSize'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetSize() <span class="type">const</span></td>
+        					<td>Returns the number of matches</td>
+        				</tr>
+        				<tr id='GetMaxSize'>
+        					<td><a class="type" href='/Typedefs#size_t'>size_t</a> GetMaxSize() <span class="type">const</span></td>
+        					<td>Returns the maximum size</td>
+        				</tr>
+        				<tr id='opIndex'>
+        					<td><a class="type" href='/SubMatch'>SubMatch</a> opIndex(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex) <span class="type">const</span></td>
+        					<td>Returns the sub match object at the given index</td>
+        				</tr>
+        				<tr id='GetPrefix'>
+        					<td><a class="type" href='/SubMatch'>SubMatch</a> GetPrefix() <span class="type">const</span></td>
+        					<td>Gets the prefix submatch</td>
+        				</tr>
+        				<tr id='GetSuffix'>
+        					<td><a class="type" href='/SubMatch'>SubMatch</a> GetSuffix() <span class="type">const</span></td>
+        					<td>Gets the suffix submatch</td>
+        				</tr>
+        				<tr id='GetLength'>
+        					<td><span class="type">int</span> GetLength(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex = 0) <span class="type">const</span></td>
+        					<td>Gets the length of the given submatch</td>
+        				</tr>
+        				<tr id='GetPosition'>
+        					<td><span class="type">int</span> GetPosition(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex = 0) <span class="type">const</span></td>
+        					<td>Gets the position of the given submatch</td>
+        				</tr>
+        				<tr id='GetString'>
+        					<td><a class="type" href='/string'>string</a> GetString(<a class="type" href='/Typedefs#size_t'>size_t</a> uiIndex = 0) <span class="type">const</span></td>
+        					<td>Gets the given submatch as a <a href='/string'>string</a></td>
+        				</tr>
+        				<tr id='Format'>
+        					<td><a class="type" href='/string'>string</a> Format(<span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFormat, <a class="type" href='/MatchFlagType'>MatchFlagType</a> flags = <a class="value" href='/MatchFlagType#match_default'>Regex::match_default</a>) <span class="type">const</span></td>
+        					<td>Gets the length of the given submatch</td>
+        				</tr>
+        				<tr id='Swap'>
+        					<td><span class="type">void</span> Swap(<a class="type" href='/MatchResults'>MatchResults</a><span class="type">@</span> other)</td>
+        					<td>Swaps these match results with the given results.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

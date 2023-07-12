@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="NetworkMessageDest">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>NetworkMessageDest</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/NetworkMessageDest">NetworkMessageDest</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>NetworkMessageDest</h1>
+      <p>Network message destination types.</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='MSG_BROADCAST'>
+        					<td>MSG_BROADCAST</td>
+        					<td>0</td>
+        					<td>unreliable to all</td>
+        				</tr>
+        				<tr id='MSG_ONE'>
+        					<td>MSG_ONE</td>
+        					<td>1</td>
+        					<td>reliable to one (msg_entity)</td>
+        				</tr>
+        				<tr id='MSG_ALL'>
+        					<td>MSG_ALL</td>
+        					<td>2</td>
+        					<td>reliable to all</td>
+        				</tr>
+        				<tr id='MSG_INIT'>
+        					<td>MSG_INIT</td>
+        					<td>3</td>
+        					<td>write to the init <a href='/string'>string</a></td>
+        				</tr>
+        				<tr id='MSG_PVS'>
+        					<td>MSG_PVS</td>
+        					<td>4</td>
+        					<td>Ents in PVS of org</td>
+        				</tr>
+        				<tr id='MSG_PAS'>
+        					<td>MSG_PAS</td>
+        					<td>5</td>
+        					<td>Ents in PAS of org</td>
+        				</tr>
+        				<tr id='MSG_PVS_R'>
+        					<td>MSG_PVS_R</td>
+        					<td>6</td>
+        					<td>Reliable to PVS</td>
+        				</tr>
+        				<tr id='MSG_PAS_R'>
+        					<td>MSG_PAS_R</td>
+        					<td>7</td>
+        					<td>Reliable to PAS</td>
+        				</tr>
+        				<tr id='MSG_ONE_UNRELIABLE'>
+        					<td>MSG_ONE_UNRELIABLE</td>
+        					<td>8</td>
+        					<td>Send to one client, but don't put in reliable stream, put in unreliable datagram ( could be dropped )</td>
+        				</tr>
+        				<tr id='MSG_SPEC'>
+        					<td>MSG_SPEC</td>
+        					<td>9</td>
+        					<td>Sends to all spectator proxies</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

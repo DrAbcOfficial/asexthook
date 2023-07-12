@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="DateTime">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>DateTime</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/DateTime">DateTime</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>DateTime</h1>
+      <p><a href='/DateTime'>DateTime</a> class.<br>Note: milliseconds default to 0 due to limited accuracy.</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='DateTime'>
+        					<td><span class="type">void</span> DateTime()</td>
+        					<td>Default constructor.</td>
+        				</tr>
+        				<tr id='DateTime@2'>
+        					<td><span class="type">void</span> DateTime(<span class="type">uint</span> uiMilliseconds, <span class="type">int</span> iSeconds, <span class="type">int</span> iMinutes, <span class="type">int</span> iHour, <span class="type">int</span> iDayOfMonth, <span class="type">int</span> iMonth, <span class="type">int</span> iYear)</td>
+        					<td>Init constructor.</td>
+        				</tr>
+        				<tr id='DateTime@3'>
+        					<td><span class="type">void</span> DateTime(<a class="type" href='/Typedefs#time_t'>time_t</a> time)</td>
+        					<td>Unix timestamp constructor.</td>
+        				</tr>
+        				<tr id='DateTime@4'>
+        					<td><span class="type">void</span> DateTime(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> ref)</td>
+        					<td>Copy constructor.</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> ref)</td>
+        					<td>Assignment operator.</td>
+        				</tr>
+        				<tr id='opAssign@2'>
+        					<td><a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> opAssign(<a class="type" href='/Typedefs#time_t'>time_t</a> time)</td>
+        					<td>Assignment operator.</td>
+        				</tr>
+        				<tr id='ToUnixTimestamp'>
+        					<td><a class="type" href='/Typedefs#time_t'>time_t</a> ToUnixTimestamp() <span class="type">const</span></td>
+        					<td>Get time as a unix timestamp.</td>
+        				</tr>
+        				<tr id='SetUnixTimestamp'>
+        					<td><span class="type">void</span> SetUnixTimestamp(<a class="type" href='/Typedefs#time_t'>time_t</a> time)</td>
+        					<td>Sets time as a unix timestamp.</td>
+        				</tr>
+        				<tr id='GetMilliseconds'>
+        					<td><span class="type">uint</span> GetMilliseconds() <span class="type">const</span></td>
+        					<td>Get milliseconds.</td>
+        				</tr>
+        				<tr id='GetSeconds'>
+        					<td><span class="type">int</span> GetSeconds() <span class="type">const</span></td>
+        					<td>Get seconds (0-59).</td>
+        				</tr>
+        				<tr id='GetMinutes'>
+        					<td><span class="type">int</span> GetMinutes() <span class="type">const</span></td>
+        					<td>Get minutes (0-59).</td>
+        				</tr>
+        				<tr id='GetHour'>
+        					<td><span class="type">int</span> GetHour() <span class="type">const</span></td>
+        					<td>Get hours (0-23).</td>
+        				</tr>
+        				<tr id='GetDayOfMonth'>
+        					<td><span class="type">int</span> GetDayOfMonth() <span class="type">const</span></td>
+        					<td>Get day of month (0-30).</td>
+        				</tr>
+        				<tr id='GetMonth'>
+        					<td><span class="type">int</span> GetMonth() <span class="type">const</span></td>
+        					<td>Get month (0-11).</td>
+        				</tr>
+        				<tr id='GetYear'>
+        					<td><span class="type">int</span> GetYear() <span class="type">const</span></td>
+        					<td>Get year.</td>
+        				</tr>
+        				<tr id='SetMilliseconds'>
+        					<td><span class="type">void</span> SetMilliseconds(<span class="type">uint</span> uiMilliseconds)</td>
+        					<td>Set milliseconds.</td>
+        				</tr>
+        				<tr id='SetSeconds'>
+        					<td><span class="type">void</span> SetSeconds(<span class="type">int</span> iSeconds)</td>
+        					<td>Set seconds (0-59).</td>
+        				</tr>
+        				<tr id='SetMinutes'>
+        					<td><span class="type">void</span> SetMinutes(<span class="type">int</span> iMinutes)</td>
+        					<td>Set minutes (0-59).</td>
+        				</tr>
+        				<tr id='SetHour'>
+        					<td><span class="type">void</span> SetHour(<span class="type">int</span> iHours)</td>
+        					<td>Set hours (0-23).</td>
+        				</tr>
+        				<tr id='SetDayOfMonth'>
+        					<td><span class="type">void</span> SetDayOfMonth(<span class="type">int</span> iDay)</td>
+        					<td>Set day of month (0-30).</td>
+        				</tr>
+        				<tr id='SetMonth'>
+        					<td><span class="type">void</span> SetMonth(<span class="type">int</span> iMonth)</td>
+        					<td>Set month (0-11).</td>
+        				</tr>
+        				<tr id='SetYear'>
+        					<td><span class="type">void</span> SetYear(<span class="type">int</span> iYear)</td>
+        					<td>Set year.</td>
+        				</tr>
+        				<tr id='Format'>
+        					<td><span class="type">int</span> Format(<a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">out</span> szResult, <span class="type">const</span> <a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">in</span> szFormat) <span class="type">const</span></td>
+        					<td>Formats this datetime as a <a href='/string'>string</a>.<br>Returns the length of the destination <a href='/string'>string</a>, or 0 if the buffer was not large enough.</td>
+        				</tr>
+        				<tr id='ToString'>
+        					<td><span class="type">void</span> ToString(<a class="type" href='/string'>string</a><span class="type">&</span> <span class="inout">out</span> szResult) <span class="type">const</span></td>
+        					<td>Returns a <a href='/string'>string</a> representation of this datetime.</td>
+        				</tr>
+        				<tr id='opEquals'>
+        					<td><span class="type">bool</span> opEquals(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> other) <span class="type">const</span></td>
+        					<td>Returns whether these two DateTimes represent the same time.</td>
+        				</tr>
+        				<tr id='opCmp'>
+        					<td><span class="type">int</span> opCmp(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> other) <span class="type">const</span></td>
+        					<td>Comparison operator.</td>
+        				</tr>
+        				<tr id='opSub'>
+        					<td><a class="type" href='/TimeDifference'>TimeDifference</a> opSub(<span class="type">const</span> <a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> <span class="inout">in</span> other) <span class="type">const</span></td>
+        					<td>Subtracts the given <a href='/DateTime'>DateTime</a> from this one, resulting in a <a href='/TimeDifference'>TimeDifference</a> object.</td>
+        				</tr>
+        				<tr id='opAddAssign'>
+        					<td><a class="type" href='/DateTime'>DateTime</a><span class="type">&</span> opAddAssign(<span class="type">const</span> <a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> <span class="inout">in</span> diffTime)</td>
+        					<td>Adds the given <a href='/TimeDifference'>TimeDifference</a> to this one.</td>
+        				</tr>
+        				<tr id='opAdd'>
+        					<td><a class="type" href='/DateTime'>DateTime</a> opAdd(<span class="type">const</span> <a class="type" href='/TimeDifference'>TimeDifference</a><span class="type">&</span> <span class="inout">in</span> diffTime) <span class="type">const</span></td>
+        					<td>Adds this <a href='/DateTime'>DateTime</a> and the given TimeDifferene together, returning a copy containing the new time.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

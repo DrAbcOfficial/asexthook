@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="RGBA">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>RGBA</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/RGBA">RGBA</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>RGBA</h1>
+      <p>Color stored as four uint8 components</p>
+      <p><b>Type:</b> Value</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='RGBA'>
+        					<td><span class="type">void</span> RGBA()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='RGBA@2'>
+        					<td><span class="type">void</span> RGBA(<span class="type">uint8</span> r, <span class="type">uint8</span> g, <span class="type">uint8</span> b, <span class="type">uint8</span> a = 255)</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='RGBA@3'>
+        					<td><span class="type">void</span> RGBA(<span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Copy constructor</td>
+        				</tr>
+        				<tr id='opAssign'>
+        					<td><a class="type" href='/RGBA'>RGBA</a><span class="type">&</span> opAssign(<span class="type">const</span> <a class="type" href='/RGBA'>RGBA</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Assignment operator</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='r'>
+        					<td><span class="type">uint8</span> r</td>
+        					<td>Red component</td>
+        				</tr>
+        				<tr id='g'>
+        					<td><span class="type">uint8</span> g</td>
+        					<td>Green component</td>
+        				</tr>
+        				<tr id='b'>
+        					<td><span class="type">uint8</span> b</td>
+        					<td>Blue component</td>
+        				</tr>
+        				<tr id='a'>
+        					<td><span class="type">uint8</span> a</td>
+        					<td>Alpha component</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

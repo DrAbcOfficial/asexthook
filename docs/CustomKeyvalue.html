@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="CustomKeyvalue">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>CustomKeyvalue</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Classes">Classes</a> > <a href="/CustomKeyvalue">CustomKeyvalue</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>CustomKeyvalue</h1>
+      <p>Custom keyvalue. Only use this as a local variable, do not store them!</p>
+      <p><b>Type:</b> Value</p>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='CustomKeyvalue'>
+        					<td><span class="type">void</span> CustomKeyvalue()</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='CustomKeyvalue@2'>
+        					<td><span class="type">void</span> CustomKeyvalue(<span class="type">const</span> <a class="type" href='/CustomKeyvalue'>CustomKeyvalue</a><span class="type">&</span> <span class="inout">in</span> other)</td>
+        					<td>Constructor</td>
+        				</tr>
+        				<tr id='Exists'>
+        					<td><span class="type">bool</span> Exists() <span class="type">const</span></td>
+        					<td>Returns whether the value exists.</td>
+        				</tr>
+        				<tr id='GetType'>
+        					<td><a class="type" href='/Entvartype'>Entvartype</a> GetType() <span class="type">const</span></td>
+        					<td>Gets the type of the keyvalue.<br>Returns <a href='/Entvartype#VAR_INVALID'>VAR_INVALID</a> if this value does not exist.</td>
+        				</tr>
+        				<tr id='GetString'>
+        					<td><a class="type" href='/string'>string</a> GetString() <span class="type">const</span></td>
+        					<td>Gets the value as a <a href='/string'>string</a>.</td>
+        				</tr>
+        				<tr id='GetVector'>
+        					<td><a class="type" href='/Vector'>Vector</a> GetVector() <span class="type">const</span></td>
+        					<td>Gets the value as a vector.</td>
+        				</tr>
+        				<tr id='GetFloat'>
+        					<td><span class="type">float</span> GetFloat() <span class="type">const</span></td>
+        					<td>Gets the value as a float.</td>
+        				</tr>
+        				<tr id='GetInteger'>
+        					<td><span class="type">int</span> GetInteger() <span class="type">const</span></td>
+        					<td>Gets the value as an integer.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

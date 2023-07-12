@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="DMG">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>DMG</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/">Index</a> > <a href="/Enums">Enums</a> > <a href="/DMG">DMG</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>DMG</h1>
+      <p>Damage types.</p>
+        <h2 id="Values">Values</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Name</th>
+        				<th>Value</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='DMG_GENERIC'>
+        					<td>DMG_GENERIC</td>
+        					<td>0</td>
+        					<td>Generic damage.</td>
+        				</tr>
+        				<tr id='DMG_CRUSH'>
+        					<td>DMG_CRUSH</td>
+        					<td>1</td>
+        					<td>Crush damage. By falling or moving object.</td>
+        				</tr>
+        				<tr id='DMG_BULLET'>
+        					<td>DMG_BULLET</td>
+        					<td>2</td>
+        					<td><a href='/Bullet'>Bullet</a>. Shot.</td>
+        				</tr>
+        				<tr id='DMG_SLASH'>
+        					<td>DMG_SLASH</td>
+        					<td>4</td>
+        					<td>Slash. Cut, clawed, stabbed.</td>
+        				</tr>
+        				<tr id='DMG_BURN'>
+        					<td>DMG_BURN</td>
+        					<td>8</td>
+        					<td>Burn. Heat burned.</td>
+        				</tr>
+        				<tr id='DMG_FREEZE'>
+        					<td>DMG_FREEZE</td>
+        					<td>16</td>
+        					<td>Freeze. Frozen.</td>
+        				</tr>
+        				<tr id='DMG_FALL'>
+        					<td>DMG_FALL</td>
+        					<td>32</td>
+        					<td>Fall. Fell too far.</td>
+        				</tr>
+        				<tr id='DMG_BLAST'>
+        					<td>DMG_BLAST</td>
+        					<td>64</td>
+        					<td>Blast. Explosive blast damage.</td>
+        				</tr>
+        				<tr id='DMG_CLUB'>
+        					<td>DMG_CLUB</td>
+        					<td>128</td>
+        					<td>Club. Crowbar, punch, headbutt.</td>
+        				</tr>
+        				<tr id='DMG_SHOCK'>
+        					<td>DMG_SHOCK</td>
+        					<td>256</td>
+        					<td>Shock. Electric shock.</td>
+        				</tr>
+        				<tr id='DMG_SONIC'>
+        					<td>DMG_SONIC</td>
+        					<td>512</td>
+        					<td>Sonic. Sound pulse shockwave.</td>
+        				</tr>
+        				<tr id='DMG_ENERGYBEAM'>
+        					<td>DMG_ENERGYBEAM</td>
+        					<td>1024</td>
+        					<td>Energy beam. Laser or other high energy beam.</td>
+        				</tr>
+        				<tr id='DMG_NEVERGIB'>
+        					<td>DMG_NEVERGIB</td>
+        					<td>4096</td>
+        					<td>Never gib. With this bit OR'd in, no damage type will be able to gib victims upon death.</td>
+        				</tr>
+        				<tr id='DMG_ALWAYSGIB'>
+        					<td>DMG_ALWAYSGIB</td>
+        					<td>8192</td>
+        					<td>Always gib. With this bit OR'd in, any damage type can be made to gib victims upon death.</td>
+        				</tr>
+        				<tr id='DMG_LAUNCH'>
+        					<td>DMG_LAUNCH</td>
+        					<td>67108864</td>
+        					<td>Launch. Launch into air.</td>
+        				</tr>
+        				<tr id='DMG_DROWN'>
+        					<td>DMG_DROWN</td>
+        					<td>16384</td>
+        					<td>Drown. Drowning.</td>
+        				</tr>
+        				<tr id='DMG_TIMEBASED'>
+        					<td>DMG_TIMEBASED</td>
+        					<td>16760832</td>
+        					<td>Mash for time-based damage.</td>
+        				</tr>
+        				<tr id='DMG_PARALYZE'>
+        					<td>DMG_PARALYZE</td>
+        					<td>32768</td>
+        					<td>Paralyze. Slows affected creature down.</td>
+        				</tr>
+        				<tr id='DMG_NERVEGAS'>
+        					<td>DMG_NERVEGAS</td>
+        					<td>65536</td>
+        					<td>Nerve gas. Nerve toxins, very bad.</td>
+        				</tr>
+        				<tr id='DMG_POISON'>
+        					<td>DMG_POISON</td>
+        					<td>131072</td>
+        					<td>Poison. Blood poisoning.</td>
+        				</tr>
+        				<tr id='DMG_RADIATION'>
+        					<td>DMG_RADIATION</td>
+        					<td>262144</td>
+        					<td>Radiation. Radiation exposure.</td>
+        				</tr>
+        				<tr id='DMG_DROWNRECOVER'>
+        					<td>DMG_DROWNRECOVER</td>
+        					<td>524288</td>
+        					<td>Drown recover. Drowning recovery.</td>
+        				</tr>
+        				<tr id='DMG_ACID'>
+        					<td>DMG_ACID</td>
+        					<td>1048576</td>
+        					<td>Acid. Toxic chemicals or acid burns.</td>
+        				</tr>
+        				<tr id='DMG_SLOWBURN'>
+        					<td>DMG_SLOWBURN</td>
+        					<td>2097152</td>
+        					<td>Slow burn. In an oven.</td>
+        				</tr>
+        				<tr id='DMG_SLOWFREEZE'>
+        					<td>DMG_SLOWFREEZE</td>
+        					<td>4194304</td>
+        					<td>Slow freeze. In a subzero freezer.</td>
+        				</tr>
+        				<tr id='DMG_MORTAR'>
+        					<td>DMG_MORTAR</td>
+        					<td>8388608</td>
+        					<td>Mortar. Hit by air raid (done to distinguish grenade from mortar)</td>
+        				</tr>
+        				<tr id='DMG_SNIPER'>
+        					<td>DMG_SNIPER</td>
+        					<td>16777216</td>
+        					<td>Sniper. Hit by a Sniper.</td>
+        				</tr>
+        				<tr id='DMG_MEDKITHEAL'>
+        					<td>DMG_MEDKITHEAL</td>
+        					<td>33554432</td>
+        					<td>Medkit heal. Medkit healing.</td>
+        				</tr>
+        				<tr id='DMG_SHOCK_GLOW'>
+        					<td>DMG_SHOCK_GLOW</td>
+        					<td>134217728</td>
+        					<td>Shock glow. Flag for shock glow effect.</td>
+        				</tr>
+        				<tr id='DMG_GIB_CORPSE'>
+        					<td>DMG_GIB_CORPSE</td>
+        					<td>993</td>
+        					<td><a href='/NetworkMessageType#Gib'>Gib</a> corpse. These are the damage types that are allowed to gib corpses.</td>
+        				</tr>
+        				<tr id='DMG_SHOWNHUD'>
+        					<td>DMG_SHOWNHUD</td>
+        					<td>7815448</td>
+        					<td>Shown on HUD. These are the damage types that have clien hud art.</td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>
