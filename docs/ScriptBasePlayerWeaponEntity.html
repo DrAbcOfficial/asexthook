@@ -15,7 +15,7 @@
   <body>
 	<header>
 		<nav>
-			<a href="/asexthook">Index</a> > <a href="/asexthook/Interfaces">Interfaces</a> > <a href="/asexthook/ScriptBasePlayerWeaponEntity">ScriptBasePlayerWeaponEntity</a>
+			<a href="/asexthook/">Index</a> > <a href="/asexthook/Classes">Classes</a> > <a href="/asexthook/ScriptBasePlayerWeaponEntity">ScriptBasePlayerWeaponEntity</a>
 		</nav>
 		<div>
 			<input type="search" id="search-input" placeholder="Search">
@@ -24,6 +24,12 @@
 	</header>
     <main>
       <h1>ScriptBasePlayerWeaponEntity</h1>
+      <p>Custom entity for <a href='/asexthook/CBasePlayerWeapon'>CBasePlayerWeapon</a></p>
+      <p><b>Type:</b> Value</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
         <h2 id="Methods">Methods</h2>
         <table>
         	<thead>
@@ -34,19 +40,19 @@
         	</thead>
         	<tbody>
         				<tr id='SetUse'>
-        					<td><span class="type">void</span> SetUse(<a class="type" href='/asexthook/Typedefs#UseFunction'>UseFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
+        					<td><span class="type">void</span> SetUse(<a class="type" href='/asexthook/FuncDefs#UseFunction'>UseFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
         					<td></td>
         				</tr>
         				<tr id='SetBlocked'>
-        					<td><span class="type">void</span> SetBlocked(<a class="type" href='/asexthook/Typedefs#BlockedFunction'>BlockedFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
+        					<td><span class="type">void</span> SetBlocked(<a class="type" href='/asexthook/FuncDefs#BlockedFunction'>BlockedFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
         					<td></td>
         				</tr>
         				<tr id='SetTouch'>
-        					<td><span class="type">void</span> SetTouch(<a class="type" href='/asexthook/Typedefs#TouchFunction'>TouchFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
+        					<td><span class="type">void</span> SetTouch(<a class="type" href='/asexthook/FuncDefs#TouchFunction'>TouchFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
         					<td></td>
         				</tr>
         				<tr id='SetThink'>
-        					<td><span class="type">void</span> SetThink(<a class="type" href='/asexthook/Typedefs#ThinkFunction'>ThinkFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
+        					<td><span class="type">void</span> SetThink(<a class="type" href='/asexthook/FuncDefs#ThinkFunction'>ThinkFunction</a><span class="type">@</span> pFunction) <span class="type">final</span></td>
         					<td></td>
         				</tr>
         				<tr id='SetCallbackHandler'>
@@ -75,20 +81,20 @@
         		</tr>
         	</thead>
         	<tbody>
-        				<tr id=''>
-        					<td><a class="type" href='/asexthook/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span> self</td>
+        				<tr id='callback'>
+        					<td><a class="type" href='/asexthook/CustomEntityCallbackHandler'>CustomEntityCallbackHandler</a><span class="type">@</span> callback</td>
         					<td></td>
         				</tr>
-        				<tr id=''>
-        					<td><a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
-        					<td></td>
-        				</tr>
-        				<tr id=''>
+        				<tr id='BaseClass'>
         					<td><a class="type" href='/asexthook/BasePlayerWeapon'>BasePlayerWeapon</a><span class="type">@</span> BaseClass</td>
         					<td></td>
         				</tr>
-        				<tr id=''>
-        					<td><a class="type" href='/asexthook/CustomEntityCallbackHandler'>CustomEntityCallbackHandler</a><span class="type">@</span> callback</td>
+        				<tr id='pev'>
+        					<td><a class="type" href='/asexthook/entvars_t'>entvars_t</a><span class="type">@</span> pev</td>
+        					<td></td>
+        				</tr>
+        				<tr id='self'>
+        					<td><a class="type" href='/asexthook/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span> self</td>
         					<td></td>
         				</tr>
         	</tbody>
