@@ -72,4 +72,4 @@ jobs:
       uses: actions/upload-artifact@v3.1.0
       with:
         name: asexthook.so
-        path: ${{env.SOLUTION_FILE_PATH}}/build/libasexthook.so
+        path: ${{env.SOLUTION_FILE_PATH}}/Release/libasexthook.so

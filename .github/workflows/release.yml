@@ -73,12 +73,12 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: mkdir build && cd build && cmake .. && make && mv libasexthook.so asexthook.so
+      run: mkdir build && cd build && cmake .. && make && mv ../Release/libasexthook.so ../Release/asexthook.so
 
     - name: Zipping All
       uses: vimtor/action-zip@v1
       with:
-          files: ${{env.SOLUTION_FILE_PATH}}/build/asexthook.so
+          files: ${{env.SOLUTION_FILE_PATH}}/Release/asexthook.so
           dest: asexthook-ubuntu-i386.zip
 
     - name: Create Release
