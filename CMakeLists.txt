@@ -230,6 +230,6 @@ add_custom_command_if(
     TARGET ${PROJECT_NAME}
     POST_BUILD
     COMMANDS
-    COMMAND cp "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/Release/libasexthook.so" "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/../build/addons/metamod/dlls/"
+    COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/Release/libasexthook.so" "${CMAKE_CURRENT_SOURCE_DIR}/../build/addons/metamod/dlls/"
 )
 
