@@ -38,7 +38,7 @@ set(CMAKE_CXX_FLAGS "-m32")
 set(CMAKE_CXX_FLAGS_DEBUG "-m32")
 set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Os -ffunction-sections")
 
-set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "-s -Wl --gc-sections")
+set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "-s -Wl,--as-needed")
 
 ################################################################################
 # Global linker options
