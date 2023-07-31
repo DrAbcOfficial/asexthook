@@ -73,7 +73,7 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: mkdir build && cd build && cmake -DCMAKE_CONFIGURATION_TYPES="Release" .. && make && mv libasexthook.so asexthook.so
+      run: mkdir build && cd build && cmake .. && make && mv libasexthook.so asexthook.so
 
     - name: Zipping All
       uses: vimtor/action-zip@v1

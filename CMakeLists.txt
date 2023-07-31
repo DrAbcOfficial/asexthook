@@ -223,13 +223,3 @@ if(MSVC)
     )
 endif()
 
-################################################################################
-# Post build events
-################################################################################
-add_custom_command_if(
-    TARGET ${PROJECT_NAME}
-    POST_BUILD
-    COMMANDS
-    COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/Release/libasexthook.so" "${CMAKE_CURRENT_SOURCE_DIR}/../build/addons/metamod/dlls/"
-)
-
