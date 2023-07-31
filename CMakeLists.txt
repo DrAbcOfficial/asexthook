@@ -221,9 +221,6 @@ if(MSVC)
         >
         /DEBUG
     )
-else()
-	set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
-    	set(CMAKE_CXX_FLAGS_RELEASE "-Os")
 endif()
 
 ################################################################################
@@ -233,6 +230,6 @@ add_custom_command_if(
     TARGET ${PROJECT_NAME}
     POST_BUILD
     COMMANDS
-    COMMAND $<CONFIG:Release> copy "$<SHELL_PATH:${OUTPUT_DIRECTORY}>${TARGET_NAME}$ENV{TargetExt}" "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/../build/addons/metamod/dlls/"
+    COMMAND $<CONFIG:Release> copy "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/Release/libasexthook.so" "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/../build/addons/metamod/dlls/"
 )
 
