@@ -93,19 +93,17 @@ int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG
 	edict_t* ent = PrivateToEdict(pThis);
 	if (ent) {
 		entvars_t* var = &ent->v;
-		if (var->flags & FL_MONSTER) {
-			damageinfo_t dmg = {
-				pThis,
-				GetEntVarsVTable(pevInflictor),
-				GetEntVarsVTable(pevAttacker),
-				flDamage,
-				bitsDamageType
-			};
-			CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
-			int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
-			CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
-			return value;
-		}
+		damageinfo_t dmg = {
+			pThis,
+			GetEntVarsVTable(pevInflictor),
+			GetEntVarsVTable(pevAttacker),
+			flDamage,
+			bitsDamageType
+		};
+		CALL_ANGELSCRIPT(pMonsterTakeDamage, &dmg);
+		int value = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+		CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
+		return value;
 	}
 	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
