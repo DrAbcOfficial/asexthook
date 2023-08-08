@@ -66,10 +66,10 @@ jobs:
 
     - name: Build
       working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: mkdir build && cd build && cmake -DCMAKE_CONFIGURATION_TYPES="Release" .. && make
+      run: mkdir build && cd build && cmake .. && make
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
         name: asexthook.so
-        path: ${{env.SOLUTION_FILE_PATH}}/build/libasexthook.so
+        path: ${{env.SOLUTION_FILE_PATH}}/Release/libasexthook.so

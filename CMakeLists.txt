@@ -1,10 +1,5 @@
 cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
 
-set(CMAKE_SYSTEM_VERSION $([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0')) CACHE STRING "" FORCE)
-
-set (CMAKE_CXX_STANDARD 20)
-set (CMAKE_CXX_STANDARD_REQUIRED ON)
-
 project(asexthook C CXX)
 
 ################################################################################
@@ -31,12 +26,19 @@ set(CMAKE_CONFIGURATION_TYPES
 ################################################################################
 # Global compiler options
 ################################################################################
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_BUILD_TYPE Release)
+
 set(CMAKE_C_FLAGS "-m32")
 set(CMAKE_C_FLAGS_DEBUG "-m32")
-set(CMAKE_C_FLAGS_RELEASE "-m32")
+set(CMAKE_C_FLAGS_RELEASE "-m32 -Os -ffunction-sections")
 set(CMAKE_CXX_FLAGS "-m32")
 set(CMAKE_CXX_FLAGS_DEBUG "-m32")
-set(CMAKE_CXX_FLAGS_RELEASE "-m32")
+set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Os -ffunction-sections")
+
+set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "-s -Wl,--as-needed")
 
 ################################################################################
 # Global linker options
@@ -219,18 +221,5 @@ if(MSVC)
         >
         /DEBUG
     )
-else()
-	set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
-    	set(CMAKE_CXX_FLAGS_RELEASE "-Os")
 endif()
-
-################################################################################
-# Post build events
-################################################################################
-add_custom_command_if(
-    TARGET ${PROJECT_NAME}
-    POST_BUILD
-    COMMANDS
-    COMMAND $<CONFIG:Release> copy "$<SHELL_PATH:${OUTPUT_DIRECTORY}>${TARGET_NAME}$ENV{TargetExt}" "$<SHELL_PATH:${CMAKE_CURRENT_SOURCE_DIR}/>/../build/addons/metamod/dlls/"
-)
 
