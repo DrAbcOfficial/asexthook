@@ -81,8 +81,8 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 	else if (!m_bAviliable)
 		return 1;
 	int iReturn = 0;
-	char* zErrMsg = NULL;
-	char** pResult = NULL;
+	char* zErrMsg = nullptr;
+	char** pResult = nullptr;
 	int nRow = 0;
 	int nColumn = 0;
 	iReturn = SQLite3_GetTable(m_pDatabase, sql->c_str(), &pResult, &nRow, &nColumn, &zErrMsg);
@@ -99,11 +99,12 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 	asITypeInfo* strInfo = engine->GetTypeInfoByName("string");
 	
 	int iIndex = 0;
-	for (int i = 0; i < nRow; i++){
+	for (int i = 0; i <= nRow; i++){
 		void* ary = engine->CreateScriptObject(aryInfo);
 		for (int j = 0; j < nColumn; j++){
 			CString* val = static_cast<CString*>(engine->CreateScriptObject(strInfo));
-			val->assign(pResult[iIndex], strlen(pResult[iIndex]));
+			char* res = pResult[i * nColumn + j];
+			val->assign(res, strlen(res));
 			ctx->Prepare(funcAryInsert);
 			ctx->SetObject(ary);
 			ctx->SetArgObject(0, val);
