@@ -49,6 +49,9 @@
     <ClCompile Include="src\source\vftable.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\CASSQLItem.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -96,6 +99,9 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="src\header\vftable.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\CASSQLItem.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

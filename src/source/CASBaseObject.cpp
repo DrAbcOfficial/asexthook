@@ -26,8 +26,6 @@ int CASBaseGCObject::GetRefCount() {
 	return (refCount & 0x7FFFFFFF);
 }
 void CASBaseGCObject::EnumReferences(asIScriptEngine* engine) {
-
 }
 void CASBaseGCObject::ReleaseReferences(asIScriptEngine* engine) {
-
 }

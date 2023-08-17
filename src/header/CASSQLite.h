@@ -28,4 +28,10 @@ private:
 	bool m_bAviliable = false;
 	std::string m_szStoredPath;
 	int m_iMode = 0;
+
+	asITypeInfo* m_pGripInfo;
+	asIScriptFunction* m_pGripInsertFunction;
+	asITypeInfo* m_pArrayInfo;
+	asIScriptFunction* m_pArrayInsertFunction;
+	asITypeInfo* m_pItemInfo;
 };

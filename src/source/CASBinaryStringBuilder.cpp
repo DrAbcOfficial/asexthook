@@ -11,11 +11,20 @@ CBinaryStringBuilder::CBinaryStringBuilder(){
 	refCount = 1;
 }
 CBinaryStringBuilder* CBinaryStringBuilder::Factory() {
-	return new CBinaryStringBuilder();
+	CBinaryStringBuilder* obj = new CBinaryStringBuilder();
+	CASServerManager* manager = ASEXT_GetServerManager();
+	asIScriptEngine* engine = manager->scriptEngine;
+	asITypeInfo* type = engine->GetTypeInfoByName("CBinaryStringBuilder");
+	engine->NotifyGarbageCollectorOfNewObject(obj, type);
+	return obj;
 }
 CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
 	CBinaryStringBuilder* obj = new CBinaryStringBuilder();
 	obj->Set(str);
+	CASServerManager* manager = ASEXT_GetServerManager();
+	asIScriptEngine* engine = manager->scriptEngine;
+	asITypeInfo* type = engine->GetTypeInfoByName("CBinaryStringBuilder");
+	engine->NotifyGarbageCollectorOfNewObject(obj, type);
 	return obj;
 }
 

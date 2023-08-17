@@ -95,6 +95,7 @@
     <ClCompile Include="src\source\CASBaseObject.cpp" />
     <ClCompile Include="src\source\CASBinaryStringBuilder.cpp" />
     <ClCompile Include="src\source\CASSQLite.cpp" />
+    <ClCompile Include="src\source\CASSQLItem.cpp" />
     <ClCompile Include="src\source\dllapi.cpp" />
     <ClCompile Include="src\source\dllmain.cpp" />
     <ClCompile Include="src\source\engine_api.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="src\header\CASBaseObject.h" />
     <ClInclude Include="src\header\CASBinaryStringBuilder.h" />
     <ClInclude Include="src\header\CASSQLite.h" />
+    <ClInclude Include="src\header\CASSQLItem.h" />
     <ClInclude Include="src\header\dlldef.h" />
     <ClInclude Include="src\header\enginedef.h" />
     <ClInclude Include="src\header\info_name.h" />
