@@ -75,7 +75,7 @@ int CASSQLite::Open(){
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
-int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
+int CASSQLite::ExecSync(CString* sql, void* arrayOut, int* columnout, int* rowout, CString* errMsg){
 	if (m_bClosed) 
 		return 999;
 	else if (!m_bAviliable)
@@ -92,30 +92,30 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	asIScriptContext* ctx = engine->RequestContext();
-	asITypeInfo* aryInfoAll = engine->GetTypeInfoByDecl("array<array<string>>@");
-	asIScriptFunction* funcAryInsertAll = aryInfoAll->GetMethodByName("insertLast");
-	asITypeInfo* aryInfo = engine->GetTypeInfoByDecl("array<string>");
+	asITypeInfo* aryInfo = engine->GetTypeInfoByDecl("array<string>@");
 	asIScriptFunction* funcAryInsert = aryInfo->GetMethodByName("insertLast");
 	asITypeInfo* strInfo = engine->GetTypeInfoByName("string");
 	
 	int iIndex = 0;
-	for (int i = 0; i <= nRow; i++){
-		void* ary = engine->CreateScriptObject(aryInfo);
+	for (int i = 0; i <= nRow; i++){	
 		for (int j = 0; j < nColumn; j++){
 			CString* val = static_cast<CString*>(engine->CreateScriptObject(strInfo));
 			char* res = pResult[i * nColumn + j];
-			val->assign(res, strlen(res));
+			//thee shall no be null in base type, but sqlite could be
+			if(res != nullptr)
+				val->assign(res, strlen(res));
+			else
+				val->assign("", strlen(""));
 			ctx->Prepare(funcAryInsert);
-			ctx->SetObject(ary);
+			ctx->SetObject(arrayOut);
 			ctx->SetArgObject(0, val);
 			ctx->Execute();
 			iIndex++;
 		}
-		ctx->Prepare(funcAryInsertAll);
-		ctx->SetObject(arrayOut);
-		ctx->SetArgObject(0, ary);
-		ctx->Execute();
 	}
+	*columnout = nColumn;
+	*rowout = nRow + 1;
+
 	if (zErrMsg) {
 		errMsg->assign(zErrMsg, strlen(zErrMsg));
 		SQLite3_Free(zErrMsg);
