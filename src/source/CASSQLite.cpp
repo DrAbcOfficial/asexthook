@@ -89,7 +89,7 @@ int CASSQLite::Open(){
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
-int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
+int CASSQLite::ExecSync(CString* sql, void* arrayOut, int* columnout, int* rowout, CString* errMsg){
 	if (m_bClosed) 
 		return 999;
 	else if (!m_bAviliable)
@@ -127,6 +127,9 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 		ctx->SetArgObject(0, ary);
 		ctx->Execute();
 	}
+	*columnout = nColumn;
+	*rowout = nRow + 1;
+
 	if (zErrMsg) {
 		errMsg->assign(zErrMsg, strlen(zErrMsg));
 		SQLite3_Free(zErrMsg);
