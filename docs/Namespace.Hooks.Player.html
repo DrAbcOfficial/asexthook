@@ -35,6 +35,51 @@
         		</tr>
         	</thead>
         	<tbody>
+        				<tr id='QueryCvar2'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> QueryCvar2</td>
+        					<td>Get called when svc_querycvar2 response is received</td>
+        				</tr>
+        				<tr id='QueryCvar'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> QueryCvar</td>
+        					<td>Get called when svc_querycvar response is received</td>
+        				</tr>
+        				<tr id='PlayerMovePlaySoundFX'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerMovePlaySoundFX</td>
+        					<td>Get called when playing player move sound</td>
+        				</tr>
+        				<tr id='PlayerMovePlayStepSound'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerMovePlayStepSound</td>
+        					<td>Get called when playing step sound</td>
+        				</tr>
+        				<tr id='PlayerTouchPlayer'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTouchPlayer</td>
+        					<td>Get called when player touches a player, player's velocity is temporarily set to impactvelocity</td>
+        				</tr>
+        				<tr id='PlayerTouchImpact'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTouchImpact</td>
+        					<td>Get called when player impacts a solid entities or world, player's velocity is temporarily set to impactvelocity</td>
+        				</tr>
+        				<tr id='PlayerTouchTrigger'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerTouchTrigger</td>
+        					<td>Get called when player touches a trigger</td>
+        				</tr>
+        				<tr id='PlayerPostThinkPost'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerPostThinkPost</td>
+        					<td>Post call of gEntityInterface.pfnPlayerPostThink</td>
+        				</tr>
+        				<tr id='PlayerAddToFullPack'>
+        					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
+        					<td><span class="type">const</span> <span class="type">uint32</span> PlayerAddToFullPack</td>
+        					<td>Post call of gEntityInterface.pfnAddToFullPack, only visible entity goes here</td>
+        				</tr>
         				<tr id='SendScoreInfo'>
         					<td><a href='/asexthook/Namespace.Hooks.Player'>Hooks::Player</a></td>
         					<td><span class="type">const</span> <span class="type">uint32</span> SendScoreInfo</td>

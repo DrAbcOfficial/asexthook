@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="entity_state_t">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>entity_state_t</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/asexthook/">Index</a> > <a href="/asexthook/Classes">Classes</a> > <a href="/asexthook/entity_state_t">entity_state_t</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>entity_state_t</h1>
+      <p>Entity states transmit to client</p>
+      <p><b>Type:</b> Reference</p>
+        <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='entityType'>
+        					<td><span class="type">int</span> entityType</td>
+        					<td>Fields which are filled in by routines outside of delta compression</td>
+        				</tr>
+        				<tr id='number'>
+        					<td><span class="type">int</span> number</td>
+        					<td>Index into cl_entities array for this entity.</td>
+        				</tr>
+        				<tr id='msg_time'>
+        					<td><span class="type">float</span> msg_time</td>
+        					<td></td>
+        				</tr>
+        				<tr id='messagenum'>
+        					<td><span class="type">int</span> messagenum</td>
+        					<td>Message number last time the player/entity state was updated.</td>
+        				</tr>
+        				<tr id='origin'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> origin</td>
+        					<td></td>
+        				</tr>
+        				<tr id='angles'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> angles</td>
+        					<td></td>
+        				</tr>
+        				<tr id='modelindex'>
+        					<td><span class="type">int</span> modelindex</td>
+        					<td></td>
+        				</tr>
+        				<tr id='sequence'>
+        					<td><span class="type">int</span> sequence</td>
+        					<td></td>
+        				</tr>
+        				<tr id='frame'>
+        					<td><span class="type">float</span> frame</td>
+        					<td></td>
+        				</tr>
+        				<tr id='colormap'>
+        					<td><span class="type">int</span> colormap</td>
+        					<td></td>
+        				</tr>
+        				<tr id='skin'>
+        					<td><span class="type">int16</span> skin</td>
+        					<td></td>
+        				</tr>
+        				<tr id='solid'>
+        					<td><span class="type">int16</span> solid</td>
+        					<td></td>
+        				</tr>
+        				<tr id='effects'>
+        					<td><span class="type">int</span> effects</td>
+        					<td></td>
+        				</tr>
+        				<tr id='scale'>
+        					<td><span class="type">float</span> scale</td>
+        					<td></td>
+        				</tr>
+        				<tr id='eflags'>
+        					<td><span class="type">int8</span> eflags</td>
+        					<td></td>
+        				</tr>
+        				<tr id='rendermode'>
+        					<td><span class="type">int</span> rendermode</td>
+        					<td></td>
+        				</tr>
+        				<tr id='renderamt'>
+        					<td><span class="type">int</span> renderamt</td>
+        					<td></td>
+        				</tr>
+        				<tr id='renderfx'>
+        					<td><span class="type">int</span> renderfx</td>
+        					<td></td>
+        				</tr>
+        				<tr id='movetype'>
+        					<td><span class="type">int</span> movetype</td>
+        					<td></td>
+        				</tr>
+        				<tr id='animtime'>
+        					<td><span class="type">float</span> animtime</td>
+        					<td></td>
+        				</tr>
+        				<tr id='framerate'>
+        					<td><span class="type">float</span> framerate</td>
+        					<td></td>
+        				</tr>
+        				<tr id='body'>
+        					<td><span class="type">int</span> body</td>
+        					<td></td>
+        				</tr>
+        				<tr id='velocity'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> velocity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='mins'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> mins</td>
+        					<td></td>
+        				</tr>
+        				<tr id='maxs'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> maxs</td>
+        					<td></td>
+        				</tr>
+        				<tr id='aiment'>
+        					<td><span class="type">int</span> aiment</td>
+        					<td></td>
+        				</tr>
+        				<tr id='owner'>
+        					<td><span class="type">int</span> owner</td>
+        					<td></td>
+        				</tr>
+        				<tr id='friction'>
+        					<td><span class="type">float</span> friction</td>
+        					<td></td>
+        				</tr>
+        				<tr id='gravity'>
+        					<td><span class="type">float</span> gravity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='team'>
+        					<td><span class="type">int</span> team</td>
+        					<td></td>
+        				</tr>
+        				<tr id='playerclass'>
+        					<td><span class="type">int</span> playerclass</td>
+        					<td></td>
+        				</tr>
+        				<tr id='health'>
+        					<td><span class="type">int</span> health</td>
+        					<td></td>
+        				</tr>
+        				<tr id='spectator'>
+        					<td><span class="type">int</span> spectator</td>
+        					<td></td>
+        				</tr>
+        				<tr id='weaponmodel'>
+        					<td><span class="type">int</span> weaponmodel</td>
+        					<td></td>
+        				</tr>
+        				<tr id='gaitsequence'>
+        					<td><span class="type">int</span> gaitsequence</td>
+        					<td></td>
+        				</tr>
+        				<tr id='basevelocity'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> basevelocity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='usehull'>
+        					<td><span class="type">int</span> usehull</td>
+        					<td></td>
+        				</tr>
+        				<tr id='oldbuttons'>
+        					<td><span class="type">int</span> oldbuttons</td>
+        					<td></td>
+        				</tr>
+        				<tr id='onground'>
+        					<td><span class="type">int</span> onground</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iStepLeft'>
+        					<td><span class="type">int</span> iStepLeft</td>
+        					<td></td>
+        				</tr>
+        				<tr id='flFallVelocity'>
+        					<td><span class="type">float</span> flFallVelocity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fov'>
+        					<td><span class="type">float</span> fov</td>
+        					<td></td>
+        				</tr>
+        				<tr id='weaponanim'>
+        					<td><span class="type">int</span> weaponanim</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser1'>
+        					<td><span class="type">int</span> iuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser2'>
+        					<td><span class="type">int</span> iuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser3'>
+        					<td><span class="type">int</span> iuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser4'>
+        					<td><span class="type">int</span> iuser4</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser1'>
+        					<td><span class="type">float</span> fuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser2'>
+        					<td><span class="type">float</span> fuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser3'>
+        					<td><span class="type">float</span> fuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser4'>
+        					<td><span class="type">float</span> fuser4</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser1'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser2'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser3'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser4'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser4</td>
+        					<td></td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

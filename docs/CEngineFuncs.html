@@ -267,6 +267,34 @@
         					<td><span class="type">bool</span> ClassMemcpy(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> src, <span class="type">?</span><span class="type">&</span> <span class="inout">in</span> dst)</td>
         					<td>copy class, If src and dst are different type, return false.<br>If not class ref, crash game.</td>
         				</tr>
+        				<tr id='EnableCustomStepSound'>
+        					<td><span class="type">void</span> EnableCustomStepSound(<span class="type">bool</span> bEnabled)</td>
+        					<td>Disable stepsound temporarily until level changes</td>
+        				</tr>
+        				<tr id='EnablePhysicWorld'>
+        					<td><span class="type">void</span> EnablePhysicWorld(<span class="type">bool</span> bEnabled)</td>
+        					<td>Enable physic world temporarily until level changes</td>
+        				</tr>
+        				<tr id='SetPhysicSimRate'>
+        					<td><span class="type">void</span> SetPhysicSimRate(<span class="type">float</span> rate)</td>
+        					<td>Set simulation rate of <a href='/asexthook/Bullet'>Bullet</a> Engine world</td>
+        				</tr>
+        				<tr id='GetRunPlayerMovePlayerIndex'>
+        					<td><span class="type">int</span> GetRunPlayerMovePlayerIndex()</td>
+        					<td>Get index of player that is currently running PlayerMove code</td>
+        				</tr>
+        				<tr id='GetViewEntity'>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> GetViewEntity(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pClient)</td>
+        					<td>Get client's view entity</td>
+        				</tr>
+        				<tr id='SetViewEntity'>
+        					<td><span class="type">bool</span> SetViewEntity(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pClient, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pViewEnt)</td>
+        					<td>Set client's view entity</td>
+        				</tr>
+        				<tr id='SetQueryCvar2Callback'>
+        					<td><span class="type">bool</span> SetQueryCvar2Callback(<span class="type">int</span> request_id, <a class="type" href='/asexthook/FuncDefs#QueryCvar2ResponseCallback'>QueryCvar2ResponseCallback</a> <span class="type">@</span>callback )</td>
+        					<td>Set callback for svc_querycvar2 response</td>
+        				</tr>
         	</tbody>
         </table>    </main>
 	<script type="module" src="script.mjs" async defer></script>

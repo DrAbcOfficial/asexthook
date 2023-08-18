@@ -179,6 +179,22 @@
         					<td><a class="type" href='/asexthook/string'>string</a> GetPlayerLog(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pPlayerEdict) <span class="type">const</span></td>
         					<td>Get a player log <a href='/asexthook/string'>string</a>.</td>
         				</tr>
+        				<tr id='QRCode'>
+        					<td><span class="type">void</span> QRCode(<span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szBuffer, <span class="type">int</span> ecc, <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">out</span> szOut)</td>
+        					<td>Generate QRCode for a <a href='/asexthook/string'>string</a></td>
+        				</tr>
+        				<tr id='AddFollow'>
+        					<td><span class="type">void</span> AddFollow(<span class="type">int</span> ent, <span class="type">int</span> aim, <span class="type">float</span> x, <span class="type">float</span> y, <span class="type">float</span> z)</td>
+        					<td>Add Follow</td>
+        				</tr>
+        				<tr id='ClassWriter'>
+        					<td><span class="type">bool</span> ClassWriter(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> src, <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPath)</td>
+        					<td>Class Save To Binary String</td>
+        				</tr>
+        				<tr id='ClassReader'>
+        					<td><span class="type">bool</span> ClassReader(<span class="type">?</span><span class="type">&</span> <span class="inout">in</span> src, <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> szPath)</td>
+        					<td>Binary String To Class</td>
+        				</tr>
         	</tbody>
         </table>    </main>
 	<script type="module" src="script.mjs" async defer></script>

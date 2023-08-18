@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+		<meta name="description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="playermove_t">
+		<meta property="og:site_name" content="Sven Co-op AngelScript API">
+		<meta property="og:description" content="Sven Co-op 5.25 AngelScript API documentation.">
+		<meta property="og:image" content="https://raw.githubusercontent.com/sven-coop/sven-coop.github.io/main/src/sc.png">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+		<title>playermove_t</title>
+  </head>
+  <body>
+	<header>
+		<nav>
+			<a href="/asexthook/">Index</a> > <a href="/asexthook/Classes">Classes</a> > <a href="/asexthook/playermove_t">playermove_t</a>
+		</nav>
+		<div>
+			<input type="search" id="search-input" placeholder="Search">
+			<ul id="search-suggestions"></ul>
+		</div>
+	</header>
+    <main>
+      <h1>playermove_t</h1>
+      <p>PlayerMove control struct in engine</p>
+      <p><b>Type:</b> Reference</p>
+      <ul>
+      	<li><a href="#Methods">Methods</a></li>
+      	<li><a href="#Properties">Properties</a></li>
+      </ul>
+        <h2 id="Methods">Methods</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='GetTextureName'>
+        					<td><span class="type">void</span> GetTextureName(<a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">out</span> texture_name)</td>
+        					<td>get texture name</td>
+        				</tr>
+        	</tbody>
+        </table>  <h2 id="Properties">Properties</h2>
+        <table>
+        	<thead>
+        		<tr>
+        				<th>Declaration</th>
+        				<th>Description</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        				<tr id='player_index'>
+        					<td><span class="type">int</span> player_index</td>
+        					<td>player index of current player that playing with playermove code</td>
+        				</tr>
+        				<tr id='server'>
+        					<td><span class="type">int</span> server</td>
+        					<td>For debugging, are we running physics code on server side?</td>
+        				</tr>
+        				<tr id='multiplayer'>
+        					<td><span class="type">int</span> multiplayer</td>
+        					<td>1 == multiplayer server</td>
+        				</tr>
+        				<tr id='time'>
+        					<td><span class="type">float</span> time</td>
+        					<td>realtime on host, for reckoning duck timing</td>
+        				</tr>
+        				<tr id='frametime'>
+        					<td><span class="type">float</span> frametime</td>
+        					<td>Duration of this frame</td>
+        				</tr>
+        				<tr id='forward'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> forward</td>
+        					<td></td>
+        				</tr>
+        				<tr id='right'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> right</td>
+        					<td></td>
+        				</tr>
+        				<tr id='up'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> up</td>
+        					<td></td>
+        				</tr>
+        				<tr id='origin'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> origin</td>
+        					<td>Movement origin.</td>
+        				</tr>
+        				<tr id='angles'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> angles</td>
+        					<td>Movement view angles.</td>
+        				</tr>
+        				<tr id='oldangles'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> oldangles</td>
+        					<td>Angles before movement view angles were looked at.</td>
+        				</tr>
+        				<tr id='velocity'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> velocity</td>
+        					<td>Current movement direction.</td>
+        				</tr>
+        				<tr id='movedir'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> movedir</td>
+        					<td>For waterjumping, a forced forward velocity so we can fly over lip of ledge.</td>
+        				</tr>
+        				<tr id='basevelocity'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> basevelocity</td>
+        					<td>Velocity of the conveyor we are standing, e.g.</td>
+        				</tr>
+        				<tr id='view_ofs'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> view_ofs</td>
+        					<td>Our eye position.</td>
+        				</tr>
+        				<tr id='flDuckTime'>
+        					<td><span class="type">float</span> flDuckTime</td>
+        					<td>Time we started duck</td>
+        				</tr>
+        				<tr id='bInDuck'>
+        					<td><span class="type">int</span> bInDuck</td>
+        					<td>In process of ducking or ducked already?</td>
+        				</tr>
+        				<tr id='flTimeStepSound'>
+        					<td><span class="type">int</span> flTimeStepSound</td>
+        					<td>Next time we can play a step sound</td>
+        				</tr>
+        				<tr id='iStepLeft'>
+        					<td><span class="type">int</span> iStepLeft</td>
+        					<td></td>
+        				</tr>
+        				<tr id='flFallVelocity'>
+        					<td><span class="type">float</span> flFallVelocity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='punchangle'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> punchangle</td>
+        					<td></td>
+        				</tr>
+        				<tr id='flSwimTime'>
+        					<td><span class="type">float</span> flSwimTime</td>
+        					<td></td>
+        				</tr>
+        				<tr id='flNextPrimaryAttack'>
+        					<td><span class="type">float</span> flNextPrimaryAttack</td>
+        					<td></td>
+        				</tr>
+        				<tr id='effects'>
+        					<td><span class="type">int</span> effects</td>
+        					<td></td>
+        				</tr>
+        				<tr id='flags'>
+        					<td><span class="type">int</span> flags</td>
+        					<td></td>
+        				</tr>
+        				<tr id='usehull'>
+        					<td><span class="type">int</span> usehull</td>
+        					<td></td>
+        				</tr>
+        				<tr id='gravity'>
+        					<td><span class="type">float</span> gravity</td>
+        					<td></td>
+        				</tr>
+        				<tr id='friction'>
+        					<td><span class="type">float</span> friction</td>
+        					<td></td>
+        				</tr>
+        				<tr id='oldbuttons'>
+        					<td><span class="type">int</span> oldbuttons</td>
+        					<td></td>
+        				</tr>
+        				<tr id='waterjumptime'>
+        					<td><span class="type">float</span> waterjumptime</td>
+        					<td></td>
+        				</tr>
+        				<tr id='dead'>
+        					<td><span class="type">int</span> dead</td>
+        					<td></td>
+        				</tr>
+        				<tr id='deadflag'>
+        					<td><span class="type">int</span> deadflag</td>
+        					<td></td>
+        				</tr>
+        				<tr id='spectator'>
+        					<td><span class="type">int</span> spectator</td>
+        					<td></td>
+        				</tr>
+        				<tr id='movetype'>
+        					<td><span class="type">int</span> movetype</td>
+        					<td></td>
+        				</tr>
+        				<tr id='onground'>
+        					<td><span class="type">int</span> onground</td>
+        					<td></td>
+        				</tr>
+        				<tr id='waterlevel'>
+        					<td><span class="type">int</span> waterlevel</td>
+        					<td></td>
+        				</tr>
+        				<tr id='watertype'>
+        					<td><span class="type">int</span> watertype</td>
+        					<td></td>
+        				</tr>
+        				<tr id='oldwaterlevel'>
+        					<td><span class="type">int</span> oldwaterlevel</td>
+        					<td></td>
+        				</tr>
+        				<tr id='chtexturetype'>
+        					<td><a class="type" href='/asexthook/char'>char</a> chtexturetype</td>
+        					<td></td>
+        				</tr>
+        				<tr id='maxspeed'>
+        					<td><span class="type">float</span> maxspeed</td>
+        					<td></td>
+        				</tr>
+        				<tr id='clientmaxspeed'>
+        					<td><span class="type">float</span> clientmaxspeed</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser1'>
+        					<td><span class="type">int</span> iuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser2'>
+        					<td><span class="type">int</span> iuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser3'>
+        					<td><span class="type">int</span> iuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='iuser4'>
+        					<td><span class="type">int</span> iuser4</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser1'>
+        					<td><span class="type">float</span> fuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser2'>
+        					<td><span class="type">float</span> fuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser3'>
+        					<td><span class="type">float</span> fuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='fuser4'>
+        					<td><span class="type">float</span> fuser4</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser1'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser1</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser2'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser2</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser3'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser3</td>
+        					<td></td>
+        				</tr>
+        				<tr id='vuser4'>
+        					<td><a class="type" href='/asexthook/Vector'>Vector</a> vuser4</td>
+        					<td></td>
+        				</tr>
+        	</tbody>
+        </table>    </main>
+	<script type="module" src="script.mjs" async defer></script>
+  </body>
+</html>

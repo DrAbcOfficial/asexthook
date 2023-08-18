@@ -75,8 +75,60 @@
         					<td>Callback for cvars.</td>
         				</tr>
         				<tr id='fnSQLiteCallback'>
-        					<td><span class="type">void</span> fnSQLiteCallback(<span class="type">any</span><span class="type">@</span> pParam, <span class="type">int</span> iColumnSize, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/string'>string</a><span class="type">></span><span class="type">@</span> aryColumnValue, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/string'>string</a><span class="type">></span><span class="type">@</span> aryColumnName)</td>
+        					<td><span class="type">void</span> fnSQLiteCallback(<span class="type">any</span><span class="type">@</span> pParam, <span class="type">int</span> iColumnSize, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CSQLItem'>CSQLItem</a><span class="type">@</span><span class="type">></span><span class="type">@</span> aryColumnValue, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/CSQLItem'>CSQLItem</a><span class="type">@</span><span class="type">></span><span class="type">@</span> aryColumnName)</td>
         					<td>SQLite Callback</td>
+        				</tr>
+        				<tr id='QueryCvar2ResponseCallback'>
+        					<td><span class="type">void</span> QueryCvar2ResponseCallback(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a> <span class="type">@</span>pPlayer, <span class="type">int</span> request_id, <a class="type" href='/asexthook/string'>string</a> cvar, <a class="type" href='/asexthook/string'>string</a> value)</td>
+        					<td>callback for svc_querycvar2 response</td>
+        				</tr>
+        				<tr id='QueryCvar2Hook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> QueryCvar2Hook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a> <span class="type">@</span>pPlayer, <span class="type">int</span> requestId, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a> <span class="type">&</span><span class="inout">in</span> cvarName, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a> <span class="type">&</span><span class="inout">in</span> value)</td>
+        					<td>Get called when svc_querycvar2 response is received</td>
+        				</tr>
+        				<tr id='QueryCvarHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> QueryCvarHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a> <span class="type">@</span>pPlayer, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a> <span class="type">&</span><span class="inout">in</span> value)</td>
+        					<td>Get called when svc_querycvar response is received</td>
+        				</tr>
+        				<tr id='PlayerMovePlaySoundFXHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerMovePlaySoundFXHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <span class="type">int</span> playerindex, <a class="type" href='/asexthook/Vector'>Vector</a> origin, <span class="type">int</span> type, <span class="type">const</span> <a class="type" href='/asexthook/string'>string</a><span class="type">&</span> <span class="inout">in</span> sound, <span class="type">float</span> vol, <span class="type">float</span> att, <span class="type">int</span> flags, <span class="type">int</span> pitch, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> uiFlags)</td>
+        					<td>Get called when playing player move sound</td>
+        				</tr>
+        				<tr id='PlayerMovePlayStepSoundHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerMovePlayStepSoundHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/playermove_t'>playermove_t</a><span class="type">@</span> playermove, <span class="type">int</span> iType, <span class="type">float</span> flVolume, <span class="type">bool</span> bIsJump, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> uiFlags)</td>
+        					<td>Get called when playing step sound</td>
+        				</tr>
+        				<tr id='PlayerTouchPlayerHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerTouchPlayerHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pOther)</td>
+        					<td>Get called when player touches a player, player's velocity is temporarily set to impactvelocity</td>
+        				</tr>
+        				<tr id='PlayerTouchImpactHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerTouchImpactHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Get called when player impacts a solid entities or world, player's velocity is temporarily set to impactvelocity</td>
+        				</tr>
+        				<tr id='PlayerTouchTriggerHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerTouchTriggerHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther)</td>
+        					<td>Get called when player touches a trigger</td>
+        				</tr>
+        				<tr id='PlayerPostThinkPostHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerPostThinkPostHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer)</td>
+        					<td>Post call of gEntityInterface.pfnPlayerPostThink</td>
+        				</tr>
+        				<tr id='PlayerAddToFullPackHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerAddToFullPackHook(<a class="type" href='/asexthook/entity_state_t'>entity_state_t</a><span class="type">@</span> state, <span class="type">int</span> entindex, <a class="type" href='/asexthook/edict_t'>edict_t</a> <span class="type">@</span>ent, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> host, <span class="type">int</span> hostflags, <span class="type">int</span> player, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> result)</td>
+        					<td>Post call of gEntityInterface.pfnAddToFullPack, only visible entity goes here</td>
+        				</tr>
+        				<tr id='AddAmmo556Hook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> AddAmmo556Hook(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pOther, <span class="type">bool</span><span class="type">&</span> <span class="inout">out</span> result)</td>
+        					<td><a href='/asexthook/Properties#AddAmmo556'>AddAmmo556</a></td>
+        				</tr>
+        				<tr id='GameEndHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> GameEndHook(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator, <span class="type">bool</span> game_end, <span class="type">bool</span><span class="type">&</span><span class="inout">out</span> block)</td>
+        					<td>Pre call before game_end or changelevel</td>
+        				</tr>
+        				<tr id='PlayerMedikShotHook'>
+        					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> PlayerMedikShotHook(<a class="type" href='/asexthook/CBasePlayerWeapon'>CBasePlayerWeapon</a><span class="type">@</span> pWeapon, <span class="type">int</span> ShotValue)</td>
+        					<td>Pre call before medik shot</td>
         				</tr>
         				<tr id='SendScoreInfoHook'>
         					<td><a class="type" href='/asexthook/HookReturnCode'>HookReturnCode</a> SendScoreInfoHook(<a class="type" href='/asexthook/CBasePlayer'>CBasePlayer</a><span class="type">@</span> pPlayer, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> pTarget, <span class="type">int</span> iTeamID, <a class="type" href='/asexthook/string'>string</a> szTeamName, <span class="type">uint</span><span class="type">&</span> <span class="inout">out</span> flag)</td>

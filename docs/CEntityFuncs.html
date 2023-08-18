@@ -223,6 +223,98 @@
         					<td><span class="type">void</span> PrecacheMaterialSounds(<span class="type">const</span> <a class="type" href='/asexthook/Materials'>Materials</a> material)</td>
         					<td>Precaches the sounds used by a particular material</td>
         				</tr>
+        				<tr id='FindEntityInCylinder'>
+        					<td><a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> FindEntityInCylinder(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pStartEntity, <a class="type" href='/asexthook/Vector'>Vector</a> vecStart, <a class="type" href='/asexthook/Vector'>Vector</a> vecEnd, <span class="type">float</span> flRadius, <a class="type" href='/asexthook/string'>string</a> szClassName)</td>
+        					<td>Find Entity In a cylinder</td>
+        				</tr>
+        				<tr id='ChangeLevelByEntity'>
+        					<td><span class="type">void</span> ChangeLevelByEntity(<a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pEntity, <a class="type" href='/asexthook/CBaseEntity'>CBaseEntity</a><span class="type">@</span> pActivator)</td>
+        					<td>CASEntity_ChangeLevelByEntity</td>
+        				</tr>
+        				<tr id='CreateSolidOptimizer'>
+        					<td><span class="type">bool</span> CreateSolidOptimizer(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> boneindex, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> halfextent, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> halfextent2)</td>
+        					<td>Create physic box for entity</td>
+        				</tr>
+        				<tr id='CreatePhysicBox'>
+        					<td><span class="type">bool</span> CreatePhysicBox(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">float</span> mass, <span class="type">float</span> linearfriction, <span class="type">float</span> rollingfriction, <span class="type">float</span> restitution, <span class="type">float</span> ccdradius, <span class="type">float</span> ccdthreshold, <span class="type">bool</span> pushable )</td>
+        					<td>Create physic object for entity</td>
+        				</tr>
+        				<tr id='CreatePhysicObject'>
+        					<td><span class="type">bool</span> CreatePhysicObject(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <a class="type" href='/asexthook/PhysicShapeParams'>PhysicShapeParams</a><span class="type">&</span> <span class="inout">in</span> shapeParams, <span class="type">const</span> <a class="type" href='/asexthook/PhysicObjectParams'>PhysicObjectParams</a><span class="type">&</span> <span class="inout">in</span> objectParams )</td>
+        					<td>Create physic object for entity</td>
+        				</tr>
+        				<tr id='CreateCompoundPhysicObject'>
+        					<td><span class="type">bool</span> CreateCompoundPhysicObject(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/PhysicShapeParams'>PhysicShapeParams</a><span class="type">></span><span class="type">@</span> shapeParamArray, <span class="type">const</span> <a class="type" href='/asexthook/PhysicObjectParams'>PhysicObjectParams</a><span class="type">&</span> <span class="inout">in</span> objectParams)</td>
+        					<td>Create physic compound shape for entity</td>
+        				</tr>
+        				<tr id='CreatePhysicVehicle'>
+        					<td><span class="type">bool</span> CreatePhysicVehicle(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/PhysicWheelParams'>PhysicWheelParams</a><span class="type">></span><span class="type">&</span> <span class="inout">in</span> wheels, <span class="type">const</span> <a class="type" href='/asexthook/PhysicVehicleParams'>PhysicVehicleParams</a><span class="type">&</span> <span class="inout">in</span> vehicleParams )</td>
+        					<td>Create vehicle manager for physic entity</td>
+        				</tr>
+        				<tr id='CreatePhysicTrigger'>
+        					<td><span class="type">bool</span> CreatePhysicTrigger(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent)</td>
+        					<td>Create physic trigger that fires pfnTouch when colliding with physic object</td>
+        				</tr>
+        				<tr id='SetPhysicObjectTransform'>
+        					<td><span class="type">bool</span> SetPhysicObjectTransform(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> origin, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> angles )</td>
+        					<td>Set physic object's transform</td>
+        				</tr>
+        				<tr id='SetPhysicObjectFreeze'>
+        					<td><span class="type">bool</span> SetPhysicObjectFreeze(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">bool</span> freeze )</td>
+        					<td>Set physic object's activation state to freeze or unfreeze</td>
+        				</tr>
+        				<tr id='SetEntitySuperPusher'>
+        					<td><span class="type">bool</span> SetEntitySuperPusher(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">bool</span> enable)</td>
+        					<td>Enable or disable Super-Pusher for brush entity</td>
+        				</tr>
+        				<tr id='SetEntityLevelOfDetail'>
+        					<td><span class="type">bool</span> SetEntityLevelOfDetail(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> flags, <span class="type">int</span> body_0, <span class="type">float</span> scale_0, <span class="type">int</span> body_1, <span class="type">float</span> scale_1, <span class="type">float</span> distance_1, <span class="type">int</span> body_2, <span class="type">float</span> scale_2, <span class="type">float</span> distance_2, <span class="type">int</span> body_3, <span class="type">float</span> scale_3, <span class="type">float</span> distance_3)</td>
+        					<td>Enable Level-of-Detail for entity</td>
+        				</tr>
+        				<tr id='SetEntityPartialViewer'>
+        					<td><span class="type">bool</span> SetEntityPartialViewer(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> player_mask)</td>
+        					<td>Enable Semi-Visible for entity</td>
+        				</tr>
+        				<tr id='SetEntitySemiVisible'>
+        					<td><span class="type">bool</span> SetEntitySemiVisible(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> player_mask)</td>
+        					<td>Enable Semi-Visible for entity</td>
+        				</tr>
+        				<tr id='SetEntityFollow'>
+        					<td><span class="type">bool</span> SetEntityFollow(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> follow, <span class="type">int</span> flags, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> origin_offset, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> angles_offset )</td>
+        					<td>Enable follow for the entity</td>
+        				</tr>
+        				<tr id='SetEntityEnvStudioAnim'>
+        					<td><span class="type">bool</span> SetEntityEnvStudioAnim(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> flags, <span class="type">float</span> overrideCurFrame, <span class="type">float</span> overrideMaxFrame, <span class="type">array</span><span class="type"><</span><a class="type" href='/asexthook/EnvStudioKeyframe'>EnvStudioKeyframe</a><span class="type">></span><span class="type">@</span> keyframes )</td>
+        					<td>Enable follow for the entity</td>
+        				</tr>
+        				<tr id='SetEntityCustomMoveSize'>
+        					<td><span class="type">bool</span> SetEntityCustomMoveSize(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> mins, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> maxs )</td>
+        					<td>Enable follow for the entity</td>
+        				</tr>
+        				<tr id='GetCurrentSuperPusher'>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> GetCurrentSuperPusher(<a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecPushDirection)</td>
+        					<td>Get current working Super-Pusher entity and push direction, return valid edict only in pfnTouch callback</td>
+        				</tr>
+        				<tr id='GetCurrentPhysicImpactEntity'>
+        					<td><a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> GetCurrentPhysicImpactEntity(<a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecImpactPoint, <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">out</span> vecImpactDirection, <span class="type">float</span><span class="type">&</span> <span class="inout">out</span> flImpactImpulse)</td>
+        					<td>Get current impact information from <a href='/asexthook/Bullet'>Bullet</a> Engine, return valid edict only in pfnTouch callback</td>
+        				</tr>
+        				<tr id='ApplyPhysicImpulse'>
+        					<td><span class="type">bool</span> ApplyPhysicImpulse(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> impulse, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> origin)</td>
+        					<td>Apply impulse on physic object</td>
+        				</tr>
+        				<tr id='ApplyPhysicForce'>
+        					<td><span class="type">bool</span> ApplyPhysicForce(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> impulse, <span class="type">const</span> <a class="type" href='/asexthook/Vector'>Vector</a><span class="type">&</span> <span class="inout">in</span> origin)</td>
+        					<td>Apply impulse on physic object</td>
+        				</tr>
+        				<tr id='SetVehicleEngine'>
+        					<td><span class="type">bool</span> SetVehicleEngine(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> wheelIndex, <span class="type">bool</span> enableMotor, <span class="type">float</span> angularVelcoity, <span class="type">float</span> maxMotorForce)</td>
+        					<td>Set engine wheel's motor and servo for the vehicle</td>
+        				</tr>
+        				<tr id='SetVehicleSteering'>
+        					<td><span class="type">bool</span> SetVehicleSteering(<a class="type" href='/asexthook/edict_t'>edict_t</a><span class="type">@</span> ent, <span class="type">int</span> wheelIndex, <span class="type">float</span> angularTarget, <span class="type">float</span> angularVelocity, <span class="type">float</span> maxMotorForce)</td>
+        					<td>Set steering wheel's motor and servo for the vehicle</td>
+        				</tr>
         	</tbody>
         </table>    </main>
 	<script type="module" src="script.mjs" async defer></script>
