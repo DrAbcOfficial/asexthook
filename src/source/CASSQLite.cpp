@@ -36,7 +36,7 @@ fnSQLite3Free SQLite3_Free;
 
 CASSQLite::CASSQLite(CString* szPath, int iMode){
 	//not url and memory
-	if ((iMode & 0x00000040) != 0 && (iMode & 0x00000080) != 0) {
+	if ((iMode & 0x00000040) == 0 && (iMode & 0x00000080) == 0) {
 		namespace fs = std::filesystem;
 		std::string szNPath = szPath->c_str();
 		szNPath = "./svencoop/scripts/plugins/store/" + szNPath;
@@ -45,12 +45,16 @@ CASSQLite::CASSQLite(CString* szPath, int iMode){
 			if (!fs::exists(path.remove_filename()))
 				fs::create_directories(path.remove_filename());
 			m_szStoredPath = szNPath;
-			m_iMode = iMode;
-			SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
-			m_bAviliable = true;
-			m_bClosed = false;
 		}
 	}
+	else
+		m_szStoredPath = szPath->c_str();
+
+	m_iMode = iMode;
+	SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
+	m_bAviliable = true;
+	m_bClosed = false;
+
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	m_pGripInfo = engine->GetTypeInfoByDecl("array<array<CSQLItem@>>");
@@ -89,7 +93,7 @@ int CASSQLite::Open(){
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
-int CASSQLite::ExecSync(CString* sql, void* arrayOut, int* columnout, int* rowout, CString* errMsg){
+int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 	if (m_bClosed) 
 		return 999;
 	else if (!m_bAviliable)
@@ -113,12 +117,8 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, int* columnout, int* rowou
 			ctx->SetObject(ary);
 			char* res = pResult[i * nColumn + j];
 			//thee shall no be null in value, but could be in sqlite
-			if (res == nullptr)
-				ctx->SetArgObject(0, nullptr);
-			else {
-				CASSQLItem* val = CASSQLItem::ParamFactory(res);
-				ctx->SetArgObject(0, &val);
-			}
+			CASSQLItem* val = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
+			ctx->SetArgObject(0, &val);
 			ctx->Execute();
 			iIndex++;
 		}
@@ -127,8 +127,6 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, int* columnout, int* rowou
 		ctx->SetArgObject(0, ary);
 		ctx->Execute();
 	}
-	*columnout = nColumn;
-	*rowout = nRow + 1;
 
 	if (zErrMsg) {
 		errMsg->assign(zErrMsg, strlen(zErrMsg));
@@ -167,22 +165,16 @@ int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_valu
 	for (int i = 0; i < column_size; i++){
 		ctx->Prepare(funcAryInsert);
 		ctx->SetObject(aryVal);
-		if (column_name[i] != nullptr) {
-			CASSQLItem* val = CASSQLItem::ParamFactory(column_value[i]);
-			ctx->SetArgObject(0, &val);
-		}
-		else
-			ctx->SetArgObject(0, nullptr);
+		char* res = column_value[i];
+		CASSQLItem* val = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
+		ctx->SetArgObject(0, &val);
 		ctx->Execute();
 
 		ctx->Prepare(funcAryInsert);
 		ctx->SetObject(aryName);
-		if (column_name[i] != nullptr) {
-			CASSQLItem* name = CASSQLItem::ParamFactory(column_value[i]);
-			ctx->SetArgObject(0, &name);
-		}
-		else
-			ctx->SetArgObject(0, nullptr);
+		res = column_name[i];
+		CASSQLItem* name = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
+		ctx->SetArgObject(0, &name);
 		ctx->Execute();
 	}
 	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(param[0]);

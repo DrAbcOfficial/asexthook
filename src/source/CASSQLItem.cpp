@@ -6,11 +6,11 @@ CASSQLItem::CASSQLItem(){
 	asIScriptEngine* engine = manager->scriptEngine;
 	m_pStrInfo = engine->GetTypeInfoByName("string");
 	m_pBlobInfo = engine->GetTypeInfoByDecl("CBinaryStringBuilder");
-	m_szData = static_cast<CString*>(engine->CreateScriptObject(m_pStrInfo));
+	m_bIsNull = true;
 }
 
 CASSQLItem::~CASSQLItem(){
-	ASEXT_GetServerManager()->scriptEngine->ReleaseScriptObject(m_szData, m_pStrInfo);
+	m_szData.clear();
 }
 
 CASSQLItem* CASSQLItem::Factory(){
@@ -29,29 +29,43 @@ CASSQLItem* CASSQLItem::ParamFactory(char* str){
 }
 
 void CASSQLItem::SetData(char* str){
-	m_szData->assign(str, strlen(str));
+	m_szData = str;
+	m_bIsNull = false;
 }
 
-CString* CASSQLItem::Get(){
-	return m_szData;
+void CASSQLItem::Get(CString* str){
+	str->assign(m_szData.c_str(), m_szData.size());
 }
 
 int64 CASSQLItem::GetInt64(){
-	return _atoi64(m_szData->c_str());
+	return std::atoll(m_szData.c_str());
 }
 
-int CASSQLItem::GetInt(){
-	return atoi(m_szData->c_str());
+int32 CASSQLItem::GetInt(){
+	return std::atoi(m_szData.c_str());
+}
+
+uint64 CASSQLItem::GetUInt64(){
+	return strtoull(m_szData.c_str(), nullptr, 10);
+}
+
+uint32 CASSQLItem::GetUInt(){
+	//ILP32 so... yeah, thats fine
+	return strtoul(m_szData.c_str(), nullptr, 10);
 }
 
 double CASSQLItem::GetReal(){
-	return atof(m_szData->c_str());
+	return std::atof(m_szData.c_str());
 }
 
 CBinaryStringBuilder** CASSQLItem::GetBlob(){
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	CBinaryStringBuilder* pBlob = static_cast<CBinaryStringBuilder*>(engine->CreateScriptObject(m_pBlobInfo));
-	pBlob->WriteString(m_szData);
+	pBlob->WriteData(m_szData.c_str(), m_szData.size());
 	return &pBlob;
+}
+
+bool CASSQLItem::IsNull(){
+	return m_bIsNull;
 }

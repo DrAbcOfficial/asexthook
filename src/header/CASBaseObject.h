@@ -12,12 +12,18 @@ protected:
 };
 class CASBaseGCObject : public CASBaseRefObject {
 public:
-    void AddRef() override;
-    void Release() override;
+    virtual void AddRef() override;
+    virtual void Release() override;
 
-    void SetGCFlag();
-    bool GetGCFlag();
-    int GetRefCount();
-    void EnumReferences(asIScriptEngine* engine);
-    void ReleaseReferences(asIScriptEngine* engine);
+    virtual void SetGCFlag();
+    virtual bool GetGCFlag();
+    virtual int GetRefCount();
+    virtual void EnumReferences(asIScriptEngine* engine);
+    virtual void ReleaseReferences(asIScriptEngine* engine);
+
+    typedef struct GCRefObject {
+        void* data;
+        asITypeInfo* type;
+        bool value;
+    };
 };

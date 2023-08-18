@@ -1,24 +1,30 @@
 #pragma once
 #include "CASBaseObject.h"
+#include <string>
 
 class CBinaryStringBuilder;
 class CASSQLItem : public CASBaseGCObject{
 public:
+    //Only for c++ not expose to as
     CASSQLItem();
     ~CASSQLItem();
     static CASSQLItem* Factory();
-
-    CString* Get();
+    static CASSQLItem* ParamFactory(char* str);
+    //Angel Scripts
+    void  Get(CString* str);
     int64 GetInt64();
-    int GetInt();
+    int32 GetInt();
+    uint64 GetUInt64();
+    uint32 GetUInt();
     double GetReal();
     CBinaryStringBuilder** GetBlob();
-
-    //Only for c++ not expose to as
-    static CASSQLItem* ParamFactory(char* str);
-    void SetData(char* str);
+    bool IsNull();
 private:
+    void SetData(char* str);
+
     asITypeInfo* m_pStrInfo;
     asITypeInfo* m_pBlobInfo;
-    CString* m_szData;
+    std::string m_szData;
+
+    bool m_bIsNull;
 };

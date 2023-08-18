@@ -9,6 +9,9 @@
 
 CBinaryStringBuilder::CBinaryStringBuilder(){
 	refCount = 1;
+	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
+	m_pStrInfo = engine->GetTypeInfoByDecl("string");
+	m_pVectorInfo = engine->GetTypeInfoByDecl("Vector");
 }
 CBinaryStringBuilder* CBinaryStringBuilder::Factory() {
 	CBinaryStringBuilder* obj = new CBinaryStringBuilder();
@@ -28,13 +31,32 @@ CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
 	return obj;
 }
 
+void CBinaryStringBuilder::EnumReferences(asIScriptEngine* engine){
+	for (auto iter = m_aryRef.begin(); iter != m_aryRef.end(); iter++) {
+		engine->ForwardGCEnumReferences((*iter)->data, (*iter)->type);
+	}
+}
+
+void CBinaryStringBuilder::ReleaseReferences(asIScriptEngine* engine){
+	for (auto iter = m_aryRef.begin(); iter != m_aryRef.end(); iter++) {
+		engine->ForwardGCReleaseReferences((*iter)->data, (*iter)->type);
+		delete (*iter);
+	}
+	m_aryRef.clear();
+}
+
 CString CBinaryStringBuilder::Get(){
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("string")));
+	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(m_pStrInfo));
 	char* temp = new char[szBuffer.size() + 1];
 	std::copy(szBuffer.begin(), szBuffer.end(), temp);
 	szOutBuffer->assign(temp, szBuffer.size());
 	delete[] temp;
+	GCRefObject* gcobj = new GCRefObject();
+	gcobj->data = szOutBuffer;
+	gcobj->value = true;
+	gcobj->type = m_pStrInfo;
+	m_aryRef.push_back(gcobj);
 	return *szOutBuffer;
 }
 void CBinaryStringBuilder::Set(CString* buffer){
@@ -82,6 +104,11 @@ void CBinaryStringBuilder::WriteString(CString* value){
 		szBuffer.push_back(value->chatAt(i));
 	}
 }
+void CBinaryStringBuilder::WriteData(const char* value, size_t len){
+	for (size_t i = 0; i < len; i++) {
+		szBuffer.push_back(value[i]);
+	}
+}
 template <typename T1, typename T2>
 T1 ReadBuffer(CBinaryStringBuilder* pThis) {
 	T2 temp = 0;
@@ -106,13 +133,18 @@ double CBinaryStringBuilder::ReadDouble(){
 }
 vec3_t CBinaryStringBuilder::ReadVector(){
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	vec3_t* vecBuffer = static_cast<vec3_t*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("Vector")));
+	vec3_t* vecBuffer = static_cast<vec3_t*>(engine->CreateScriptObject(m_pVectorInfo));
+	GCRefObject* gcobj = new GCRefObject();
+	gcobj->data = vecBuffer;
+	gcobj->value = true;
+	gcobj->type = m_pVectorInfo;
+	m_aryRef.push_back(gcobj);
 	vecBuffer->x = ReadBuffer<float, int>(this);
 	vecBuffer->y = ReadBuffer<float, int>(this);
 	vecBuffer->z = ReadBuffer<float, int>(this);
 	return *vecBuffer;
 }
-CString* CBinaryStringBuilder::ReadString(){
+CString CBinaryStringBuilder::ReadString(){
 	std::string temp;
 	for (size_t i = iReadPointer; i < szBuffer.size(); i++) {
 		char c = szBuffer[iReadPointer];
@@ -122,9 +154,14 @@ CString* CBinaryStringBuilder::ReadString(){
 			break;
 	}
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(engine->GetTypeInfoByDecl("string")));
+	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(m_pStrInfo));
+	GCRefObject* gcobj = new GCRefObject();
+	gcobj->data = szOutBuffer;
+	gcobj->value = true;
+	gcobj->type = m_pStrInfo;
+	m_aryRef.push_back(gcobj);
 	szOutBuffer->assign(temp.c_str(), temp.length());
-	return szOutBuffer;
+	return *szOutBuffer;
 }
 bool CBinaryStringBuilder::IsReadToEnd(){
 	return iReadPointer >= szBuffer.size();

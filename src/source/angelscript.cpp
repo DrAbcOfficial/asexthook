@@ -156,11 +156,14 @@ void RegisterAngelScriptMethods(){
 		//reg = asFUNCTION(CASSQLItem::Factory);
 		//ASEXT_RegisterObjectBehaviourEx(pASDoc, "Factory", "CSQLItem", asBEHAVE_FACTORY, "CSQLItem@ CSQLItem()", &reg, asCALL_CDECL);
 		RegisteGCObject<CASSQLItem>(pASDoc, "CSQLItem");
-		REGISTE_OBJMETHODEX(reg, pASDoc, "Get string", "CSQLItem", "string Get()", CASSQLItem, Get, asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Get string", "CSQLItem", "void Get(string&out buffer)", CASSQLItem, Get, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Get int64", "CSQLItem", "int64 GetLong()", CASSQLItem, GetInt64, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Get int", "CSQLItem", "int GetInt()", CASSQLItem, GetInt, asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Get int", "CSQLItem", "uint64 GetULong()", CASSQLItem, GetUInt64, asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Get int", "CSQLItem", "uint GetUInt()", CASSQLItem, GetUInt, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Get real", "CSQLItem", "double GetReal()", CASSQLItem, GetReal, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Get blob", "CSQLItem", "CBinaryStringBuilder@ GetBlob()", CASSQLItem, GetBlob, asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Is null", "CSQLItem", "bool IsNull()", CASSQLItem, IsNull, asCALL_THISCALL);
 
 		ASEXT_RegisterFuncDef(pASDoc, "SQLite Callback", "void fnSQLiteCallback(any@ pParam, int iColumnSize, array<CSQLItem@>@ aryColumnValue, array<CSQLItem@>@ aryColumnName)");
 
@@ -168,7 +171,7 @@ void RegisterAngelScriptMethods(){
 		reg = asFUNCTION(CASSQLite::Factory);
 		ASEXT_RegisterObjectBehaviourEx(pASDoc, "Factory", "CSQLite", asBEHAVE_FACTORY, "CSQLite@ CSQLite(string&in path, SQLiteMode iMode)", &reg, asCALL_CDECL);
 		RegisteGCObject<CASSQLite>(pASDoc, "CSQLite");
-		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL", "CSQLite", "SQLiteResult Exec(string&in sql, string&out errMsg)", CASSQLite, Exec,asCALL_THISCALL);
+		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL", "CSQLite", "SQLiteResult Exec(string&in sql, string&out errMsg)", CASSQLite, Exec, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL In Sync", "CSQLite", "SQLiteResult Exec(string&in sql, array<array<CSQLItem@>>&out aryResult, string&out errMsg)", CASSQLite, ExecSync, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Excute SQL", "CSQLite", "SQLiteResult Exec(string&in sql, fnSQLiteCallback@ pCallback, any@ pCallBackparam, string&out errMsg)", CASSQLite, ExecWithCallBack, asCALL_THISCALL);
 		REGISTE_OBJMETHODEX(reg, pASDoc, "Close SQL", "CSQLite", "void Close()", CASSQLite, Close, asCALL_THISCALL);
