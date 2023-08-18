@@ -21,9 +21,9 @@ public:
     virtual void EnumReferences(asIScriptEngine* engine);
     virtual void ReleaseReferences(asIScriptEngine* engine);
 
-    typedef struct GCRefObject {
+    typedef struct GCRefObject_s {
         void* data;
         asITypeInfo* type;
         bool value;
-    };
+    } GCRefObject;
 };

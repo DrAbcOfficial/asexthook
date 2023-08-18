@@ -33,10 +33,11 @@ public:
     vec3_t ReadVector();
     CString ReadString();
     bool IsReadToEnd();
+
+    size_t m_iReadPointer = 0;
+    std::vector<unsigned char> m_szBuffer;
 private:
-    size_t iReadPointer = 0;
     asITypeInfo* m_pStrInfo;
     asITypeInfo* m_pVectorInfo;
-    std::vector<unsigned char> szBuffer;
     std::vector<GCRefObject*> m_aryRef;
 };
