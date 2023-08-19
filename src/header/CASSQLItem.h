@@ -17,7 +17,7 @@ public:
     uint64 GetUInt64();
     uint32 GetUInt();
     double GetReal();
-    CBinaryStringBuilder** GetBlob();
+    CBinaryStringBuilder* GetBlob();
     bool IsNull();
 private:
     void SetData(char* str);

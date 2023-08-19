@@ -57,12 +57,12 @@ double CASSQLItem::GetReal(){
 	return std::atof(m_szData.c_str());
 }
 
-CBinaryStringBuilder** CASSQLItem::GetBlob(){
+CBinaryStringBuilder* CASSQLItem::GetBlob(){
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	CBinaryStringBuilder* pBlob = static_cast<CBinaryStringBuilder*>(engine->CreateScriptObject(m_pBlobInfo));
 	pBlob->WriteData(m_szData.c_str(), m_szData.size());
-	return &pBlob;
+	return pBlob;
 }
 
 bool CASSQLItem::IsNull(){
