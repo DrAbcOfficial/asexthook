@@ -4,7 +4,6 @@
 CASSQLItem::CASSQLItem(){
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
-	m_pStrInfo = engine->GetTypeInfoByName("string");
 	m_pBlobInfo = engine->GetTypeInfoByDecl("CBinaryStringBuilder");
 	m_bIsNull = true;
 }

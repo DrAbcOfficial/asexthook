@@ -94,6 +94,7 @@
     <ClCompile Include="src\source\angelscript.cpp" />
     <ClCompile Include="src\source\CASBaseObject.cpp" />
     <ClCompile Include="src\source\CASBinaryStringBuilder.cpp" />
+    <ClCompile Include="src\source\CASSQLGrid.cpp" />
     <ClCompile Include="src\source\CASSQLite.cpp" />
     <ClCompile Include="src\source\CASSQLItem.cpp" />
     <ClCompile Include="src\source\dllapi.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="src\header\angelscript.h" />
     <ClInclude Include="src\header\CASBaseObject.h" />
     <ClInclude Include="src\header\CASBinaryStringBuilder.h" />
+    <ClInclude Include="src\header\CASSQLGrid.h" />
     <ClInclude Include="src\header\CASSQLite.h" />
     <ClInclude Include="src\header\CASSQLItem.h" />
     <ClInclude Include="src\header\dlldef.h" />

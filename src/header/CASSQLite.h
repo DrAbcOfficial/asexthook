@@ -15,7 +15,7 @@ public:
 	static void CloseSQLite3DLL();
 
 	int Open();
-	int ExecSync(CString* sql, void* arrayOut, CString* errMsg);
+	int ExecSync(CString* sql, CASSQLGrid** gridOut, CString* errMsg);
 	int Exec(CString* sql, CString* errMsg);
 	int ExecWithCallBack(CString* sql, aslScriptFunction* pfnCallBack, void* any, CString* errMsg);
 	void Close();
@@ -29,9 +29,5 @@ private:
 	std::string m_szStoredPath;
 	int m_iMode = 0;
 
-	asITypeInfo* m_pGripInfo;
-	asIScriptFunction* m_pGripInsertFunction;
-	asITypeInfo* m_pArrayInfo;
-	asIScriptFunction* m_pArrayInsertFunction;
 	asITypeInfo* m_pItemInfo;
 };

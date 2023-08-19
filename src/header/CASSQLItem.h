@@ -22,7 +22,6 @@ public:
 private:
     void SetData(char* str);
 
-    asITypeInfo* m_pStrInfo;
     asITypeInfo* m_pBlobInfo;
     std::string m_szData;
 

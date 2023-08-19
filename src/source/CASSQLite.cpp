@@ -4,7 +4,9 @@
 
 #include "CASBinaryStringBuilder.h"
 #include "CASSQLItem.h"
+#include "CASSQLGrid.h"
 #include "CASSQLite.h"
+
 
 typedef int(*fnSQLite3Open)(const char* filename, sqlite3** ppDb, int flags, const char* zVfs);
 fnSQLite3Open SQLite3_Open;
@@ -57,10 +59,6 @@ CASSQLite::CASSQLite(CString* szPath, int iMode){
 
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
-	m_pGripInfo = engine->GetTypeInfoByDecl("array<array<CSQLItem@>>");
-	m_pGripInsertFunction = m_pGripInfo->GetMethodByName("insertLast");
-	m_pArrayInfo = engine->GetTypeInfoByDecl("array<CSQLItem@>");
-	m_pArrayInsertFunction = m_pArrayInfo->GetMethodByName("insertLast");
 	m_pItemInfo = engine->GetTypeInfoByName("CSQLite");
 }
 CASSQLite* CASSQLite::Factory(CString* szPath, int iMode){
@@ -93,7 +91,7 @@ int CASSQLite::Open(){
 	m_bClosed = false;
 	return SQLite3_Open(m_szStoredPath.c_str(), &m_pDatabase, m_iMode, nullptr);
 }
-int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
+int CASSQLite::ExecSync(CString* sql, CASSQLGrid** gridOut, CString* errMsg){
 	if (m_bClosed) 
 		return 999;
 	else if (!m_bAviliable)
@@ -106,28 +104,16 @@ int CASSQLite::ExecSync(CString* sql, void* arrayOut, CString* errMsg){
 	iReturn = SQLite3_GetTable(m_pDatabase, sql->c_str(), &pResult, &nRow, &nColumn, &zErrMsg);
 	if (iReturn != 0)
 		return iReturn;
-	CASServerManager* manager = ASEXT_GetServerManager();
-	asIScriptEngine* engine = manager->scriptEngine;
-	asIScriptContext* ctx = engine->RequestContext();
-	int iIndex = 0;
+	CASSQLGrid* grid = CASSQLGrid::Factory(nRow + 1, nColumn);
 	for (int i = 0; i <= nRow; i++){
-		void* ary = engine->CreateScriptObject(m_pArrayInfo);
 		for (int j = 0; j < nColumn; j++){
-			ctx->Prepare(m_pArrayInsertFunction);
-			ctx->SetObject(ary);
 			char* res = pResult[i * nColumn + j];
 			//thee shall no be null in value, but could be in sqlite
 			CASSQLItem* val = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
-			ctx->SetArgObject(0, &val);
-			ctx->Execute();
-			iIndex++;
+			grid->Set(i, j, val);
 		}
-		ctx->Prepare(m_pGripInsertFunction);
-		ctx->SetObject(arrayOut);
-		ctx->SetArgObject(0, ary);
-		ctx->Execute();
 	}
-
+	*gridOut = grid;
 	if (zErrMsg) {
 		errMsg->assign(zErrMsg, strlen(zErrMsg));
 		SQLite3_Free(zErrMsg);
@@ -180,6 +166,8 @@ int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_valu
 	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(param[0]);
 	CASFunction* m_callback = ASEXT_CreateCASFunction(pfnASCallBack, ASEXT_GetServerManager()->curModule, 1);
 	(*ASEXT_CallCASBaseCallable)(m_callback, 0, param[1], column_size, aryVal, aryName);
+	engine->ReleaseScriptObject(aryVal, aryInfo);
+	engine->ReleaseScriptObject(aryName, aryInfo);
 	return 0;
 }
 
