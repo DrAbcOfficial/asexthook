@@ -20,7 +20,7 @@ jobs:
     - name: Git Clone Metamod
       uses: sudosubin/git-clone-action@v1.0.1
       with:
-        repository: DrAbcOfficial/metamod-fallguys
+        repository: hzqst/metamod-fallguys
         path: metamod
     
     - name: Git Clone This
@@ -62,7 +62,7 @@ jobs:
     - name: Git Clone Metamod
       uses: sudosubin/git-clone-action@v1.0.1
       with:
-        repository: DrAbcOfficial/metamod-fallguys
+        repository: hzqst/metamod-fallguys
         path: metamod
     
     - name: Git Clone This
