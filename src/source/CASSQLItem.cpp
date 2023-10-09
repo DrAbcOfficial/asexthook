@@ -61,11 +61,13 @@ double CASSQLItem::GetReal(){
 }
 
 CBinaryStringBuilder* CASSQLItem::GetBlob(){
+	if (m_bIsNull)
+		return nullptr;
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	CBinaryStringBuilder* pBlob = static_cast<CBinaryStringBuilder*>(engine->CreateScriptObject(m_pBlobInfo));
 	pBlob->WriteData(m_szData.c_str(), m_szData.size());
-	return m_bIsNull ? nullptr : pBlob;
+	return pBlob;
 }
 
 bool CASSQLItem::IsNull(){
