@@ -314,11 +314,13 @@ void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 
 int Spawn_Post(edict_t* pent) {
 	if (pent != nullptr) {
-		CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
-		if ((VARS(pent)->flags & FL_MONSTER) > 0) {
-			const char* szName = STRING((VARS(pent)->classname));
-			if (!strncmp(szName, "monster_", 8))
-				CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+		if (pent->pvPrivateData != nullptr) {
+			CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
+			if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+				const char* szName = STRING((VARS(pent)->classname));
+				if (!strncmp(szName, "monster_", 8))
+					CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+			}
 		}
 	}
 	SET_META_RESULT(MRES_HANDLED);
