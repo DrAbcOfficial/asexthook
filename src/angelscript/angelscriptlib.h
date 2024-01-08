@@ -40,11 +40,6 @@
 #ifndef ANGELSCRIPT_H
 #define ANGELSCRIPT_H
 
-#include <stddef.h>
-#ifndef _MSC_VER
-#include <stdint.h>
-#endif
-
 #ifdef AS_USE_NAMESPACE
 #define BEGIN_AS_NAMESPACE namespace AngelScript {
 #define END_AS_NAMESPACE }

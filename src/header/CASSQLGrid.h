@@ -1,7 +1,8 @@
 #pragma once
+#include <vector>
+
 #include "CASBaseObject.h"
 #include "CASSQLItem.h"
-#include <vector>
 
 class CBinaryStringBuilder;
 class CASSQLGrid : public CASBaseGCObject{

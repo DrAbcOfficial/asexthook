@@ -1,6 +1,7 @@
 #pragma once
-#include "CASBaseObject.h"
 #include <string>
+
+#include "CASBaseObject.h"
 
 struct sqlite3;
 typedef int (*fnSqlCallBack)(void*[], int, char**, char**);

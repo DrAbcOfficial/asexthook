@@ -1,10 +1,10 @@
-#include <extdll.h>
+#include <string>
+#include <bit>
 
+#include <extdll.h>
 #include "angelscript.h"
 
 #include <meta_api.h>
-#include <string>
-#include <bit>
 #include "CASBinaryStringBuilder.h"
 
 CBinaryStringBuilder::CBinaryStringBuilder(){

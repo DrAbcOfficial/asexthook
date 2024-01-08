@@ -31,18 +31,15 @@
  *    version.
  *
  */
-
 #include <extdll.h>
-
 #include <meta_api.h>
-#include <vector>
-#include "signatures.h"
+
 #include "asext_api.h"
-#include "enginedef.h"
+#include "signatures.h"
 #include "angelscript.h"
 #include "utility.h"
-#include "vftable.h"
-#include "dlldef.h"
+
+#include "enginedef.h"
 
 int SV_ModelIndex(const char* m) {
 	if (CVAR_GET_FLOAT("sv_fixgmr") > 0) {
