@@ -86,11 +86,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\CDetour\asm\asm.c" />
-    <ClCompile Include="..\CDetour\detours.cpp" />
-    <ClCompile Include="..\CDetour\libudis86\decode.c" />
-    <ClCompile Include="..\CDetour\libudis86\itab.c" />
-    <ClCompile Include="..\CDetour\libudis86\udis86.c" />
     <ClCompile Include="src\source\angelscript.cpp" />
     <ClCompile Include="src\source\CASBaseObject.cpp" />
     <ClCompile Include="src\source\CASBinaryStringBuilder.cpp" />
@@ -106,7 +101,6 @@
     <ClCompile Include="src\source\vftable.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="info_name.h" />
     <ClInclude Include="src\angelscript\angelscriptlib.h" />
     <ClInclude Include="src\header\angelscript.h" />
     <ClInclude Include="src\header\CASBaseObject.h" />
