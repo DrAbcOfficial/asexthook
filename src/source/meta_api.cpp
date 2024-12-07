@@ -55,7 +55,7 @@
 
 mBOOL dlclose_handle_invalid;
 
-IMPORT_ASEXT_API_DEFINE();
+IMPORT_ASEXT_API_DEFINE()
 
 // Must provide at least one of these..
 static META_FUNCTIONS gMetaFunctionTable = {
@@ -93,7 +93,8 @@ mutil_funcs_t* gpMetaUtilFuncs;		// metamod utility functions
 //  ifvers			(given) interface_version metamod is using
 //  pPlugInfo		(requested) struct with info about plugin
 //  pMetaUtilFuncs	(given) table of utility functions provided by metamod
-C_DLLEXPORT int Meta_Query(char* interfaceVersion, plugin_info_t** pPlugInfo, mutil_funcs_t* pMetaUtilFuncs)
+
+C_DLLEXPORT int Meta_Query(const char* interfaceVersion, plugin_info_t** pPlugInfo, mutil_funcs_t* pMetaUtilFuncs)
 {
 	if (0 != strcmp(interfaceVersion, META_INTERFACE_VERSION))
 	{

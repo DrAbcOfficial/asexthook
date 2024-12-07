@@ -32,6 +32,8 @@
 #include <extdll.h>
 
 #include <vector>
+#include <string>
+#include <map>
 
 #include <dllapi.h>
 #include <meta_api.h>
@@ -48,6 +50,8 @@
 #define CALL_ANGELSCRIPT(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 
 bool g_HookedFlag = false;
+
+std::map<char*, char*> g_dicGMRList = {};
 struct{
 	hookitem_t BaseMonsterTraceAttack;
 	hookitem_t BaseMonsterTakeDamage;
@@ -240,6 +244,62 @@ void VtableUnhook() {
 
 #pragma region PreHooks
 static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax) {
+#pragma region LoadMapGMR
+	//Clear Mem
+	for (auto iter = g_dicGMRList.begin(); iter != g_dicGMRList.end(); iter++) {
+		delete[] (*iter).first;
+		delete[] (*iter).second;
+	}
+	g_dicGMRList.clear();
+	//Read to Mem
+	char gmrfile[MAX_PATH] = {};
+	snprintf(gmrfile, MAX_PATH, "maps/%s.gmr", STRING(gpGlobals->mapname));
+	int length = 0;
+	char* content = reinterpret_cast<char*>(g_engfuncs.pfnLoadFileForMe(gmrfile, &length));
+	if (content != nullptr) {
+		char src[MAX_PATH]{};
+		char dst[MAX_PATH]{};
+		std::string buf;
+		bool inread = false;
+		bool indst = false;
+		for (size_t i = 0; i < strlen(content); i++) {
+			char tok = content[i];
+			if (tok == '\n') {
+				inread = false;
+				indst = false;
+				char* msrc = new char[MAX_PATH];
+				char* mdst = new char[MAX_PATH];
+				strcpy_s(msrc, MAX_PATH, src);
+				strcpy_s(mdst, MAX_PATH, dst);
+				g_dicGMRList.insert(std::make_pair(msrc, mdst));
+				memset(src, 0, MAX_PATH);
+				memset(dst, 0, MAX_PATH);
+				buf.clear();
+				continue;
+			}
+			else if (tok == '\"') {
+				if (inread) {
+					if (indst) {
+						strcpy(dst, buf.c_str());
+						indst = false;
+					}
+					else {
+						strcpy(src, buf.c_str());
+						indst = true;
+					}
+					inread = false;
+				}
+				else
+					inread = true;
+			}
+			if (inread) {
+				buf += tok;
+			}
+		}
+		g_engfuncs.pfnFreeFile(content);
+	}
+#pragma endregion
+
 	if (g_HookedFlag) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
@@ -272,7 +332,6 @@ static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax) {
 	ITEM_HOOK(gHookItems.PlayerTakeHealth, TakeHealth, vtable, PlayerTakeHealth);
 	ITEM_HOOK(gHookItems.IRelationship, IRelationship, vtable, IRelationship);
 #undef ITEM_HOOK
-
 	g_HookedFlag = true;
 	SET_META_RESULT(MRES_HANDLED);
 }
