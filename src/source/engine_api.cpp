@@ -92,8 +92,6 @@ static bool SearchAndHook() {
 	// Fill and Hook
 	FILL_AND_HOOK(Server, GrappleGetMonsterType);
 	//FILL_AND_HOOK(Server, SendScoreInfo);
-
-	auto x2 = g_pfn_GrappleGetMonsterType;
 	// Fill and Engine Hook
 	return true;
 }

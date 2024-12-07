@@ -172,6 +172,5 @@ C_DLLEXPORT int Meta_Detach(PLUG_LOADTIME /* now */,
 	UninstallHook();
 	VtableUnhook();
 	CloseAngelScriptsItem();
-
 	return TRUE;
 }

@@ -28,10 +28,8 @@ typedef struct angelhook_s {
 	void* pEntitySpawn = nullptr;
 	
 	void* pMonsterSpawn = nullptr;
-	void* pMonsterTakeDamage = nullptr;
-	void* pMonsterKilled = nullptr;
 	void* pMonsterTraceAttack = nullptr;
-	void* pMonsterPostTakeDamage = nullptr;
+	//void* pMonsterPostTakeDamage = nullptr;
 
 	void* pBreakableTraceAttack = nullptr;
 	void* pBreakableKilled = nullptr;
@@ -39,7 +37,7 @@ typedef struct angelhook_s {
 
 	void* pGrappleCheckMonsterType = nullptr;
 
-	void* pSendScoreInfo = nullptr;
+	//void* pSendScoreInfo = nullptr;
 
 	void* pEntityIRelationship = nullptr;
 }angelhook_t;
