@@ -1,6 +1,6 @@
 #pragma once
-#include "CASBaseObject.h"
 #include <string>
+#include "CASBaseObject.h"
 
 class CBinaryStringBuilder;
 class CASSQLItem : public CASBaseGCObject{

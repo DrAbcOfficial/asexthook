@@ -39,19 +39,15 @@
  */
 
 #include <extdll.h>			// always
+#include <meta_api.h>		// of course
 
 #include "signatures.h"
 #include "angelscript.h"
 #include "asext_api.h"
 
-#include <meta_api.h>		// of course
-
 #include "enginedef.h"
 #include "vftable.h"
 #include "dlldef.h"
-
-#include "sdk_util.h"		// UTIL_LogPrintf, etc
-
 
 mBOOL dlclose_handle_invalid;
 
@@ -75,8 +71,8 @@ static META_FUNCTIONS gMetaFunctionTable = {
 plugin_info_t Plugin_info = {
 	META_INTERFACE_VERSION,	// ifvers
 	"AngelScriptHookExt",	// name
-	"Alpha8",	// version
-	"2023",	// date
+	"Alpha9",	// version
+	"2024",	// date
 	"Dr.Abc",	// author
 	"https://github.com/DrAbcOfficial/asexthook",	// url
 	"ASHEXT",	// logtag, all caps please

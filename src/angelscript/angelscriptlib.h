@@ -40,11 +40,6 @@
 #ifndef ANGELSCRIPT_H
 #define ANGELSCRIPT_H
 
-#include <stddef.h>
-#ifndef _MSC_VER
-#include <stdint.h>
-#endif
-
 #ifdef AS_USE_NAMESPACE
 #define BEGIN_AS_NAMESPACE namespace AngelScript {
 #define END_AS_NAMESPACE }
@@ -305,7 +300,7 @@ typedef unsigned int   asUINT;
 // is likely to use MSVC6 to compile for 16bit systems anymore, so this should be ok.
 typedef size_t         asPWORD;
 #else
-typedef uintptr_t      asPWORD;
+typedef unsigned int   asPWORD;
 #endif
 #ifdef __LP64__
 typedef unsigned int  asDWORD;
@@ -314,8 +309,8 @@ typedef long asINT64;
 #else
 typedef unsigned long asDWORD;
 #if !defined(_MSC_VER) && (defined(__GNUC__) || defined(__MWERKS__) || defined(__SUNPRO_CC) || defined(__psp2__))
-typedef uint64_t asQWORD;
-typedef int64_t asINT64;
+typedef unsigned long long asQWORD;
+typedef long long asINT64;
 #else
 typedef unsigned __int64 asQWORD;
 typedef __int64 asINT64;

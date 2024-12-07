@@ -29,17 +29,13 @@
  *
  */
 
-#include <extdll.h>
-
 #include <vector>
 #include <string>
 #include <map>
 
 #include <dllapi.h>
 #include <meta_api.h>
-#include <log_meta.h>
 
-#include "signatures.h"
 #include "asext_api.h"
 #include "angelscript.h"
 #include "vftable.h"

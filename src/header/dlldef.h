@@ -1,6 +1,4 @@
 #pragma once
-#include "progdefs.h"
-
 typedef struct hookitem_s {
 	hook_t* pHook;
 	void* pfnCall;

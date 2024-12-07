@@ -31,19 +31,17 @@
  *    version.
  *
  */
-
 #include <extdll.h>
-
 #include <meta_api.h>
 #include <vector>
 #include <map>
 #include "signatures.h"
 #include "asext_api.h"
-#include "enginedef.h"
+#include "signatures.h"
 #include "angelscript.h"
 #include "utility.h"
-#include "vftable.h"
-#include "dlldef.h"
+
+#include "enginedef.h"
 
 
 #pragma region SigHooks

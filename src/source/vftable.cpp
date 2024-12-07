@@ -1,9 +1,7 @@
-#include <extdll.h>
-
-#include <meta_api.h>
-#include <enginecallback.h>
 #include <map>
-#include "edict.h"
+
+#include <extdll.h>
+#include <meta_api.h>
 #include "asext_api.h"
 #include "vftable.h"
 
