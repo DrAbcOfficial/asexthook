@@ -121,18 +121,8 @@ set(no_group_source_files
 )
 source_group("" FILES ${no_group_source_files})
 
-set(detour
-    "../CDetour/asm/asm.c"
-    "../CDetour/detours.cpp"
-    "../CDetour/libudis86/decode.c"
-    "../CDetour/libudis86/itab.c"
-    "../CDetour/libudis86/udis86.c"
-)
-source_group("detour" FILES ${detour})
-
 set(ALL_FILES
     ${no_group_source_files}
-    ${detour}
 )
 
 ################################################################################
@@ -175,7 +165,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/pm_shared;"
     "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/engine;"
     "${CMAKE_CURRENT_SOURCE_DIR}/../metamod;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../CDetour;"
     "${CMAKE_CURRENT_SOURCE_DIR}/../asext/include"
 )
 

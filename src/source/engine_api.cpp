@@ -44,10 +44,73 @@
 #include "vftable.h"
 #include "dlldef.h"
 
-int SV_ModelIndex(const char* m) {
+
+#pragma region SigHooks
+ /// <summary>
+ /// Grapple GetMonsterType
+ /// </summary>
+hook_t* g_phook_GrappleGetMonsterType = nullptr;
+PRIVATE_FUNCTION_DEFINE(GrappleGetMonsterType);
+GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DUMMYARG void* pEntity) {
+	int uiFlag = 0;
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pGrappleCheckMonsterType, 0, pThis, pEntity, &uiFlag);
+	if (uiFlag != 0 && uiFlag <= 2 && uiFlag >= 1)
+		return (GRAPPLE_RESULT)uiFlag;
+	return g_call_original_GrappleGetMonsterType(pThis, SC_SERVER_PASS_DUMMYARG pEntity);
+}
+/// <summary>
+/// SendScoreInfo
+/// </summary>
+hook_t* g_phook_SendScoreInfo = nullptr;
+PRIVATE_FUNCTION_DEFINE(SendScoreInfo);
+void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName) {
+	int uiFlag = 0;
+	if (ASEXT_CallHook)
+		(*ASEXT_CallHook)(g_AngelHook.pSendScoreInfo, 0, pThis, eSendTarget, iTeamID, szTeamName, &uiFlag);
+	if (uiFlag != 0)
+		return;
+	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
+}
+/// <summary>
+/// CWorldMODELREPLACEMENTFind
+/// </summary>
+PRIVATE_FUNCTION_DEFINE(CWorldMODELREPLACEMENTFind);
+static bool SearchAndHook() {
+	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
+	auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
+
+	auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
+	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
+#ifdef WIN32
+#define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
+#define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
+#define CWorldMODELREPLACEMENTFind_Signature "\x56\x8B\x74\x24\x08\x81\xC1\x40\x02\x00\x00\x56\xE8\x2A\x2A\x2A\x2A\x85\xC0\x0F\x45\xF0\x8B\xC6\x5E\xC2\x04\x00\xCC\xCC\xCC\xCC"
+#else
+#define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
+#define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
+#define SV_Physics_Signature "_Z10SV_Physicsv"
+#define CWorldMODELREPLACEMENTFind_Signature "_ZN6CWorld21MODELREPLACEMENT_FindEPKc"
+#endif
+	//Fill
+	FILL_FROM_SIGNATURE(Server, CWorldMODELREPLACEMENTFind);
+	// Fill and Hook
+	FILL_AND_HOOK(Server, GrappleGetMonsterType);
+	FILL_AND_HOOK(Server, SendScoreInfo);
+	// Fill and Engine Hook
+	return true;
+}
+void UninstallHook() {
+	UNINSTALL_HOOK(GrappleGetMonsterType);
+	UNINSTALL_HOOK(SendScoreInfo);
+}
+#pragma endregion
+
+#pragma region PreHooks
+static int SV_ModelIndex(const char* m) {
 	if (CVAR_GET_FLOAT("sv_fixgmr") > 0) {
 		SC_SERVER_DUMMYVAR
-		auto x = g_call_original_CWorldMODELREPLACEMENTFind(INDEXENT(0)->pvPrivateData, SC_SERVER_PASS_DUMMYARG m);
+			auto x = g_call_original_CWorldMODELREPLACEMENTFind(INDEXENT(0)->pvPrivateData, SC_SERVER_PASS_DUMMYARG m);
 		SET_META_RESULT(MRES_SUPERCEDE);
 		return MODEL_INDEX(x);
 	}
@@ -55,9 +118,7 @@ int SV_ModelIndex(const char* m) {
 		SET_META_RESULT(MRES_IGNORED);
 	return 0;
 }
-
-enginefuncs_t meta_engfuncs = 
-{
+enginefuncs_t meta_engfuncs = {
 	NULL,						// pfnPrecacheModel()
 	NULL,						// pfnPrecacheSound()
 	NULL,						// pfnSetModel()
@@ -267,66 +328,6 @@ enginefuncs_t meta_engfuncs =
 	// Added 2009-06-17 (no SDK update)
 	NULL,						// pfnEngCheckParm()
 };
-/// <summary>
-/// Grapple GetMonsterType
-/// </summary>
-hook_t* g_phook_GrappleGetMonsterType = nullptr;
-PRIVATE_FUNCTION_DEFINE(GrappleGetMonsterType);
-GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DUMMYARG void* pEntity) {
-	int uiFlag = 0;
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pGrappleCheckMonsterType, 0, pThis, pEntity, &uiFlag);
-	if (uiFlag != 0 && uiFlag <= 2 && uiFlag >= 1)
-		return (GRAPPLE_RESULT)uiFlag;
-	return g_call_original_GrappleGetMonsterType(pThis, SC_SERVER_PASS_DUMMYARG pEntity);
-}
-/// <summary>
-/// SendScoreInfo
-/// </summary>
-hook_t* g_phook_SendScoreInfo = nullptr;
-PRIVATE_FUNCTION_DEFINE(SendScoreInfo);
-void SC_SERVER_DECL NewSendScoreInfo(void* pThis, SC_SERVER_DUMMYARG edict_t* eSendTarget, int iTeamID, char* szTeamName) {
-	int uiFlag = 0;
-	if (ASEXT_CallHook)
-		(*ASEXT_CallHook)(g_AngelHook.pSendScoreInfo, 0, pThis, eSendTarget, iTeamID, szTeamName, &uiFlag);
-	if (uiFlag != 0)
-		return;
-	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
-}
-/// <summary>
-/// CWorldMODELREPLACEMENTFind
-/// </summary>
-PRIVATE_FUNCTION_DEFINE(CWorldMODELREPLACEMENTFind);
-
-bool SearchAndHook() {
-	auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
-	auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
-
-	auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
-	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
-#ifdef WIN32
-#define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
-#define SendScoreInfo_Signature "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
-#define CWorldMODELREPLACEMENTFind_Signature "\x56\x8B\x74\x24\x08\x81\xC1\x40\x02\x00\x00\x56\xE8\x2A\x2A\x2A\x2A\x85\xC0\x0F\x45\xF0\x8B\xC6\x5E\xC2\x04\x00\xCC\xCC\xCC\xCC"
-#else
-#define GrappleGetMonsterType_Signature "_ZN22CBarnacleGrappleTongue14GetMonsterTypeEP11CBaseEntity"
-#define SendScoreInfo_Signature "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
-#define SV_Physics_Signature "_Z10SV_Physicsv"
-#define CWorldMODELREPLACEMENTFind_Signature "_ZN6CWorld21MODELREPLACEMENT_FindEPKc"
-#endif
-	//Fill
-	FILL_FROM_SIGNATURE(Server, CWorldMODELREPLACEMENTFind);
-	// Fill and Hook
-	FILL_AND_HOOK(Server, GrappleGetMonsterType);
-	FILL_AND_HOOK(Server, SendScoreInfo);
-	// Fill and Engine Hook
-	return true;
-}
-void UninstallHook() {
-	UNINSTALL_HOOK(GrappleGetMonsterType);
-	UNINSTALL_HOOK(SendScoreInfo);
-}
-
 C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 	int* interfaceVersion)
 {
@@ -341,6 +342,7 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t* pengfuncsFromEngine,
 		return false;
 	}
 	memcpy(pengfuncsFromEngine, &meta_engfuncs, sizeof(enginefuncs_t));
-	
+
 	return SearchAndHook();
 }
+#pragma endregion

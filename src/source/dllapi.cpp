@@ -48,7 +48,6 @@
 #define CALL_ANGELSCRIPT(pfn, ...) if (ASEXT_CallHook){(*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__);}
 
 bool g_HookedFlag = false;
-
 struct{
 	hookitem_t BaseMonsterTraceAttack;
 	hookitem_t BaseMonsterTakeDamage;
@@ -76,11 +75,12 @@ struct{
 
 	hookitem_t IRelationship;
 } gHookItems;
-std::vector<hook_t*> gHooks;
+static std::vector<hook_t*> gHooks;
+
+#pragma region VTableHooks
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
-
-void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+static void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	edict_t* ent = PrivateToEdict(pThis);
 	if (ent) {
 		entvars_t* var = &ent->v;
@@ -89,7 +89,7 @@ void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYA
 	}
 	CALL_ORIGIN(gHookItems.BaseMonsterTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	edict_t* ent = PrivateToEdict(pThis);
 	if (ent) {
 		entvars_t* var = &ent->v;
@@ -107,7 +107,7 @@ int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG
 	}
 	return CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, flDamage, bitsDamageType);
 }
-void SC_SERVER_DECL BaseMonsterKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+static void SC_SERVER_DECL BaseMonsterKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	edict_t* ent = PrivateToEdict(pThis);
 	if (ent) {
 		entvars_t* var = &ent->v;
@@ -116,12 +116,11 @@ void SC_SERVER_DECL BaseMonsterKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG en
 	}
 	CALL_ORIGIN(gHookItems.BaseMonsterKilled, Killed, pevAttacker, iGib);
 }
-
-void SC_SERVER_DECL ApacheTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+static void SC_SERVER_DECL ApacheTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.ApacheTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL ApacheTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL ApacheTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -134,21 +133,19 @@ int SC_SERVER_DECL ApacheTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
-void SC_SERVER_DECL ApacheKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+static void SC_SERVER_DECL ApacheKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pevAttacker, iGib)
-	CALL_ORIGIN(gHookItems.ApacheKilled, Killed, pevAttacker, iGib);
+		CALL_ORIGIN(gHookItems.ApacheKilled, Killed, pevAttacker, iGib);
 }
-
-void SC_SERVER_DECL OspreyTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+static void SC_SERVER_DECL OspreyTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.OspreyTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-void SC_SERVER_DECL OspreyKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+static void SC_SERVER_DECL OspreyKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib);
 	CALL_ORIGIN(gHookItems.OspreyKilled, Killed, pevAttacker, iGib);
 }
-
-int SC_SERVER_DECL SentryTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL SentryTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -161,16 +158,15 @@ int SC_SERVER_DECL SentryTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
-void SC_SERVER_DECL SentryKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+static void SC_SERVER_DECL SentryKilled(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pMonsterKilled, pThis, pevAttacker, iGib)
-	CALL_ORIGIN(gHookItems.SentryKilled, Killed, pevAttacker, iGib);
+		CALL_ORIGIN(gHookItems.SentryKilled, Killed, pevAttacker, iGib);
 }
-
-void SC_SERVER_DECL TurretTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+static void SC_SERVER_DECL TurretTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pMonsterTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.TurretTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-int SC_SERVER_DECL TurretTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL TurretTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -183,16 +179,15 @@ int SC_SERVER_DECL TurretTakeDamage(CBaseMonster* pThis, SC_SERVER_DUMMYARG entv
 	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg);
 	return value;
 }
-
-void SC_SERVER_DECL BreakableTraceAttack(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
+static void SC_SERVER_DECL BreakableTraceAttack(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	CALL_ANGELSCRIPT(pBreakableTraceAttack, pThis, pevAttacker, flDamage, &vecDir, ptr, bitsDamageType);
 	CALL_ORIGIN(gHookItems.BreakableTraceAttack, TraceAttack, pevAttacker, flDamage, vecDir, ptr, bitsDamageType);
 }
-void SC_SERVER_DECL BreakableKilled(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
+static void SC_SERVER_DECL BreakableKilled(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, int iGib) {
 	CALL_ANGELSCRIPT(pBreakableKilled, pThis, pevAttacker, iGib);
 	CALL_ORIGIN(gHookItems.BreakableKilled, Killed, pevAttacker, iGib);
 }
-int SC_SERVER_DECL BreakableTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL BreakableTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -201,10 +196,9 @@ int SC_SERVER_DECL BreakableTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG en
 			bitsDamageType
 	};
 	CALL_ANGELSCRIPT(pBreakableTakeDamage, &dmg)
-	return CALL_ORIGIN(gHookItems.BreakableTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
+		return CALL_ORIGIN(gHookItems.BreakableTakeDamage, TakeDamage, pevInflictor, pevAttacker, dmg.flDamage, dmg.bitsDamageType);
 }
-
-int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+static int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
 	damageinfo_t dmg = {
 			pThis,
 			GetEntVarsVTable(pevInflictor),
@@ -216,7 +210,7 @@ int SC_SERVER_DECL PlayerPostTakeDamage(CBasePlayer* pThis, SC_SERVER_DUMMYARG e
 	CALL_ANGELSCRIPT(pPlayerPostTakeDamage, &dmg);
 	return result;
 }
-int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
+static int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float flDamage, int bitsDamageType, int cap) {
 	healthinfo_t dmg = {
 		pThis,
 		flDamage,
@@ -226,16 +220,26 @@ int SC_SERVER_DECL PlayerTakeHealth(CBasePlayer* pThis, SC_SERVER_DUMMYARG float
 	CALL_ANGELSCRIPT(pPlayerTakeHealth, &dmg);
 	return CALL_ORIGIN(gHookItems.PlayerTakeHealth, TakeHealth, dmg.flHealth, dmg.bitsDamageType, dmg.health_cap);
 }
-
-int SC_SERVER_DECL IRelationship(CBasePlayer* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool param_2) {
+static int SC_SERVER_DECL IRelationship(CBasePlayer* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool param_2) {
 	int iNewReturn = 114514;
 	CALL_ANGELSCRIPT(pEntityIRelationship, pThis, pOther, param_2, &iNewReturn);
 	return iNewReturn == 114514 ? CALL_ORIGIN(gHookItems.IRelationship, IRelationship, pOther, param_2) : iNewReturn;
 }
 #undef CALL_ORIGIN
 #undef CALL_ORIGIN_NOARG
+void VtableUnhook() {
+	for (auto iter = gHooks.begin(); iter != gHooks.end(); iter++) {
+		if (*iter) {
+			gpMetaUtilFuncs->pfnUnHook(*iter);
+			*iter = nullptr;
+		}
+	}
+	gHooks.clear();
+}
+#pragma endregion
 
-void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
+#pragma region PreHooks
+static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax) {
 	if (g_HookedFlag) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
@@ -272,34 +276,25 @@ void ServerActivate (edict_t* pEdictList, int edictCount, int clientMax) {
 	g_HookedFlag = true;
 	SET_META_RESULT(MRES_HANDLED);
 }
-void VtableUnhook() {
-	for (auto iter = gHooks.begin(); iter != gHooks.end(); iter++) {
-		if (*iter) { 
-			gpMetaUtilFuncs->pfnUnHook(*iter);
-			*iter = nullptr;
-		}
-	}
-	gHooks.clear();
-}
-void ClientCommand(edict_t* pEntity) {
+static void ClientCommand(edict_t* pEntity) {
 	if (!pEntity->pvPrivateData) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
 	}
 	const char* pcmd = CMD_ARGV(0);
-	if (!strcmp(pcmd, "medic")) {
+	if (!strncmp(pcmd, "medic", 5)) {
 		CALL_ANGELSCRIPT(pPlayerCallMedic, pEntity->pvPrivateData);
 		SET_META_RESULT(MRES_HANDLED);
 		return;
 	}
-	else if (!strcmp(pcmd, "grenade")) {
+	else if (!strncmp(pcmd, "grenade", 7)) {
 		CALL_ANGELSCRIPT(pPlayerCallGrenade, pEntity->pvPrivateData);
 		SET_META_RESULT(MRES_HANDLED);
 		return;
 	}
 	SET_META_RESULT(MRES_IGNORED);
 }
-void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
+static void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 	if (pEntity == nullptr) {
 		SET_META_RESULT(MRES_IGNORED);
 		return;
@@ -311,22 +306,6 @@ void ClientUserInfoChanged(edict_t* pEntity, char* infobuffer) {
 	else
 		SET_META_RESULT(MRES_HANDLED);
 }
-
-int Spawn_Post(edict_t* pent) {
-	if (pent != nullptr) {
-		if (pent->pvPrivateData != nullptr) {
-			CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
-			if ((VARS(pent)->flags & FL_MONSTER) > 0) {
-				const char* szName = STRING((VARS(pent)->classname));
-				if (!strncmp(szName, "monster_", 8))
-					CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
-			}
-		}
-	}
-	SET_META_RESULT(MRES_HANDLED);
-	return 1919810;
-}
-
 static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnGameInit
 	NULL,					// pfnSpawn
@@ -390,7 +369,7 @@ static DLL_FUNCTIONS gFunctionTable = {
 	NULL,					// pfnAllowLagCompensation
 };
 C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
-	int* interfaceVersion){
+	int* interfaceVersion) {
 	if (!pFunctionTable) {
 		UTIL_LogPrintf("GetEntityAPI2 called with null pFunctionTable");
 		return(FALSE);
@@ -404,10 +383,27 @@ C_DLLEXPORT int GetEntityAPI2(DLL_FUNCTIONS* pFunctionTable,
 	memcpy(pFunctionTable, &gFunctionTable, sizeof(DLL_FUNCTIONS));
 	return(TRUE);
 }
-void GameInitPost() {
-	cvar_t	fixgmr = { const_cast<char*>("sv_fixgmr"),const_cast<char*>("1"), FCVAR_SERVER };
+#pragma endregion
+
+#pragma region PostHook
+static void GameInitPost() {
+	static cvar_t fixgmr = { const_cast<char*>("sv_fixgmr"),const_cast<char*>("1"), FCVAR_SERVER };
 	CVAR_REGISTER(&fixgmr);
 	SET_META_RESULT(MRES_HANDLED);
+}
+static int Spawn_Post(edict_t* pent) {
+	if (pent != nullptr) {
+		if (pent->pvPrivateData != nullptr) {
+			CALL_ANGELSCRIPT(pEntitySpawn, pent->pvPrivateData);
+			if ((VARS(pent)->flags & FL_MONSTER) > 0) {
+				const char* szName = STRING((VARS(pent)->classname));
+				if (!strncmp(szName, "monster_", 8))
+					CALL_ANGELSCRIPT(pMonsterSpawn, pent->pvPrivateData);
+			}
+		}
+	}
+	SET_META_RESULT(MRES_HANDLED);
+	return 1919810;
 }
 static DLL_FUNCTIONS gFunctionTable_Post = {
 	GameInitPost,					// pfnGameInit
@@ -473,7 +469,7 @@ static DLL_FUNCTIONS gFunctionTable_Post = {
 };
 C_DLLEXPORT int GetEntityAPI2_Post(DLL_FUNCTIONS* pFunctionTable,
 	int* interfaceVersion) {
-	if(!pFunctionTable) {
+	if (!pFunctionTable) {
 		UTIL_LogPrintf("GetEntityAPI2 called with null pFunctionTable");
 		return(FALSE);
 	}
@@ -486,3 +482,4 @@ C_DLLEXPORT int GetEntityAPI2_Post(DLL_FUNCTIONS* pFunctionTable,
 	memcpy(pFunctionTable, &gFunctionTable_Post, sizeof(DLL_FUNCTIONS));
 	return(TRUE);
 }
+#pragma endregion
