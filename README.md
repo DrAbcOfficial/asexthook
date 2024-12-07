@@ -29,19 +29,16 @@ Used HTML Generator [Here](https://github.com/sven-coop/sven-coop.github.io)
 		* 3.6.1. [EntitySpawn](#EntitySpawn)
 		* 3.6.2. [IRelationship](#IRelationship)
 		* 3.6.3. [MonsterSpawn](#MonsterSpawn)
-		* 3.6.4. [MonsterTakeDamage](#MonsterTakeDamage)
-		* 3.6.5. [MonsterKilled](#MonsterKilled)
-		* 3.6.6. [MonsterTraceAttack](#MonsterTraceAttack)
-		* 3.6.7. [BreakableKilled](#BreakableKilled)
-		* 3.6.8. [BreakableTakeDamage](#BreakableTakeDamage)
-		* 3.6.9. [BreakableTraceAttack](#BreakableTraceAttack)
-		* 3.6.10. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
-		* 3.6.11. [PlayerTakeHealth](#PlayerTakeHealth)
-		* 3.6.12. [PlayerCallMedic](#PlayerCallMedic)
-		* 3.6.13. [PlayerCallGrenade](#PlayerCallGrenade)
-		* 3.6.14. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
-		* 3.6.15. [GrappleGetMonsterType](#GrappleGetMonsterType)
-		* 3.6.16. [SendScoreInfo](#SendScoreInfo)
+		* 3.6.4. [MonsterTraceAttack](#MonsterTraceAttack)
+		* 3.6.5. [BreakableKilled](#BreakableKilled)
+		* 3.6.6. [BreakableTakeDamage](#BreakableTakeDamage)
+		* 3.6.7. [BreakableTraceAttack](#BreakableTraceAttack)
+		* 3.6.8. [PlayerPostTakeDamage](#PlayerPostTakeDamage)
+		* 3.6.9. [PlayerTakeHealth](#PlayerTakeHealth)
+		* 3.6.10. [PlayerCallMedic](#PlayerCallMedic)
+		* 3.6.11. [PlayerCallGrenade](#PlayerCallGrenade)
+		* 3.6.12. [PlayerUserInfoChanged](#PlayerUserInfoChanged)
+		* 3.6.13. [GrappleGetMonsterType](#GrappleGetMonsterType)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -222,35 +219,6 @@ MapScript | Plugin
 
 ---
 
-
-####  3.6.4. <a name='MonsterTakeDamage'></a>MonsterTakeDamage
-
-```
-Hooks::Monster const uint32 MonsterTakeDamage (DamageInfo@ info)
-```
-
-Call before origin CBaseMonster::TakeDamage called.
-
-
-StopMode: CALL_ALL
-
-MapScript | Plugin
-
----
-
-####  3.6.5. <a name='MonsterKilled'></a>MonsterKilled
-
-```
-Hooks::Monster const uint32 MonsterKilled (CBaseMonster@ pMonster, entvars_t@ pevAttacker, int iGib)
-```
-
-Call before origin CBaseMonster::Killed called.
-
-StopMode: CALL_ALL
-
-MapScript | Plugin
-
----
 
 ####  3.6.6. <a name='MonsterTraceAttack'></a>MonsterTraceAttack
 

@@ -54,6 +54,7 @@ bool g_HookedFlag = false;
 std::map<char*, char*> g_dicGMRList = {};
 struct{
 	hookitem_t BaseMonsterTraceAttack;
+	hookitem_t BaseMonsterTakeDamage;
 
 	hookitem_t ApacheTraceAttack;
 	hookitem_t OspreyTraceAttack;
@@ -73,6 +74,18 @@ static std::vector<hook_t*> gHooks;
 #pragma region VTableHooks
 #define CALL_ORIGIN(item, type, ...) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
 #define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
+static int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) {
+	int ret = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, flDamage, bitsDamageType);
+	damageinfo_t dmg = {
+			pThis,
+			GetEntVarsVTable(pevInflictor),
+			GetEntVarsVTable(pevAttacker),
+			flDamage,
+			bitsDamageType
+	};
+	CALL_ANGELSCRIPT(pMonsterPostTakeDamage, &dmg)
+	return ret;
+}
 static void SC_SERVER_DECL BaseMonsterTraceAttack(CBaseMonster* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, vec3_t vecDir, TraceResult* ptr, int bitsDamageType) {
 	edict_t* ent = PrivateToEdict(pThis);
 	if (ent) {
