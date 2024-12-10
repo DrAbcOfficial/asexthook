@@ -190,8 +190,8 @@ static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax) {
 				indst = false;
 				char* msrc = new char[MAX_PATH];
 				char* mdst = new char[MAX_PATH];
-				strcpy_s(msrc, MAX_PATH, src);
-				strcpy_s(mdst, MAX_PATH, dst);
+				strcpy(msrc, src);
+				strcpy(mdst, dst);
 				g_dicGMRList.insert(std::make_pair(msrc, mdst));
 				memset(src, 0, MAX_PATH);
 				memset(dst, 0, MAX_PATH);
