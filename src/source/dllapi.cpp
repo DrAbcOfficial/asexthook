@@ -29,11 +29,12 @@
  *
  */
 
+
 #include <vector>
 #include <string>
 #include <map>
 
-#include <dllapi.h>
+#include <extdll.h>
 #include <meta_api.h>
 
 #include "asext_api.h"

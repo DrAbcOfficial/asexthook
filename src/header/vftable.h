@@ -47,6 +47,10 @@ typedef struct vtable_base_s {
 	int (SC_SERVER_DECL* IRelationship)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool friendly) = nullptr;
 	int (SC_SERVER_DECL* Classify)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* DeathNotice)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevChild) = nullptr;
+
+	//Insert shit here, huh?
+	void (SC_SERVER_DECL* UnkownShit1)(int* pThis, SC_SERVER_DUMMYARG entvars_t* param_2, int param_3, float param_4) = nullptr;
+
 	void (SC_SERVER_DECL* TraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeHealth)(void* pThis, SC_SERVER_DUMMYARG float flHealth, int bitsDamageType, int cap) = nullptr;
@@ -59,6 +63,9 @@ typedef struct vtable_base_s {
 	CSquadMonster* (SC_SERVER_DECL* MySquadMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	CCustomEntity* (SC_SERVER_DECL* MyCustomPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	CBasePlayerItem* (SC_SERVER_DECL* MyItemPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	// What fuck baseclass u wanna cast to?
+	void* (SC_SERVER_DECL* UnknowCaster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+	//
 	int (SC_SERVER_DECL* GetToggleState)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* AddPoints)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
 	void (SC_SERVER_DECL* AddPointsToTeam)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
