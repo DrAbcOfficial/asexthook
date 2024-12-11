@@ -3,30 +3,26 @@
 typedef void CRestore;
 typedef void CSave;
 typedef void MonsterEvent;
-typedef struct{
-	int		iSlot;
-	int		iPosition;
-	const char* pszAmmo1;	// ammo 1 type
-	int		iMaxAmmo1;		// max ammo 1
-	const char* pszAmmo2;	// ammo 2 type
-	int		iMaxAmmo2;		// max ammo 2
-	const char* pszName;
-	int		iMaxClip;
-	int		iId;
-	int		iFlags;
-	int		iWeight;// this value used to determine this weapon's importance in autoselection.
-} ItemInfo;
-typedef void CBaseEntity;
-typedef void CBaseMonster;
+typedef void ItemInfo;
 typedef void CCustomEntity;
-typedef void CBasePlayerWeapon;
 typedef void CSquadMonster;
-typedef struct Task_s {
+using Task_t = struct Task_s {
+	int iTask;
+	float flValue;
+};
+using Schedule_t = struct Schedule_s {
+	Task_t* pTasklist;
+	int		cTasks;
+	int		iInterruptMask;// a bit mask of conditions that can interrupt this schedule 
 
-}Task_t;
+	// a more specific mask that indicates which TYPES of sounds will interrupt the schedule in the 
+	// event that the schedule is broken by COND_HEAR_SOUND
+	int		iSoundMask;
+	const	char* pName;
+};
 
 //101
-typedef struct vtable_base_s {
+using vtable_base_t = struct vtable_base_s {
 	void (SC_SERVER_DECL* PreSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Spawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* PostSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -47,10 +43,6 @@ typedef struct vtable_base_s {
 	int (SC_SERVER_DECL* IRelationship)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, bool friendly) = nullptr;
 	int (SC_SERVER_DECL* Classify)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* DeathNotice)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevChild) = nullptr;
-
-	//Insert shit here, huh?
-	void (SC_SERVER_DECL* UnkownShit1)(int* pThis, SC_SERVER_DUMMYARG entvars_t* param_2, int param_3, float param_4) = nullptr;
-
 	void (SC_SERVER_DECL* TraceAttack)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeDamage)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) = nullptr;
 	int (SC_SERVER_DECL* TakeHealth)(void* pThis, SC_SERVER_DUMMYARG float flHealth, int bitsDamageType, int cap) = nullptr;
@@ -63,9 +55,11 @@ typedef struct vtable_base_s {
 	CSquadMonster* (SC_SERVER_DECL* MySquadMonsterPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	CCustomEntity* (SC_SERVER_DECL* MyCustomPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	CBasePlayerItem* (SC_SERVER_DECL* MyItemPointer)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+
 	// What fuck baseclass u wanna cast to?
 	void* (SC_SERVER_DECL* UnknowCaster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	//
+
 	int (SC_SERVER_DECL* GetToggleState)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* AddPoints)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
 	void (SC_SERVER_DECL* AddPointsToTeam)(void* pThis, SC_SERVER_DUMMYARG int score, bool bAllowNegativeScore) = nullptr;
@@ -84,6 +78,10 @@ typedef struct vtable_base_s {
 	bool (SC_SERVER_DECL* IsAlive)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* IsBSPModel)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* ReflectGauss)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
+
+	// What fuck baseclass u wanna check?
+	unsigned int (SC_SERVER_DECL* UnknowCheck)(int* param) = nullptr;
+
 	bool (SC_SERVER_DECL* HasTarget)(void* pThis, SC_SERVER_DUMMYARG string_t targetname) = nullptr;
 	bool (SC_SERVER_DECL* IsInWorld)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* IsMonster)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -118,9 +116,9 @@ typedef struct vtable_base_s {
 	void (SC_SERVER_DECL* GetDamagePoints)(void* pThis, SC_SERVER_DUMMYARG entvars_t* pevAttacker, entvars_t* pevInfictor, float damage) = nullptr;
 	void (SC_SERVER_DECL* SetPlayerAlly)(void* pThis, SC_SERVER_DUMMYARG bool dunno) = nullptr;
 	void (SC_SERVER_DECL* Deconstructor1)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-#ifndef WIN32
+#ifndef _WIN32
 	void (SC_SERVER_DECL* Deconstructor2)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-#endif // !WIN32
+#endif // !_WIN32
 	void (SC_SERVER_DECL* OnCreate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* OnDestroy)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* OnSetOriginByMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -137,16 +135,16 @@ typedef struct vtable_base_s {
 	int (SC_SERVER_DECL* GetTopColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* GetBottomColor)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* UpdateColorMap)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-} vtable_base_t;
+};
 //102
-typedef struct vtable_delay_s : vtable_base_s {
+using vtable_delay_t = struct vtable_delay_s : vtable_base_s {
 	void (SC_SERVER_DECL* DelayThink)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-}vtable_delay_t;
+};
 //103
-typedef struct vtable_animating_s : vtable_delay_s {
+using vtable_animating_t = struct vtable_animating_s : vtable_delay_s {
 	void (SC_SERVER_DECL* HandleAnimEvent)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA, MonsterEvent* pEvent) = nullptr;
-}vtable_animating_t;
-typedef struct vtable_monster_s : vtable_animating_s {
+};
+using vtable_monster_t = struct vtable_monster_s : vtable_animating_s {
 	void (SC_SERVER_DECL* SUB_DoNothing)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Look)(void* pThis, SC_SERVER_DUMMYARG int iDistance) = nullptr;
 	void (SC_SERVER_DECL* RunAI)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -180,8 +178,8 @@ typedef struct vtable_monster_s : vtable_animating_s {
 	void (SC_SERVER_DECL* CheckTankUsage)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* ScheduleFromName)(void* pThis, SC_SERVER_DUMMYARG char* name) = nullptr;
 	void (SC_SERVER_DECL* StartTask)(void* pThis, SC_SERVER_DUMMYARG Task_t* name) = nullptr;
-	void (SC_SERVER_DECL* RunTask)(void* pThis, SC_SERVER_DUMMYARG Task_t* name) = nullptr;
-	void (SC_SERVER_DECL* GetScheduleOfType)(void* pThis, SC_SERVER_DUMMYARG int type) = nullptr;
+	void (SC_SERVER_DECL* RunTask)(void* pThis, SC_SERVER_DUMMYARG int iTask) = nullptr;
+	Schedule_t* (SC_SERVER_DECL* GetScheduleOfType)(void* pThis, SC_SERVER_DUMMYARG int type) = nullptr;
 	void (SC_SERVER_DECL* GetSchedule)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* ScheduleChange)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	bool (SC_SERVER_DECL* CanPlaySequence)(void* pThis, SC_SERVER_DUMMYARG bool bDisregardState, int iInterruptLevel) = nullptr;
@@ -255,8 +253,8 @@ typedef struct vtable_monster_s : vtable_animating_s {
 	void (SC_SERVER_DECL* HandleStep)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* PlayStepSound)(void* pThis, SC_SERVER_DUMMYARG int iStep, float volumn) = nullptr;
 	void (SC_SERVER_DECL* MedicCallSound)(void* pThis, SC_SERVER_DUMMYARG float flKeep) = nullptr;
-}vtable_monster_t;
-typedef struct vtable_player_s : vtable_monster_s {
+};
+using vtable_player_t = struct vtable_player_s : vtable_monster_s {
 	void (SC_SERVER_DECL* SpecialSpawn)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Jump)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Duck)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -281,27 +279,31 @@ typedef struct vtable_player_s : vtable_monster_s {
 	void (SC_SERVER_DECL* ResetView)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* GetLogFrequency)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* LogPlayerStats)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-}vtable_player_t;
+};
 //109
-typedef struct vtable_physicsobject_s : vtable_animating_s {
+using vtable_physicsobject_t = struct vtable_physicsobject_s : vtable_animating_s {
 	void (SC_SERVER_DECL* WorldInit)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* Materialize)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* TouchedWorld)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA, bool touch) = nullptr;
 	void (SC_SERVER_DECL* Kill)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* GetBounceSound)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	void (SC_SERVER_DECL* FallInit)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-}vtable_physicsobject_t;
+};
 //115
-typedef struct vtable_pickupobject_s : vtable_physicsobject_s {
+using vtable_pickupobject_t = struct vtable_pickupobject_s : vtable_physicsobject_s {
 	void (SC_SERVER_DECL* CanCollect)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, int iCollectType) = nullptr;
-	void(SC_SERVER_DECL* Collect)(CBaseEntity* pThis, SC_SERVER_DUMMYARG int iCollectType) = nullptr;
+	void (*__purecall)() = nullptr;
 	void (SC_SERVER_DECL* Collected)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther, int iCollectTyp) = nullptr;
 	void (SC_SERVER_DECL* DefaultUse)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pActivator, CBaseEntity* pCaller, int useType, float value) = nullptr;
 	void (SC_SERVER_DECL* Dropped)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA, CBasePlayerItem* pNewEntity) = nullptr;
 	float (SC_SERVER_DECL* GetFadeDelay)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-}vtable_pickupobject_t;
+};
+
+using vtable_playerammo_t = struct vtable_playerammo_s : vtable_pickupobject_s {
+	bool (SC_SERVER_DECL* AddAmmo)(void* pThis, SC_SERVER_DUMMYARG CBaseEntity* pOther) = nullptr;
+};
 //139
-typedef struct vtable_playeritem_s : vtable_pickupobject_s {
+using vtable_playeritem_t = struct vtable_playeritem_s : vtable_pickupobject_s {
 	int (SC_SERVER_DECL* AddToPlayer)(void* pThis, SC_SERVER_DUMMYARG CBasePlayer* pPlayer) = nullptr;
 	int (SC_SERVER_DECL* AddDuplicate)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* AddAmmoFromItem)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
@@ -326,9 +328,9 @@ typedef struct vtable_playeritem_s : vtable_pickupobject_s {
 	float (SC_SERVER_DECL* GetRespawnTime)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	CBasePlayerItem* (SC_SERVER_DECL* DropItem)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
 	int (SC_SERVER_DECL* CanHaveDuplicates)(void* pThis SC_SERVER_DUMMYARG_NOCOMMA) = nullptr;
-}vtable_playeritem_t;
+};
 //175
-typedef struct vtable_playerweapon_s : vtable_playeritem_s {
+using vtable_playerweapon_t = struct vtable_playerweapon_s : vtable_playeritem_s {
 	void (SC_SERVER_DECL* ExtractAmmoFromItem)(void* pThis, SC_SERVER_DUMMYARG CBasePlayerItem* pItem) = nullptr;
 	void (SC_SERVER_DECL* ExtractAmmo)(void* pThis, SC_SERVER_DUMMYARG CBasePlayerWeapon* pOtherWeapon) = nullptr;
 	int (SC_SERVER_DECL* ExtractClipAmmo)(void* pThis, SC_SERVER_DUMMYARG CBasePlayerWeapon* pOtherWeapon) = nullptr;
@@ -365,7 +367,7 @@ typedef struct vtable_playerweapon_s : vtable_playeritem_s {
 	void (SC_SERVER_DECL* SetV_Model)(void* pThis, SC_SERVER_DUMMYARG char* szModel) = nullptr;
 	void (SC_SERVER_DECL* SetP_Model)(void* pThis, SC_SERVER_DUMMYARG char* szModel) = nullptr;
 	void (SC_SERVER_DECL* ChangeWeaponSkin)(void* pThis, SC_SERVER_DUMMYARG short iskin) = nullptr;
-}vtable_playerweapon_t;
+};
 
 vtable_base_t* GetEntityVTable(const char* szClassName);
 vtable_base_s* AddEntityVTable(const char* szClassName);
