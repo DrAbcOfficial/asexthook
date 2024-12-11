@@ -3,8 +3,23 @@
 typedef void CRestore;
 typedef void CSave;
 typedef void MonsterEvent;
-typedef void ItemInfo;
+typedef struct{
+	int		iSlot;
+	int		iPosition;
+	const char* pszAmmo1;	// ammo 1 type
+	int		iMaxAmmo1;		// max ammo 1
+	const char* pszAmmo2;	// ammo 2 type
+	int		iMaxAmmo2;		// max ammo 2
+	const char* pszName;
+	int		iMaxClip;
+	int		iId;
+	int		iFlags;
+	int		iWeight;// this value used to determine this weapon's importance in autoselection.
+} ItemInfo;
+typedef void CBaseEntity;
+typedef void CBaseMonster;
 typedef void CCustomEntity;
+typedef void CBasePlayerWeapon;
 typedef void CSquadMonster;
 using Task_t = struct Task_s {
 	int iTask;
