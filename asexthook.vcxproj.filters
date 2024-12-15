@@ -40,6 +40,12 @@
     <ClCompile Include="src\source\CASSQLGrid.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\dll_hook.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\engine_hook.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="header">
@@ -87,6 +93,9 @@
       <Filter>header</Filter>
     </ClInclude>
     <ClInclude Include="src\header\CASSQLGrid.h">
+      <Filter>header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\extern_hook.h">
       <Filter>header</Filter>
     </ClInclude>
   </ItemGroup>

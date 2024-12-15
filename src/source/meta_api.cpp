@@ -45,9 +45,7 @@
 #include "angelscript.h"
 #include "asext_api.h"
 
-#include "enginedef.h"
-#include "vftable.h"
-#include "dlldef.h"
+#include "extern_hook.h"
 
 mBOOL dlclose_handle_invalid;
 
@@ -165,7 +163,8 @@ C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
 // reason	(given) why detaching (refresh, console unload, forced unload, etc)
 C_DLLEXPORT int Meta_Detach(PLUG_LOADTIME /* now */,
 	PL_UNLOAD_REASON /* reason */){
-	UninstallHook();
+
+	UninstallEngineHook();
 	VtableUnhook();
 	CloseAngelScriptsItem();
 	return TRUE;
