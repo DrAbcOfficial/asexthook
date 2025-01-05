@@ -12,61 +12,86 @@
 #include "utility.h"
 
 #pragma region GMR
-std::map<char*, char*> g_dicGMRList = {};
-void LoadGMRFile() {
-	//Clear Mem
-	for (auto iter = g_dicGMRList.begin(); iter != g_dicGMRList.end(); iter++) {
-		delete[](*iter).first;
-		delete[](*iter).second;
+std::map<std::string, std::string> g_dicGMRmap;
+void LoadGMRFromCFG() {
+	g_dicGMRmap.clear();
+	char mappath[MAX_PATH];
+	const char* mapname = STRING(gpGlobals->mapname);
+	sprintf_s(mappath, "maps/%s.cfg", mapname);
+	int filesize = 0;
+	byte* membuf = g_engfuncs.pfnLoadFileForMe(mappath, &filesize);
+	if (!membuf)
+		return;
+	std::string gmrpath;
+	const char* delim = "\n";
+	char* tokstarter = reinterpret_cast<char*>(membuf);
+	char* next_line = strtok(tokstarter, delim);
+	while (next_line != nullptr) {
+		if (!strncmp(next_line, "globalmodellist", 15)) {
+			next_line += 15;
+			while (isspace(*next_line) || *next_line == '\"') {
+				next_line++;
+			}
+			if (*next_line == '\0')
+				return;
+			char* end = next_line + strlen(next_line) - 1;
+			while (end > next_line && (isspace(*end) || *end == '\"')) {
+				end--;
+			}
+			*(end + 1) = '\0';
+			gmrpath = next_line;
+			break;
+		}
+		next_line = strtok(nullptr, delim);
 	}
-	g_dicGMRList.clear();
-	//Read to Mem
-	char gmrfile[MAX_PATH] = {};
-	snprintf(gmrfile, MAX_PATH, "maps/%s.gmr", STRING(gpGlobals->mapname));
-	int length = 0;
-	char* content = reinterpret_cast<char*>(g_engfuncs.pfnLoadFileForMe(gmrfile, &length));
-	if (content != nullptr) {
-		char src[MAX_PATH]{};
-		char dst[MAX_PATH]{};
-		std::string buf;
-		bool inread = false;
-		bool indst = false;
-		for (size_t i = 0; i < strlen(content); i++) {
-			char tok = content[i];
-			if (tok == '\n') {
-				inread = false;
-				indst = false;
-				char* msrc = new char[MAX_PATH];
-				char* mdst = new char[MAX_PATH];
-				strcpy(msrc, src);
-				strcpy(mdst, dst);
-				g_dicGMRList.insert(std::make_pair(msrc, mdst));
-				memset(src, 0, MAX_PATH);
-				memset(dst, 0, MAX_PATH);
-				buf.clear();
-				continue;
-			}
-			else if (tok == '\"') {
-				if (inread) {
-					if (indst) {
-						strcpy(dst, buf.c_str());
-						indst = false;
-					}
-					else {
-						strcpy(src, buf.c_str());
-						indst = true;
-					}
-					inread = false;
-				}
-				else
-					inread = true;
-			}
-			if (inread) {
-				buf += tok;
+	g_engfuncs.pfnFreeFile(membuf);
+
+	//read gmr
+	if (gmrpath.size() == 0)
+		return;
+	gmrpath = "models/" + std::string(mapname) + "/" + gmrpath;
+	byte* gmrbuf = g_engfuncs.pfnLoadFileForMe(const_cast<char*>(gmrpath.c_str()), &filesize);
+	if (!gmrbuf)
+		return;
+	std::string key;
+	std::string value;
+	tokstarter = reinterpret_cast<char*>(gmrbuf);
+	next_line = strtok(tokstarter, delim);
+	while (next_line != nullptr) {
+		key.clear();
+		value.clear();
+
+		bool has_quote = false;
+		if (*next_line == '\"') {
+			next_line++;
+			has_quote = true;
+		}
+		if (has_quote) {
+			while (*next_line != '\"') {
+				key += *next_line;
+				next_line++;
 			}
 		}
-		g_engfuncs.pfnFreeFile(content);
+		else {
+			while (!isspace(*next_line)) {
+				key += *next_line;
+				next_line++;
+			}
+		}
+		while (isspace(*next_line) || *next_line == '\"') {
+			next_line++;
+		}
+		char* end = next_line + strlen(next_line) - 1;
+		while (end > next_line && (isspace(*end) || *end == '\"')) {
+			end--;
+		}
+		*(end + 1) = '\0';
+		value = next_line;
+		if (key.size() > 0 && value.size() > 0)
+			g_dicGMRmap.insert(std::make_pair(key, value));
+		next_line = strtok(nullptr, delim);
 	}
+	g_engfuncs.pfnFreeFile(gmrbuf);
 }
 
 #pragma endregion

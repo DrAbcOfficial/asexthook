@@ -32,22 +32,23 @@
  *
  */
 #include <map>
+#include "extern_hook.h"
+#include <string>
 
 #include <extdll.h>
 #include <meta_api.h>
 
 
 #include "enginedef.h"
-#include "extern_hook.h"
 
 #pragma region PreHooks
 static int SV_ModelIndex(const char* m) {
 	if (CVAR_GET_FLOAT("sv_fixgmr") > 0) {
-		extern std::map<char*, char*> g_dicGMRList;
-		for (auto iter = g_dicGMRList.begin(); iter != g_dicGMRList.end(); iter++) {
-			if (strcmp((*iter).first, m) == 0) {
+		extern std::map<std::string, std::string> g_dicGMRmap;
+		for (auto iter = g_dicGMRmap.begin(); iter != g_dicGMRmap.end(); iter++) {
+			if (strcmp((*iter).first.c_str(), m) == 0) {
 				SET_META_RESULT(MRES_SUPERCEDE);
-				return MODEL_INDEX((*iter).second);
+				return MODEL_INDEX((*iter).second.c_str());
 			}
 		}
 	}

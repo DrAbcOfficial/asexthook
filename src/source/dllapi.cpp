@@ -41,8 +41,8 @@
 #pragma region PreHooks
 static bool s_HookedFlag = false;
 static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax) {
-	extern void LoadGMRFile();
-	LoadGMRFile();
+	extern void LoadGMRFromCFG();
+	LoadGMRFromCFG();
 
 	if (s_HookedFlag) {
 		SET_META_RESULT(MRES_IGNORED);
