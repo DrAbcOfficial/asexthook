@@ -164,6 +164,7 @@ int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_valu
 		ctx->SetArgObject(0, &name);
 		ctx->Execute();
 	}
+	engine->ReturnContext(ctx);
 	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(param[0]);
 	CASFunction* m_callback = ASEXT_CreateCASFunction(pfnASCallBack, ASEXT_GetServerManager()->curModule, 1);
 	(*ASEXT_CallCASBaseCallable)(m_callback, 0, param[1], column_size, aryVal, aryName);
