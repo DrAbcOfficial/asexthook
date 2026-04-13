@@ -32,8 +32,10 @@ void LoadGMRFromCFG() {
 			while (isspace(*next_line) || *next_line == '\"') {
 				next_line++;
 			}
-			if (*next_line == '\0')
+			if (*next_line == '\0') {
+				g_engfuncs.pfnFreeFile(membuf);
 				return;
+			}
 			char* end = next_line + strlen(next_line) - 1;
 			while (end > next_line && (isspace(*end) || *end == '\"')) {
 				end--;
@@ -67,13 +69,13 @@ void LoadGMRFromCFG() {
 			has_quote = true;
 		}
 		if (has_quote) {
-			while (*next_line != '\"') {
+			while (*next_line != '\0' && *next_line != '"') {
 				key += *next_line;
 				next_line++;
 			}
 		}
 		else {
-			while (!isspace(*next_line)) {
+			while (*next_line != '\0' && !isspace(*next_line)) {
 				key += *next_line;
 				next_line++;
 			}

@@ -6,13 +6,26 @@ CASSQLGrid::CASSQLGrid(){
 }
 
 CASSQLGrid::~CASSQLGrid(){
+}
+
+void CASSQLGrid::EnumReferences(asIScriptEngine* engine) {
 	for (auto iter = m_aryData.begin(); iter != m_aryData.end(); iter++) {
 		for (auto iter2 = (*iter).begin(); iter2 != (*iter).end(); iter2++) {
-			(*iter2)->Release();
+			if (*iter2 != nullptr)
+				engine->ForwardGCEnumReferences(*iter2, engine->GetTypeInfoByName("CSQLItem"));
 		}
-		(*iter).clear();
 	}
-	m_aryData.clear();
+}
+
+void CASSQLGrid::ReleaseReferences(asIScriptEngine* engine) {
+	for (auto iter = m_aryData.begin(); iter != m_aryData.end(); iter++) {
+		for (auto iter2 = (*iter).begin(); iter2 != (*iter).end(); iter2++) {
+			if (*iter2 != nullptr) {
+				(*iter2)->Release();
+				*iter2 = nullptr;
+			}
+		}
+	}
 }
 
 CASSQLGrid* CASSQLGrid::Factory(size_t row, size_t column){

@@ -1,5 +1,6 @@
 #pragma once
 #include <extdll.h>
+#include <cstdint>
 
 #include "asext_api.h"
 #include "angelscriptlib.h"
@@ -8,7 +9,7 @@ public:
 	virtual void AddRef();
     virtual void Release();
 protected:
-    size_t  refCount = 1;
+    uint32_t refCount = 1;
 };
 class CASBaseGCObject : public CASBaseRefObject {
 public:

@@ -17,6 +17,10 @@ public:
     CASSQLItem* opIndex(size_t row, size_t column);
     size_t Rows();
     size_t Columns();
+
+    // GC methods
+    virtual void EnumReferences(asIScriptEngine* engine) override;
+    virtual void ReleaseReferences(asIScriptEngine* engine) override;
 private:
     std::vector <std::vector<CASSQLItem*>> m_aryData;
     size_t m_iRow;

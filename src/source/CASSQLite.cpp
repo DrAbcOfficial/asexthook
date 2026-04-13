@@ -139,7 +139,7 @@ void CASSQLite::Close(){
 CASSQLite::~CASSQLite(){
 	Close();
 }
-int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_value[], char* column_name[]) {
+int CASSQLite::Sqlite3Callback(void* param, int column_size, char* column_value[], char* column_name[]) {
 	CASServerManager* manager = ASEXT_GetServerManager();
 	asIScriptEngine* engine = manager->scriptEngine;
 	asIScriptContext* ctx = engine->RequestContext();
@@ -165,9 +165,11 @@ int CASSQLite::Sqlite3Callback(void* param[], int column_size, char* column_valu
 		ctx->Execute();
 	}
 	engine->ReturnContext(ctx);
-	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(param[0]);
+	void** paramArray = static_cast<void**>(param);
+	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(paramArray[0]);
+	void* callbackParam = paramArray[1];
 	CASFunction* m_callback = ASEXT_CreateCASFunction(pfnASCallBack, ASEXT_GetServerManager()->curModule, 1);
-	(*ASEXT_CallCASBaseCallable)(m_callback, 0, param[1], column_size, aryVal, aryName);
+	(*ASEXT_CallCASBaseCallable)(m_callback, 0, callbackParam, column_size, aryVal, aryName);
 	engine->ReleaseScriptObject(aryVal, aryInfo);
 	engine->ReleaseScriptObject(aryName, aryInfo);
 	return 0;

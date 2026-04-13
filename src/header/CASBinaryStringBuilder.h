@@ -11,7 +11,7 @@ public:
     virtual void EnumReferences(asIScriptEngine* engine) override;
     virtual void ReleaseReferences(asIScriptEngine* engine) override;
 
-    CString Get();
+    void Get(CString* szOutBuffer);
     void Set(CString* buffer);
 
     size_t GetReadPointer();
@@ -30,8 +30,8 @@ public:
     int64 ReadLong();
     float ReadFloat();
     double ReadDouble();
-    vec3_t ReadVector();
-    CString ReadString();
+    void ReadVector(vec3_t* vecBuffer);
+    void ReadString(CString* szOutBuffer);
     bool IsReadToEnd();
 
     size_t m_iReadPointer = 0;

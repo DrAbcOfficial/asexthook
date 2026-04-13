@@ -33,31 +33,27 @@ CBinaryStringBuilder* CBinaryStringBuilder::ParamFactory(CString* str) {
 
 void CBinaryStringBuilder::EnumReferences(asIScriptEngine* engine){
 	for (auto iter = m_aryRef.begin(); iter != m_aryRef.end(); iter++) {
-		engine->ForwardGCEnumReferences((*iter)->data, (*iter)->type);
+		if ((*iter)->data != nullptr)
+			engine->ForwardGCEnumReferences((*iter)->data, (*iter)->type);
 	}
 }
 
 void CBinaryStringBuilder::ReleaseReferences(asIScriptEngine* engine){
 	for (auto iter = m_aryRef.begin(); iter != m_aryRef.end(); iter++) {
-		engine->ForwardGCReleaseReferences((*iter)->data, (*iter)->type);
+		if ((*iter)->data != nullptr && (*iter)->type != nullptr) {
+			engine->ReleaseScriptObject((*iter)->data, (*iter)->type);
+		}
 		delete (*iter);
 	}
 	m_aryRef.clear();
 }
 
-CString CBinaryStringBuilder::Get(){
+void CBinaryStringBuilder::Get(CString* szOutBuffer){
 	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(m_pStrInfo));
 	char* temp = new char[m_szBuffer.size() + 1];
 	std::copy(m_szBuffer.begin(), m_szBuffer.end(), temp);
 	szOutBuffer->assign(temp, m_szBuffer.size());
 	delete[] temp;
-	GCRefObject* gcobj = new GCRefObject();
-	gcobj->data = szOutBuffer;
-	gcobj->value = true;
-	gcobj->type = m_pStrInfo;
-	m_aryRef.push_back(gcobj);
-	return *szOutBuffer;
 }
 void CBinaryStringBuilder::Set(CString* buffer){
 	m_szBuffer.clear();
@@ -131,20 +127,12 @@ float CBinaryStringBuilder::ReadFloat(){
 double CBinaryStringBuilder::ReadDouble(){
 	return m_iReadPointer < m_szBuffer.size() ? ReadBuffer<double, int64>(this) : 0.0;
 }
-vec3_t CBinaryStringBuilder::ReadVector(){
-	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	vec3_t* vecBuffer = static_cast<vec3_t*>(engine->CreateScriptObject(m_pVectorInfo));
-	GCRefObject* gcobj = new GCRefObject();
-	gcobj->data = vecBuffer;
-	gcobj->value = true;
-	gcobj->type = m_pVectorInfo;
-	m_aryRef.push_back(gcobj);
+void CBinaryStringBuilder::ReadVector(vec3_t* vecBuffer){
 	vecBuffer->x = ReadBuffer<float, int>(this);
 	vecBuffer->y = ReadBuffer<float, int>(this);
 	vecBuffer->z = ReadBuffer<float, int>(this);
-	return *vecBuffer;
 }
-CString CBinaryStringBuilder::ReadString(){
+void CBinaryStringBuilder::ReadString(CString* szOutBuffer){
 	std::string temp;
 	for (size_t i = m_iReadPointer; i < m_szBuffer.size(); i++) {
 		char c = m_szBuffer[m_iReadPointer];
@@ -153,15 +141,7 @@ CString CBinaryStringBuilder::ReadString(){
 		if (c == '\0')
 			break;
 	}
-	asIScriptEngine* engine = ASEXT_GetServerManager()->scriptEngine;
-	CString* szOutBuffer = static_cast<CString*>(engine->CreateScriptObject(m_pStrInfo));
-	GCRefObject* gcobj = new GCRefObject();
-	gcobj->data = szOutBuffer;
-	gcobj->value = true;
-	gcobj->type = m_pStrInfo;
-	m_aryRef.push_back(gcobj);
 	szOutBuffer->assign(temp.c_str(), temp.length());
-	return *szOutBuffer;
 }
 bool CBinaryStringBuilder::IsReadToEnd(){
 	return m_iReadPointer >= m_szBuffer.size();

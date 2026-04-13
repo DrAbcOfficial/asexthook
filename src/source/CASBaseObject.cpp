@@ -9,21 +9,21 @@ void CASBaseRefObject::Release(){
 }
 
 void CASBaseGCObject::AddRef() {
-	refCount = (refCount & 0x7FFFFFFF) + 1;
+	refCount = (refCount & 0x7FFFFFFFu) + 1;
 }
 void CASBaseGCObject::Release() {
-	refCount &= 0x7FFFFFFF;
+	refCount &= 0x7FFFFFFFu;
 	if (--refCount == 0)
 		delete this;
 }
 void CASBaseGCObject::SetGCFlag() {
-	refCount |= 0x80000000;
+	refCount |= 0x80000000u;
 }
 bool CASBaseGCObject::GetGCFlag() {
-	return (refCount & 0x80000000) ? true : false;
+	return (refCount & 0x80000000u) ? true : false;
 }
 int CASBaseGCObject::GetRefCount() {
-	return (refCount & 0x7FFFFFFF);
+	return static_cast<int>(refCount & 0x7FFFFFFFu);
 }
 void CASBaseGCObject::EnumReferences(asIScriptEngine* engine) {
 }
