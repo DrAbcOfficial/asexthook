@@ -59,6 +59,10 @@ bool InstallEngineHook() {
 	auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
 	auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
 
+	//FILL_AND_HOOK 展开后的签名搜索依赖这两个名字（参考 bdsc 的 engine_api.cpp）
+	static auto ServerCodeBase = gpMetaUtilFuncs->pfnGetGameDllBase();
+	static auto ServerCodeSize = gpMetaUtilFuncs->pfnGetCodeSize(ServerCodeBase);
+
 	auto ServerSize = gpMetaUtilFuncs->pfnGetImageSize(ServerBase);
 
 #ifdef WIN32

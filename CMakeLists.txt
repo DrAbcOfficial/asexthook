@@ -113,6 +113,9 @@ set(no_group_source_files
     "src/source/CASSQLItem.cpp"
     "src/source/CASSQLGrid.cpp"
     "src/source/dllapi.cpp"
+    "src/source/dll_hook.cpp"
+    "src/source/engine_hook.cpp"
+    "src/source/dllmain.cpp"
     "src/source/engine_api.cpp"
     "src/source/h_export.cpp"
     "src/source/meta_api.cpp"
@@ -160,12 +163,12 @@ set_target_properties(${PROJECT_NAME} PROPERTIES MSVC_RUNTIME_LIBRARY ${MSVC_RUN
 target_include_directories(${PROJECT_NAME} PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/src/header;"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/angelscript"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/common;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/dlls;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/pm_shared;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../hlsdk/engine;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../metamod;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../asext/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/common;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/dlls;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/pm_shared;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/engine;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/metamod;"
+    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/asext/include"
 )
 
 ################################################################################
