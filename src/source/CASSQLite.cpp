@@ -156,6 +156,9 @@ int CASSQLite::Sqlite3Callback(void* param, int column_size, char* column_value[
 		CASSQLItem* val = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
 		ctx->SetArgObject(0, &val);
 		ctx->Execute();
+		//insertLast(const CSQLItem@&) 传引用不加引用，数组内部已自行 AddRef
+		//Factory 返回的应用引用必须在此归还，否则 item 永远无法被 GC 回收
+		val->Release();
 
 		ctx->Prepare(funcAryInsert);
 		ctx->SetObject(aryName);
@@ -163,13 +166,18 @@ int CASSQLite::Sqlite3Callback(void* param, int column_size, char* column_value[
 		CASSQLItem* name = res == nullptr ? CASSQLItem::Factory() : CASSQLItem::ParamFactory(res);
 		ctx->SetArgObject(0, &name);
 		ctx->Execute();
+		name->Release();
 	}
 	engine->ReturnContext(ctx);
 	void** paramArray = static_cast<void**>(param);
 	aslScriptFunction* pfnASCallBack = static_cast<aslScriptFunction*>(paramArray[0]);
 	void* callbackParam = paramArray[1];
 	CASFunction* m_callback = ASEXT_CreateCASFunction(pfnASCallBack, ASEXT_GetServerManager()->curModule, 1);
-	(*ASEXT_CallCASBaseCallable)(m_callback, 0, callbackParam, column_size, aryVal, aryName);
+	//sqlite3_exec 每一行都会进入本回调，包装器用完必须释放，否则每行泄漏一个
+	if (m_callback != nullptr) {
+		(*ASEXT_CallCASBaseCallable)(m_callback, 0, callbackParam, column_size, aryVal, aryName);
+		ASEXT_DereferenceCASFunction(m_callback);
+	}
 	engine->ReleaseScriptObject(aryVal, aryInfo);
 	engine->ReleaseScriptObject(aryName, aryInfo);
 	return 0;

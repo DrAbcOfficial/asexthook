@@ -6,6 +6,16 @@ CASSQLGrid::CASSQLGrid(){
 }
 
 CASSQLGrid::~CASSQLGrid(){
+	//Set() 接管 CSQLItem 的引用所有权，析构时必须归还
+	//ReleaseReferences() 走 GC 路径时会先释放并置空，此处对 nullptr 跳过
+	for (auto iter = m_aryData.begin(); iter != m_aryData.end(); iter++) {
+		for (auto iter2 = (*iter).begin(); iter2 != (*iter).end(); iter2++) {
+			if (*iter2 != nullptr) {
+				(*iter2)->Release();
+				*iter2 = nullptr;
+			}
+		}
+	}
 }
 
 void CASSQLGrid::EnumReferences(asIScriptEngine* engine) {
@@ -50,7 +60,12 @@ void CASSQLGrid::Set(size_t row, size_t column, CASSQLItem* pItem){
 CASSQLItem* CASSQLGrid::Get(size_t row, size_t column){
 	if (row >= m_iRow || column >= m_iColumn)
 		return nullptr;
-	return m_aryData[row][column];
+	//注册声明为 CSQLItem@ (非 @+)，引擎不会对返回句柄自动加引用
+	//网格自身持有所有权，这里必须先 AddRef 把引用移交给脚本
+	CASSQLItem* pItem = m_aryData[row][column];
+	if (pItem != nullptr)
+		pItem->AddRef();
+	return pItem;
 }
 CASSQLItem* CASSQLGrid::opIndex(size_t row, size_t column){
 	return Get(row, column);
