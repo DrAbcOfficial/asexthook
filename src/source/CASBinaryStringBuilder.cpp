@@ -115,19 +115,29 @@ T1 ReadBuffer(CBinaryStringBuilder* pThis) {
 	}
 	return std::bit_cast<T1>(temp);
 }
+//多字节读取必须确认完整可用，仅检查还剩1字节会越界读 vector 堆内存
+bool CBinaryStringBuilder::CanRead(size_t count) const {
+	return count <= m_szBuffer.size() && m_iReadPointer <= m_szBuffer.size() - count;
+}
 int CBinaryStringBuilder::ReadInt(){
-	return m_iReadPointer < m_szBuffer.size() ? ReadBuffer<int, int>(this) : 0;
+	return CanRead(sizeof(int)) ? ReadBuffer<int, int>(this) : 0;
 }
 int64 CBinaryStringBuilder::ReadLong(){
-	return m_iReadPointer < m_szBuffer.size() ? ReadBuffer<int64, int64>(this) : 0;
+	return CanRead(sizeof(int64)) ? ReadBuffer<int64, int64>(this) : 0;
 }
 float CBinaryStringBuilder::ReadFloat(){
-	return m_iReadPointer < m_szBuffer.size() ? ReadBuffer<float, int>(this) : 0.0f;
+	return CanRead(sizeof(float)) ? ReadBuffer<float, int>(this) : 0.0f;
 }
 double CBinaryStringBuilder::ReadDouble(){
-	return m_iReadPointer < m_szBuffer.size() ? ReadBuffer<double, int64>(this) : 0.0;
+	return CanRead(sizeof(double)) ? ReadBuffer<double, int64>(this) : 0.0;
 }
 void CBinaryStringBuilder::ReadVector(vec3_t* vecBuffer){
+	if (!CanRead(sizeof(float) * 3)) {
+		vecBuffer->x = 0.0f;
+		vecBuffer->y = 0.0f;
+		vecBuffer->z = 0.0f;
+		return;
+	}
 	vecBuffer->x = ReadBuffer<float, int>(this);
 	vecBuffer->y = ReadBuffer<float, int>(this);
 	vecBuffer->z = ReadBuffer<float, int>(this);

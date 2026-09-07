@@ -103,8 +103,14 @@ int CASSQLite::ExecSync(CString* sql, CASSQLGrid** gridOut, CString* errMsg){
 	int nRow = 0;
 	int nColumn = 0;
 	iReturn = SQLite3_GetTable(m_pDatabase, sql->c_str(), &pResult, &nRow, &nColumn, &zErrMsg);
-	if (iReturn != 0)
+	if (iReturn != 0) {
+		//失败路径同样要归还 sqlite 分配的错误串，否则每次出错泄漏一条
+		if (zErrMsg) {
+			errMsg->assign(zErrMsg, strlen(zErrMsg));
+			SQLite3_Free(zErrMsg);
+		}
 		return iReturn;
+	}
 	CASSQLGrid* grid = CASSQLGrid::Factory(nRow + 1, nColumn);
 	for (int i = 0; i <= nRow; i++){
 		for (int j = 0; j < nColumn; j++){

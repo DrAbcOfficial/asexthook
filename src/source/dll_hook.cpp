@@ -209,8 +209,13 @@ static int SC_SERVER_DECL IRelationship(CBasePlayer* pThis, SC_SERVER_DUMMYARG C
 #pragma endregion
 
 #pragma region VTableHooks
+//AddEntityVTable 找不到实体类时会返回 nullptr 并已记录日志，这里必须跳过而非解引用
 void VTableHook() {
-#define ITEM_HOOK(item, type, table, newfunc) item.pfnOriginalCall=item.pfnCall=(void*)table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook)
+#define ITEM_HOOK(item, type, table, newfunc) do { \
+	if (!(table)) \
+		break; \
+	item.pfnOriginalCall=item.pfnCall=(void*)table->type;item.pVtable=table;item.pHook=gpMetaUtilFuncs->pfnInlineHook(item.pfnCall,(void*)newfunc,(void**)&item.pfnOriginalCall,false);gHooks.push_back(item.pHook); \
+} while(0)
 	vtable_base_t* vtable = AddEntityVTable("monster_apache");
 	ITEM_HOOK(gHookItems.ApacheTraceAttack, TraceAttack, vtable, ApacheTraceAttack);
 	vtable = AddEntityVTable("monster_osprey");

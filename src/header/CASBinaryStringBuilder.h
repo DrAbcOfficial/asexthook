@@ -37,6 +37,8 @@ public:
     size_t m_iReadPointer = 0;
     std::vector<unsigned char> m_szBuffer;
 private:
+    bool CanRead(size_t count) const;
+private:
     asITypeInfo* m_pStrInfo;
     asITypeInfo* m_pVectorInfo;
     std::vector<GCRefObject*> m_aryRef;
