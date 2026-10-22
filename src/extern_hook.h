@@ -1,6 +1,8 @@
 #pragma once
+extern bool ResolveEngineSymbols();
+extern bool ResolveEntitySymbols();
 extern bool InstallEngineHook();
 extern void UninstallEngineHook();
 
-extern void VTableHook();
-extern void VtableUnhook();
+extern bool InstallEntityHooks();
+extern void UninstallEntityHooks();

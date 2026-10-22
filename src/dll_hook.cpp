@@ -8,6 +8,8 @@
 #include "asext_api.h"
 #include "angelscript_hooks.h"
 #include "vftable.h"
+#include "signatures.h"
+#include "extern_hook.h"
 
 #include "utility.h"
 
@@ -114,10 +116,9 @@ void                               LoadGMRFromCFG()
 
 typedef struct hookitem_s
 {
-    hook_t*        pHook;
-    void*          pfnCall;
-    void*          pfnOriginalCall;
-    vtable_base_t* pVtable;
+    hook_t* pHook;
+    void*   pfnCall;
+    void*   pfnOriginalCall;
 } hookitem_t;
 struct
 {
@@ -142,8 +143,8 @@ static std::vector<hook_t*> gHooks;
 #pragma region New Functions
 #define CALL_ANGELSCRIPT(pfn, ...) \
     if (ASEXT_CallHook) { (*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__); }
-#define CALL_ORIGIN(item, type, ...)  ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
-#define CALL_ORIGIN_NOARG(item, type) ((decltype(item.pVtable->type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
+#define CALL_ORIGIN(item, type, ...)  ((decltype(vtable_base_t::type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG __VA_ARGS__)
+#define CALL_ORIGIN_NOARG(item, type) ((decltype(vtable_base_t::type))item.pfnOriginalCall)(pThis, SC_SERVER_PASS_DUMMYARG_NOCOMMA)
 static int SC_SERVER_DECL BaseMonsterTakeDamage(CBaseEntity* pThis, SC_SERVER_DUMMYARG entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType)
 {
     int          ret = CALL_ORIGIN(gHookItems.BaseMonsterTakeDamage, TakeDamage, pevInflictor, pevAttacker, flDamage, bitsDamageType);
@@ -233,39 +234,64 @@ static int SC_SERVER_DECL IRelationship(CBasePlayer* pThis, SC_SERVER_DUMMYARG C
 }
 #pragma endregion
 
-#pragma region VTableHooks
-//AddEntityVTable 找不到实体类时会返回 nullptr 并已记录日志，这里必须跳过而非解引用
-void VTableHook()
+#pragma region GameDataHooks
+bool ResolveEntitySymbols()
 {
-#define ITEM_HOOK(item, type, table, newfunc)                                                                                                     \
-    do                                                                                                                                            \
-    {                                                                                                                                             \
-        if (!(table))                                                                                                                             \
-            break;                                                                                                                                \
-        item.pfnOriginalCall = item.pfnCall = (void*)table->type;                                                                                 \
-        item.pVtable                        = table;                                                                                              \
-        item.pHook                          = gpMetaUtilFuncs->pfnInlineHook(item.pfnCall, (void*)newfunc, (void**)&item.pfnOriginalCall, false); \
-        gHooks.push_back(item.pHook);                                                                                                             \
-    } while (0)
-    vtable_base_t* vtable = AddEntityVTable("monster_apache");
-    ITEM_HOOK(gHookItems.ApacheTraceAttack, TraceAttack, vtable, ApacheTraceAttack);
-    vtable = AddEntityVTable("monster_osprey");
-    ITEM_HOOK(gHookItems.OspreyTraceAttack, TraceAttack, vtable, OspreyTraceAttack);
-    vtable = AddEntityVTable("monster_turret");
-    ITEM_HOOK(gHookItems.TurretTraceAttack, TraceAttack, vtable, TurretTraceAttack);
-    vtable = AddEntityVTable("func_breakable");
-    ITEM_HOOK(gHookItems.BreakableTraceAttack, TraceAttack, vtable, BreakableTraceAttack);
-    ITEM_HOOK(gHookItems.BreakableTakeDamage, TakeDamage, vtable, BreakableTakeDamage);
-    ITEM_HOOK(gHookItems.BreakableKilled, Killed, vtable, BreakableKilled);
-    vtable = AddEntityVTable("monster_bloater");
-    ITEM_HOOK(gHookItems.BaseMonsterTraceAttack, TraceAttack, vtable, BaseMonsterTraceAttack);
-    vtable = AddEntityVTable("player");
-    ITEM_HOOK(gHookItems.PlayerPostTakeDamage, TakeDamage, vtable, PlayerPostTakeDamage);
-    ITEM_HOOK(gHookItems.PlayerTakeHealth, TakeHealth, vtable, PlayerTakeHealth);
-    ITEM_HOOK(gHookItems.IRelationship, IRelationship, vtable, IRelationship);
+    auto serverBase = gpMetaUtilFuncs->pfnGetGameDllBase();
+#define RESOLVE_ENTITY(name) RESOLVE_FROM_GAMEDATA(server, name, META_GAMESYMBOL_KIND_FUNCTION, gHookItems.name.pfnCall)
+    RESOLVE_ENTITY(ApacheTraceAttack);
+    RESOLVE_ENTITY(OspreyTraceAttack);
+    RESOLVE_ENTITY(TurretTraceAttack);
+    RESOLVE_ENTITY(BreakableTraceAttack);
+    RESOLVE_ENTITY(BreakableTakeDamage);
+    RESOLVE_ENTITY(BreakableKilled);
+    RESOLVE_ENTITY(BaseMonsterTraceAttack);
+    RESOLVE_ENTITY(PlayerPostTakeDamage);
+    RESOLVE_ENTITY(PlayerTakeHealth);
+    RESOLVE_ENTITY(IRelationship);
+#undef RESOLVE_ENTITY
+    return true;
 }
 
-void VtableUnhook()
+bool InstallEntityHooks()
+{
+    if (!gHooks.empty())
+        return true;
+#define ITEM_HOOK(name)                                                                                                 \
+    do                                                                                                                  \
+    {                                                                                                                   \
+        auto& item = gHookItems.name;                                                                                   \
+        if (!item.pfnCall)                                                                                              \
+        {                                                                                                               \
+            LOG_ERROR(PLID, #name " gamedata has not been resolved");                                                   \
+            UninstallEntityHooks();                                                                                     \
+            return false;                                                                                               \
+        }                                                                                                               \
+        item.pfnOriginalCall = item.pfnCall;                                                                            \
+        item.pHook           = gpMetaUtilFuncs->pfnInlineHook(item.pfnCall, (void*)name, &item.pfnOriginalCall, false); \
+        if (!item.pHook)                                                                                                \
+        {                                                                                                               \
+            LOG_ERROR(PLID, "Failed to install " #name " hook");                                                        \
+            UninstallEntityHooks();                                                                                     \
+            return false;                                                                                               \
+        }                                                                                                               \
+        gHooks.push_back(item.pHook);                                                                                   \
+    } while (0)
+    ITEM_HOOK(ApacheTraceAttack);
+    ITEM_HOOK(OspreyTraceAttack);
+    ITEM_HOOK(TurretTraceAttack);
+    ITEM_HOOK(BreakableTraceAttack);
+    ITEM_HOOK(BreakableTakeDamage);
+    ITEM_HOOK(BreakableKilled);
+    ITEM_HOOK(BaseMonsterTraceAttack);
+    ITEM_HOOK(PlayerPostTakeDamage);
+    ITEM_HOOK(PlayerTakeHealth);
+    ITEM_HOOK(IRelationship);
+#undef ITEM_HOOK
+    return true;
+}
+
+void UninstallEntityHooks()
 {
     for (auto iter = gHooks.begin(); iter != gHooks.end(); iter++)
     {

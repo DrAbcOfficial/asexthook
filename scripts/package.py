@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 import struct
 import subprocess
+import sys
 import tarfile
 import tempfile
 import zipfile
@@ -68,12 +69,14 @@ def verify(prefix, platform):
                                         "ASEXT_CreateCASFunction", "ASEXT_CStringAssign",
                                         "ASEXT_CASBaseManager_GetTypeInfoByName"} <= exports:
             raise ValueError("ASExt is missing required ASExtHook API exports")
-    gamedata = prefix / "addons/metamod/gamedata/asext"
-    catalogs = list(gamedata.rglob("*.json"))
-    if not catalogs:
-        raise ValueError("ASExt gamedata is missing")
-    for catalog in catalogs:
-        json.loads(catalog.read_text(encoding="utf-8"))
+    root = Path(__file__).resolve().parents[1]
+    for component in ("asext", "asexthook"):
+        gamedata = prefix / "addons/metamod/gamedata" / component
+        manifest = root / (
+            "asext/scripts/manifests/asext.json" if component == "asext"
+            else "scripts/manifests/asexthook.json")
+        subprocess.run([sys.executable, "-B", str(root / "metamod/scripts/sync-gamedata.py"),
+                        "--manifest", str(manifest), "--target-dir", str(gamedata), "--validate-only"], check=True)
     for file in ("addons/metamod/plugins.ini.example", "examples/CSQLite.as", "docs/index.html",
                  "assets/logo.png", "README.md", "LICENSE", "THIRD_PARTY.md", "licenses/astemplate-LICENSE"):
         if not (prefix / file).is_file():

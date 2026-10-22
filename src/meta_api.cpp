@@ -141,6 +141,15 @@ C_DLLEXPORT int Meta_Attach(PLUG_LOADTIME /* now */,
         return FALSE;
     }
 
+    if (!gpMetaUtilFuncs->pfnGetGameDllBase())
+    {
+        LOG_ERROR(PLID, "server base not found!");
+        return FALSE;
+    }
+    // Resolve every target before registering callbacks or installing hooks.
+    if (!ResolveEngineSymbols() || !ResolveEntitySymbols())
+        return FALSE;
+
     void* asextHandle = nullptr;
 #ifdef _WIN32
     LOAD_PLUGIN(PLID, "addons/metamod/dlls/asext.dll", PLUG_LOADTIME::PT_ANYTIME, &asextHandle);
@@ -169,7 +178,7 @@ C_DLLEXPORT int Meta_Detach(PLUG_LOADTIME /* now */,
 {
 
     UninstallEngineHook();
-    VtableUnhook();
+    UninstallEntityHooks();
     CloseAngelScriptsItem();
     return TRUE;
 }

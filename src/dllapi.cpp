@@ -35,6 +35,7 @@
 #include "angelscript_hooks.h"
 
 #include "dlldef.h"
+#include "extern_hook.h"
 
 #define CALL_ANGELSCRIPT(pfn, ...) \
     if (ASEXT_CallHook) { (*ASEXT_CallHook)(g_AngelHook.pfn, 0, __VA_ARGS__); }
@@ -52,9 +53,7 @@ static void ServerActivate(edict_t* pEdictList, int edictCount, int clientMax)
         return;
     }
 
-    extern void VTableHook();
-    VTableHook();
-    s_HookedFlag = true;
+    s_HookedFlag = InstallEntityHooks();
     SET_META_RESULT(MRES_HANDLED);
 }
 static void ClientCommand(edict_t* pEntity)

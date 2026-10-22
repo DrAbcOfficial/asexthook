@@ -26,7 +26,7 @@ PRIVATE_FUNCTION_EXTERN(GrappleGetMonsterType);
 //PRIVATE_FUNCTION_EXTERN(SendScoreInfo);
 #pragma endregion
 
-#pragma region SigHooks
+#pragma region GameDataHooks
 /// <summary>
 /// Grapple GetMonsterType
 /// </summary>
@@ -54,31 +54,27 @@ GRAPPLE_RESULT SC_SERVER_DECL NewGrappleGetMonsterType(void* pThis, SC_SERVER_DU
 //		return;
 //	g_call_original_SendScoreInfo(pThis, SC_SERVER_PASS_DUMMYARG eSendTarget, iTeamID, szTeamName);
 //}
+bool ResolveEngineSymbols()
+{
+    auto serverBase = gpMetaUtilFuncs->pfnGetGameDllBase();
+    FILL_FROM_GAMEDATA(server, GrappleGetMonsterType);
+    return true;
+}
 bool InstallEngineHook()
 {
-    auto ServerHandle = gpMetaUtilFuncs->pfnGetGameDllHandle();
-    auto EngineHandle = gpMetaUtilFuncs->pfnGetEngineHandle();
-
-    auto ServerBase = gpMetaUtilFuncs->pfnGetGameDllBase();
-    auto EngineBase = gpMetaUtilFuncs->pfnGetEngineBase();
-
-    //FILL_AND_HOOK 展开后的签名搜索依赖这两个名字（参考 bdsc 的 engine_api.cpp）
-    static auto ServerCodeBase = gpMetaUtilFuncs->pfnGetGameDllBase();
-    static auto ServerCodeSize = gpMetaUtilFuncs->pfnGetCodeSize(ServerCodeBase);
-
-    auto ServerSize = gpMetaUtilFuncs->pfnGetImageSize(ServerBase);
-
-#ifdef WIN32
-#    define GrappleGetMonsterType_Signature "\x8B\x44\x24\x04\xB9\x2A\x2A\x2A\x2A\x53\x56\x8B\x70\x04\xA1\x2A\x2A\x2A\x2A\x8B\x90\x98\x00\x00\x00\x03\x16\x8B\xC2\x0F\x1F\x00"
-#    define SendScoreInfo_Signature         "\x53\x8B\x5C\x24\x08\x57\x8B\xF9\x85\xDB\x0F\x84\xBB\x01\x00\x00"
-#else
-#    define GrappleGetMonsterType_Signature "\x55\x57\x56\x53\x83\xEC\x04\x2A\x2A\x2A\x2A\x2A\x81\xC2\x2A\xB5\x83\x00\x8D\x82\x60\x3E\x01\x00\x8B\x08"
-#    define SendScoreInfo_Signature         "_ZN11CBasePlayer26SendScoreInfoToOtherPlayerEP7edict_siPKc"
-#endif
-    // Fill and Hook
-    FILL_AND_HOOK(Server, GrappleGetMonsterType);
-    //FILL_AND_HOOK(Server, SendScoreInfo);
-    // Fill and Engine Hook
+    if (g_phook_GrappleGetMonsterType)
+        return true;
+    if (!g_pfn_GrappleGetMonsterType)
+    {
+        LOG_ERROR(PLID, "GrappleGetMonsterType gamedata has not been resolved");
+        return false;
+    }
+    INSTALL_INLINEHOOK(GrappleGetMonsterType);
+    if (!g_phook_GrappleGetMonsterType)
+    {
+        LOG_ERROR(PLID, "Failed to install GrappleGetMonsterType hook");
+        return false;
+    }
     return true;
 }
 void UninstallEngineHook()

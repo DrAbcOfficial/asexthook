@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <initializer_list>
+#include <iterator>
 #ifndef _WIN32
 #    include <dlfcn.h>
 #endif
@@ -17,10 +18,17 @@ IMPORT_ASEXT_API_DEFINE()
 
 namespace
 {
-int      g_errors           = 0;
-DLHANDLE g_engineHandle     = nullptr;
-void*    g_engineBase       = nullptr;
-void*    g_dependencyHandle = nullptr;
+int                   g_errors           = 0;
+DLHANDLE              g_engineHandle     = nullptr;
+void*                 g_engineBase       = nullptr;
+void*                 g_dependencyHandle = nullptr;
+void*                 g_serverBase       = nullptr;
+int                   g_resolveCalls     = 0;
+int                   g_missingSymbol    = 0;
+constexpr const char* g_symbols[]        = {
+    "GrappleGetMonsterType", "ApacheTraceAttack", "OspreyTraceAttack", "TurretTraceAttack",
+    "BreakableTraceAttack", "BreakableTakeDamage", "BreakableKilled", "BaseMonsterTraceAttack",
+    "PlayerPostTakeDamage", "PlayerTakeHealth", "IRelationship"};
 
 void Check(bool condition, const char* message)
 {
@@ -30,12 +38,26 @@ void Check(bool condition, const char* message)
         std::exit(1);
     }
 }
-void     Log(plid_t, const char*, ...) {}
-void     Error(plid_t, const char*, ...) { ++g_errors; }
-void     Alert(ALERT_TYPE, const char*, ...) {}
-DLHANDLE EngineHandle() { return g_engineHandle; }
-void*    EngineBase() { return g_engineBase; }
-int      Load(plid_t, const char* path, PLUG_LOADTIME now, void** handle)
+void                     Log(plid_t, const char*, ...) {}
+void                     Error(plid_t, const char*, ...) { ++g_errors; }
+void                     Alert(ALERT_TYPE, const char*, ...) {}
+DLHANDLE                 EngineHandle() { return g_engineHandle; }
+void*                    EngineBase() { return g_engineBase; }
+void*                    ServerBase() { return g_serverBase; }
+meta_gamesymbol_status_t Resolve(void* base, const char* name, meta_gamesymbol_kind_t kind, void** address)
+{
+    Check(g_serverBase == base, "resolve hooks against server module");
+    Check(META_GAMESYMBOL_KIND_FUNCTION == kind, "request function gamedata");
+    Check(g_resolveCalls < static_cast<int>(std::size(g_symbols)), "bounded symbol requests");
+    Check(0 == std::strcmp(g_symbols[g_resolveCalls], name), "request each hook target in order");
+    *address = nullptr;
+    if (g_resolveCalls++ == g_missingSymbol)
+        return META_GAMESYMBOL_SYMBOL_NOT_FOUND;
+    *address = g_serverBase; // Never executed: dependency loading still fails below.
+    return META_GAMESYMBOL_OK;
+}
+const char* SymbolStatus(meta_gamesymbol_status_t) { return "mock symbol missing"; }
+int         Load(plid_t, const char* path, PLUG_LOADTIME now, void** handle)
 {
     Check(PT_ANYTIME == now && std::strstr(path, "addons/metamod/dlls/asext."), "ASExt load request");
     *handle = g_dependencyHandle;
@@ -76,12 +98,15 @@ int main(int argc, char** argv)
     give(&engine, &engineGlobals);
 
     mutil_funcs_t utilities{};
-    utilities.pfnLogMessage      = Log;
-    utilities.pfnLogError        = Error;
-    utilities.pfnGetEngineHandle = EngineHandle;
-    utilities.pfnGetEngineBase   = EngineBase;
-    utilities.pfnLoadPlugin      = Load;
-    gpMetaUtilFuncs              = &utilities;
+    utilities.pfnLogMessage                = Log;
+    utilities.pfnLogError                  = Error;
+    utilities.pfnGetEngineHandle           = EngineHandle;
+    utilities.pfnGetEngineBase             = EngineBase;
+    utilities.pfnLoadPlugin                = Load;
+    utilities.pfnGetGameDllBase            = ServerBase;
+    utilities.pfnResolveGameSymbol         = Resolve;
+    utilities.pfnGetGameSymbolStatusString = SymbolStatus;
+    gpMetaUtilFuncs                        = &utilities;
 #ifdef _WIN32
     auto asext = LoadLibraryA(argv[2]);
 #else
@@ -105,8 +130,23 @@ int main(int argc, char** argv)
     g_engineHandle = reinterpret_cast<DLHANDLE>(handle);
     Check(FALSE == attach(PT_STARTUP, &functions, &globals, &game), "reject missing engine base");
     g_engineBase = reinterpret_cast<void*>(handle);
+    Check(FALSE == attach(PT_STARTUP, &functions, &globals, &game), "reject missing server module");
+    g_serverBase = reinterpret_cast<void*>(handle);
+    for (int missing = 0; missing < static_cast<int>(std::size(g_symbols)); ++missing)
+    {
+        g_missingSymbol  = missing;
+        g_resolveCalls   = 0;
+        const int errors = g_errors;
+        Check(FALSE == attach(PT_STARTUP, &functions, &globals, &game), "reject every missing hook symbol");
+        Check(missing + 1 == g_resolveCalls, "stop resolution at missing symbol without scanning or installing hooks");
+        Check(errors + 1 == g_errors, "log missing gamedata");
+    }
+    g_missingSymbol = -1;
+    g_resolveCalls  = 0;
     Check(FALSE == attach(PT_STARTUP, &functions, &globals, &game), "reject missing ASExt");
+    Check(static_cast<int>(std::size(g_symbols)) == g_resolveCalls, "resolve all hooks before importing ASExt");
     g_dependencyHandle = reinterpret_cast<void*>(handle);
+    g_resolveCalls     = 0;
     Check(FALSE == attach(PT_STARTUP, &functions, &globals, &game), "reject missing ASExt export");
 
     Check(functions.pfnGetEntityAPI2 && functions.pfnGetEntityAPI2_Post && functions.pfnGetEngineFunctions,
