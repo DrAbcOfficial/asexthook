@@ -1,0 +1,87 @@
+name: update-upstream
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-upstream
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    runs-on: ubuntu-24.04
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      base_sha: ${{ steps.detect.outputs.base_sha }}
+      asext_sha: ${{ steps.detect.outputs.asext_sha }}
+      metamod_sha: ${{ steps.detect.outputs.metamod_sha }}
+    steps:
+      - name: Check update credentials
+        id: credentials
+        env:
+          UPDATE_TOKEN: ${{ secrets.UPSTREAM_UPDATE_TOKEN }}
+        run: |
+          if [ -n "$UPDATE_TOKEN" ]; then
+            echo 'enabled=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Automatic updates skipped: configure UPSTREAM_UPDATE_TOKEN.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.credentials.outputs.enabled == 'true'
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        if: steps.credentials.outputs.enabled == 'true'
+        with:
+          python-version: '3.12'
+      - name: Detect release
+        if: steps.credentials.outputs.enabled == 'true'
+        id: detect
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: python scripts/upstream.py detect
+      - uses: actions/upload-artifact@v4
+        if: steps.detect.outputs.changed == 'true'
+        with:
+          name: upstream-candidate
+          path: build/upstream-candidate.json
+          if-no-files-found: error
+
+  validate:
+    needs: detect
+    if: needs.detect.outputs.changed == 'true'
+    uses: ./.github/workflows/build.yml
+    with:
+      ref: ${{ needs.detect.outputs.base_sha }}
+      asext_sha: ${{ needs.detect.outputs.asext_sha }}
+      metamod_sha: ${{ needs.detect.outputs.metamod_sha }}
+      release_only: true
+
+  publish:
+    needs: [detect, validate]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.detect.outputs.base_sha }}
+          submodules: recursive
+          token: ${{ secrets.UPSTREAM_UPDATE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: upstream-candidate
+          path: build
+      - name: Publish validated update
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: python scripts/upstream.py publish --validated

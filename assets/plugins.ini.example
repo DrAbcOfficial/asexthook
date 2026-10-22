@@ -1,0 +1,6 @@
+; Merge the lines for your platform into addons/metamod/plugins.ini.
+; Start a fresh server after installing native AngelScript plugins.
+win32 addons/metamod/dlls/asext.dll
+win32 addons/metamod/dlls/asexthook.dll
+linux addons/metamod/dlls/asext.so
+linux addons/metamod/dlls/asexthook.so

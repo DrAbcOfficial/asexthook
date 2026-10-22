@@ -1,75 +1,98 @@
-name: Build
+name: build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['**']
   pull_request:
-    branches: [ "main" ]
-
-env:
-  SOLUTION_FILE_PATH: metamod/asexthook
-  BUILD_CONFIGURATION: Release
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: ''
+      asext_sha:
+        type: string
+        default: ''
+      metamod_sha:
+        type: string
+        default: ''
+      release_only:
+        type: boolean
+        default: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build-win32:
-    runs-on: windows-latest
-
-    steps:    
-    - name: Git Clone Metamod
-      uses: sudosubin/git-clone-action@v1.0.1
-      with:
-        repository: hzqst/metamod-fallguys
-        path: metamod
-    
-    - name: Git Clone This
-      uses: sudosubin/git-clone-action@v1.0.1
-      with:
-        repository: DrAbcOfficial/asexthook
-        path: metamod/asexthook
-
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-
-    - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
-      
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.0
-      with:
-        name: asexthook.dll
-        path: metamod/build/addons/metamod/dlls/asexthook.dll
-    
-  build-linux:
-    runs-on: ubuntu-latest
-
+  scripts:
+    runs-on: ubuntu-24.04
     steps:
-    - name: Setup Build Enviroment
-      uses: ConorMacBride/install-package@v1
-      with:
-        apt: make build-essential gcc gcc-multilib g++-multilib
-          
-    - name: Git Clone Metamod
-      uses: sudosubin/git-clone-action@v1.0.1
-      with:
-        repository: hzqst/metamod-fallguys
-        path: metamod
-    
-    - name: Git Clone This
-      uses: sudosubin/git-clone-action@v1.0.1
-      with:
-        repository: DrAbcOfficial/asexthook
-        path: metamod/asexthook
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
 
-    - name: Build
-      working-directory: ${{env.SOLUTION_FILE_PATH}}
-      run: mkdir build && cd build && cmake .. && make
+  format:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install clang-format==23.1.3
+      - run: cmake -S . -B build/format -DFORMAT_VALIDATION_ONLY=ON
+      - run: cmake --build build/format --target format-check
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.0
-      with:
-        name: asexthook.so
-        path: ${{env.SOLUTION_FILE_PATH}}/Release/libasexthook.so
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04]
+        config: ${{ fromJSON(inputs.release_only && '["Release"]' || '["Debug", "Release"]') }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require both candidate commits
+        if: (inputs.asext_sha == '') != (inputs.metamod_sha == '')
+        run: exit 1
+      - name: Select candidate dependencies
+        if: inputs.asext_sha != '' && inputs.metamod_sha != ''
+        env:
+          ASEXT_SHA: ${{ inputs.asext_sha }}
+          METAMOD_SHA: ${{ inputs.metamod_sha }}
+        shell: bash
+        run: python scripts/upstream.py checkout --asext-sha "$ASEXT_SHA" --metamod-sha "$METAMOD_SHA"
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y gcc-multilib g++-multilib
+      - if: runner.os == 'Windows'
+        run: cmake -S . -B build/x86/${{ matrix.config }} -A Win32
+      - if: runner.os == 'Linux'
+        run: cmake -S . -B build/x86/${{ matrix.config }} -DCMAKE_BUILD_TYPE=${{ matrix.config }}
+      - run: cmake --build build/x86/${{ matrix.config }} --config ${{ matrix.config }} --parallel 4
+      - run: ctest --test-dir build/x86/${{ matrix.config }} -C ${{ matrix.config }} --output-on-failure
+      - run: cmake --install build/x86/${{ matrix.config }} --config ${{ matrix.config }}
+      - name: Verify and package
+        env:
+          PACKAGE_PLATFORM: ${{ runner.os == 'Windows' && 'windows' || 'linux' }}
+        shell: bash
+        run: python scripts/package.py --config '${{ matrix.config }}' --platform "$PACKAGE_PLATFORM"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asexthook-${{ runner.os }}-x86-${{ matrix.config }}
+          path: build/packages/*
+          if-no-files-found: error
+          retention-days: 14
