@@ -1,8 +1,8 @@
 #pragma once
 #include "signatures_template.h"
 
-// Consumer aliases requested from GoldSrc_VibeSignatures. See the upstream
-// TODO linked in README.md; these records have not been published yet.
+// Consumer aliases published by GoldSrc_VibeSignatures for the server module.
+// The manifest and upstream implementation/ABI evidence are linked in README.md.
 #define GrappleGetMonsterType_GameSymbol  "GrappleGetMonsterType"
 #define ApacheTraceAttack_GameSymbol      "ApacheTraceAttack"
 #define OspreyTraceAttack_GameSymbol      "OspreyTraceAttack"

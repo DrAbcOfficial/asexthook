@@ -121,7 +121,7 @@ variables can select local dependency clones. ASExt and ASExtHook download, vali
 and install their own gamedata; `MMFG_SYNC_GAMEDATA=OFF` requires previously populated
 build trees, and packaging validates both catalogs against their consumer manifests.
 
-### Private game symbols and pending upstream data
+### Private game symbols
 
 ASExtHook resolves all 11 server hook targets through Metamod's gamedata API,
 following the FallGuys consumer manifest workflow. The build selects Windows/Linux
@@ -129,16 +129,16 @@ records for `svencoop-8948` and `svencoop-10257` using
 [`scripts/manifests/asexthook.json`](scripts/manifests/asexthook.json), and installs
 the catalog to `addons/metamod/gamedata/asexthook/`.
 
-**Upstream data is pending:** as of 2026-10-22, none of these 11 targets is published
-in the two Sven Co-op snapshots. [GoldSrc_VibeSignatures TODO #395](https://github.com/HLND2T/GoldSrc_VibeSignatures/issues/395)
-requests the records and ABI verification. The manifest names below are requested
-consumer aliases; upstream must confirm them or provide canonical replacements.
-Normal builds fail coverage validation until these records are published. Disabling
-sync permits native compilation for development, but supplies no missing addresses:
-the plugin refuses to attach without a complete, matching catalog. There is no byte
-signature or entity-vtable lookup fallback.
+As of 2026-10-23, all 11 consumer aliases are published for both versions on
+Windows/Linux. [GoldSrc_VibeSignatures PR #396](https://github.com/HLND2T/GoldSrc_VibeSignatures/pull/396)
+provides the records requested in [TODO #395](https://github.com/HLND2T/GoldSrc_VibeSignatures/issues/395).
+[Upstream implementation and ABI evidence](https://github.com/HLND2T/GoldSrc_VibeSignatures/blob/main/memory/locators/ASExtHook%20server%20functions.md)
+documents the inherited targets and platform calling conventions. Normal builds
+download the catalogs and validate coverage. The plugin refuses to attach without
+a complete, matching catalog; there is no byte signature or entity-vtable lookup
+fallback.
 
-| Requested alias | Previous address source |
+| Published alias | Previous address source |
 | --- | --- |
 | `GrappleGetMonsterType` | Windows/Linux byte signature |
 | `ApacheTraceAttack` | `monster_apache` → `TraceAttack` |
@@ -155,6 +155,14 @@ signature or entity-vtable lookup fallback.
 `SendScoreInfo` is commented out and `BaseMonsterTakeDamage` has no installation
 call; neither is a required target. ASExt's existing private-symbol manifest is
 maintained in its submodule. SQLite and ASExt API imports use public exports.
+
+Runtime verification on 2026-10-23 used Windows x86 Debug, Sven Co-op 5.26 / engine
+build 10257, and the `crossfire` listen server. All 11 targets were resolved and
+installed, then triggered through real game entities with AngelScript callbacks.
+TraceAttack direction/damage/type, original-function returns, health-amount
+modification, relationship-result overrides, and Grapple weapon collision callbacks
+were checked. The temporary test deployment and script plugin list were restored
+afterward. This does not establish gameplay coverage for Linux or build 8948.
 
 ### Development checks
 
