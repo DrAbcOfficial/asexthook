@@ -1,10 +1,10 @@
-# `ASExtHook`: Plugin to extend Sven Co-op script <img align="right" src="./img/logo.png" width="140" height="140" alt="ASExtHook" />
+# `ASExtHook`: Plugin to extend Sven Co-op script <img align="right" src="./assets/logo.png" width="140" height="140" alt="ASExtHook" />
 
-[![License: GPL v3](https://img.shields.io/github/license/DrAbcOfficial/asexthook)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build](https://img.shields.io/github/actions/workflow/status/DrAbcOfficial/asexthook/build.yml?branch=main)](https://github.com/DrAbcOfficial/asexthook/actions)
-[![Release](https://img.shields.io/github/v/release/DrAbcOfficial/asexthook)](https://github.com/DrAbcOfficial/asexthook/releases)
-[![Download](https://img.shields.io/github/downloads/DrAbcOfficial/asexthook/total)](https://github.com/DrAbcOfficial/asexthook/releases)
-[![Commit](https://img.shields.io/github/last-commit/DrAbcOfficial/asexthook)](https://github.com/DrAbcOfficial/asexthook)
+[![License: GPL v3](https://img.shields.io/github/license/hzqst/asexthook)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build](https://img.shields.io/github/actions/workflow/status/hzqst/asexthook/build.yml?branch=main)](https://github.com/hzqst/asexthook/actions)
+[![Release](https://img.shields.io/github/v/release/hzqst/asexthook)](https://github.com/hzqst/asexthook/releases)
+[![Download](https://img.shields.io/github/downloads/hzqst/asexthook/total)](https://github.com/hzqst/asexthook/releases)
+[![Commit](https://img.shields.io/github/last-commit/hzqst/asexthook)](https://github.com/hzqst/asexthook)
 
 `ASExtHook` is a Metamod plugin used to extend the Sven Co-op AngelScripts scripting system.
 
@@ -50,83 +50,159 @@ Used HTML Generator [Here](https://github.com/sven-coop/sven-coop.github.io)
 
 ##  1. <a name='Install'></a>Install
 
-1. Grab metamod-p and asext.dll/asext.so [Here](https://github.com/hzqst/metamod-fallguys/releases)
+1. Stop the Sven Co-op server and download a complete package from
+   [Releases](https://github.com/hzqst/asexthook/releases), or a development
+   artifact from [Actions](https://github.com/hzqst/asexthook/actions/workflows/build.yml).
+   Packages contain matching x86 builds of Metamod, ASExt and ASExtHook, including
+   ASExt and ASExtHook gamedata. Extract and merge `build/addons/` into `svencoop/addons/`.
+2. Configure `svencoop/liblist.gam` to use
+   `gamedll "addons/metamod/dlls/metamod.dll"` on Windows or
+   `gamedll_linux "addons/metamod/dlls/metamod.so"` on Linux.
+3. Merge the lines for your platform from `addons/metamod/plugins.ini.example`
+   into the existing `addons/metamod/plugins.ini`, loading ASExt before ASExtHook.
+   Preserve existing plugin entries and server configuration.
+4. SQLite uses the game's existing x86 runtime: `svencoop/sqlite3.dll` on Windows
+   or `svencoop/dlls/libsqlite3.so` on Linux, relative to the server working
+   directory. No separate SQLite library is bundled.
+5. Start the server and check `meta list` and the Metamod log for successful
+   ASExt/ASExtHook initialization. Compatible ASExt/ASExtHook gamedata and game binaries are
+   required. Restart the server when replacing native libraries.
 
-2. Install them.
-3. Grab asexthook.dll/asexthook.so, put them into `svencoop/addons/metamod/dlls`
-   1.  Grab latest version in [Action](https://github.com/DrAbcOfficial/asexthook/actions/workflows/build.yml) (Unstable, crash risk)
-		
-		or
-
-   2.  Grab release version in [Release](https://github.com/DrAbcOfficial/asexthook/releases) (Stable)
-4. edit `svencoop/addons/metamod/plugins.ini`
-5. add 
-
-``` ini
-
-win32 addons/metamod/dlls/asexthook.dll
-linux addons/metamod/dlls/asexthook.so
-
-```
-
-6. enjoy your new hook :3
+The `examples/` files are reference snippets, not automatically enabled plugins.
+API HTML documentation is included under `docs/`.
 
 ---
 
 ##  2. <a name='Build'></a>Build
 
-If you are using systems that are not covered by automatic builds (yum's and aur's) 
+Requirements: Git, CMake 3.21+, Python 3.8+ (3.12 for repository tests), internet
+access for the first dependency/gamedata download, and a 32-bit toolchain.
+Windows requires Visual Studio 2022 with Desktop development with C++.
+Linux requires GCC/G++ multilib (`gcc-multilib g++-multilib` on Ubuntu).
 
-or want to add new hooks yourself, you can follow these steps to configure your build environment.
+```sh
+git clone --recursive https://github.com/hzqst/asexthook.git
+cd asexthook
+git submodule update --init --recursive
+```
 
-1. Install everything you need
-   
-	<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+Windows (PowerShell or a developer command prompt):
 
-	1. [Git](https://git-scm.com/download/win) or `winget install --id Git.Git -e --source winget`
-	2. [Visual Studio with vc143 toolset](https://visualstudio.microsoft.com/) And [C++ desktop development](https://learn.microsoft.com/en-us/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development?view=msvc-170)
+```sh
+cmake -S . -B build/x86/Release -A Win32
+cmake --build build/x86/Release --config Release --parallel 4
+ctest --test-dir build/x86/Release -C Release --output-on-failure
+cmake --install build/x86/Release --config Release
+python scripts/package.py --config Release --platform windows
+```
 
-	<img src="https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white"/>
+Linux:
 
-	1. `sudo apt install git make build-essential gcc gcc-multilib g++-multilib cmake -y`
+```sh
+cmake -S . -B build/x86/Release -DCMAKE_BUILD_TYPE=Release
+cmake --build build/x86/Release --parallel 4
+ctest --test-dir build/x86/Release --output-on-failure
+cmake --install build/x86/Release
+python3 scripts/package.py --config Release --platform linux
+```
 
-	<img src="https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white"/>
+For Debug, replace every `Release` with `Debug`. Use a separate build tree for
+each configuration and platform. The default installation is `install/x86/<Config>`;
+an explicit `CMAKE_INSTALL_PREFIX` or `cmake --install --prefix` overrides it.
+The packaging script uses the default prefix and writes to `build/packages/`.
+Pass `--prefix` and `--build-dir` to the packaging script when using custom trees
+(for example, separate Windows and WSL builds in the same checkout).
+Visual Studio solutions are generated by CMake inside the build tree.
 
-	1. `sudo yum install git make gcc gcc-c++ glibc-devel.i686 libstdc++-devel.i686 cmake -y`
+Metamod and ASExt build from the pinned submodules. Public SDK targets supply
+Metamod/HLSDK and the customized AngelScript headers. Transitive dependencies use
+recursive submodules or pinned FetchContent revisions. Upstream `*_SOURCE_PATH`
+variables can select local dependency clones. ASExt and ASExtHook download, validate
+and install their own gamedata; `MMFG_SYNC_GAMEDATA=OFF` requires previously populated
+build trees, and packaging validates both catalogs against their consumer manifests.
 
-	<img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
+### Private game symbols
 
-	Sorry guys who using Arch, I've never used an Arch based distribution, you'll have to find out how to configure the dependencies yourselves!🙂
+ASExtHook resolves all 11 server hook targets through Metamod's gamedata API,
+following the FallGuys consumer manifest workflow. The build selects Windows/Linux
+records for `svencoop-8948` and `svencoop-10257` using
+[`scripts/manifests/asexthook.json`](scripts/manifests/asexthook.json), and installs
+the catalog to `addons/metamod/gamedata/asexthook/`.
 
-2. Clone metamod modified by hzqst
-   
-   `git clone https://github.com/DrAbcOfficial/metamod-fallguys.git metamod`
+As of 2026-10-23, all 11 consumer aliases are published for both versions on
+Windows/Linux. [GoldSrc_VibeSignatures PR #396](https://github.com/HLND2T/GoldSrc_VibeSignatures/pull/396)
+provides the records requested in [TODO #395](https://github.com/HLND2T/GoldSrc_VibeSignatures/issues/395).
+[Upstream implementation and ABI evidence](https://github.com/HLND2T/GoldSrc_VibeSignatures/blob/main/memory/locators/ASExtHook%20server%20functions.md)
+documents the inherited targets and platform calling conventions. Normal builds
+download the catalogs and validate coverage. The plugin refuses to attach without
+a complete, matching catalog; there is no byte signature or entity-vtable lookup
+fallback.
 
-   `cd metamod`
+| Published alias | Previous address source |
+| --- | --- |
+| `GrappleGetMonsterType` | Windows/Linux byte signature |
+| `ApacheTraceAttack` | `monster_apache` → `TraceAttack` |
+| `OspreyTraceAttack` | `monster_osprey` → `TraceAttack` |
+| `TurretTraceAttack` | `monster_turret` → `TraceAttack` |
+| `BreakableTraceAttack` | `func_breakable` → `TraceAttack` |
+| `BreakableTakeDamage` | `func_breakable` → `TakeDamage` |
+| `BreakableKilled` | `func_breakable` → `Killed` |
+| `BaseMonsterTraceAttack` | `monster_bloater` → `TraceAttack` |
+| `PlayerPostTakeDamage` | `player` → `TakeDamage` (post describes the script callback) |
+| `PlayerTakeHealth` | `player` → `TakeHealth` |
+| `IRelationship` | `player` → `IRelationship` |
 
-3. Clone this
+`SendScoreInfo` is commented out and `BaseMonsterTakeDamage` has no installation
+call; neither is a required target. ASExt's existing private-symbol manifest is
+maintained in its submodule. SQLite and ASExt API imports use public exports.
 
-	`git clone https://github.com/DrAbcOfficial/asexthook.git`
+Runtime verification on 2026-10-23 used Windows x86 Debug, Sven Co-op 5.26 / engine
+build 10257, and the `crossfire` listen server. All 11 targets were resolved and
+installed, then triggered through real game entities with AngelScript callbacks.
+TraceAttack direction/damage/type, original-function returns, health-amount
+modification, relationship-result overrides, and Grapple weapon collision callbacks
+were checked. The temporary test deployment and script plugin list were restored
+afterward. This does not establish gameplay coverage for Linux or build 8948.
 
-	`cd asexthook`
+### Development checks
 
-4. Build!
+```sh
+python -m unittest discover -s tests -p "test_*.py" -v
+python -m pip install clang-format==23.1.3
+cmake -S . -B build/format -DFORMAT_VALIDATION_ONLY=ON
+cmake --build build/format --target format-check
+# Apply the shared style:
+cmake --build build/format --target format
+```
 
-	<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+The ABI smoke test loads the actual plugin and ASExt dependency, resolves all
+SDK-required ASExt exports, and checks plugin exports, SDK negotiation,
+function tables, missing gamedata targets and dependency failures with a mock host. It does not execute
+game address hooks or replace a test on a real Sven Co-op server.
 
-	1. Open `asexthook.sln` with visual studio
-	2. Press `F7`
-	3. Wait and done.
+### CI, releases and upstream updates
 
-	<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
+- Pushes and pull requests build the triggering source revision on Windows and
+  Linux x86 in Debug/Release, run tests and formatting checks, and upload complete
+  installation packages. Packages contain exact Git revisions in
+  `build/dependencies.json` and dependency notices under `build/licenses/`.
+- New tags build both platforms in Release and publish their packages. Release
+  uploads can be retried by rerunning the workflow. No release tag is created as
+  part of this repository migration.
+- `update-upstream.yml` checks daily at 02:17 UTC or manually. It selects ASExt's
+  latest published stable Release and Metamod's current `main`, validates the
+  exact combination on both platforms, then atomically updates the default branch
+  and creates an `asext-release-<release-id>` tag to trigger a release. A moved
+  default branch defers the update; API/build failures do not publish.
+- Automatic publication requires repository secret `UPSTREAM_UPDATE_TOKEN`, a
+  token with Contents read/write permission and access allowed by branch/tag
+  rules. Only the publication job receives it. No stable ASExt Release, an already
+  handled Release, or a missing secret is a normal no-op. Remove the secret to
+  disable automatic writes.
 
-	1. `mkdir build && cd build && cmake .. && make`
-   
-6. Grab
-	
-	Now you can grab your new library (asexthook.dll/asexthook.so) in 
-	
-	`metamod/build/addons/metamod/dlls/`
+For manual updates, fetch and detach both submodules at the desired commits, run
+`git submodule update --init --recursive`, then build and test both platforms
+before committing their gitlinks. See [THIRD_PARTY.md](THIRD_PARTY.md) for licenses.
 
 ##  3. <a name='Document'></a>Document
 
@@ -162,7 +238,7 @@ class HealthInfo{
 
 ###  3.4. <a name='ExpansionMethodExamples'></a>Expansion Method Examples
 
-[Example](https://github.com/DrAbcOfficial/asexthook/tree/main/example)
+[Example](https://github.com/hzqst/asexthook/tree/main/examples)
 
 
 ###  3.5. <a name='ExpansionCVar'></a>3.5 Expansion CVar

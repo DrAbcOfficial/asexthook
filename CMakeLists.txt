@@ -1,221 +1,83 @@
-cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
-
-project(asexthook C CXX)
-
-################################################################################
-# Set target arch type if empty. Visual studio solution generator provides it.
-################################################################################
-if(NOT CMAKE_VS_PLATFORM_NAME)
-    set(CMAKE_VS_PLATFORM_NAME "Win32")
+cmake_minimum_required(VERSION 3.21)
+option(FORMAT_VALIDATION_ONLY "Configure formatting without native dependencies" OFF)
+if(FORMAT_VALIDATION_ONLY)
+    project(ASExtHookFormat LANGUAGES NONE)
+    include(cmake/FormatValidation.cmake)
+    return()
 endif()
-message("${CMAKE_VS_PLATFORM_NAME} architecture in use")
-
-if(NOT ("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32"))
-    message(FATAL_ERROR "${CMAKE_VS_PLATFORM_NAME} arch is not supported!")
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/metamod/cmake/Platform.cmake"
+   OR NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/asext/cmake/SDK.cmake")
+    message(FATAL_ERROR "Initialize dependencies with git submodule update --init --recursive.")
 endif()
-
-################################################################################
-# Global configuration types
-################################################################################
-set(CMAKE_CONFIGURATION_TYPES
-    "Debug"
-    "Release"
-    CACHE STRING "" FORCE
-)
-
-################################################################################
-# Global compiler options
-################################################################################
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_BUILD_TYPE Release)
-
-set(CMAKE_C_FLAGS "-m32")
-set(CMAKE_C_FLAGS_DEBUG "-m32")
-set(CMAKE_C_FLAGS_RELEASE "-m32 -Os -ffunction-sections")
-set(CMAKE_CXX_FLAGS "-m32")
-set(CMAKE_CXX_FLAGS_DEBUG "-m32")
-set(CMAKE_CXX_FLAGS_RELEASE "-m32 -Os -ffunction-sections")
-
-set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "-s -Wl,--as-needed")
-
-################################################################################
-# Global linker options
-################################################################################
-if(MSVC)
-    # remove default flags provided with CMake for MSVC
-    set(CMAKE_EXE_LINKER_FLAGS "")
-    set(CMAKE_MODULE_LINKER_FLAGS "")
-    set(CMAKE_SHARED_LINKER_FLAGS "")
-    set(CMAKE_STATIC_LINKER_FLAGS "")
-    set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
-    set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
-    set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
-    set(CMAKE_STATIC_LINKER_FLAGS_DEBUG "${CMAKE_STATIC_LINKER_FLAGS}")
-    set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS}")
-    set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
-    set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
-    set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
+set(METAMOD_SOURCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/metamod")
+set(ASEXT_SOURCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/asext")
+include("${METAMOD_SOURCE_PATH}/cmake/Platform.cmake")
+project(asexthook LANGUAGES C CXX)
+if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build configuration" FORCE)
 endif()
+include("${METAMOD_SOURCE_PATH}/cmake/Build.cmake")
+mmfg_configure_install_layout()
+add_subdirectory(metamod)
+add_subdirectory(asext)
 
-################################################################################
-# Nuget packages function stub.
-################################################################################
-function(use_package TARGET PACKAGE VERSION)
-    message(WARNING "No implementation of use_package. Create yours. "
-                    "Package \"${PACKAGE}\" with version \"${VERSION}\" "
-                    "for target \"${TARGET}\" is ignored!")
-endfunction()
-
-################################################################################
-# Common utils
-################################################################################
-include(CMake/Utils.cmake)
-
-################################################################################
-# Additional Global Settings(add specific info there)
-################################################################################
-include(CMake/GlobalSettingsInclude.cmake OPTIONAL)
-
-################################################################################
-# Use solution folders feature
-################################################################################
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
-################################################################################
-# Sub-projects
-################################################################################
-
-set(PROJECT_NAME asexthook)
-
-################################################################################
-# Source groups
-################################################################################
-set(no_group_source_files
-    "src/angelscript/angelscriptlib.h"
-    "src/header/angelscript.h"
-    "src/header/CASBaseObject.h"
-    "src/header/CASBinaryStringBuilder.h"
-    "src/header/CASSQLite.h"
-    "src/header/CASSQLItem.h"
-    "src/header/CASSQLGrid.h"
-    "src/header/dlldef.h"
-    "src/header/enginedef.h"
-    "src/header/info_name.h"
-    "src/header/signatures.h"
-    "src/header/utility.h"
-    "src/header/vftable.h"
-    "src/source/angelscript.cpp"
-    "src/source/CASBaseObject.cpp"
-    "src/source/CASBinaryStringBuilder.cpp"
-    "src/source/CASSQLite.cpp"
-    "src/source/CASSQLItem.cpp"
-    "src/source/CASSQLGrid.cpp"
-    "src/source/dllapi.cpp"
-    "src/source/dll_hook.cpp"
-    "src/source/engine_hook.cpp"
-    "src/source/dllmain.cpp"
-    "src/source/engine_api.cpp"
-    "src/source/h_export.cpp"
-    "src/source/meta_api.cpp"
-    "src/source/sdk_util.cpp"
-    "src/source/vftable.cpp"
+add_library(asexthook SHARED
+    src/angelscript.cpp
+    src/angelscript_hooks.h
+    src/CASBaseObject.cpp
+    src/CASBaseObject.h
+    src/CASBinaryStringBuilder.cpp
+    src/CASBinaryStringBuilder.h
+    src/CASSQLGrid.cpp
+    src/CASSQLGrid.h
+    src/CASSQLItem.cpp
+    src/CASSQLItem.h
+    src/CASSQLite.cpp
+    src/CASSQLite.h
+    src/dll_hook.cpp
+    src/dllapi.cpp
+    src/dlldef.h
+    src/engine_api.cpp
+    src/engine_hook.cpp
+    src/enginedef.h
+    src/extern_hook.h
+    src/h_export.cpp
+    src/info_name.h
+    src/meta_api.cpp
+    src/sdk_util.cpp
+    src/signatures.h
+    src/utility.h
+    src/vftable.cpp
+    src/vftable.h
 )
-source_group("" FILES ${no_group_source_files})
-
-set(ALL_FILES
-    ${no_group_source_files}
-)
-
-################################################################################
-# Target
-################################################################################
-add_library(${PROJECT_NAME} SHARED ${ALL_FILES})
-
-use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
-set(ROOT_NAMESPACE asexthook)
-
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    VS_GLOBAL_KEYWORD "Win32Proj"
-)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    INTERPROCEDURAL_OPTIMIZATION_RELEASE "TRUE"
-)
-################################################################################
-# MSVC runtime library
-################################################################################
-get_property(MSVC_RUNTIME_LIBRARY_DEFAULT TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY)
-string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
-    $<$<CONFIG:Debug>:
-        MultiThreadedDebug
-    >
-    $<$<CONFIG:Release>:
-        MultiThreaded
-    >
-    $<$<NOT:$<OR:$<CONFIG:Debug>,$<CONFIG:Release>>>:${MSVC_RUNTIME_LIBRARY_DEFAULT}>
-)
-set_target_properties(${PROJECT_NAME} PROPERTIES MSVC_RUNTIME_LIBRARY ${MSVC_RUNTIME_LIBRARY_STR})
-
-################################################################################
-# Include directories
-################################################################################
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/header;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/angelscript"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/common;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/dlls;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/pm_shared;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/hlsdk/engine;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/metamod;"
-    "${CMAKE_CURRENT_SOURCE_DIR}/metamod/asext/include"
-)
-
-################################################################################
-# Compile definitions
-################################################################################
-target_compile_definitions(${PROJECT_NAME} PRIVATE
-    "$<$<CONFIG:Debug>:"
-        "_DEBUG"
-    ">"
-    "$<$<CONFIG:Release>:"
-        "NDEBUG"
-    ">"
-    "_USRDLL;"
-    "_CRT_SECURE_NO_WARNINGS;"
-    "UNICODE;"
-    "_UNICODE"
-)
-
-################################################################################
-# Compile and link options
-################################################################################
-if(MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE
-        $<$<CONFIG:Debug>:
-            /permissive-;
-            /Od
-        >
-        $<$<CONFIG:Release>:
-            /O2;
-            /Oi;
-            /Gy
-        >
-        /sdl;
-        /W3;
-        ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
-        ${DEFAULT_CXX_EXCEPTION_HANDLING}
-    )
-    target_link_options(${PROJECT_NAME} PRIVATE
-        $<$<CONFIG:Debug>:
-            /SUBSYSTEM:WINDOWS;
-            /INCREMENTAL
-        >
-        $<$<CONFIG:Release>:
-            /OPT:REF;
-            /OPT:ICF
-        >
-        /DEBUG
-    )
+mmfg_configure_target(asexthook)
+target_compile_features(asexthook PRIVATE cxx_std_20)
+target_link_libraries(asexthook PRIVATE ASExt::SDK)
+if(WIN32)
+    target_sources(asexthook PRIVATE src/dllmain.cpp)
+    target_link_options(asexthook PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/src/asexthook.def")
 endif()
+mmfg_add_gamedata(asexthook scripts/manifests/asexthook.json)
+mmfg_assign_source_groups(asexthook)
+install(FILES assets/plugins.ini.example DESTINATION addons/metamod)
+install(DIRECTORY examples/ DESTINATION examples)
+install(DIRECTORY docs/ DESTINATION docs)
+install(FILES assets/logo.png DESTINATION assets)
+install(FILES README.md LICENSE THIRD_PARTY.md DESTINATION .)
+install(FILES metamod/LICENSE DESTINATION licenses RENAME metamod-LICENSE)
+install(FILES asext/LICENSE DESTINATION licenses RENAME asext-LICENSE)
+install(FILES licenses/astemplate-LICENSE DESTINATION licenses)
 
+option(ASEXTHOOK_BUILD_TESTS "Build the plugin ABI smoke test" ON)
+if(ASEXTHOOK_BUILD_TESTS)
+    enable_testing()
+    add_executable(plugin-smoke tests/plugin_smoke.cpp)
+    target_compile_features(plugin-smoke PRIVATE cxx_std_17)
+    target_link_libraries(plugin-smoke PRIVATE ASExt::SDK ${CMAKE_DL_LIBS})
+    if(NOT WIN32)
+        target_compile_definitions(plugin-smoke PRIVATE PLATFORM_POSIX LINUX _LINUX)
+    endif()
+    add_dependencies(plugin-smoke asexthook asext)
+    add_test(NAME plugin-smoke COMMAND plugin-smoke "$<TARGET_FILE:asexthook>" "$<TARGET_FILE:asext>")
+endif()
+include(cmake/FormatValidation.cmake)

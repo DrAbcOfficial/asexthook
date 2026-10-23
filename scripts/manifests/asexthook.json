@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "name": "asexthook",
+    "gameVersions": [
+        "svencoop-8948",
+        "svencoop-10257"
+    ],
+    "platforms": [
+        "windows",
+        "linux"
+    ],
+    "symbols": {
+        "server": {
+            "GrappleGetMonsterType": "function",
+            "ApacheTraceAttack": "function",
+            "OspreyTraceAttack": "function",
+            "TurretTraceAttack": "function",
+            "BreakableTraceAttack": "function",
+            "BreakableTakeDamage": "function",
+            "BreakableKilled": "function",
+            "BaseMonsterTraceAttack": "function",
+            "PlayerPostTakeDamage": "function",
+            "PlayerTakeHealth": "function",
+            "IRelationship": "function"
+        }
+    }
+}
